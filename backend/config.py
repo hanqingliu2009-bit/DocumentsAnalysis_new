@@ -52,6 +52,9 @@ class Settings(BaseSettings):
     # If set: this directory is created and HF_HOME defaults here (setdefault) so Hub / sentence-transformers
     # weights live under a known path for backup and offline copy. Relative paths are under backend/ (BASE_DIR).
     EMBEDDING_CACHE_DIR: Optional[Path] = None
+    # When True: export TRANSFORMERS_OFFLINE and HF_HUB_OFFLINE to os.environ so Hugging Face / transformers
+    # honor offline mode (use with a populated EMBEDDING_CACHE_DIR / HF_HOME copy). Declared here so backend/.env applies.
+    TRANSFORMERS_OFFLINE: bool = False
 
     # PDF Parser Configuration
     PDF_PARSER: str = "pypdf"  # Options: "pypdf", "opendataloader"
@@ -80,6 +83,13 @@ class Settings(BaseSettings):
             object.__setattr__(self, "EMBEDDING_CACHE_DIR", cache)
             # Hugging Face Hub + transformers use HF_HOME; sentence-transformers follows the same cache tree.
             os.environ.setdefault("HF_HOME", str(cache))
+
+        if self.TRANSFORMERS_OFFLINE:
+            os.environ["TRANSFORMERS_OFFLINE"] = "1"
+            os.environ["HF_HUB_OFFLINE"] = "1"
+        else:
+            os.environ.pop("TRANSFORMERS_OFFLINE", None)
+            os.environ.pop("HF_HUB_OFFLINE", None)
 
 
 # Global settings instance

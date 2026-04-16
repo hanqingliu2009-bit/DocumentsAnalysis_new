@@ -67,6 +67,34 @@ class TestSettings:
             if resolved is not None and resolved.exists():
                 shutil.rmtree(resolved, ignore_errors=True)
 
+    def test_transformers_offline_sets_hub_env(self, temp_dir, monkeypatch):
+        """TRANSFORMERS_OFFLINE=True exports offline flags for transformers / Hub."""
+        monkeypatch.delenv("TRANSFORMERS_OFFLINE", raising=False)
+        monkeypatch.delenv("HF_HUB_OFFLINE", raising=False)
+        Settings(
+            DATA_DIR=temp_dir,
+            VOLCENGINE_API_KEY=None,
+            VOLCENGINE_BASE_URL="https://ark.cn-beijing.volces.com/api/v3",
+            LLM_MODEL="",
+            TRANSFORMERS_OFFLINE=True,
+        )
+        assert os.environ.get("TRANSFORMERS_OFFLINE") == "1"
+        assert os.environ.get("HF_HUB_OFFLINE") == "1"
+
+    def test_transformers_offline_false_unsets_hub_env(self, temp_dir, monkeypatch):
+        """TRANSFORMERS_OFFLINE=False removes managed offline flags from os.environ."""
+        monkeypatch.setenv("TRANSFORMERS_OFFLINE", "1")
+        monkeypatch.setenv("HF_HUB_OFFLINE", "1")
+        Settings(
+            DATA_DIR=temp_dir,
+            VOLCENGINE_API_KEY=None,
+            VOLCENGINE_BASE_URL="https://ark.cn-beijing.volces.com/api/v3",
+            LLM_MODEL="",
+            TRANSFORMERS_OFFLINE=False,
+        )
+        assert "TRANSFORMERS_OFFLINE" not in os.environ
+        assert "HF_HUB_OFFLINE" not in os.environ
+
     def test_paths_are_created(self, temp_dir):
         """Test that data directories are created on initialization."""
         settings = Settings(DATA_DIR=temp_dir)
