@@ -56,7 +56,7 @@ VOLCENGINE_BASE_URL=https://ark.cn-beijing.volces.com/api/v3
 LLM_MODEL=ep-your-endpoint-id
 ```
 
-Optional settings (see `backend/config.py`): `HOST`, `PORT`, `EMBEDDING_MODEL`, `PDF_PARSER`, `CORS_ORIGINS`, paths under `./data`, etc.
+Optional settings (see `backend/config.py` and `backend/.env.example`): `HOST`, `PORT`, `EMBEDDING_MODEL`, **`EMBEDDING_CACHE_DIR`** (pins `HF_HOME` for local/offline Hugging Face embedding weights), `PDF_PARSER`, `CORS_ORIGINS`, paths under `./data`, etc.
 
 Run the API (from `backend/`):
 
@@ -124,7 +124,7 @@ Config: [`frontend/vitest.config.ts`](frontend/vitest.config.ts). Example tests 
 | Area | Notes |
 |------|--------|
 | **LLM** | `VOLCENGINE_API_KEY` and `LLM_MODEL` required for query/chat (see `backend/.env`). `VOLCENGINE_BASE_URL` defaults in `config.py`. |
-| **Embeddings** | Default `sentence-transformers/all-MiniLM-L6-v2` (downloads on first use). |
+| **Embeddings** | Default `sentence-transformers/all-MiniLM-L6-v2` (downloads on first use). Set **`EMBEDDING_CACHE_DIR`** (see `.env.example`) to fix the cache location for backup or offline copy of `HF_HOME`. |
 | **PDF** | `PDF_PARSER=pypdf` (default) or `opendataloader` if you install the extra dependency (see `DESIGN.md`). |
 | **CORS** | `CORS_ORIGINS` must include your frontend origin (e.g. `http://localhost:5173`). |
 

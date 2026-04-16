@@ -1,4 +1,6 @@
 """Tests for configuration module."""
+import os
+import shutil
 import tempfile
 from pathlib import Path
 
@@ -29,6 +31,41 @@ class TestSettings:
         assert settings.CHUNK_SIZE == 512
         assert settings.CHUNK_OVERLAP == 50
         assert settings.EMBEDDING_DIMENSION == 384
+
+    def test_embedding_cache_dir_sets_hf_home(self, temp_dir, monkeypatch):
+        """EMBEDDING_CACHE_DIR resolves under backend and sets HF_HOME for Hub cache."""
+        monkeypatch.delenv("HF_HOME", raising=False)
+        cache = temp_dir / "my_hf_cache"
+        settings = Settings(
+            DATA_DIR=temp_dir,
+            VOLCENGINE_API_KEY=None,
+            VOLCENGINE_BASE_URL="https://ark.cn-beijing.volces.com/api/v3",
+            LLM_MODEL="",
+            EMBEDDING_CACHE_DIR=cache,
+        )
+        assert settings.EMBEDDING_CACHE_DIR == cache.resolve()
+        assert settings.EMBEDDING_CACHE_DIR.is_dir()
+        assert os.environ.get("HF_HOME") == str(cache.resolve())
+
+    def test_embedding_cache_dir_relative_to_backend(self, temp_dir, monkeypatch):
+        """Relative EMBEDDING_CACHE_DIR is resolved under backend/ (BASE_DIR)."""
+        monkeypatch.delenv("HF_HOME", raising=False)
+        resolved = None
+        try:
+            settings = Settings(
+                DATA_DIR=temp_dir,
+                VOLCENGINE_API_KEY=None,
+                VOLCENGINE_BASE_URL="https://ark.cn-beijing.volces.com/api/v3",
+                LLM_MODEL="",
+                EMBEDDING_CACHE_DIR=Path("data/models/hf_test_only"),
+            )
+            resolved = settings.EMBEDDING_CACHE_DIR
+            assert resolved.parent.name == "models"
+            assert resolved.name == "hf_test_only"
+            assert os.environ.get("HF_HOME") == str(resolved)
+        finally:
+            if resolved is not None and resolved.exists():
+                shutil.rmtree(resolved, ignore_errors=True)
 
     def test_paths_are_created(self, temp_dir):
         """Test that data directories are created on initialization."""

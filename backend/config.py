@@ -1,4 +1,5 @@
 """Backend configuration settings."""
+import os
 from pathlib import Path
 from typing import List, Optional
 
@@ -48,6 +49,9 @@ class Settings(BaseSettings):
     CHUNK_OVERLAP: int = 50
     EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
     EMBEDDING_DIMENSION: int = 384
+    # If set: this directory is created and HF_HOME defaults here (setdefault) so Hub / sentence-transformers
+    # weights live under a known path for backup and offline copy. Relative paths are under backend/ (BASE_DIR).
+    EMBEDDING_CACHE_DIR: Optional[Path] = None
 
     # PDF Parser Configuration
     PDF_PARSER: str = "pypdf"  # Options: "pypdf", "opendataloader"
@@ -67,6 +71,15 @@ class Settings(BaseSettings):
         self.VECTOR_DB_PATH.mkdir(parents=True, exist_ok=True)
         self.DOCUMENT_STORE_PATH.mkdir(parents=True, exist_ok=True)
         self.FILE_STORAGE_PATH.mkdir(parents=True, exist_ok=True)
+
+        if self.EMBEDDING_CACHE_DIR is not None:
+            cache = Path(self.EMBEDDING_CACHE_DIR)
+            cache = cache.resolve() if cache.is_absolute() else (self.BASE_DIR / cache).resolve()
+            cache.mkdir(parents=True, exist_ok=True)
+            # Mutate so introspection and logs show the resolved path
+            object.__setattr__(self, "EMBEDDING_CACHE_DIR", cache)
+            # Hugging Face Hub + transformers use HF_HOME; sentence-transformers follows the same cache tree.
+            os.environ.setdefault("HF_HOME", str(cache))
 
 
 # Global settings instance
