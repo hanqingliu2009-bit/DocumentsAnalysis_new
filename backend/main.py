@@ -33,9 +33,14 @@ async def lifespan(app: FastAPI):
 
     # Warm up embedding model so first chat/upload does not appear to "hang" with no server log.
     try:
-        print(
-            "Loading embedding model (first run may download from Hugging Face; can take several minutes)..."
-        )
+        if settings.TRANSFORMERS_OFFLINE:
+            print(
+                "Loading embedding model（离线模式：从本地缓存加载，不访问 Hugging Face Hub）..."
+            )
+        else:
+            print(
+                "Loading embedding model (first run may download from Hugging Face; can take several minutes)..."
+            )
         from storage.vector_store import EmbeddingGenerator
 
         EmbeddingGenerator().embed_text("warmup")
