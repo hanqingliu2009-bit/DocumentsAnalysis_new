@@ -1,0 +1,32 @@
+
+# Secrets and local env (never commit)
+.env
+backend/.env
+*.env.local
+
+# Local scratch notes (optional; remove this line if you want TODO.md tracked)
+TODO.md
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/coverage/
+
+# Backend runtime data (uploads, ChromaDB, document JSON — do not commit)
+backend/data/
+
+# Optional: exported PDF copy of agent notes (keep CLAUDE.md in git instead)
+CLAUDE.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+*.cover
+venv/
+.venv/
+backend/venv/
