@@ -64,6 +64,7 @@ class Settings(BaseSettings):
 
     # Search Configuration
     TOP_K_RETRIEVAL: int = 5
+    # Min cosine similarity (1 - Chroma distance) for VectorStore.search to return a chunk.
     SIMILARITY_THRESHOLD: float = 0.7
 
     # Upload Limits

@@ -1,6 +1,7 @@
 """Tests for vector store module."""
 import tempfile
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
 
 import numpy as np
@@ -252,6 +253,22 @@ class TestVectorStore:
 
         assert len(results) == 1
         assert results[0][0] == "chunk-1"
+
+    def test_search_filters_below_similarity_threshold(self, vector_store):
+        """Chunks with score = 1 - distance below SIMILARITY_THRESHOLD are dropped."""
+        fake = {
+            "ids": [["keep", "drop"]],
+            "distances": [[0.15, 0.75]],
+            "metadatas": [[{"document_id": "d"}, {"document_id": "d"}]],
+            "documents": [["good text", "weak text"]],
+        }
+        with patch("storage.vector_store.settings", SimpleNamespace(SIMILARITY_THRESHOLD=0.7)):
+            with patch.object(vector_store.collection, "query", return_value=fake):
+                results = vector_store.search([0.1] * 384, top_k=5)
+        assert len(results) == 1
+        assert results[0][0] == "keep"
+        assert results[0][1] == pytest.approx(0.85)
+        assert results[0][2] == "good text"
 
     def test_delete_by_document_id(self, vector_store):
         """Test deleting chunks by document ID."""

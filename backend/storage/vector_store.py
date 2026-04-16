@@ -75,6 +75,10 @@ class VectorStore:
         """
         Search for similar chunks using embedding.
 
+        Results must meet ``settings.SIMILARITY_THRESHOLD`` (cosine similarity
+        derived as ``1 - distance``). We over-fetch from Chroma so enough items
+        remain after filtering.
+
         Returns:
             List of (chunk_id, score, text) tuples, sorted by relevance.
         """
@@ -91,10 +95,17 @@ class VectorStore:
         # Chroma rejects np.float32 scalars in nested lists
         q = np.asarray(query_embedding, dtype=np.float64).tolist()
 
+        threshold = float(settings.SIMILARITY_THRESHOLD)
+        # Over-fetch so we can return up to top_k above threshold (multi-doc filter drops rows).
+        if document_ids and len(document_ids) != 1:
+            n_results = min(200, max(top_k * 15, 40))
+        else:
+            n_results = min(100, max(top_k * 8, 20))
+
         # Perform search
         results = self.collection.query(
             query_embeddings=[q],
-            n_results=top_k * 2 if document_ids else top_k,  # Get more if filtering
+            n_results=n_results,
             where=where_clause,
             include=["metadatas", "documents", "distances"],
         )
@@ -106,6 +117,8 @@ class VectorStore:
                 # Calculate similarity score (convert distance to similarity)
                 distance = results["distances"][0][i]
                 score = 1 - distance  # Cosine similarity from distance
+                if score < threshold:
+                    continue
 
                 # Filter by document_ids if specified
                 if document_ids:
