@@ -15,8 +15,7 @@ frontend/coverage/
 # Backend runtime data (uploads, ChromaDB, document JSON — do not commit)
 backend/data/
 
-# Optional: exported PDF copy of agent notes (keep CLAUDE.md in git instead)
-CLAUDE.pdf
+
 
 # Python
 __pycache__/
