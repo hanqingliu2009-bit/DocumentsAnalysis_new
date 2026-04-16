@@ -36,6 +36,9 @@ class Settings(BaseSettings):
     LLM_MODEL: str = ""
     MAX_TOKENS: int = 4096
     TEMPERATURE: float = 0.0
+    # When True (default): /api/chat may call the LLM even when retrieval returns no chunks (general chat).
+    # /api/query always stays document-only when nothing is retrieved. Set False to disable chat fallback.
+    CHAT_ALLOW_GENERAL_WITHOUT_DOCS: bool = True
 
     # Paths
     BASE_DIR: Path = Path(__file__).parent

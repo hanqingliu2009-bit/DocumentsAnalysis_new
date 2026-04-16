@@ -31,6 +31,8 @@ class RAGPipeline:
         document_ids: Optional[List[str]] = None,
         top_k: Optional[int] = None,
         retrieval_query: Optional[str] = None,
+        *,
+        allow_general_llm_when_empty: bool = False,
     ) -> dict:
         """
         Execute a RAG query: retrieve relevant chunks and generate answer.
@@ -41,6 +43,8 @@ class RAGPipeline:
             top_k: Number of chunks to retrieve (default from settings)
             retrieval_query: If set, use this string only for embedding / vector search
                 (avoids diluting retrieval when ``question`` includes long chat history).
+            allow_general_llm_when_empty: If True (e.g. /api/chat), may call the LLM with no
+                document context when retrieval is empty and settings allow it.
 
         Returns:
             Dict with answer, sources, and metadata
@@ -62,6 +66,20 @@ class RAGPipeline:
             )
 
             if not retrieved:
+                if (
+                    allow_general_llm_when_empty
+                    and settings.CHAT_ALLOW_GENERAL_WITHOUT_DOCS
+                    and settings.VOLCENGINE_API_KEY
+                    and str(settings.VOLCENGINE_API_KEY).strip()
+                    and str(self.model).strip()
+                ):
+                    answer = self._generate_answer_without_context(question)
+                    return {
+                        "answer": answer,
+                        "sources": [],
+                        "confidence": 0.0,
+                        "context_used": 0,
+                    }
                 return {
                     "answer": self._no_context_answer(search_text, full_prompt=question),
                     "sources": [],
@@ -173,6 +191,28 @@ class RAGPipeline:
             temperature=self.temperature,
         )
 
+        return response.choices[0].message.content
+
+    def _generate_answer_without_context(self, question: str) -> str:
+        """LLM answer when no document chunks were retrieved (general assistant, no RAG)."""
+        messages = [
+            {
+                "role": "system",
+                "content": (
+                    "当前知识库中没有检索到与本轮对话相关的文档片段。请作为通用助手回答用户的问题；"
+                    "不要编造用户拥有、已上传或已索引某份具体文件或章节。"
+                    "若用户需要结合已上传材料，可简短提示：在 Documents 中上传并处理完成后，"
+                    "再用与文档内容相关的问题提问。"
+                ),
+            },
+            {"role": "user", "content": question},
+        ]
+        response = self.client.chat.completions.create(
+            model=self.model,
+            messages=messages,
+            max_tokens=self.max_tokens,
+            temperature=self.temperature,
+        )
         return response.choices[0].message.content
 
     def _format_sources(self, retrieved: List[tuple]) -> List[dict]:
