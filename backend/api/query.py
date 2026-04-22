@@ -21,7 +21,10 @@ def get_rag_pipeline() -> RAGPipeline:
     """Lazily build RAG pipeline so it sees vector_store after app lifespan runs."""
     global _rag_pipeline
     if _rag_pipeline is None:
-        _rag_pipeline = RAGPipeline(vector_store=main.vector_store)
+        _rag_pipeline = RAGPipeline(
+            vector_store=main.vector_store,
+            document_store=main.document_store,
+        )
     return _rag_pipeline
 
 

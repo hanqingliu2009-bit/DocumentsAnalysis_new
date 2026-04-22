@@ -1,10 +1,14 @@
 """RAG (Retrieval-Augmented Generation) pipeline."""
-from typing import List, Optional
+from typing import TYPE_CHECKING, List, Optional
 
 import openai
 
 from config import settings
+from core.document import ProcessingStatus
 from storage.vector_store import VectorStore
+
+if TYPE_CHECKING:
+    from storage.document_store import DocumentStore
 
 
 class RAGPipeline:
@@ -14,8 +18,10 @@ class RAGPipeline:
         self,
         vector_store: VectorStore,
         openai_client: Optional[openai.OpenAI] = None,
+        document_store: Optional["DocumentStore"] = None,
     ):
         self.vector_store = vector_store
+        self.document_store = document_store
         self.client = openai_client or openai.OpenAI(
             api_key=settings.VOLCENGINE_API_KEY,
             base_url=settings.VOLCENGINE_BASE_URL,
@@ -73,7 +79,10 @@ class RAGPipeline:
                     and str(settings.VOLCENGINE_API_KEY).strip()
                     and str(self.model).strip()
                 ):
-                    answer = self._generate_answer_without_context(question)
+                    answer = self._generate_answer_without_context(
+                        question,
+                        system_prompt=self._system_prompt_for_no_retrieval_match(),
+                    )
                     return {
                         "answer": answer,
                         "sources": [],
@@ -193,18 +202,41 @@ class RAGPipeline:
 
         return response.choices[0].message.content
 
-    def _generate_answer_without_context(self, question: str) -> str:
+    def _system_prompt_for_no_retrieval_match(self) -> str:
+        """Instructions when semantic search returned no chunks (avoid false 'not uploaded' claims)."""
+        chunk_total = int(self.vector_store.get_chunk_count())
+        completed_docs = 0
+        if self.document_store is not None:
+            by_status = self.document_store.count_by_status()
+            completed_docs = int(by_status.get(ProcessingStatus.COMPLETED.value, 0))
+
+        core = (
+            "你是通用助手。本轮「向量语义检索」没有返回任何可引用的文档片段，因此不要编造具体条文、页码或文件名；"
+            "也不要假装阅读了用户磁盘上的文件内容。"
+        )
+        if chunk_total == 0:
+            return (
+                core
+                + " 系统侧信息：当前向量索引中的片段数为 0，知识库可能尚未写入内容。"
+                "可礼貌建议用户在 Documents 上传文件并确认状态为 completed。"
+            )
+        return (
+            core
+            + f" 系统侧信息：向量索引中已有 {chunk_total} 条文本片段；"
+            f"Documents 中状态为 completed 的文档约 {completed_docs} 篇。"
+            "因此当用户称已上传时，「不要」断言用户「没有可查询文档」或「未完成上传/处理」；"
+            "应解释为：本轮提问与已索引正文的语义匹配不足，或未超过系统配置的相似度阈值。"
+            "可建议用户换一种更贴近文档原文的提问、包含题干中的关键词，或联系管理员检查 SIMILARITY_THRESHOLD。"
+            "若用户只想确认是否上传成功，可提示其查看 Documents 列表与 Dashboard 中的 chunk 统计。"
+        )
+
+    def _generate_answer_without_context(
+        self, question: str, *, system_prompt: Optional[str] = None
+    ) -> str:
         """LLM answer when no document chunks were retrieved (general assistant, no RAG)."""
+        system = system_prompt or self._system_prompt_for_no_retrieval_match()
         messages = [
-            {
-                "role": "system",
-                "content": (
-                    "当前知识库中没有检索到与本轮对话相关的文档片段。请作为通用助手回答用户的问题；"
-                    "不要编造用户拥有、已上传或已索引某份具体文件或章节。"
-                    "若用户需要结合已上传材料，可简短提示：在 Documents 中上传并处理完成后，"
-                    "再用与文档内容相关的问题提问。"
-                ),
-            },
+            {"role": "system", "content": system},
             {"role": "user", "content": question},
         ]
         response = self.client.chat.completions.create(
