@@ -92,14 +92,14 @@ class TestUploadDocument:
         }
 
         with patch("api.documents.processor") as mock_processor:
-            mock_processor.process_document.return_value = (
-                Document(
-                    title="Test Document",
-                    source_path="test.pdf",
-                    doc_type=DocumentType.PDF,
-                ),
-                [MagicMock()],
-            )
+            def _fake_process(file_content, filename, doc_type, document=None):
+                assert document is not None
+                document.title = "Test Document"
+                document.status = ProcessingStatus.COMPLETED
+                document.chunk_count = 1
+                return document, [MagicMock()]
+
+            mock_processor.process_document.side_effect = _fake_process
 
             with patch("main.document_store"):
                 with patch("main.vector_store"):
@@ -146,14 +146,14 @@ class TestUploadDocument:
         }
 
         with patch("api.documents.processor") as mock_processor:
-            mock_processor.process_document.return_value = (
-                Document(
-                    title="My Custom Title",
-                    source_path="test.pdf",
-                    doc_type=DocumentType.PDF,
-                ),
-                [MagicMock()],
-            )
+            def _fake_process(file_content, filename, doc_type, document=None):
+                assert document is not None
+                document.title = "My Custom Title"
+                document.status = ProcessingStatus.COMPLETED
+                document.chunk_count = 1
+                return document, [MagicMock()]
+
+            mock_processor.process_document.side_effect = _fake_process
 
             with patch("main.document_store"):
                 with patch("main.vector_store"):

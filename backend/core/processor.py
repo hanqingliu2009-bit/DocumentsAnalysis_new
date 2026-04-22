@@ -26,15 +26,24 @@ class DocumentProcessor:
         file_content: bytes,
         filename: str,
         doc_type: DocumentType,
-    ) -> Document:
-        """Process a document file and return a Document object."""
-        # Create document object
-        document = Document(
-            title=Path(filename).stem,
-            source_path=filename,
-            doc_type=doc_type,
-            status=ProcessingStatus.PROCESSING,
-        )
+        document: Optional[Document] = None,
+    ) -> Tuple[Document, List[DocumentChunk]]:
+        """
+        Process a document file and return the document plus chunks.
+
+        If ``document`` is provided (e.g. from ``upload_document``), it must already
+        have ``id`` set; chunks use that id so vector-store ``document_id`` matches
+        ``document_store`` and ``DELETE`` can remove embeddings.
+        """
+        if document is None:
+            document = Document(
+                title=Path(filename).stem,
+                source_path=filename,
+                doc_type=doc_type,
+                status=ProcessingStatus.PROCESSING,
+            )
+        else:
+            document.status = ProcessingStatus.PROCESSING
 
         try:
             # Extract text and metadata based on document type

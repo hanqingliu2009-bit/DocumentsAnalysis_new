@@ -3,8 +3,9 @@ import pytest
 from io import BytesIO
 from pathlib import Path
 from unittest.mock import MagicMock, patch
+from uuid import uuid4
 
-from core.document import DocumentMetadata, DocumentType, ProcessingStatus
+from core.document import Document, DocumentMetadata, DocumentType, ProcessingStatus
 from core.processor import DocumentProcessor, get_document_type
 
 
@@ -115,6 +116,29 @@ class TestDocumentProcessorProcessDocument:
         assert document.status == ProcessingStatus.FAILED
         assert document.error_message == "Extraction failed"
         assert len(chunks) == 0
+
+    def test_process_document_reuses_api_document_id(self, processor):
+        """Upload path passes the same Document so chunk document_id matches persisted id."""
+        fixed_id = str(uuid4())
+        outer = Document(
+            id=fixed_id,
+            title="api-title",
+            source_path="file.txt",
+            doc_type=DocumentType.TXT,
+            status=ProcessingStatus.PROCESSING,
+        )
+        body = "First sentence here. " * 30
+        with patch.object(processor, "_extract_text", return_value=(body, DocumentMetadata())):
+            doc_out, chunks = processor.process_document(
+                file_content=body.encode("utf-8"),
+                filename="file.txt",
+                doc_type=DocumentType.TXT,
+                document=outer,
+            )
+        assert doc_out is outer
+        assert doc_out.id == fixed_id
+        assert len(chunks) > 0
+        assert all(c.document_id == fixed_id for c in chunks)
 
 
 class TestDocumentProcessorChunking:

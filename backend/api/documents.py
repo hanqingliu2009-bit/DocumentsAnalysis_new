@@ -94,20 +94,23 @@ async def upload_document(
     with open(file_storage_path, "wb") as f:
         f.write(file_content)
 
-    # Process document in background
+    # Process document (synchronous); chunk ids align with saved document id.
     try:
-        # Extract and process
-        processed_doc, chunks = processor.process_document(
+        # Pass same ``document`` so chunk ``document_id`` matches persisted id (see processor).
+        document, chunks = processor.process_document(
             file_content=file_content,
             filename=file.filename,
             doc_type=doc_type,
+            document=document,
         )
 
-        # Update document with processed info
-        document.metadata = processed_doc.metadata
-        document.chunk_count = len(chunks)
-        document.status = ProcessingStatus.COMPLETED
         main.document_store.save(document)
+
+        if document.status != ProcessingStatus.COMPLETED:
+            raise HTTPException(
+                status_code=500,
+                detail=f"Error processing document: {document.error_message or 'processing failed'}",
+            )
 
         # Generate embeddings and add to vector store
         if chunks:
@@ -121,6 +124,8 @@ async def upload_document(
             if chunks_with_embeddings:
                 main.vector_store.add_chunks(chunks_with_embeddings)
 
+    except HTTPException:
+        raise
     except Exception as e:
         document.status = ProcessingStatus.FAILED
         document.error_message = str(e)
