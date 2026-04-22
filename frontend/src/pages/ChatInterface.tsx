@@ -18,8 +18,30 @@ interface Message {
   }[]
 }
 
+const CHAT_STORAGE_KEY = 'documents-analysis-chat-messages-v1'
+
+function loadMessagesFromStorage(): Message[] {
+  try {
+    const raw = localStorage.getItem(CHAT_STORAGE_KEY)
+    if (!raw) return []
+    const parsed = JSON.parse(raw) as unknown
+    if (!Array.isArray(parsed)) return []
+    return parsed.filter((m): m is Message => {
+      if (!m || typeof m !== 'object') return false
+      const o = m as Record<string, unknown>
+      return (
+        typeof o.id === 'string' &&
+        (o.role === 'user' || o.role === 'assistant') &&
+        typeof o.content === 'string'
+      )
+    })
+  } catch {
+    return []
+  }
+}
+
 const ChatInterface = () => {
-  const [messages, setMessages] = useState<Message[]>([])
+  const [messages, setMessages] = useState<Message[]>(loadMessagesFromStorage)
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -30,6 +52,18 @@ const ChatInterface = () => {
 
   useEffect(() => {
     scrollToBottom()
+  }, [messages])
+
+  useEffect(() => {
+    try {
+      if (messages.length === 0) {
+        localStorage.removeItem(CHAT_STORAGE_KEY)
+      } else {
+        localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages))
+      }
+    } catch {
+      // ignore quota / private mode
+    }
   }, [messages])
 
   const handleSend = async () => {
@@ -99,6 +133,11 @@ const ChatInterface = () => {
   const handleClear = () => {
     if (window.confirm('Are you sure you want to clear the conversation?')) {
       setMessages([])
+      try {
+        localStorage.removeItem(CHAT_STORAGE_KEY)
+      } catch {
+        // ignore
+      }
     }
   }
 
