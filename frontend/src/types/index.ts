@@ -7,6 +7,7 @@ export interface Document {
   updated_at: string;
   chunk_count: number;
   metadata: {
+    page_count?: number;
     word_count?: number;
     file_size?: number;
     author?: string;

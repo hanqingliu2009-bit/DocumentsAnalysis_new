@@ -255,6 +255,7 @@ const DocumentManager = () => {
                 <Th>Title</Th>
                 <Th>Type</Th>
                 <Th>Status</Th>
+                <Th>页数</Th>
                 <Th>Chunks</Th>
                 <Th>Size</Th>
                 <Th>Uploaded</Th>
@@ -272,6 +273,11 @@ const DocumentManager = () => {
                   </Td>
                   <Td>
                     <StatusBadge status={doc.status} />
+                  </Td>
+                  <Td>
+                    {typeof doc.metadata?.page_count === 'number'
+                      ? doc.metadata.page_count
+                      : '—'}
                   </Td>
                   <Td>{doc.chunk_count}</Td>
                   <Td>{formatFileSize(doc.metadata?.file_size)}</Td>
