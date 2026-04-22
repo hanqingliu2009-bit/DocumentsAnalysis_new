@@ -1,8 +1,10 @@
 """Document processing - text extraction and chunking."""
 import re
+import xml.etree.ElementTree as ET
 from io import BytesIO
 from pathlib import Path
 from typing import BinaryIO, List, Optional, Tuple
+from zipfile import BadZipFile, ZipFile
 
 from config import settings
 from core.document import (
@@ -12,6 +14,36 @@ from core.document import (
     DocumentType,
     ProcessingStatus,
 )
+
+_DOCX_EP_NS = "http://schemas.openxmlformats.org/officeDocument/2006/extended-properties"
+
+
+def _read_docx_page_count(file_content: bytes) -> Optional[int]:
+    """
+    Read page count from Word extended properties (docProps/app.xml) if present.
+
+    Word updates this when the document is saved in Word; it may be absent in
+    some exports (e.g. certain online editors).
+    """
+    try:
+        with ZipFile(BytesIO(file_content)) as zf:
+            if "docProps/app.xml" not in zf.namelist():
+                return None
+            root = ET.fromstring(zf.read("docProps/app.xml"))
+    except (BadZipFile, ET.ParseError, OSError, ValueError):
+        return None
+
+    pages_el = root.find(f"{{{_DOCX_EP_NS}}}Pages")
+    if pages_el is not None and pages_el.text:
+        text = pages_el.text.strip()
+        if text.isdigit():
+            return int(text)
+    for el in root.iter():
+        if el.tag.split("}")[-1] == "Pages" and el.text:
+            text = el.text.strip()
+            if text.isdigit():
+                return int(text)
+    return None
 
 
 class DocumentProcessor:
@@ -143,6 +175,7 @@ class DocumentProcessor:
 
             metadata.word_count = len(full_text.split())
             metadata.file_size = len(file_content)
+            metadata.page_count = _read_docx_page_count(file_content)
 
             return full_text, metadata
 

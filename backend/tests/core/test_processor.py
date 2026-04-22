@@ -1,4 +1,5 @@
 """Tests for document processor module."""
+import zipfile
 import pytest
 from io import BytesIO
 from pathlib import Path
@@ -6,7 +7,7 @@ from unittest.mock import MagicMock, patch
 from uuid import uuid4
 
 from core.document import Document, DocumentMetadata, DocumentType, ProcessingStatus
-from core.processor import DocumentProcessor, get_document_type
+from core.processor import DocumentProcessor, _read_docx_page_count, get_document_type
 
 
 class TestGetDocumentType:
@@ -235,6 +236,42 @@ class TestDocumentProcessorExtractText:
 
         assert extracted_text == ""
         assert metadata.word_count == 0
+
+
+def _zip_with_app_xml(app_xml: str) -> bytes:
+    buf = BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
+        zf.writestr("docProps/app.xml", app_xml.encode("utf-8"))
+    return buf.getvalue()
+
+
+class TestReadDocxPageCount:
+    """docProps/app.xml Pages for DOCX metadata.page_count."""
+
+    def test_reads_pages_from_app_xml(self):
+        xml = (
+            '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            '<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties">'
+            "<Pages>26</Pages><Words>100</Words></Properties>"
+        )
+        assert _read_docx_page_count(_zip_with_app_xml(xml)) == 26
+
+    def test_missing_pages_returns_none(self):
+        xml = (
+            '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            '<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties">'
+            "<Words>10</Words></Properties>"
+        )
+        assert _read_docx_page_count(_zip_with_app_xml(xml)) is None
+
+    def test_missing_app_xml_returns_none(self):
+        buf = BytesIO()
+        with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
+            zf.writestr("word/document.xml", b"<w:document/>")
+        assert _read_docx_page_count(buf.getvalue()) is None
+
+    def test_invalid_zip_returns_none(self):
+        assert _read_docx_page_count(b"not a zip file") is None
 
 
 class TestGetDocumentType:
