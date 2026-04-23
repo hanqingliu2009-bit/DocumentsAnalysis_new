@@ -214,6 +214,7 @@ class TestVectorStore:
         assert len(results) == 2
         # First result should be most similar
         assert results[0][0] == "chunk-1"  # chunk_id
+        assert results[0][3] == "doc-1"
 
     def test_search_no_results(self, vector_store):
         """Test searching with empty store."""
@@ -253,6 +254,7 @@ class TestVectorStore:
 
         assert len(results) == 1
         assert results[0][0] == "chunk-1"
+        assert results[0][3] == "doc-1"
 
     def test_search_filters_below_similarity_threshold(self, vector_store):
         """Chunks with score = 1 - distance below SIMILARITY_THRESHOLD are dropped."""
@@ -269,6 +271,7 @@ class TestVectorStore:
         assert results[0][0] == "keep"
         assert results[0][1] == pytest.approx(0.85)
         assert results[0][2] == "good text"
+        assert results[0][3] == "d"
 
     def test_delete_by_document_id(self, vector_store):
         """Test deleting chunks by document ID."""

@@ -15,17 +15,24 @@ export interface Document {
   error_message?: string;
 }
 
+export type AnswerMode = 'knowledge_base' | 'llm_direct' | 'system';
+
 export interface Message {
   id: string;
   role: 'user' | 'assistant';
   content: string;
   sources?: Source[];
+  /** From POST /api/chat: how the assistant reply was produced */
+  answerMode?: AnswerMode;
+  contextUsed?: number;
 }
 
 export interface Source {
   chunk_id: string;
   score: number;
   text: string;
+  document_id?: string;
+  document_title?: string;
 }
 
 export interface Stats {

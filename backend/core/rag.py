@@ -85,6 +85,7 @@ class RAGPipeline:
                         "sources": [],
                         "confidence": 0.0,
                         "context_used": 0,
+                        "answer_mode": "llm_direct",
                     }
                 return {
                     "answer": (
@@ -94,6 +95,7 @@ class RAGPipeline:
                     "sources": [],
                     "confidence": 0.0,
                     "context_used": 0,
+                    "answer_mode": "system",
                 }
 
             # Step 3: Build context from retrieved chunks
@@ -108,9 +110,10 @@ class RAGPipeline:
                     ),
                     "sources": self._format_sources(retrieved),
                     "confidence": round(
-                        sum(score for _, score, _ in retrieved) / len(retrieved), 4
+                        sum(score for _, score, _, _ in retrieved) / len(retrieved), 4
                     ),
                     "context_used": len(retrieved),
+                    "answer_mode": "system",
                 }
 
             if not str(self.model).strip():
@@ -122,9 +125,10 @@ class RAGPipeline:
                     ),
                     "sources": self._format_sources(retrieved),
                     "confidence": round(
-                        sum(score for _, score, _ in retrieved) / len(retrieved), 4
+                        sum(score for _, score, _, _ in retrieved) / len(retrieved), 4
                     ),
                     "context_used": len(retrieved),
+                    "answer_mode": "system",
                 }
 
             answer = self._generate_answer(question, context)
@@ -133,13 +137,14 @@ class RAGPipeline:
             sources = self._format_sources(retrieved)
 
             # Calculate confidence (average of similarity scores)
-            confidence = sum(score for _, score, _ in retrieved) / len(retrieved)
+            confidence = sum(score for _, score, _, _ in retrieved) / len(retrieved)
 
             return {
                 "answer": answer,
                 "sources": sources,
                 "confidence": round(confidence, 4),
                 "context_used": len(retrieved),
+                "answer_mode": "knowledge_base",
             }
 
         except Exception as e:
@@ -147,15 +152,30 @@ class RAGPipeline:
                 "answer": f"Error processing query: {str(e)}",
                 "sources": [],
                 "confidence": 0.0,
+                "context_used": 0,
                 "error": str(e),
+                "answer_mode": "system",
             }
+
+    def _document_display_name(self, document_id: str) -> str:
+        """Human-readable document label for context and citations."""
+        if not document_id:
+            return ""
+        if self.document_store is None:
+            return document_id
+        doc = self.document_store.get(document_id)
+        if doc is None:
+            return document_id
+        title = (doc.title or "").strip()
+        return title or doc.source_path or document_id
 
     def _build_context(self, retrieved: List[tuple]) -> str:
         """Build context string from retrieved chunks."""
         context_parts = []
 
-        for i, (chunk_id, score, text) in enumerate(retrieved, 1):
-            context_parts.append(f"[Source {i}]\n{text}\n")
+        for i, (chunk_id, score, text, doc_id) in enumerate(retrieved, 1):
+            label = self._document_display_name(doc_id) if doc_id else f"片段{i}"
+            context_parts.append(f"[Source {i} — {label}]\n{text}\n")
 
         return "\n---\n".join(context_parts)
 
@@ -236,10 +256,13 @@ class RAGPipeline:
     def _format_sources(self, retrieved: List[tuple]) -> List[dict]:
         """Format retrieved chunks as sources."""
         sources = []
-        for chunk_id, score, text in retrieved:
+        for chunk_id, score, text, doc_id in retrieved:
+            title = self._document_display_name(doc_id) if doc_id else ""
             sources.append({
                 "chunk_id": chunk_id,
                 "score": round(score, 4),
                 "text": text[:500] + "..." if len(text) > 500 else text,
+                "document_id": doc_id or None,
+                "document_title": title or None,
             })
         return sources

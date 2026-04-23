@@ -43,6 +43,8 @@ class SourceCitation(BaseModel):
     chunk_id: str
     score: float
     text: str
+    document_id: Optional[str] = None
+    document_title: Optional[str] = None
 
 
 class QueryResponse(BaseModel):
@@ -51,6 +53,10 @@ class QueryResponse(BaseModel):
     sources: List[SourceCitation]
     confidence: float
     context_used: int
+    answer_mode: str = Field(
+        default="knowledge_base",
+        description="knowledge_base: RAG from chunks; llm_direct: no retrieval; system: fixed message",
+    )
 
 
 class SearchRequest(BaseModel):
@@ -68,6 +74,7 @@ class SearchResult(BaseModel):
     chunk_id: str
     score: float
     text: str
+    document_id: Optional[str] = None
 
 
 class SearchResponse(BaseModel):
@@ -101,6 +108,11 @@ class ChatResponse(BaseModel):
     message: str
     sources: List[SourceCitation]
     confidence: float
+    context_used: int = Field(default=0, description="Number of chunks passed to the LLM context")
+    answer_mode: str = Field(
+        default="knowledge_base",
+        description="knowledge_base | llm_direct | system",
+    )
 
 
 @router.post("/query", response_model=QueryResponse)
@@ -127,6 +139,7 @@ async def query(request: QueryRequest):
             sources=[SourceCitation(**s) for s in result["sources"]],
             confidence=result["confidence"],
             context_used=result["context_used"],
+            answer_mode=result.get("answer_mode") or "system",
         )
 
     except HTTPException:
@@ -164,8 +177,9 @@ async def search(request: SearchRequest):
                 chunk_id=chunk_id,
                 score=score,
                 text=text[:500] + "..." if len(text) > 500 else text,
+                document_id=doc_id or None,
             )
-            for chunk_id, score, text in results
+            for chunk_id, score, text, doc_id in results
         ]
 
         return SearchResponse(
@@ -217,6 +231,8 @@ async def chat(request: ChatRequest):
             message=result["answer"],
             sources=[SourceCitation(**s) for s in result["sources"]],
             confidence=result["confidence"],
+            context_used=int(result.get("context_used", 0)),
+            answer_mode=str(result.get("answer_mode") or "system"),
         )
 
     except HTTPException:

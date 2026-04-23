@@ -105,6 +105,9 @@ describe('API Services', () => {
         data: {
           message: 'Test response',
           sources: [],
+          confidence: 0,
+          context_used: 0,
+          answer_mode: 'llm_direct',
         },
       }
       mockedApi.post.mockResolvedValueOnce(mockResponse)

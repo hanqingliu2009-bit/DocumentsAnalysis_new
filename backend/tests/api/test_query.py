@@ -27,6 +27,7 @@ class TestQueryEndpoint:
             ],
             "confidence": 0.95,
             "context_used": 1,
+            "answer_mode": "knowledge_base",
         }
         with patch("api.query.get_rag_pipeline", return_value=mock_pipeline):
             response = test_client.post(
@@ -43,6 +44,8 @@ class TestQueryEndpoint:
             assert data["answer"] == "Test answer"
             assert len(data["sources"]) == 1
             assert data["confidence"] == 0.95
+            assert data["answer_mode"] == "knowledge_base"
+            assert data["context_used"] == 1
             kw = mock_pipeline.query.call_args.kwargs
             assert kw.get("document_ids") == ["doc-1", "doc-2"]
             assert kw.get("top_k") == 5
@@ -108,8 +111,8 @@ class TestSearchEndpoint:
                 mock_embedder.return_value = mock_instance
 
                 mock_store.search.return_value = [
-                    ("chunk-1", 0.95, "Test result 1"),
-                    ("chunk-2", 0.85, "Test result 2"),
+                    ("chunk-1", 0.95, "Test result 1", "doc-1"),
+                    ("chunk-2", 0.85, "Test result 2", "doc-1"),
                 ]
 
                 response = test_client.post(
@@ -172,6 +175,7 @@ class TestChatEndpoint:
             ],
             "confidence": 0.95,
             "context_used": 1,
+            "answer_mode": "knowledge_base",
         }
         with patch("api.query.get_rag_pipeline", return_value=mock_pipeline):
             response = test_client.post(
@@ -187,6 +191,8 @@ class TestChatEndpoint:
             data = response.json()
             assert data["message"] == "Chat response"
             assert len(data["sources"]) == 1
+            assert data["answer_mode"] == "knowledge_base"
+            assert data["context_used"] == 1
             kw = mock_pipeline.query.call_args.kwargs
             assert kw.get("retrieval_query") == "Hello"
 
@@ -198,6 +204,7 @@ class TestChatEndpoint:
             "sources": [],
             "confidence": 0.9,
             "context_used": 1,
+            "answer_mode": "knowledge_base",
         }
         with patch("api.query.get_rag_pipeline", return_value=mock_pipeline):
             response = test_client.post(

@@ -1,4 +1,17 @@
-import { Box, Button, Flex, Heading, IconButton, Input, Spinner, Text, VStack, HStack, Avatar, Divider } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  IconButton,
+  Input,
+  Spinner,
+  Text,
+  VStack,
+  HStack,
+  Avatar,
+  Divider,
+} from '@chakra-ui/react'
 import { useState, useRef, useEffect } from 'react'
 import { FiSend, FiTrash2, FiUser } from 'react-icons/fi'
 import ReactMarkdown from 'react-markdown'
@@ -6,19 +19,29 @@ import ReactMarkdown from 'react-markdown'
 import axios from 'axios'
 
 import { queryChat } from '../services/api'
-
-interface Message {
-  id: string
-  role: 'user' | 'assistant'
-  content: string
-  sources?: {
-    chunk_id: string
-    text: string
-    score: number
-  }[]
-}
+import type { AnswerMode, Message } from '../types'
 
 const CHAT_STORAGE_KEY = 'documents-analysis-chat-messages-v1'
+
+function formatAssistantSourceLine(message: Message): string | null {
+  if (message.role !== 'assistant') return null
+  const mode = message.answerMode as AnswerMode | undefined
+  if (!mode) return null
+  if (mode === 'knowledge_base') {
+    const titles = [
+      ...new Set(
+        (message.sources ?? [])
+          .map((s) => s.document_title)
+          .filter((t): t is string => Boolean(t && String(t).trim())),
+      ),
+    ]
+    if (titles.length > 0) return `来源：知识库（${titles.join('、')}）`
+    return '来源：知识库（已根据检索片段生成）'
+  }
+  if (mode === 'llm_direct') return '来源：本轮未命中知识库片段，由大模型直接生成'
+  if (mode === 'system') return '来源：系统提示（未调用大模型或配置不完整）'
+  return null
+}
 
 function loadMessagesFromStorage(): Message[] {
   try {
@@ -29,12 +52,19 @@ function loadMessagesFromStorage(): Message[] {
     return parsed.filter((m): m is Message => {
       if (!m || typeof m !== 'object') return false
       const o = m as Record<string, unknown>
-      return (
-        typeof o.id === 'string' &&
-        (o.role === 'user' || o.role === 'assistant') &&
-        typeof o.content === 'string'
-      )
-    })
+      if (
+        typeof o.id !== 'string' ||
+        (o.role !== 'user' && o.role !== 'assistant') ||
+        typeof o.content !== 'string'
+      ) {
+        return false
+      }
+      if (o.role === 'assistant') {
+        if (o.answerMode !== undefined && typeof o.answerMode !== 'string') return false
+        if (o.contextUsed !== undefined && typeof o.contextUsed !== 'number') return false
+      }
+      return true
+    }) as Message[]
   } catch {
     return []
   }
@@ -94,6 +124,8 @@ const ChatInterface = () => {
         role: 'assistant',
         content: data.message,
         sources: data.sources,
+        answerMode: data.answer_mode as AnswerMode | undefined,
+        contextUsed: typeof data.context_used === 'number' ? data.context_used : undefined,
       }
 
       setMessages((prev) => [...prev, assistantMessage])
@@ -186,7 +218,10 @@ const ChatInterface = () => {
           </Flex>
         ) : (
           <VStack spacing={4} align="stretch">
-            {messages.map((message) => (
+            {messages.map((message) => {
+              const sourceAttributionLine =
+                message.role === 'assistant' ? formatAssistantSourceLine(message) : null
+              return (
               <Box
                 key={message.id}
                 alignSelf={message.role === 'user' ? 'flex-end' : 'flex-start'}
@@ -218,6 +253,14 @@ const ChatInterface = () => {
                     >
                       <ReactMarkdown>{message.content}</ReactMarkdown>
                     </Box>
+                    {message.role === 'assistant' && sourceAttributionLine && (
+                      <>
+                        <Divider my={2} borderColor="gray.200" />
+                        <Text fontSize="xs" color="gray.600">
+                          {sourceAttributionLine}
+                        </Text>
+                      </>
+                    )}
                   </Box>
                   {message.role === 'user' && (
                     <Avatar size="sm" icon={<FiUser />} bg="gray.500" />
@@ -226,7 +269,7 @@ const ChatInterface = () => {
                 {message.sources && message.sources.length > 0 && (
                   <Box mt={2} ml={10}>
                     <Text fontSize="xs" color="gray.500" mb={1}>
-                      Sources:
+                      引用片段
                     </Text>
                     {message.sources.map((source, idx) => (
                       <Box
@@ -237,18 +280,24 @@ const ChatInterface = () => {
                         mt={1}
                         fontSize="xs"
                       >
+                        {(source.document_title || source.document_id) && (
+                          <Text color="gray.700" fontWeight="medium" mb={1} noOfLines={1}>
+                            {source.document_title || source.document_id}
+                          </Text>
+                        )}
                         <Text color="gray.600" noOfLines={2}>
                           {source.text}
                         </Text>
                         <Text color="gray.400" mt={1}>
-                          Score: {source.score.toFixed(3)}
+                          相似度: {source.score.toFixed(3)}
                         </Text>
                       </Box>
                     ))}
                   </Box>
                 )}
               </Box>
-            ))}
+              )
+            })}
             <div ref={messagesEndRef} />
           </VStack>
         )}

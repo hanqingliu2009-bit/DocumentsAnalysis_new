@@ -33,6 +33,7 @@ def test_empty_retrieval_calls_llm_when_key_and_model_set(mock_llm_client):
     assert result["sources"] == []
     assert result["confidence"] == 0.0
     assert result["context_used"] == 0
+    assert result.get("answer_mode") == "llm_direct"
     assert "error" not in result
     mock_llm_client.chat.completions.create.assert_called_once()
     call_kw = mock_llm_client.chat.completions.create.call_args
@@ -58,6 +59,7 @@ def test_empty_retrieval_same_for_query_style_call(mock_llm_client):
 
     mock_llm_client.chat.completions.create.assert_called_once()
     assert result["answer"] == "General LLM reply"
+    assert result.get("answer_mode") == "llm_direct"
 
 
 def test_empty_retrieval_no_api_key_returns_config_message(mock_llm_client):
@@ -76,6 +78,7 @@ def test_empty_retrieval_no_api_key_returns_config_message(mock_llm_client):
     mock_llm_client.chat.completions.create.assert_not_called()
     assert "VOLCENGINE_API_KEY" in result["answer"]
     assert "LLM_MODEL" in result["answer"]
+    assert result.get("answer_mode") == "system"
 
 
 def test_empty_retrieval_blank_model_skips_llm(mock_llm_client):
@@ -93,6 +96,7 @@ def test_empty_retrieval_blank_model_skips_llm(mock_llm_client):
 
     mock_llm_client.chat.completions.create.assert_not_called()
     assert "LLM_MODEL" in result["answer"]
+    assert result.get("answer_mode") == "system"
 
 
 def test_no_retrieval_system_prompt_when_index_non_empty(mock_llm_client):

@@ -71,7 +71,7 @@ class VectorStore:
         query_embedding: List[float],
         top_k: int = 5,
         document_ids: Optional[List[str]] = None,
-    ) -> List[Tuple[str, float, str]]:
+    ) -> List[Tuple[str, float, str, str]]:
         """
         Search for similar chunks using embedding.
 
@@ -80,7 +80,7 @@ class VectorStore:
         remain after filtering.
 
         Returns:
-            List of (chunk_id, score, text) tuples, sorted by relevance.
+            List of (chunk_id, score, text, document_id) tuples, sorted by relevance.
         """
         # Build where clause if document_ids specified
         where_clause = None
@@ -120,14 +120,15 @@ class VectorStore:
                 if score < threshold:
                     continue
 
-                # Filter by document_ids if specified
-                if document_ids:
-                    metadata = results["metadatas"][0][i]
-                    if metadata.get("document_id") not in document_ids:
-                        continue
+                meta_row = results["metadatas"][0][i] if results.get("metadatas") else {}
+                if not isinstance(meta_row, dict):
+                    meta_row = {}
+                if document_ids and meta_row.get("document_id") not in document_ids:
+                    continue
 
                 text = results["documents"][0][i]
-                formatted_results.append((chunk_id, score, text))
+                doc_id = str(meta_row.get("document_id") or "")
+                formatted_results.append((chunk_id, score, text, doc_id))
 
                 if len(formatted_results) >= top_k:
                     break
