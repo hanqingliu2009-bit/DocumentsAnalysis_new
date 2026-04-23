@@ -5,7 +5,7 @@ import pytest
 
 from config import settings
 from core.document import DocumentChunk
-from storage.vector_store import EmbeddingGenerator
+from storage.vector_store import EmbeddingGenerator, _ark_embedding_data_rows
 
 
 def test_embed_volcengine_calls_openai_embeddings(monkeypatch):
@@ -65,6 +65,13 @@ def test_embed_volcengine_prefers_embedding_api_key(monkeypatch):
 
     OC.assert_called_once()
     assert OC.call_args.kwargs["api_key"] == "embed-only-key"
+
+
+def test_ark_embedding_data_rows_single_dict_not_list():
+    """Ark may return data as one object; iterating a dict would otherwise yield str keys."""
+    body = {"data": {"index": 1, "embedding": [9.0, 8.0]}}
+    rows = _ark_embedding_data_rows(body)
+    assert rows == [{"index": 1, "embedding": [9.0, 8.0]}]
 
 
 def test_embed_volcengine_multimodal_calls_httpx(monkeypatch):
@@ -131,3 +138,29 @@ def test_embed_chunks_multimodal_includes_image_urls(monkeypatch):
     body = inner.post.call_args.kwargs["json"]["input"]
     assert body[0] == {"type": "text", "text": "caption"}
     assert body[1] == {"type": "image_url", "image_url": {"url": "https://example.com/x.png"}}
+
+
+def test_embed_volcengine_multimodal_parses_data_as_single_object(monkeypatch):
+    """Warmup-style path when API returns data as object instead of array."""
+    monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "volcengine")
+    monkeypatch.setattr(settings, "EMBEDDING_USE_MULTIMODAL_API", True)
+    monkeypatch.setattr(settings, "VOLCENGINE_API_KEY", "k")
+    monkeypatch.setattr(settings, "VOLCENGINE_BASE_URL", "https://ark.cn-beijing.volces.com/api/v3")
+    monkeypatch.setattr(settings, "EMBEDDING_MODEL", "ep-mm")
+
+    mock_resp = MagicMock()
+    mock_resp.status_code = 200
+    mock_resp.json.return_value = {
+        "data": {"index": 0, "embedding": [0.25, 0.5]},
+    }
+    mock_resp.raise_for_status = MagicMock()
+    inner = MagicMock()
+    inner.post.return_value = mock_resp
+    client_cm = MagicMock()
+    client_cm.__enter__ = MagicMock(return_value=inner)
+    client_cm.__exit__ = MagicMock(return_value=False)
+
+    with patch("storage.vector_store.httpx.Client", return_value=client_cm):
+        out = EmbeddingGenerator().embed_texts(["x"])
+
+    assert out == [[0.25, 0.5]]

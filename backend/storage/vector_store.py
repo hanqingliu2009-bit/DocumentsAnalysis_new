@@ -164,6 +164,27 @@ class VectorStore:
         }
 
 
+def _ark_embedding_data_rows(body: Any) -> List[Dict[str, Any]]:
+    """
+    Normalize Ark embedding responses where ``data`` may be a list of objects or a single object.
+    Iterating a dict yields string keys, which caused ``'str' object has no attribute 'get'``.
+    """
+    if not isinstance(body, dict):
+        return []
+    raw = body.get("data")
+    if raw is None:
+        return []
+    if isinstance(raw, list):
+        return [x for x in raw if isinstance(x, dict)]
+    if isinstance(raw, dict):
+        if "embedding" in raw:
+            return [raw]
+        inner = raw.get("data")
+        if isinstance(inner, list):
+            return [x for x in inner if isinstance(x, dict)]
+    return []
+
+
 def _multimodal_input_parts_from_chunk(chunk: DocumentChunk) -> List[Dict[str, Any]]:
     """
     Build Ark ``/embeddings/multimodal`` ``input`` list: text block plus optional images.
@@ -254,10 +275,10 @@ class EmbeddingGenerator:
                 f"Ark multimodal embeddings HTTP {r.status_code}: {detail or str(e)}"
             ) from e
         body = r.json()
-        rows = body.get("data") or []
+        rows = _ark_embedding_data_rows(body)
         if not rows:
             raise ValueError(
-                f"Ark multimodal embeddings: empty data in response: {repr(body)[:300]}"
+                f"Ark multimodal embeddings: empty or unrecognized data in response: {repr(body)[:400]}"
             )
         ordered = sorted(rows, key=lambda d: d.get("index", 0))
         emb = ordered[0].get("embedding")
