@@ -189,11 +189,11 @@ class EmbeddingGenerator:
 
     def _embed_volcengine(self, texts: List[str]) -> List[List[float]]:
         """Call Ark OpenAI-compatible ``/embeddings`` (豆包 doubao-embedding 等)."""
-        key = settings.VOLCENGINE_API_KEY
+        key = settings.VOLCENGINE_EMBEDDING_API_KEY or settings.VOLCENGINE_API_KEY
         model = (self.model_name or "").strip()
         if not key or not str(key).strip():
             raise ValueError(
-                "EMBEDDING_BACKEND=volcengine requires VOLCENGINE_API_KEY in backend/.env."
+                "EMBEDDING_BACKEND=volcengine requires VOLCENGINE_EMBEDDING_API_KEY or VOLCENGINE_API_KEY in backend/.env."
             )
         if not model:
             raise ValueError(

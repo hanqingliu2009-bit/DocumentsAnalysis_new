@@ -33,6 +33,8 @@ class Settings(BaseSettings):
     # 火山方舟：VOLCENGINE_BASE_URL 一般为 OpenAI 兼容地址；LLM_MODEL 为接入点 ID（常为 ep-...）或控制台给出的 model 名。
     VOLCENGINE_API_KEY: Optional[str] = None
     VOLCENGINE_BASE_URL: str = "https://ark.cn-beijing.volces.com/api/v3"
+    # Optional: separate key for Ark /embeddings (e.g. online-inference embedding endpoint). Falls back to VOLCENGINE_API_KEY.
+    VOLCENGINE_EMBEDDING_API_KEY: Optional[str] = None
     LLM_MODEL: str = ""
     MAX_TOKENS: int = 4096
     TEMPERATURE: float = 0.0
