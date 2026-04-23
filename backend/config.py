@@ -54,6 +54,8 @@ class Settings(BaseSettings):
     EMBEDDING_BACKEND: str = "volcengine"
     # volcengine: embedding 接入点 ID（常为 ep-...），与 LLM 的 LLM_MODEL 可不同；local: Hugging Face 模型 id。
     EMBEDDING_MODEL: str = ""
+    # True：豆包 embedding-vision 等多模态模型，调用 .../embeddings/multimodal（input 为图文块列表）；False：标准 .../embeddings 纯文本。
+    EMBEDDING_USE_MULTIMODAL_API: bool = False
     # 必须与方舟控制台该嵌入模型输出维度一致（常见 2560 / 1024 等，以控制台为准）。
     EMBEDDING_DIMENSION: int = 2560
     # 切换嵌入模型或维度时请换新集合名或清空 vector_db，避免不同维度混写。

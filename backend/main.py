@@ -46,8 +46,11 @@ async def lifespan(app: FastAPI):
                     "Loading local embedding model (first run may download from Hugging Face; can take several minutes)..."
                 )
         else:
+            mm = bool(getattr(settings, "EMBEDDING_USE_MULTIMODAL_API", False))
+            api_note = ", multimodal /embeddings/multimodal" if mm else ""
             print(
-                f"Warming up Ark embeddings (backend={settings.EMBEDDING_BACKEND}, model={settings.EMBEDDING_MODEL or 'unset'})..."
+                f"Warming up Ark embeddings (backend={settings.EMBEDDING_BACKEND}, "
+                f"model={settings.EMBEDDING_MODEL or 'unset'}{api_note})..."
             )
         EmbeddingGenerator().embed_text("warmup")
         print("Embedding backend ready.")
