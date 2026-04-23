@@ -36,6 +36,8 @@ class Settings(BaseSettings):
     # Optional: separate key for Ark /embeddings (e.g. online-inference embedding endpoint). Falls back to VOLCENGINE_API_KEY.
     VOLCENGINE_EMBEDDING_API_KEY: Optional[str] = None
     LLM_MODEL: str = ""
+    # chat.completions 的 max_tokens：限制的是「模型回复」长度（token），不是用户 Context 或上传全文字数。
+    # 文档是否进问答取决于分块/检索（CHUNK_SIZE、TOP_K_RETRIEVAL 等）与模型上下文上限；与 MAX_TOKENS 无直接对应。
     MAX_TOKENS: int = 4096
     TEMPERATURE: float = 0.0
 
