@@ -36,9 +36,6 @@ class Settings(BaseSettings):
     LLM_MODEL: str = ""
     MAX_TOKENS: int = 4096
     TEMPERATURE: float = 0.0
-    # When True (default): /api/chat may call the LLM even when retrieval returns no chunks (general chat).
-    # /api/query always stays document-only when nothing is retrieved. Set False to disable chat fallback.
-    CHAT_ALLOW_GENERAL_WITHOUT_DOCS: bool = True
 
     # Paths
     BASE_DIR: Path = Path(__file__).parent
@@ -63,7 +60,7 @@ class Settings(BaseSettings):
     PDF_PARSER: str = "pypdf"  # Options: "pypdf", "opendataloader"
 
     # Search Configuration
-    TOP_K_RETRIEVAL: int = 5
+    TOP_K_RETRIEVAL: int = 10
     # Min cosine similarity (1 - Chroma distance) for VectorStore.search to return a chunk.
     SIMILARITY_THRESHOLD: float = 0.7
 

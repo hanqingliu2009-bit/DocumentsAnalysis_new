@@ -16,8 +16,8 @@ def mock_llm_client():
     return client
 
 
-def test_empty_retrieval_with_chat_flag_calls_llm(mock_llm_client):
-    """Chat path: empty retrieval + key/model + setting -> general LLM, no sources."""
+def test_empty_retrieval_calls_llm_when_key_and_model_set(mock_llm_client):
+    """Empty retrieval + configured Key/model -> always general LLM, no sources."""
     vs = MagicMock()
     vs.search.return_value = []
     vs.get_chunk_count.return_value = 0
@@ -25,9 +25,9 @@ def test_empty_retrieval_with_chat_flag_calls_llm(mock_llm_client):
         EG.return_value.embed_text.return_value = [0.01] * 384
         with patch.object(settings, "VOLCENGINE_API_KEY", "test-key"), patch.object(
             settings, "LLM_MODEL", "ep-test"
-        ), patch.object(settings, "CHAT_ALLOW_GENERAL_WITHOUT_DOCS", True):
+        ):
             pipeline = RAGPipeline(vs, openai_client=mock_llm_client)
-            result = pipeline.query("What is 2+2?", allow_general_llm_when_empty=True)
+            result = pipeline.query("What is 2+2?")
 
     assert result["answer"] == "General LLM reply"
     assert result["sources"] == []
@@ -43,8 +43,8 @@ def test_empty_retrieval_with_chat_flag_calls_llm(mock_llm_client):
     assert messages[1]["content"] == "What is 2+2?"
 
 
-def test_empty_retrieval_query_endpoint_skips_llm(mock_llm_client):
-    """/api/query path: default allow_general False -> no LLM call."""
+def test_empty_retrieval_same_for_query_style_call(mock_llm_client):
+    """No allow_general flag: /api/query and /api/chat both get LLM on empty retrieval."""
     vs = MagicMock()
     vs.search.return_value = []
     vs.get_chunk_count.return_value = 0
@@ -52,34 +52,16 @@ def test_empty_retrieval_query_endpoint_skips_llm(mock_llm_client):
         EG.return_value.embed_text.return_value = [0.01] * 384
         with patch.object(settings, "VOLCENGINE_API_KEY", "test-key"), patch.object(
             settings, "LLM_MODEL", "ep-test"
-        ), patch.object(settings, "CHAT_ALLOW_GENERAL_WITHOUT_DOCS", True):
+        ):
             pipeline = RAGPipeline(vs, openai_client=mock_llm_client)
             result = pipeline.query("unrelated question xyz")
 
-    mock_llm_client.chat.completions.create.assert_not_called()
-    assert "没有检索到" not in result.get("answer", "")
-    assert "已索引的文档" in result["answer"] or "上传" in result["answer"]
+    mock_llm_client.chat.completions.create.assert_called_once()
+    assert result["answer"] == "General LLM reply"
 
 
-def test_empty_retrieval_chat_disabled_by_config(mock_llm_client):
-    """CHAT_ALLOW_GENERAL_WITHOUT_DOCS=False -> fixed message, no LLM."""
-    vs = MagicMock()
-    vs.search.return_value = []
-    vs.get_chunk_count.return_value = 0
-    with patch("storage.vector_store.EmbeddingGenerator") as EG:
-        EG.return_value.embed_text.return_value = [0.01] * 384
-        with patch.object(settings, "VOLCENGINE_API_KEY", "test-key"), patch.object(
-            settings, "LLM_MODEL", "ep-test"
-        ), patch.object(settings, "CHAT_ALLOW_GENERAL_WITHOUT_DOCS", False):
-            pipeline = RAGPipeline(vs, openai_client=mock_llm_client)
-            result = pipeline.query("hello", allow_general_llm_when_empty=True)
-
-    mock_llm_client.chat.completions.create.assert_not_called()
-    assert result["sources"] == []
-
-
-def test_empty_retrieval_no_api_key_no_llm(mock_llm_client):
-    """No API key -> never call LLM on empty retrieval even for chat."""
+def test_empty_retrieval_no_api_key_returns_config_message(mock_llm_client):
+    """No API key -> no LLM; operational message only."""
     vs = MagicMock()
     vs.search.return_value = []
     vs.get_chunk_count.return_value = 0
@@ -87,13 +69,30 @@ def test_empty_retrieval_no_api_key_no_llm(mock_llm_client):
         EG.return_value.embed_text.return_value = [0.01] * 384
         with patch.object(settings, "VOLCENGINE_API_KEY", None), patch.object(
             settings, "LLM_MODEL", "ep-test"
-        ), patch.object(settings, "CHAT_ALLOW_GENERAL_WITHOUT_DOCS", True):
+        ):
             pipeline = RAGPipeline(vs, openai_client=mock_llm_client)
-            result = pipeline.query("hello", allow_general_llm_when_empty=True)
+            result = pipeline.query("hello")
 
     mock_llm_client.chat.completions.create.assert_not_called()
-    assert result["answer"]
-    assert "向量库" in result["answer"] or "文档" in result["answer"]
+    assert "VOLCENGINE_API_KEY" in result["answer"]
+    assert "LLM_MODEL" in result["answer"]
+
+
+def test_empty_retrieval_blank_model_skips_llm(mock_llm_client):
+    """Empty LLM_MODEL -> no LLM call."""
+    vs = MagicMock()
+    vs.search.return_value = []
+    vs.get_chunk_count.return_value = 0
+    with patch("storage.vector_store.EmbeddingGenerator") as EG:
+        EG.return_value.embed_text.return_value = [0.01] * 384
+        with patch.object(settings, "VOLCENGINE_API_KEY", "k"), patch.object(
+            settings, "LLM_MODEL", "   "
+        ):
+            pipeline = RAGPipeline(vs, openai_client=mock_llm_client)
+            result = pipeline.query("hello")
+
+    mock_llm_client.chat.completions.create.assert_not_called()
+    assert "LLM_MODEL" in result["answer"]
 
 
 def test_no_retrieval_system_prompt_when_index_non_empty(mock_llm_client):
@@ -107,9 +106,9 @@ def test_no_retrieval_system_prompt_when_index_non_empty(mock_llm_client):
         EG.return_value.embed_text.return_value = [0.01] * 384
         with patch.object(settings, "VOLCENGINE_API_KEY", "k"), patch.object(
             settings, "LLM_MODEL", "ep"
-        ), patch.object(settings, "CHAT_ALLOW_GENERAL_WITHOUT_DOCS", True):
+        ):
             pipeline = RAGPipeline(vs, openai_client=mock_llm_client, document_store=ds)
-            pipeline.query("看一下我上传的文档", allow_general_llm_when_empty=True)
+            pipeline.query("看一下我上传的文档")
     system = mock_llm_client.chat.completions.create.call_args.kwargs["messages"][0]["content"]
     assert "12" in system
     assert "不要" in system

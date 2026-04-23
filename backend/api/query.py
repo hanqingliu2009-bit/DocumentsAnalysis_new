@@ -116,7 +116,6 @@ async def query(request: QueryRequest):
             question=request.question,
             document_ids=request.document_ids,
             top_k=request.top_k,
-            allow_general_llm_when_empty=False,
         )
 
         if result.get("error"):
@@ -208,7 +207,6 @@ async def chat(request: ChatRequest):
             top_k=request.top_k,
             # Embed only the latest user turn; long history wrecks semantic search.
             retrieval_query=request.message.strip(),
-            allow_general_llm_when_empty=True,
         )
 
         if result.get("error"):

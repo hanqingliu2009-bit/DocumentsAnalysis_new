@@ -37,8 +37,6 @@ class RAGPipeline:
         document_ids: Optional[List[str]] = None,
         top_k: Optional[int] = None,
         retrieval_query: Optional[str] = None,
-        *,
-        allow_general_llm_when_empty: bool = False,
     ) -> dict:
         """
         Execute a RAG query: retrieve relevant chunks and generate answer.
@@ -49,8 +47,9 @@ class RAGPipeline:
             top_k: Number of chunks to retrieve (default from settings)
             retrieval_query: If set, use this string only for embedding / vector search
                 (avoids diluting retrieval when ``question`` includes long chat history).
-            allow_general_llm_when_empty: If True (e.g. /api/chat), may call the LLM with no
-                document context when retrieval is empty and settings allow it.
+
+        When retrieval returns no chunks but VOLCENGINE_API_KEY and LLM_MODEL are set,
+        the pipeline calls the LLM without document context (no fixed canned replies).
 
         Returns:
             Dict with answer, sources, and metadata
@@ -73,9 +72,7 @@ class RAGPipeline:
 
             if not retrieved:
                 if (
-                    allow_general_llm_when_empty
-                    and settings.CHAT_ALLOW_GENERAL_WITHOUT_DOCS
-                    and settings.VOLCENGINE_API_KEY
+                    settings.VOLCENGINE_API_KEY
                     and str(settings.VOLCENGINE_API_KEY).strip()
                     and str(self.model).strip()
                 ):
@@ -90,7 +87,10 @@ class RAGPipeline:
                         "context_used": 0,
                     }
                 return {
-                    "answer": self._no_context_answer(search_text, full_prompt=question),
+                    "answer": (
+                        "未配置大模型接口：请在 backend/.env 中设置 VOLCENGINE_API_KEY 与 LLM_MODEL 后重启。"
+                        "知识库未命中片段时也需要这两项才能生成回答。"
+                    ),
                     "sources": [],
                     "confidence": 0.0,
                     "context_used": 0,
@@ -149,27 +149,6 @@ class RAGPipeline:
                 "confidence": 0.0,
                 "error": str(e),
             }
-
-    def _no_context_answer(self, question: str, full_prompt: Optional[str] = None) -> str:
-        """User-facing text when retrieval returns nothing (empty index or no semantic match)."""
-        # Greeting / small talk: use the short retrieval string so chat history does not hide "hello"
-        probe = (question or "").strip()
-        haystack = full_prompt if full_prompt else question
-        q = probe.lower()
-        compact = "".join(q.split())
-        if any(
-            g in haystack
-            for g in ("你好", "您好", "在吗", "早上好", "晚上好", "hi", "hello", "hey")
-        ) or q in ("hi", "hello", "hey", "thanks", "thank you") or compact in ("thankyou",):
-            return (
-                "您好！我是文档问答助手。"
-                "（说明：当前没有在向量库中匹配到文档片段，因此这是预设说明，并未调用大模型。）"
-                "请先上传并在 Documents 中处理完成的文档，再用与文档内容相关的问题提问。"
-            )
-        return (
-            "在当前已索引的文档中没有找到与这个问题相关的内容。"
-            "请确认已在「Documents」中上传且状态为 completed，并尽量用与文档主题相关的问题提问。"
-        )
 
     def _build_context(self, retrieved: List[tuple]) -> str:
         """Build context string from retrieved chunks."""

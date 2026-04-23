@@ -44,7 +44,8 @@ class TestQueryEndpoint:
             assert len(data["sources"]) == 1
             assert data["confidence"] == 0.95
             kw = mock_pipeline.query.call_args.kwargs
-            assert kw.get("allow_general_llm_when_empty") is False
+            assert kw.get("document_ids") == ["doc-1", "doc-2"]
+            assert kw.get("top_k") == 5
 
     def test_query_missing_question(self, test_client):
         """Test query without question field."""
@@ -187,7 +188,7 @@ class TestChatEndpoint:
             assert data["message"] == "Chat response"
             assert len(data["sources"]) == 1
             kw = mock_pipeline.query.call_args.kwargs
-            assert kw.get("allow_general_llm_when_empty") is True
+            assert kw.get("retrieval_query") == "Hello"
 
     def test_chat_with_history(self, test_client):
         """Test chat with history."""
@@ -211,7 +212,7 @@ class TestChatEndpoint:
             )
 
             assert response.status_code == 200
-            assert mock_pipeline.query.call_args.kwargs.get("allow_general_llm_when_empty") is True
+            assert mock_pipeline.query.call_args.kwargs.get("retrieval_query") == "Follow-up question"
 
     def test_chat_missing_message(self, test_client):
         """Test chat without message field."""
