@@ -37,6 +37,10 @@ def test_settings(temp_dir):
         VOLCENGINE_API_KEY="test-api-key",
         VOLCENGINE_BASE_URL="https://ark.cn-beijing.volces.com/api/v3",
         DEBUG=True,
+        EMBEDDING_BACKEND="local",
+        EMBEDDING_MODEL="sentence-transformers/all-MiniLM-L6-v2",
+        EMBEDDING_DIMENSION=384,
+        CHROMADB_COLLECTION="test_chroma_collection",
     )
 
 

@@ -2,6 +2,7 @@
 from typing import Dict, List, Optional, Tuple
 
 import numpy as np
+import openai
 import chromadb
 from chromadb.config import Settings as ChromaSettings
 
@@ -12,8 +13,8 @@ from core.document import DocumentChunk
 class VectorStore:
     """ChromaDB vector store for document chunks."""
 
-    def __init__(self, collection_name: str = "document_chunks"):
-        self.collection_name = collection_name
+    def __init__(self, collection_name: Optional[str] = None):
+        self.collection_name = collection_name or settings.CHROMADB_COLLECTION
         self.client = None
         self.collection = None
         self._initialize()
@@ -170,25 +171,61 @@ class EmbeddingGenerator:
         self._model = None
 
     def _load_model(self):
-        """Lazy load the embedding model."""
+        """Lazy load the local sentence-transformers model."""
         if self._model is None:
             from sentence_transformers import SentenceTransformer
-            self._model = SentenceTransformer(self.model_name)
+
+            mid = (self.model_name or "").strip() or "sentence-transformers/all-MiniLM-L6-v2"
+            self._model = SentenceTransformer(mid)
         return self._model
+
+    def _embed_local(self, texts: List[str]) -> List[List[float]]:
+        model = self._load_model()
+        raw = model.encode(texts)
+        arr = np.asarray(raw, dtype=np.float64)
+        if arr.ndim == 1:
+            return [arr.tolist()]
+        return arr.tolist()
+
+    def _embed_volcengine(self, texts: List[str]) -> List[List[float]]:
+        """Call Ark OpenAI-compatible ``/embeddings`` (豆包 doubao-embedding 等)."""
+        key = settings.VOLCENGINE_API_KEY
+        model = (self.model_name or "").strip()
+        if not key or not str(key).strip():
+            raise ValueError(
+                "EMBEDDING_BACKEND=volcengine requires VOLCENGINE_API_KEY in backend/.env."
+            )
+        if not model:
+            raise ValueError(
+                "EMBEDDING_BACKEND=volcengine requires EMBEDDING_MODEL (embedding endpoint ID, e.g. ep-...)."
+            )
+        client = openai.OpenAI(
+            api_key=str(key).strip(),
+            base_url=str(settings.VOLCENGINE_BASE_URL).rstrip("/"),
+        )
+        out: List[List[float]] = []
+        batch_size = 16
+        for i in range(0, len(texts), batch_size):
+            batch = texts[i : i + batch_size]
+            resp = client.embeddings.create(model=model, input=batch)
+            ordered = sorted(resp.data, key=lambda d: d.index)
+            for row in ordered:
+                out.append([float(x) for x in row.embedding])
+        return out
 
     def embed_texts(self, texts: List[str]) -> List[List[float]]:
         """Generate embeddings for a list of texts."""
         if not texts:
             return []
 
-        model = self._load_model()
-        # Avoid convert_to_list=True: newer sentence-transformers reject unknown kwargs.
-        raw = model.encode(texts)
-        # Chroma expects nested lists of Python float, not np.float32 / numpy rows.
-        arr = np.asarray(raw, dtype=np.float64)
-        if arr.ndim == 1:
-            return [arr.tolist()]
-        return arr.tolist()
+        backend = (settings.EMBEDDING_BACKEND or "volcengine").strip().lower()
+        if backend == "local":
+            return self._embed_local(texts)
+        if backend in ("volcengine", "ark", "doubao"):
+            return self._embed_volcengine(texts)
+        raise ValueError(
+            f"Unknown EMBEDDING_BACKEND={settings.EMBEDDING_BACKEND!r}; use 'volcengine' or 'local'."
+        )
 
     def embed_text(self, text: str) -> List[float]:
         """Generate embedding for a single text."""

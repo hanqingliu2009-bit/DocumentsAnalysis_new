@@ -31,20 +31,26 @@ async def lifespan(app: FastAPI):
     print(f"Loaded {document_store.count()} documents")
     print(f"Vector store contains {vector_store.get_chunk_count()} chunks")
 
-    # Warm up embedding model so first chat/upload does not appear to "hang" with no server log.
+    # Warm up embedding so first chat/upload does not appear to "hang" with no server log.
     try:
-        if settings.TRANSFORMERS_OFFLINE:
-            print(
-                "Loading embedding model（离线模式：从本地缓存加载，不访问 Hugging Face Hub）..."
-            )
-        else:
-            print(
-                "Loading embedding model (first run may download from Hugging Face; can take several minutes)..."
-            )
         from storage.vector_store import EmbeddingGenerator
 
+        backend = (settings.EMBEDDING_BACKEND or "volcengine").strip().lower()
+        if backend == "local":
+            if settings.TRANSFORMERS_OFFLINE:
+                print(
+                    "Loading local embedding model（离线模式：从本地缓存加载，不访问 Hugging Face Hub）..."
+                )
+            else:
+                print(
+                    "Loading local embedding model (first run may download from Hugging Face; can take several minutes)..."
+                )
+        else:
+            print(
+                f"Warming up Ark embeddings (backend={settings.EMBEDDING_BACKEND}, model={settings.EMBEDDING_MODEL or 'unset'})..."
+            )
         EmbeddingGenerator().embed_text("warmup")
-        print("Embedding model ready.")
+        print("Embedding backend ready.")
     except Exception as e:
         print(f"Warning: embedding warmup failed (first request will retry): {e}")
 

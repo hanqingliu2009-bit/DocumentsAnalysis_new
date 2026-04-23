@@ -47,8 +47,15 @@ class Settings(BaseSettings):
     # Processing Configuration
     CHUNK_SIZE: int = 512
     CHUNK_OVERLAP: int = 50
-    EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
-    EMBEDDING_DIMENSION: int = 384
+    # Embeddings: "volcengine" = Ark OpenAI-compatible POST .../embeddings (豆包 doubao-embedding 等);
+    # "local" = sentence-transformers (Hugging Face weights).
+    EMBEDDING_BACKEND: str = "volcengine"
+    # volcengine: embedding 接入点 ID（常为 ep-...），与 LLM 的 LLM_MODEL 可不同；local: Hugging Face 模型 id。
+    EMBEDDING_MODEL: str = ""
+    # 必须与方舟控制台该嵌入模型输出维度一致（常见 2560 / 1024 等，以控制台为准）。
+    EMBEDDING_DIMENSION: int = 2560
+    # 切换嵌入模型或维度时请换新集合名或清空 vector_db，避免不同维度混写。
+    CHROMADB_COLLECTION: str = "document_chunks"
     # If set: this directory is created and HF_HOME defaults here (setdefault) so Hub / sentence-transformers
     # weights live under a known path for backup and offline copy. Relative paths are under backend/ (BASE_DIR).
     EMBEDDING_CACHE_DIR: Optional[Path] = None

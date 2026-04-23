@@ -20,6 +20,9 @@ class TestSettings:
             VOLCENGINE_API_KEY=None,
             VOLCENGINE_BASE_URL="https://ark.cn-beijing.volces.com/api/v3",
             LLM_MODEL="",
+            EMBEDDING_BACKEND="local",
+            EMBEDDING_MODEL="sentence-transformers/all-MiniLM-L6-v2",
+            EMBEDDING_DIMENSION=384,
         )
 
         assert settings.HOST == "0.0.0.0"
@@ -30,6 +33,7 @@ class TestSettings:
         assert settings.LLM_MODEL == ""
         assert settings.CHUNK_SIZE == 512
         assert settings.CHUNK_OVERLAP == 50
+        assert settings.EMBEDDING_BACKEND == "local"
         assert settings.EMBEDDING_DIMENSION == 384
 
     def test_embedding_cache_dir_sets_hf_home(self, temp_dir, monkeypatch):

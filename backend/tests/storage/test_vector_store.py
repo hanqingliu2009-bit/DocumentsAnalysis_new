@@ -7,12 +7,20 @@ from unittest.mock import MagicMock, patch
 import numpy as np
 import pytest
 
+from config import settings
 from core.document import DocumentChunk
 from storage.vector_store import EmbeddingGenerator, VectorStore
 
 
 class TestEmbeddingGenerator:
     """Test cases for EmbeddingGenerator."""
+
+    @pytest.fixture(autouse=True)
+    def _local_hf_embedding_backend(self, monkeypatch):
+        """HF path tests; default repo settings use volcengine API."""
+        monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "local")
+        monkeypatch.setattr(settings, "EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
+        monkeypatch.setattr(settings, "EMBEDDING_DIMENSION", 384)
 
     def test_initialization(self):
         """Test that generator initializes with model name."""
