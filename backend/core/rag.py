@@ -185,12 +185,18 @@ class RAGPipeline:
         messages = [
             {
                 "role": "system",
-                "content": "You are a technical support assistant. Answer the question based ONLY on the provided context. If the context doesn't contain enough information, say 'I don't have enough information to answer this.' Cite specific sources (e.g., 'According to Source 1...') when providing information."
+                "content": (
+                    "你是技术支持助手。请仅根据用户消息中提供的 Context 作答；"
+                    "若 Context 不足以回答，须明确说明信息不足，不要编造 Context 中没有的内容。"
+                    "引用时请标明来源编号（例如「根据来源 1…」）。"
+                    "回答语言必须与用户问题一致：用户使用中文提问时用中文作答；"
+                    "用户使用英文或其他语言时，用与用户相同的语言作答。"
+                ),
             },
             {
                 "role": "user",
-                "content": f"Context:\n{context}\n\nQuestion: {question}\n\nAnswer:"
-            }
+                "content": f"Context:\n{context}\n\nQuestion: {question}\n\nAnswer:",
+            },
         ]
 
         response = self.client.chat.completions.create(
@@ -213,6 +219,7 @@ class RAGPipeline:
         core = (
             "你是通用助手。本轮「向量语义检索」没有返回任何可引用的文档片段，因此不要编造具体条文、页码或文件名；"
             "也不要假装阅读了用户磁盘上的文件内容。"
+            "回答语言与用户问题一致：用户用中文提问时用中文作答。"
         )
         if chunk_total == 0:
             return (
