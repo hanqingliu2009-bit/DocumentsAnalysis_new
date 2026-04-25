@@ -1,3 +1,5 @@
+# Local-only Cursor (personal rules, not part of project source)
+.cursor/
 
 # Secrets and local env (never commit)
 .env
