@@ -91,7 +91,9 @@ LLM_MODEL=你的接入点或模型名
 
 ## 5. 配置项代码（`backend/config.py`）
 
-```75:80:backend/config.py
+来源：[`backend/config.py`](../backend/config.py) 第 75–80 行
+
+```python
     # RAG backend: "chromadb" = local embeddings + Chroma; "external_graph" = supplier graph HTTP + LLM.
     RAG_BACKEND: str = "chromadb"
     EXTERNAL_GRAPH_API_URL: str = "http://14.103.133.160:8022/graph/info"
@@ -118,7 +120,9 @@ LLM_MODEL=你的接入点或模型名
 
 字典时尝试常见键名（`head`/`subject`、`relation`/`predicate`、`tail`/`object` 等），格式化为 `头 -关系-> 尾`：
 
-```15:42:backend/core/external_graph.py
+来源：[`backend/core/external_graph.py`](../backend/core/external_graph.py) 第 15–42 行
+
+```python
 def _triplet_item_to_line(item: Any) -> str:
     """Turn one graph triplet (string or common dict shape) into one human-readable line."""
     if item is None:
@@ -153,7 +157,9 @@ def _triplet_item_to_line(item: Any) -> str:
 
 通过 **`import config`** 使用 **`config.settings`**，便于测试里 `patch("config.settings", ...)`。
 
-```81:162:backend/core/external_graph.py
+来源：[`backend/core/external_graph.py`](../backend/core/external_graph.py) 第 81–162 行
+
+```python
 def fetch_graph_context(query: str) -> Tuple[str, List[dict], Dict[str, Any]]:
     """
     POST JSON {query, domain, search_type} to the supplier graph API.
@@ -240,7 +246,9 @@ def fetch_graph_context(query: str) -> Tuple[str, List[dict], Dict[str, Any]]:
 
 ### 6.3 图库无命中时的系统提示（无上下文走 LLM）
 
-```164:169:backend/core/external_graph.py
+来源：[`backend/core/external_graph.py`](../backend/core/external_graph.py) 第 164–169 行
+
+```python
 def build_graph_system_prompt_no_hits() -> str:
     return (
         "你是通用助手。本轮「图数据库检索」没有返回可用的三元组、摘要或文本块；"
@@ -254,7 +262,9 @@ def build_graph_system_prompt_no_hits() -> str:
 
 ### 7.1 `query()` 入口：按 `RAG_BACKEND` 分流
 
-```57:60:backend/core/rag.py
+来源：[`backend/core/rag.py`](../backend/core/rag.py) 第 57–60 行
+
+```python
         try:
             backend = (getattr(settings, "RAG_BACKEND", "chromadb") or "chromadb").strip().lower()
             if backend == "external_graph":
@@ -263,7 +273,9 @@ def build_graph_system_prompt_no_hits() -> str:
 
 ### 7.2 外部图路径：取上下文 → 校验 LLM 配置 → 生成回答
 
-```164:248:backend/core/rag.py
+来源：[`backend/core/rag.py`](../backend/core/rag.py) 第 164–248 行
+
+```python
     def _query_external_graph(
         self,
         question: str,
@@ -353,7 +365,9 @@ def build_graph_system_prompt_no_hits() -> str:
 
 ### 7.3 图上下文专用对话模板
 
-```250:274:backend/core/rag.py
+来源：[`backend/core/rag.py`](../backend/core/rag.py) 第 250–274 行
+
+```python
     def _generate_answer_graph(self, question: str, context: str) -> str:
         """LLM answer when context comes from the external knowledge graph."""
         messages = [
@@ -387,7 +401,9 @@ def build_graph_system_prompt_no_hits() -> str:
 
 在 `RAG_BACKEND=external_graph` 时不再调用 `EmbeddingGenerator().embed_text("warmup")`，避免无嵌入配置时的无意义启动开销：
 
-```34:60:backend/main.py
+来源：[`backend/main.py`](../backend/main.py) 第 34–60 行
+
+```python
     # Warm up embedding so first chat/upload does not appear to "hang" with no server log.
     try:
         rag_backend = (getattr(settings, "RAG_BACKEND", "chromadb") or "chromadb").strip().lower()
@@ -423,7 +439,9 @@ def build_graph_system_prompt_no_hits() -> str:
 
 多轮对话时，**整段历史 + 当前问句** 仍传给大模型作为 `question`；**仅当前用户一句** 作为 `retrieval_query` 发给图接口（与原先向量检索「只 embed 最新一句」一致）：
 
-```215:224:backend/api/query.py
+来源：[`backend/api/query.py`](../backend/api/query.py) 第 215–224 行
+
+```python
         # Combine history with current question
         full_question = f"{history_context}\nCurrent question: {request.message}"
 
@@ -461,3 +479,121 @@ python -m pytest tests/core/test_external_graph.py -q -o addopts=
 ## 12. 与仓库内代码的同步
 
 文档中的「`startLine:endLine:path`」代码块与仓库文件行号一致，便于在 IDE 中对照。若你后续改动上述文件，可用 diff 检查本节是否需更新行号或片段。
+
+---
+
+## 13. 补充：应用如何“对接”外部图接口（从分流到 LLM）
+
+这一条链路可以理解为：**RAG 入口先按 `RAG_BACKEND` 选检索来源** → **图模式下发 HTTP 请求拿到三元组/摘要/文本块** → **把这些内容拼成上下文喂给 LLM** → **把 sources 原样返回给前端展示引用**。
+
+### 13.1 关键分流点：只要 `external_graph` 就不走本地向量检索
+
+当 `RAG_BACKEND=external_graph` 时，`RAGPipeline.query()` 会直接 `return _query_external_graph(...)`，因此后面的 `EmbeddingGenerator()`、`vector_store.search()` 根本不会执行。
+
+来源：[`backend/core/rag.py`](../backend/core/rag.py) 第 57–62 行
+
+```python
+        try:
+            backend = (getattr(settings, "RAG_BACKEND", "chromadb") or "chromadb").strip().lower()
+            if backend == "external_graph":
+                return self._query_external_graph(question, retrieval_query)
+```
+
+### 13.2 HTTP 对接点：`fetch_graph_context()` 负责发请求与读配置
+
+它从 `config.settings` 读取 `EXTERNAL_GRAPH_API_URL / DOMAIN / SEARCH_TYPE / TIMEOUT`，并用 `httpx.Client(...).post(url, json=payload)` 发起请求。
+
+来源：[`backend/core/external_graph.py`](../backend/core/external_graph.py) 第 81–107 行
+
+```python
+def fetch_graph_context(query: str) -> Tuple[str, List[dict], Dict[str, Any]]:
+    cfg = config.settings
+    url = (cfg.EXTERNAL_GRAPH_API_URL or "").strip()
+    if not url:
+        raise ValueError("EXTERNAL_GRAPH_API_URL is empty")
+
+    payload = {
+        "query": query.strip(),
+        "domain": cfg.EXTERNAL_GRAPH_DOMAIN,
+        "search_type": cfg.EXTERNAL_GRAPH_SEARCH_TYPE,
+    }
+    timeout = float(cfg.EXTERNAL_GRAPH_TIMEOUT or 60.0)
+
+    with httpx.Client(timeout=timeout) as client:
+        response = client.post(url, json=payload)
+        response.raise_for_status()
+        body: Dict[str, Any] = response.json()
+```
+
+### 13.3 返回解析：把 `message.triplet/summary/chunk` 统一成字符串列表
+
+供应方返回里 `triplet` 可能是字符串，也可能是结构化字典；这里会把字典尽量格式化成 `头 -关系-> 尾`，避免把原始 JSON 直接塞进上下文影响可读性。
+
+来源：[`backend/core/external_graph.py`](../backend/core/external_graph.py) 第 15–49 行
+
+```python
+def _triplet_item_to_line(item: Any) -> str:
+    head_keys = ("head", "subject", "source", "h", "entity", "start", "from")
+    rel_keys = ("relation", "predicate", "rel", "type", "edge", "r")
+    tail_keys = ("tail", "object", "target", "t", "end", "to", "o")
+    # ... pick keys, format as "A -rel-> B" ...
+```
+
+接着会把 triplet/summary/chunk 组装成带 Markdown 小节标题的 `context`，并生成 `sources`（给 API 响应用）。
+
+来源：[`backend/core/external_graph.py`](../backend/core/external_graph.py) 第 113–162 行
+
+```python
+    message = _normalize_message(body.get("message"))
+    triplets = _as_str_list(message.get("triplet"))
+    summaries = _as_str_list(message.get("summary"))
+    chunks = _as_str_list(message.get("chunk"))
+
+    parts: List[str] = []
+    if triplets:
+        parts.append(f"## 图数据库三元组\n" + "\n".join(f"{i + 1}. {t}" for i, t in enumerate(triplets)))
+    if summaries:
+        parts.append(f"## 摘要\n" + "\n".join(f"{i + 1}. {t}" for i, t in enumerate(summaries)))
+    if chunks:
+        parts.append(f"## 文本块\n" + "\n".join(f"{i + 1}. {t}" for i, t in enumerate(chunks)))
+
+    context = "\n\n".join(parts).strip()
+    # ... build sources: graph-triplet-*, graph-summary-*, graph-chunk-* ...
+    return context, sources, {"response": body, "meta": meta}
+```
+
+### 13.4 回答生成：`_query_external_graph()` 把 `context` 注入到专用 prompt 里
+
+`_query_external_graph()` 会先取 `context/sources`，再校验本地 LLM 配置（`VOLCENGINE_API_KEY`、`LLM_MODEL`），最后走 `_generate_answer_graph(question, context)`。
+
+来源：[`backend/core/rag.py`](../backend/core/rag.py) 第 164–205 行
+
+```python
+    def _query_external_graph(self, question: str, retrieval_query: Optional[str]) -> dict:
+        from core.external_graph import build_graph_system_prompt_no_hits, fetch_graph_context
+        q = (retrieval_query or question).strip() or question.strip()
+        context, sources, _ = fetch_graph_context(q)
+        # ... no-hits / config checks ...
+        answer = self._generate_answer_graph(question, context)
+        return {"answer": answer, "sources": sources, "confidence": 1.0, "context_used": len(sources), "answer_mode": "external_graph"}
+```
+
+在 `_generate_answer_graph()` 里，会把“图数据库检索结果”整体作为用户消息的一部分传给 `chat.completions`，并在 system prompt 里强调“只能基于图检索结果作答”。
+
+来源：[`backend/core/rag.py`](../backend/core/rag.py) 第 250–274 行
+
+```python
+    def _generate_answer_graph(self, question: str, context: str) -> str:
+        messages = [
+            {"role": "system", "content": "你是技术支持助手。请仅根据用户消息中提供的「图数据库检索结果」作答；..."},
+            {"role": "user", "content": f"图数据库检索结果:\n{context}\n\nQuestion: {question}\n\nAnswer:"},
+        ]
+        response = self.client.chat.completions.create(model=self.model, messages=messages, max_tokens=self.max_tokens, temperature=self.temperature)
+        return response.choices[0].message.content
+```
+
+### 13.5 如何验证“当前确实在走外部图接口”
+
+- **配置层面**：确认 `backend/.env` 里 `RAG_BACKEND=external_graph`，且 `EXTERNAL_GRAPH_API_URL` 指向正确环境。
+- **行为层面**：问答接口（`/api/chat`、`/api/query`）在图模式下不会触发本地 `EmbeddingGenerator`；会对 `EXTERNAL_GRAPH_API_URL` 发起 POST（payload 含 `query/domain/search_type`）。
+- **返回层面**：命中上下文时 `answer_mode` 应为 `external_graph`；图未命中但 LLM 可用时为 `llm_direct`；图请求失败则 `answer_mode` 为 `system` 且 `error` 字段包含异常信息。
