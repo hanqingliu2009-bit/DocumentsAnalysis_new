@@ -100,6 +100,16 @@ LLM_MODEL=你的接入点或模型名
     EXTERNAL_GRAPH_TIMEOUT: float = 60.0
 ```
 
+### 5.1 为何 `config.py` 里 `RAG_BACKEND` 默认仍是 `chromadb`？
+
+同一套代码要**同时支持**两种 RAG：本地 Embedding + Chroma（`chromadb`）与供应方图 HTTP（`external_graph`）。`config.py` 里的默认值表示**「未通过环境变量覆盖时的安全默认」**：
+
+- **向后兼容**：别人拉代码、CI、未配 `.env` 的机器若默认就是 `external_graph`，启动后会立刻依赖外网/内网图服务地址，容易直接失败；默认 `chromadb` 仍可按原方式本地跑文档问答。
+- **真正启用图库**：在 **`backend/.env`**（或进程环境变量）中设置 **`RAG_BACKEND=external_graph`** 即可。pydantic-settings 会**覆盖**源码中的默认值，运行时 `settings.RAG_BACKEND` 即为图模式，**不必**为了用图而改 `config.py` 里的那一行。
+- **分支策略**：`nanxing-db` 上也可把默认值改成 `external_graph`，但合并到 `main` 或给其他环境用时风险更大；通常保持代码默认 `chromadb`，仅在**部署图方案的环境**里用 `.env` 切换。
+
+**一句话**：源码里写 `chromadb` 是「零配置也能跑」的默认；要用供应方图数据库，在 `.env` 里显式写 `RAG_BACKEND=external_graph`。
+
 ---
 
 ## 6. 图 HTTP 客户端与上下文拼装（`backend/core/external_graph.py`）
