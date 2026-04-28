@@ -55,6 +55,10 @@ class RAGPipeline:
             Dict with answer, sources, and metadata
         """
         try:
+            backend = (getattr(settings, "RAG_BACKEND", "chromadb") or "chromadb").strip().lower()
+            if backend == "external_graph":
+                return self._query_external_graph(question, retrieval_query)
+
             # Step 1: Embed the search query (short, retrieval-focused)
             from storage.vector_store import EmbeddingGenerator
 
@@ -156,6 +160,118 @@ class RAGPipeline:
                 "error": str(e),
                 "answer_mode": "system",
             }
+
+    def _query_external_graph(
+        self,
+        question: str,
+        retrieval_query: Optional[str],
+    ) -> dict:
+        """Retrieve context from supplier graph HTTP API, then answer with the LLM."""
+        from core.external_graph import (
+            build_graph_system_prompt_no_hits,
+            fetch_graph_context,
+        )
+
+        q = (retrieval_query or question).strip() or question.strip()
+        try:
+            context, sources, _ = fetch_graph_context(q)
+        except Exception as e:
+            return {
+                "answer": f"图数据库请求失败：{str(e)}",
+                "sources": [],
+                "confidence": 0.0,
+                "context_used": 0,
+                "error": str(e),
+                "answer_mode": "system",
+            }
+
+        if not context.strip():
+            if (
+                settings.VOLCENGINE_API_KEY
+                and str(settings.VOLCENGINE_API_KEY).strip()
+                and str(self.model).strip()
+            ):
+                answer = self._generate_answer_without_context(
+                    question,
+                    system_prompt=build_graph_system_prompt_no_hits(),
+                )
+                return {
+                    "answer": answer,
+                    "sources": [],
+                    "confidence": 0.0,
+                    "context_used": 0,
+                    "answer_mode": "llm_direct",
+                }
+            return {
+                "answer": (
+                    "图数据库未返回三元组或摘要；未配置大模型时无法生成补充回答。"
+                    "请在 backend/.env 中设置 VOLCENGINE_API_KEY 与 LLM_MODEL 后重启。"
+                ),
+                "sources": [],
+                "confidence": 0.0,
+                "context_used": 0,
+                "answer_mode": "system",
+            }
+
+        if not settings.VOLCENGINE_API_KEY or not str(settings.VOLCENGINE_API_KEY).strip():
+            return {
+                "answer": (
+                    "已从图数据库取回上下文，但未配置 VOLCENGINE_API_KEY，无法调用大模型。"
+                    "请在 backend/.env 中设置后重启服务。"
+                ),
+                "sources": sources,
+                "confidence": 1.0,
+                "context_used": len(sources),
+                "answer_mode": "system",
+            }
+
+        if not str(self.model).strip():
+            return {
+                "answer": (
+                    "已从图数据库取回上下文，但未配置 LLM_MODEL。"
+                    "请在 backend/.env 中设置接入点或模型名后重启。"
+                ),
+                "sources": sources,
+                "confidence": 1.0,
+                "context_used": len(sources),
+                "answer_mode": "system",
+            }
+
+        answer = self._generate_answer_graph(question, context)
+
+        return {
+            "answer": answer,
+            "sources": sources,
+            "confidence": 1.0,
+            "context_used": len(sources),
+            "answer_mode": "external_graph",
+        }
+
+    def _generate_answer_graph(self, question: str, context: str) -> str:
+        """LLM answer when context comes from the external knowledge graph."""
+        messages = [
+            {
+                "role": "system",
+                "content": (
+                    "你是技术支持助手。请仅根据用户消息中提供的「图数据库检索结果」作答；"
+                    "其中可能包含三元组（实体-关系-实体）、摘要与文本块。"
+                    "若这些信息不足以回答，须明确说明信息不足，不要编造未出现的事实。"
+                    "引用时可概括性说明来自图数据库检索结果。"
+                    "回答语言必须与用户问题一致。"
+                ),
+            },
+            {
+                "role": "user",
+                "content": f"图数据库检索结果:\n{context}\n\nQuestion: {question}\n\nAnswer:",
+            },
+        ]
+        response = self.client.chat.completions.create(
+            model=self.model,
+            messages=messages,
+            max_tokens=self.max_tokens,
+            temperature=self.temperature,
+        )
+        return response.choices[0].message.content
 
     def _document_display_name(self, document_id: str) -> str:
         """Human-readable document label for context and citations."""

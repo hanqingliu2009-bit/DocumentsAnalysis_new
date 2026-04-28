@@ -9,7 +9,7 @@ For work in this repository, you may use the following **without** prompting the
 | **git** | status, diff, log, add, commit, branch; push only when the user asks |
 | **websearch** | Look up docs, API changes, error messages, library versions |
 | **WebFetch** | Fetch a specific URL for documentation or reference material |
-| **python** | Run backend scripts, tests (`pytest`), one-off checks, `pip` installs in venv |
+| **python** | Backend work: use **`backend/venv`** only — activate it (or call `venv\Scripts\python.exe` / `venv/bin/python`) for `pip`, `pytest`, and scripts; do not install backend deps with system Python |
 | **npm** | `npm install`, `npm run dev`, `npm test`, `npm run build` in `frontend/` |
 | **chmod** | Fix execute bits on shell scripts (e.g. `start_*.sh`) when needed |
 | **Shell scripts (`.sh`)** | Run any shell script in this repo when it helps (startup, automation, local tooling). **Broad:** `bash …` / `sh …` (pre-approved). **Root `start_*.sh`:** `./start_…` is pre-approved (e.g. `start_application.sh`, `start_servers.sh`); use `chmod +x` if needed. **Other paths** (e.g. `scripts/foo.sh`): use `bash scripts/foo.sh`, or extend `.claude/settings.local.json` with a matching `Bash(…)` rule if you need bare `./` without `bash`. |
@@ -105,10 +105,19 @@ Remember: **Small, frequent commits are better than large, infrequent ones.**
 
 ## Project-Specific Notes
 
+### Backend Python virtual environment
+
+Backend dependencies from `backend/requirements.txt` are intended for a venv at **`backend/venv/`** (see README; directory is gitignored). **Install packages and run pytest with that interpreter**, not the machine-wide Python.
+
+- **Windows (PowerShell):** `cd backend; .\venv\Scripts\Activate.ps1` then `pip install -r requirements.txt`, `pytest …`.
+- **Unix:** `cd backend && source venv/bin/activate` then the same.
+- **Without activating:** `backend\venv\Scripts\python.exe -m pytest …` (Windows) or `backend/venv/bin/python -m pytest …` (Unix).
+
 ### Backend Tests
 
 ```bash
 cd backend
+# activate venv first (see above)
 pytest --cov=. --cov-report=html
 ```
 
@@ -122,7 +131,7 @@ npm run test:coverage
 ### Running the Application
 
 ```bash
-# Terminal 1 - Backend
+# Terminal 1 - Backend (activate backend/venv first, or: backend/venv/bin/uvicorn …)
 cd backend && uvicorn main:app --reload
 
 # Terminal 2 - Frontend

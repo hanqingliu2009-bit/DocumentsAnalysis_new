@@ -33,27 +33,31 @@ async def lifespan(app: FastAPI):
 
     # Warm up embedding so first chat/upload does not appear to "hang" with no server log.
     try:
-        from storage.vector_store import EmbeddingGenerator
-
-        backend = (settings.EMBEDDING_BACKEND or "volcengine").strip().lower()
-        if backend == "local":
-            if settings.TRANSFORMERS_OFFLINE:
-                print(
-                    "Loading local embedding model（离线模式：从本地缓存加载，不访问 Hugging Face Hub）..."
-                )
-            else:
-                print(
-                    "Loading local embedding model (first run may download from Hugging Face; can take several minutes)..."
-                )
+        rag_backend = (getattr(settings, "RAG_BACKEND", "chromadb") or "chromadb").strip().lower()
+        if rag_backend == "external_graph":
+            print("RAG_BACKEND=external_graph: skipping local embedding warmup.")
         else:
-            mm = bool(getattr(settings, "EMBEDDING_USE_MULTIMODAL_API", False))
-            api_note = ", multimodal /embeddings/multimodal" if mm else ""
-            print(
-                f"Warming up Ark embeddings (backend={settings.EMBEDDING_BACKEND}, "
-                f"model={settings.EMBEDDING_MODEL or 'unset'}{api_note})..."
-            )
-        EmbeddingGenerator().embed_text("warmup")
-        print("Embedding backend ready.")
+            from storage.vector_store import EmbeddingGenerator
+
+            backend = (settings.EMBEDDING_BACKEND or "volcengine").strip().lower()
+            if backend == "local":
+                if settings.TRANSFORMERS_OFFLINE:
+                    print(
+                        "Loading local embedding model（离线模式：从本地缓存加载，不访问 Hugging Face Hub）..."
+                    )
+                else:
+                    print(
+                        "Loading local embedding model (first run may download from Hugging Face; can take several minutes)..."
+                    )
+            else:
+                mm = bool(getattr(settings, "EMBEDDING_USE_MULTIMODAL_API", False))
+                api_note = ", multimodal /embeddings/multimodal" if mm else ""
+                print(
+                    f"Warming up Ark embeddings (backend={settings.EMBEDDING_BACKEND}, "
+                    f"model={settings.EMBEDDING_MODEL or 'unset'}{api_note})..."
+                )
+            EmbeddingGenerator().embed_text("warmup")
+            print("Embedding backend ready.")
     except Exception as e:
         print(f"Warning: embedding warmup failed (first request will retry): {e}")
 

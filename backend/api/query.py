@@ -55,7 +55,7 @@ class QueryResponse(BaseModel):
     context_used: int
     answer_mode: str = Field(
         default="knowledge_base",
-        description="knowledge_base: RAG from chunks; llm_direct: no retrieval; system: fixed message",
+        description="knowledge_base | external_graph | llm_direct | system",
     )
 
 
@@ -111,7 +111,7 @@ class ChatResponse(BaseModel):
     context_used: int = Field(default=0, description="Number of chunks passed to the LLM context")
     answer_mode: str = Field(
         default="knowledge_base",
-        description="knowledge_base | llm_direct | system",
+        description="knowledge_base | external_graph | llm_direct | system",
     )
 
 
