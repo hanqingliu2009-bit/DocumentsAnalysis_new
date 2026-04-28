@@ -38,6 +38,9 @@ function formatAssistantSourceLine(message: Message): string | null {
     if (titles.length > 0) return `来源：知识库（${titles.join('、')}）`
     return '来源：知识库（已根据检索片段生成）'
   }
+  if (mode === 'external_graph') {
+    return '来源：供应方图数据库检索结果（三元组/摘要/文本块）+ 大模型生成'
+  }
   if (mode === 'llm_direct') return '来源：本轮未命中知识库片段，由大模型直接生成'
   if (mode === 'system') return '来源：系统提示（未调用大模型或配置不完整）'
   return null

@@ -15,7 +15,7 @@ export interface Document {
   error_message?: string;
 }
 
-export type AnswerMode = 'knowledge_base' | 'llm_direct' | 'system';
+export type AnswerMode = 'knowledge_base' | 'external_graph' | 'llm_direct' | 'system';
 
 export interface Message {
   id: string;
