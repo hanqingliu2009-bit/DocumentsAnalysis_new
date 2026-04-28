@@ -12,6 +12,36 @@ import config
 logger = logging.getLogger(__name__)
 
 
+def _triplet_item_to_line(item: Any) -> str:
+    """Turn one graph triplet (string or common dict shape) into one human-readable line."""
+    if item is None:
+        return ""
+    if isinstance(item, str):
+        return item.strip()
+    if not isinstance(item, dict):
+        return str(item).strip()
+
+    head_keys = ("head", "subject", "source", "h", "entity", "start", "from")
+    rel_keys = ("relation", "predicate", "rel", "type", "edge", "r")
+    tail_keys = ("tail", "object", "target", "t", "end", "to", "o")
+
+    def pick(keys: tuple[str, ...]) -> str:
+        for k in keys:
+            v = item.get(k)
+            if v is not None and str(v).strip():
+                return str(v).strip()
+        return ""
+
+    head = pick(head_keys)
+    rel = pick(rel_keys)
+    tail = pick(tail_keys)
+    if head and rel and tail:
+        return f"{head} -{rel}-> {tail}"
+    if head and tail:
+        return f"{head} -> {tail}"
+    return json.dumps(item, ensure_ascii=False)
+
+
 def _as_str_list(value: Any) -> List[str]:
     if value is None:
         return []
@@ -22,7 +52,11 @@ def _as_str_list(value: Any) -> List[str]:
         for item in value:
             if item is None:
                 continue
-            if isinstance(item, (dict, list)):
+            if isinstance(item, dict):
+                line = _triplet_item_to_line(item)
+                if line:
+                    out.append(line)
+            elif isinstance(item, list):
                 out.append(json.dumps(item, ensure_ascii=False))
             else:
                 s = str(item).strip()
@@ -47,6 +81,10 @@ def _normalize_message(raw: Any) -> Dict[str, Any]:
 def fetch_graph_context(query: str) -> Tuple[str, List[dict], Dict[str, Any]]:
     """
     POST JSON {query, domain, search_type} to the supplier graph API.
+
+    Expects a graph/RAG-style JSON body (e.g. ``success`` + ``message`` with
+    ``triplet``, ``summary``, ``chunk``). Triplets may be strings or dicts with
+    common keys (head/subject + relation/predicate + tail/object).
 
     Returns:
         (context_text_for_llm, sources_for_api_response, raw_body_for_debug)
