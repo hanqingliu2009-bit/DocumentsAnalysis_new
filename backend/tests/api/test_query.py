@@ -162,6 +162,59 @@ class TestSearchEndpoint:
             assert response.status_code == 500
 
 
+class TestExternalSearchEndpoint:
+    """Test cases for /api/external_search endpoint."""
+
+    def test_external_search_success(self, test_client):
+        """External graph search returns normalized sources without calling embeddings/LLM."""
+        fake_sources = [
+            {
+                "chunk_id": "graph-triplet-1",
+                "score": 1.0,
+                "text": "A -rel-> B",
+                "document_id": None,
+                "document_title": "图数据库·三元组",
+            },
+            {
+                "chunk_id": "graph-summary-1",
+                "score": 1.0,
+                "text": "summary",
+                "document_id": None,
+                "document_title": "图数据库·摘要",
+            },
+        ]
+        with patch(
+            "core.external_graph.fetch_graph_context",
+            return_value=("ctx", fake_sources, {"meta": {"triplet_count": 1}}),
+        ):
+            response = test_client.post(
+                "/api/external_search",
+                json={"query": "hello"},
+            )
+
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total"] == 2
+        assert len(data["results"]) == 2
+        assert data["meta"]["triplet_count"] == 1
+
+    def test_external_search_missing_query(self, test_client):
+        response = test_client.post("/api/external_search", json={})
+        assert response.status_code == 422
+
+    def test_external_search_empty_query(self, test_client):
+        response = test_client.post("/api/external_search", json={"query": ""})
+        assert response.status_code == 422
+
+    def test_external_search_error_handling(self, test_client):
+        with patch("core.external_graph.fetch_graph_context", side_effect=Exception("boom")):
+            response = test_client.post(
+                "/api/external_search",
+                json={"query": "x"},
+            )
+        assert response.status_code == 500
+
+
 class TestChatEndpoint:
     """Test cases for /api/chat endpoint."""
 

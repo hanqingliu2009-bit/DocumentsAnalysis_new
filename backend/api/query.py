@@ -83,6 +83,18 @@ class SearchResponse(BaseModel):
     total: int
 
 
+class ExternalSearchRequest(BaseModel):
+    """Request model for supplier graph search (no LLM)."""
+    query: str = Field(..., min_length=1, description="The search query")
+
+
+class ExternalSearchResponse(BaseModel):
+    """Response model for supplier graph search (no LLM)."""
+    results: List[SourceCitation]
+    total: int
+    meta: dict = Field(default_factory=dict, description="Graph response meta (counts, etc.)")
+
+
 class ChatMessage(BaseModel):
     """Chat message model."""
     role: str = Field(..., pattern="^(user|assistant|system)$")
@@ -189,6 +201,32 @@ async def search(request: SearchRequest):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Search failed: {str(e)}")
+
+
+@router.post("/external_search", response_model=ExternalSearchResponse)
+async def external_search(request: ExternalSearchRequest):
+    """
+    Supplier-hosted knowledge graph search (no LLM).
+
+    This endpoint bypasses local embeddings/Chroma and does a plain HTTP call to the
+    configured supplier graph API (EXTERNAL_GRAPH_API_URL). It returns normalized
+    "sources" similar to /api/query citations for easy UI consumption.
+    """
+    try:
+        from core.external_graph import fetch_graph_context
+
+        _context, sources, dbg = fetch_graph_context(request.query)
+        meta = {}
+        if isinstance(dbg, dict):
+            meta = dbg.get("meta") or {}
+
+        return ExternalSearchResponse(
+            results=[SourceCitation(**s) for s in (sources or [])],
+            total=len(sources or []),
+            meta=meta,
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"External search failed: {str(e)}")
 
 
 @router.post("/chat", response_model=ChatResponse)
