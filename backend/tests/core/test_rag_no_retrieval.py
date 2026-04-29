@@ -7,6 +7,12 @@ from config import settings
 from core.rag import RAGPipeline
 
 
+@pytest.fixture(autouse=True)
+def _force_rag_backend_chromadb(monkeypatch):
+    """These tests target Chroma retrieval; ignore RAG_BACKEND from backend/.env."""
+    monkeypatch.setattr(settings, "RAG_BACKEND", "chromadb")
+
+
 @pytest.fixture
 def mock_llm_client():
     client = MagicMock()

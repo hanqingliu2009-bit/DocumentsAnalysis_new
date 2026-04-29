@@ -5,12 +5,15 @@ from typing import List, Optional
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+# Always load backend/.env regardless of process cwd (uvicorn may be started from repo root).
+_BACKEND_DIR = Path(__file__).resolve().parent
+
 
 class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=str(_BACKEND_DIR / ".env"),
         env_file_encoding="utf-8",
         extra="ignore"
     )

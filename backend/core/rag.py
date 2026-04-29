@@ -26,10 +26,14 @@ class RAGPipeline:
             api_key=settings.VOLCENGINE_API_KEY,
             base_url=settings.VOLCENGINE_BASE_URL,
         )
-        self.model = settings.LLM_MODEL
         self.max_tokens = settings.MAX_TOKENS
         self.temperature = settings.TEMPERATURE
         self.top_k = settings.TOP_K_RETRIEVAL
+
+    @staticmethod
+    def _llm_model_id() -> str:
+        """Chat model id sent to the OpenAI-compatible API (Ark endpoint id or model name)."""
+        return str(settings.LLM_MODEL or "").strip()
 
     def query(
         self,
@@ -78,7 +82,7 @@ class RAGPipeline:
                 if (
                     settings.VOLCENGINE_API_KEY
                     and str(settings.VOLCENGINE_API_KEY).strip()
-                    and str(self.model).strip()
+                    and self._llm_model_id()
                 ):
                     answer = self._generate_answer_without_context(
                         question,
@@ -120,7 +124,7 @@ class RAGPipeline:
                     "answer_mode": "system",
                 }
 
-            if not str(self.model).strip():
+            if not self._llm_model_id():
                 return {
                     "answer": (
                         "未配置 LLM_MODEL。使用火山方舟时请在 backend/.env 中设置 LLM_MODEL 为控制台里的"
@@ -189,7 +193,7 @@ class RAGPipeline:
             if (
                 settings.VOLCENGINE_API_KEY
                 and str(settings.VOLCENGINE_API_KEY).strip()
-                and str(self.model).strip()
+                and self._llm_model_id()
             ):
                 answer = self._generate_answer_without_context(
                     question,
@@ -225,7 +229,7 @@ class RAGPipeline:
                 "answer_mode": "system",
             }
 
-        if not str(self.model).strip():
+        if not self._llm_model_id():
             return {
                 "answer": (
                     "已从图数据库取回上下文，但未配置 LLM_MODEL。"
@@ -266,7 +270,7 @@ class RAGPipeline:
             },
         ]
         response = self.client.chat.completions.create(
-            model=self.model,
+            model=self._llm_model_id(),
             messages=messages,
             max_tokens=self.max_tokens,
             temperature=self.temperature,
@@ -315,7 +319,7 @@ class RAGPipeline:
         ]
 
         response = self.client.chat.completions.create(
-            model=self.model,
+            model=self._llm_model_id(),
             messages=messages,
             max_tokens=self.max_tokens,
             temperature=self.temperature,
@@ -362,7 +366,7 @@ class RAGPipeline:
             {"role": "user", "content": question},
         ]
         response = self.client.chat.completions.create(
-            model=self.model,
+            model=self._llm_model_id(),
             messages=messages,
             max_tokens=self.max_tokens,
             temperature=self.temperature,

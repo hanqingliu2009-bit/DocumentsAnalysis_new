@@ -26,6 +26,10 @@ async def lifespan(app: FastAPI):
 
     # Startup
     print("Starting up Document Q&A API...")
+    print(
+        f"LLM: VOLCENGINE_BASE_URL={settings.VOLCENGINE_BASE_URL} "
+        f"LLM_MODEL={settings.LLM_MODEL!r}"
+    )
     document_store = DocumentStore()
     vector_store = VectorStore()
     print(f"Loaded {document_store.count()} documents")
