@@ -53,12 +53,21 @@ class VectorStore:
             ids.append(chunk.id)
             embeddings.append(chunk.embedding)
             documents.append(chunk.text)
-            metadatas.append({
+            meta: Dict[str, Any] = {
                 "document_id": chunk.document_id,
                 "chunk_index": chunk.chunk_index,
                 "start_char": chunk.start_char,
                 "end_char": chunk.end_char,
-            })
+            }
+            # Chroma metadata: str | int | float | bool only (no nested structures).
+            for k, v in (chunk.metadata or {}).items():
+                if k in meta or v is None:
+                    continue
+                if isinstance(v, (str, int, float, bool)):
+                    meta[k] = v
+                else:
+                    meta[k] = str(v)[:500]
+            metadatas.append(meta)
 
         if ids:
             self.collection.add(

@@ -165,11 +165,13 @@
 
 ### 阶段 B：BGE 建索引（本地向量库）
 
-- [ ] **B1**：选定 BGE 模型，记录维度与推理资源需求。
-- [ ] **B2**：配置 `EMBEDDING_BACKEND=local`、`EMBEDDING_MODEL`、**正确** `EMBEDDING_DIMENSION`；必要时配置 `EMBEDDING_CACHE_DIR` / 离线模式。
-- [ ] **B3**：新建独立 `CHROMADB_COLLECTION`（例如 `splite_bge_chunks`），避免与旧集合混用。
-- [ ] **B4**：实现「从合并 JSON 灌库」脚本或管理命令：遍历 chunk → 构造 `text` → embed → upsert。
-- [ ] **B5**：写 1～2 条固定 query 做冒烟检索，确认能命中且 metadata 正确。
+- [x] **B1**：模型 **`BAAI/bge-large-zh-v1.5`**，输出维度 **1024**（sentence-transformers）。
+- [x] **B2**：灌库脚本在运行前会强制 `EMBEDDING_BACKEND=local` 及 `EMBEDDING_MODEL` / `EMBEDDING_DIMENSION`（不依赖 `.env` 里火山嵌入）；日常用 API 检索该集合时需在 `.env` 对齐，见 `backend/.env.example` 末尾「Splite corpus」示例块。
+- [x] **B3**：独立集合名 **`splite_bge_zh_v15`**（与默认 `document_chunks` 分离，避免维度混用）。
+- [x] **B4**：脚本 **`backend/scripts/ingest_merged_corpus_bge.py`**：读 `files/merged_splite_corpus.json` → 文本模板 `【group_title】\ncontent` → 批量 embed → `VectorStore.add_chunks`。脚本会将 **`cwd` 设为 `backend/`**，使 Chroma 落在 **`backend/data/vector_db`**（与 uvicorn 一致）。仓库根执行示例：
+  - `backend\venv\Scripts\python.exe backend\scripts\ingest_merged_corpus_bge.py --recreate`
+  - 可选：`--corpus files\merged_splite_corpus.json`、`--collection splite_bge_zh_v15`、`--batch-size 32`
+- [x] **B5**：灌库后冒烟：同一模型嵌入查询 + `VectorStore(..., splite_bge_zh_v15).search`，`SIMILARITY_THRESHOLD` 默认下可返回命中（具体条数随 query 而变）。
 
 ### 阶段 C：RAG 混合检索逻辑
 

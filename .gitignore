@@ -17,6 +17,9 @@ frontend/coverage/
 # Backend runtime data (uploads, ChromaDB, document JSON — do not commit)
 backend/data/
 
+# Accidental Chroma/data when a script was run with cwd = repo root (use backend/ as cwd)
+/data/
+
 
 
 # Python
