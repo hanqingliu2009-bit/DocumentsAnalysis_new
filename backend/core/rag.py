@@ -24,8 +24,8 @@ class RAGPipeline:
         self.vector_store = vector_store
         self.document_store = document_store
         self.client = openai_client or openai.OpenAI(
-            api_key=settings.VOLCENGINE_API_KEY,
-            base_url=settings.VOLCENGINE_BASE_URL,
+            api_key=settings.llm_openai_api_key() or None,
+            base_url=settings.llm_openai_base_url(),
         )
         self.max_tokens = settings.MAX_TOKENS
         self.temperature = settings.TEMPERATURE
@@ -53,7 +53,7 @@ class RAGPipeline:
             retrieval_query: If set, use this string only for embedding / vector search
                 (avoids diluting retrieval when ``question`` includes long chat history).
 
-        When retrieval returns no chunks but VOLCENGINE_API_KEY and LLM_MODEL are set,
+        When retrieval returns no chunks but LLM API key (LLM_API_KEY or VOLCENGINE_API_KEY) and LLM_MODEL are set,
         the pipeline calls the LLM without document context (no fixed canned replies).
 
         Returns:
@@ -82,11 +82,7 @@ class RAGPipeline:
             )
 
             if not retrieved:
-                if (
-                    settings.VOLCENGINE_API_KEY
-                    and str(settings.VOLCENGINE_API_KEY).strip()
-                    and self._llm_model_id()
-                ):
+                if settings.llm_openai_api_key() and self._llm_model_id():
                     answer = self._generate_answer_without_context(
                         question,
                         system_prompt=self._system_prompt_for_no_retrieval_match(),
@@ -100,8 +96,9 @@ class RAGPipeline:
                     }
                 return {
                     "answer": (
-                        "未配置大模型接口：请在 backend/.env 中设置 VOLCENGINE_API_KEY 与 LLM_MODEL 后重启。"
-                        "知识库未命中片段时也需要这两项才能生成回答。"
+                        "未配置大模型接口：请在 backend/.env 中设置 LLM_API_KEY 与 LLM_BASE_URL"
+                        "（不设则沿用 VOLCENGINE_API_KEY / VOLCENGINE_BASE_URL）以及 LLM_MODEL 后重启。"
+                        "知识库未命中片段时也需要密钥、兼容地址与模型名才能生成回答。"
                     ),
                     "sources": [],
                     "confidence": 0.0,
@@ -113,11 +110,11 @@ class RAGPipeline:
             context = self._build_context(retrieved)
 
             # Step 4: Generate answer using LLM (full ``question`` may include chat history)
-            if not settings.VOLCENGINE_API_KEY or not str(settings.VOLCENGINE_API_KEY).strip():
+            if not settings.llm_openai_api_key():
                 return {
                     "answer": (
-                        "已检索到相关文档片段，但未配置 VOLCENGINE_API_KEY，无法调用大模型。"
-                        "请在 backend/.env 中设置 VOLCENGINE_API_KEY（火山方舟 API Key）后重启服务。"
+                        "已检索到相关文档片段，但未配置对话 API Key，无法调用大模型。"
+                        "请在 backend/.env 中设置 LLM_API_KEY 或 VOLCENGINE_API_KEY 后重启服务。"
                     ),
                     "sources": self._format_sources(retrieved),
                     "confidence": round(
@@ -130,9 +127,9 @@ class RAGPipeline:
             if not self._llm_model_id():
                 return {
                     "answer": (
-                        "未配置 LLM_MODEL。使用火山方舟时请在 backend/.env 中设置 LLM_MODEL 为控制台里的"
-                        "接入点 Endpoint ID（通常以 ep- 开头）或控制台给出的 model 名称。"
-                        "保存后重启后端。若已配置仍报 404，说明 ID 与当前 VOLCENGINE_BASE_URL 不匹配或无权访问。"
+                        "未配置 LLM_MODEL。请在 backend/.env 中设置为 OpenAI 兼容接口所需的模型名或接入点 ID"
+                        "（火山方舟常见 ep- 开头；阿里云百炼等为控制台模型名）。"
+                        "保存后重启后端。若已配置仍报 404，请核对 LLM_BASE_URL / VOLCENGINE_BASE_URL 与模型权限。"
                     ),
                     "sources": self._format_sources(retrieved),
                     "confidence": round(
@@ -249,11 +246,7 @@ class RAGPipeline:
             if vec_err:
                 detail.append(f"本地向量: {vec_err}")
             note = "；".join(detail) if detail else "两路均未返回可用内容。"
-            if (
-                settings.VOLCENGINE_API_KEY
-                and str(settings.VOLCENGINE_API_KEY).strip()
-                and self._llm_model_id()
-            ):
+            if settings.llm_openai_api_key() and self._llm_model_id():
                 answer = self._generate_answer_without_context(
                     question,
                     system_prompt=(
@@ -271,7 +264,7 @@ class RAGPipeline:
             return {
                 "answer": (
                     "混合检索未命中可用上下文；未配置大模型时无法生成补充回答。"
-                    f"（{note}）请在 backend/.env 中设置 VOLCENGINE_API_KEY 与 LLM_MODEL 后重启。"
+                    f"（{note}）请在 backend/.env 中设置 LLM_API_KEY（或 VOLCENGINE_API_KEY）与 LLM_MODEL 后重启。"
                 ),
                 "sources": sources,
                 "confidence": 0.0,
@@ -279,11 +272,11 @@ class RAGPipeline:
                 "answer_mode": "system",
             }
 
-        if not settings.VOLCENGINE_API_KEY or not str(settings.VOLCENGINE_API_KEY).strip():
+        if not settings.llm_openai_api_key():
             return {
                 "answer": (
-                    "混合检索已取回部分上下文，但未配置 VOLCENGINE_API_KEY，无法调用大模型。"
-                    "请在 backend/.env 中设置后重启服务。"
+                    "混合检索已取回部分上下文，但未配置对话 API Key，无法调用大模型。"
+                    "请在 backend/.env 中设置 LLM_API_KEY 或 VOLCENGINE_API_KEY 后重启服务。"
                 ),
                 "sources": sources,
                 "confidence": self._hybrid_confidence(retrieved, has_graph),
@@ -391,11 +384,7 @@ class RAGPipeline:
             }
 
         if not context.strip():
-            if (
-                settings.VOLCENGINE_API_KEY
-                and str(settings.VOLCENGINE_API_KEY).strip()
-                and self._llm_model_id()
-            ):
+            if settings.llm_openai_api_key() and self._llm_model_id():
                 answer = self._generate_answer_without_context(
                     question,
                     system_prompt=build_graph_system_prompt_no_hits(),
@@ -410,7 +399,7 @@ class RAGPipeline:
             return {
                 "answer": (
                     "图数据库未返回三元组或摘要；未配置大模型时无法生成补充回答。"
-                    "请在 backend/.env 中设置 VOLCENGINE_API_KEY 与 LLM_MODEL 后重启。"
+                    "请在 backend/.env 中设置 LLM_API_KEY（或 VOLCENGINE_API_KEY）与 LLM_MODEL 后重启。"
                 ),
                 "sources": [],
                 "confidence": 0.0,
@@ -418,11 +407,11 @@ class RAGPipeline:
                 "answer_mode": "system",
             }
 
-        if not settings.VOLCENGINE_API_KEY or not str(settings.VOLCENGINE_API_KEY).strip():
+        if not settings.llm_openai_api_key():
             return {
                 "answer": (
-                    "已从图数据库取回上下文，但未配置 VOLCENGINE_API_KEY，无法调用大模型。"
-                    "请在 backend/.env 中设置后重启服务。"
+                    "已从图数据库取回上下文，但未配置对话 API Key，无法调用大模型。"
+                    "请在 backend/.env 中设置 LLM_API_KEY 或 VOLCENGINE_API_KEY 后重启服务。"
                 ),
                 "sources": sources,
                 "confidence": 1.0,

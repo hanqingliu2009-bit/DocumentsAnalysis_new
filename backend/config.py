@@ -32,8 +32,12 @@ class Settings(BaseSettings):
         "http://127.0.0.1:3000",
     ]
 
-    # LLM via OpenAI-compatible SDK (openai.OpenAI). Configure in backend/.env.
-    # 火山方舟：VOLCENGINE_BASE_URL 一般为 OpenAI 兼容地址；LLM_MODEL 为接入点 ID（常为 ep-...）或控制台给出的 model 名。
+    # Chat LLM via OpenAI-compatible SDK (openai.OpenAI). Configure in backend/.env.
+    # Prefer LLM_API_KEY + LLM_BASE_URL + LLM_MODEL (e.g. Alibaba DashScope compatible:
+    # https://dashscope.aliyuncs.com/compatible-mode/v1 ). If unset, VOLCENGINE_* is used (Volcengine Ark).
+    LLM_API_KEY: Optional[str] = None
+    LLM_BASE_URL: Optional[str] = None
+    # Volcengine Ark (legacy): default base is Ark; LLM_MODEL may be an ep-... endpoint id.
     VOLCENGINE_API_KEY: Optional[str] = None
     VOLCENGINE_BASE_URL: str = "https://ark.cn-beijing.volces.com/api/v3"
     # Optional: separate key for Ark /embeddings (e.g. online-inference embedding endpoint). Falls back to VOLCENGINE_API_KEY.
@@ -71,6 +75,19 @@ class Settings(BaseSettings):
     # When True: export TRANSFORMERS_OFFLINE and HF_HUB_OFFLINE to os.environ so Hugging Face / transformers
     # honor offline mode (use with a populated EMBEDDING_CACHE_DIR / HF_HOME copy). Declared here so backend/.env applies.
     TRANSFORMERS_OFFLINE: bool = False
+
+    def llm_openai_api_key(self) -> str:
+        """API key for chat.completions (OpenAI-compatible). LLM_API_KEY overrides VOLCENGINE_API_KEY."""
+        for key in (self.LLM_API_KEY, self.VOLCENGINE_API_KEY):
+            if key is not None and str(key).strip():
+                return str(key).strip()
+        return ""
+
+    def llm_openai_base_url(self) -> str:
+        """Base URL for chat.completions. LLM_BASE_URL overrides VOLCENGINE_BASE_URL."""
+        if self.LLM_BASE_URL is not None and str(self.LLM_BASE_URL).strip():
+            return str(self.LLM_BASE_URL).strip().rstrip("/")
+        return str(self.VOLCENGINE_BASE_URL or "").strip().rstrip("/")
 
     # PDF Parser Configuration
     PDF_PARSER: str = "pypdf"  # Options: "pypdf", "opendataloader"

@@ -147,6 +147,29 @@ class TestSettings:
         custom_settings = Settings(DATA_DIR=temp_dir, MAX_FILE_SIZE=50_000_000)
         assert custom_settings.MAX_FILE_SIZE == 50_000_000
 
+    def test_llm_openai_prefers_llm_env_over_volcengine(self, temp_dir):
+        """LLM_API_KEY / LLM_BASE_URL override VOLCENGINE_* for chat client."""
+        s = Settings(
+            DATA_DIR=temp_dir,
+            LLM_API_KEY=" dash-key ",
+            VOLCENGINE_API_KEY="volc-key",
+            LLM_BASE_URL=" https://dash.example/v1/ ",
+            VOLCENGINE_BASE_URL="https://ark.example/api/v3",
+        )
+        assert s.llm_openai_api_key() == "dash-key"
+        assert s.llm_openai_base_url() == "https://dash.example/v1"
+
+    def test_llm_openai_falls_back_to_volcengine(self, temp_dir):
+        s = Settings(
+            DATA_DIR=temp_dir,
+            LLM_API_KEY=None,
+            VOLCENGINE_API_KEY=" volc ",
+            LLM_BASE_URL=None,
+            VOLCENGINE_BASE_URL="https://ark.example/api/v3/",
+        )
+        assert s.llm_openai_api_key() == "volc"
+        assert s.llm_openai_base_url() == "https://ark.example/api/v3"
+
 
 class TestSettingsValidation:
     """Test validation of settings."""
@@ -159,8 +182,13 @@ class TestSettingsValidation:
 
     def test_empty_volcengine_key(self, temp_dir):
         """Test that empty API key is allowed."""
-        settings = Settings(DATA_DIR=temp_dir, VOLCENGINE_API_KEY=None)
+        settings = Settings(
+            DATA_DIR=temp_dir,
+            LLM_API_KEY=None,
+            VOLCENGINE_API_KEY=None,
+        )
         assert settings.VOLCENGINE_API_KEY is None
+        assert settings.llm_openai_api_key() == ""
 
     def test_path_as_string(self, temp_dir):
         """Test that string paths are converted to Path objects."""
