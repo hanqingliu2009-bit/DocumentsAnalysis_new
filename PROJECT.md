@@ -289,6 +289,24 @@ VITE_API_URL=http://localhost:8000
 VITE_WS_URL=ws://localhost:8000
 ```
 
+## Deploying Hybrid RAG (index)
+
+**Hybrid** mode (`RAG_BACKEND=hybrid`) runs **supplier graph HTTP** and **Splite BGE Chroma** retrieval **in parallel**, merges context, then calls the configured **Volcengine-compatible LLM**. Use this section as a navigation index; authoritative steps live in the linked docs.
+
+| Topic | Where to read |
+|--------|----------------|
+| Overall plan (phases A–E, merge → BGE index → hybrid code) | [`doc/方案-双路检索-BGE本地向量与远端图库.md`](doc/方案-双路检索-BGE本地向量与远端图库.md) |
+| Graph + hybrid behavior, §14, env examples, test commands | [`doc/外部图数据库RAG实现说明.md`](doc/外部图数据库RAG实现说明.md) |
+| Swagger-only debugging (`/api/query`, `/api/splite_search`, `/api/external_search`, etc.) | [`doc/后端调试-从Swagger直接发消息.md`](doc/后端调试-从Swagger直接发消息.md) |
+| Copy-paste env templates (Splite ingest, Hybrid, Ops one-liners) | [`backend/.env.example`](backend/.env.example) |
+| Runtime settings (`RAG_BACKEND`, `HYBRID_*`, `EXTERNAL_GRAPH_*`) | [`backend/config.py`](backend/config.py) |
+| Merge JSON under `files/` | [`backend/scripts/merge_splite_json.py`](backend/scripts/merge_splite_json.py) |
+| Build Splite Chroma index (BGE-large-zh) | [`backend/scripts/ingest_merged_corpus_bge.py`](backend/scripts/ingest_merged_corpus_bge.py) |
+| Hybrid retrieval + LLM | [`backend/core/rag.py`](backend/core/rag.py) (`_query_hybrid`) |
+| Splite-only search API (no LLM) | [`backend/api/query.py`](backend/api/query.py) (`POST /api/splite_search`) |
+
+**Minimal deploy checklist:** merge corpus → run ingest with `--recreate` → set `RAG_BACKEND=hybrid` plus `VOLCENGINE_API_KEY` / `LLM_MODEL` and graph URL/domain → restart backend from `backend/` (or ensure cwd so `./data` resolves correctly) → verify with Swagger `POST /api/splite_search` and `POST /api/query`.
+
 ## API Endpoints Reference
 
 ### Documents API
@@ -307,7 +325,9 @@ VITE_WS_URL=ws://localhost:8000
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | `/api/query` | Single question → answer |
-| POST | `/api/search` | Semantic search (no LLM) |
+| POST | `/api/search` | Semantic search on default Chroma collection (no LLM) |
+| POST | `/api/splite_search` | Semantic search on Splite BGE collection only (no LLM; hybrid debug) |
+| POST | `/api/external_search` | Supplier graph search only (no LLM) |
 
 ### Chat API
 
