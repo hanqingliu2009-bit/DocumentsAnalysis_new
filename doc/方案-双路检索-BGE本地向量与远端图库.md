@@ -175,11 +175,13 @@
 
 ### 阶段 C：RAG 混合检索逻辑
 
-- [ ] **C1**：在 `RAGPipeline` 中抽出「纯向量检索」与「纯图检索」两个私有方法，返回统一 `EvidenceItem` 列表。
-- [ ] **C2**：实现并行调用 + 超时与单侧失败降级（例如仅向量或仅图 + 日志告警）。
-- [ ] **C3**：实现融合与截断（先 RRF 或简单加权即可）。
-- [ ] **C4**：拼装 LLM context 与更新 system prompt；合并 `sources` 输出。
-- [ ] **C5**：单元测试：mock 图 HTTP + mock vector search，验证融合顺序与降级路径。
+- [x] **C1**：在 `RAGPipeline.query()` 中识别 **`RAG_BACKEND=hybrid`**，走 `_query_hybrid`：并行调用 `fetch_graph_context` 与「Splite 专用 `VectorStore` + 强制本地 BGE `EmbeddingGenerator(..., embed_texts(..., embedding_backend=\"local\"))`」。
+- [x] **C2**：`ThreadPoolExecutor(max_workers=2)` 并行；单侧异常时该路为空，另一路仍参与（未单独加超时包装，图侧仍遵循 `EXTERNAL_GRAPH_TIMEOUT`）。
+- [x] **C3**：融合策略为 **两节 Markdown 拼接**（`### 图数据库检索结果` + `### 本地手册向量检索`）+ **`HYBRID_CONTEXT_MAX_CHARS` 硬截断**（未做 RRF，可后续增强）。
+- [x] **C4**：专用 system prompt `_generate_answer_hybrid`；`sources` 中图条目带 `source_channel=graph`，向量条目带 `source_channel=vector`；API `SourceCitation` 增加可选字段 `source_channel`；`answer_mode=hybrid_graph_vector`。
+- [x] **C5**：`tests/core/test_rag_hybrid.py`（mock 图 + mock 向量 + LLM）。
+
+**启用方式**：`backend/.env` 中 `RAG_BACKEND=hybrid`，并保证 LLM、图接口、Splite 集合与 `HYBRID_*` 配置就绪（见 `backend/.env.example`）。
 
 ### 阶段 D：配置、文档与运维
 
@@ -205,7 +207,7 @@
 
 ## 9. 下一步（立即要做的第一件事）
 
-从 **阶段 A** 开始：在仓库中实现合并脚本并生成 `merged_splite_corpus.json`，验收通过后再进入 **阶段 B** 灌库。
+进入 **阶段 D/E**：在真实环境打开 `RAG_BACKEND=hybrid` 做端到端联调，按需调 `HYBRID_VECTOR_TOP_K`、`HYBRID_CONTEXT_MAX_CHARS`、`SIMILARITY_THRESHOLD`；可选为图侧增加显式超时/日志与 RRF 融合。
 
 ---
 

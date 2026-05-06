@@ -40,6 +40,15 @@ async def lifespan(app: FastAPI):
         rag_backend = (getattr(settings, "RAG_BACKEND", "chromadb") or "chromadb").strip().lower()
         if rag_backend == "external_graph":
             print("RAG_BACKEND=external_graph: skipping local embedding warmup.")
+        elif rag_backend == "hybrid":
+            print("RAG_BACKEND=hybrid: warming up splite BGE model for local vector branch...")
+            from storage.vector_store import EmbeddingGenerator
+
+            mid = (getattr(settings, "HYBRID_SPLITE_EMBEDDING_MODEL", "") or "").strip() or (
+                "BAAI/bge-large-zh-v1.5"
+            )
+            EmbeddingGenerator(model_name=mid).embed_texts(["warmup"], embedding_backend="local")
+            print("Hybrid splite embedding model ready.")
         else:
             from storage.vector_store import EmbeddingGenerator
 

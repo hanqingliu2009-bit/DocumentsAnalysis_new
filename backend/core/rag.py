@@ -1,4 +1,5 @@
 """RAG (Retrieval-Augmented Generation) pipeline."""
+from concurrent.futures import ThreadPoolExecutor
 from typing import TYPE_CHECKING, List, Optional
 
 import openai
@@ -60,6 +61,8 @@ class RAGPipeline:
         """
         try:
             backend = (getattr(settings, "RAG_BACKEND", "chromadb") or "chromadb").strip().lower()
+            if backend == "hybrid":
+                return self._query_hybrid(question, document_ids, top_k, retrieval_query)
             if backend == "external_graph":
                 return self._query_external_graph(question, retrieval_query)
 
@@ -164,6 +167,204 @@ class RAGPipeline:
                 "error": str(e),
                 "answer_mode": "system",
             }
+
+    def _query_hybrid(
+        self,
+        question: str,
+        document_ids: Optional[List[str]],
+        top_k: Optional[int],
+        retrieval_query: Optional[str],
+    ) -> dict:
+        """
+        Parallel retrieval: supplier graph HTTP + splite BGE Chroma collection,
+        merge contexts, then answer with the LLM.
+        """
+        from core.external_graph import build_graph_system_prompt_no_hits, fetch_graph_context
+        from storage.vector_store import EmbeddingGenerator, VectorStore
+
+        q = (retrieval_query or question).strip() or question.strip()
+
+        def graph_call():
+            try:
+                ctx, src, _dbg = fetch_graph_context(q)
+                return ("ok", ctx, src, None)
+            except Exception as e:
+                return ("err", "", [], str(e))
+
+        def vector_call():
+            try:
+                mid = (settings.HYBRID_SPLITE_EMBEDDING_MODEL or "").strip() or "BAAI/bge-large-zh-v1.5"
+                embedder = EmbeddingGenerator(model_name=mid)
+                emb = embedder.embed_texts([q], embedding_backend="local")[0]
+                splite_store = VectorStore(collection_name=settings.HYBRID_SPLITE_COLLECTION)
+                vk = int(settings.HYBRID_VECTOR_TOP_K or top_k or self.top_k)
+                rows = splite_store.search(
+                    query_embedding=emb,
+                    top_k=vk,
+                    document_ids=document_ids,
+                )
+                return ("ok", rows, None)
+            except Exception as e:
+                return ("err", [], str(e))
+
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            fg = pool.submit(graph_call)
+            fv = pool.submit(vector_call)
+            gr = fg.result()
+            vr = fv.result()
+
+        graph_context = ""
+        graph_sources: List[dict] = []
+        graph_err: Optional[str] = None
+        if gr[0] == "ok":
+            graph_context, graph_sources = gr[1], gr[2]
+        else:
+            graph_err = gr[3]
+
+        retrieved: List[tuple] = []
+        vec_err: Optional[str] = None
+        if vr[0] == "ok":
+            retrieved = vr[1]
+        else:
+            vec_err = vr[2]
+
+        merged_context = self._build_hybrid_context(graph_context, retrieved)
+        merged_context = self._truncate_hybrid_context(
+            merged_context, int(getattr(settings, "HYBRID_CONTEXT_MAX_CHARS", 24000) or 24000)
+        )
+
+        sources: List[dict] = []
+        for s in graph_sources:
+            item = dict(s)
+            item["source_channel"] = "graph"
+            sources.append(item)
+        sources.extend(self._format_sources(retrieved, source_channel="vector"))
+
+        has_graph = bool((graph_context or "").strip())
+        has_vec = bool(retrieved)
+        if not has_graph and not has_vec:
+            detail = []
+            if graph_err:
+                detail.append(f"图数据库: {graph_err}")
+            if vec_err:
+                detail.append(f"本地向量: {vec_err}")
+            note = "；".join(detail) if detail else "两路均未返回可用内容。"
+            if (
+                settings.VOLCENGINE_API_KEY
+                and str(settings.VOLCENGINE_API_KEY).strip()
+                and self._llm_model_id()
+            ):
+                answer = self._generate_answer_without_context(
+                    question,
+                    system_prompt=(
+                        build_graph_system_prompt_no_hits()
+                        + " 本轮混合检索中，" + note
+                    ),
+                )
+                return {
+                    "answer": answer,
+                    "sources": sources,
+                    "confidence": 0.0,
+                    "context_used": 0,
+                    "answer_mode": "llm_direct",
+                }
+            return {
+                "answer": (
+                    "混合检索未命中可用上下文；未配置大模型时无法生成补充回答。"
+                    f"（{note}）请在 backend/.env 中设置 VOLCENGINE_API_KEY 与 LLM_MODEL 后重启。"
+                ),
+                "sources": sources,
+                "confidence": 0.0,
+                "context_used": 0,
+                "answer_mode": "system",
+            }
+
+        if not settings.VOLCENGINE_API_KEY or not str(settings.VOLCENGINE_API_KEY).strip():
+            return {
+                "answer": (
+                    "混合检索已取回部分上下文，但未配置 VOLCENGINE_API_KEY，无法调用大模型。"
+                    "请在 backend/.env 中设置后重启服务。"
+                ),
+                "sources": sources,
+                "confidence": self._hybrid_confidence(retrieved, has_graph),
+                "context_used": len(sources),
+                "answer_mode": "system",
+            }
+
+        if not self._llm_model_id():
+            return {
+                "answer": (
+                    "混合检索已取回部分上下文，但未配置 LLM_MODEL。"
+                    "请在 backend/.env 中设置接入点或模型名后重启。"
+                ),
+                "sources": sources,
+                "confidence": self._hybrid_confidence(retrieved, has_graph),
+                "context_used": len(sources),
+                "answer_mode": "system",
+            }
+
+        answer = self._generate_answer_hybrid(question, merged_context)
+
+        return {
+            "answer": answer,
+            "sources": sources,
+            "confidence": self._hybrid_confidence(retrieved, has_graph),
+            "context_used": len(sources),
+            "answer_mode": "hybrid_graph_vector",
+        }
+
+    @staticmethod
+    def _truncate_hybrid_context(text: str, max_chars: int) -> str:
+        text = (text or "").strip()
+        if max_chars <= 0 or len(text) <= max_chars:
+            return text
+        return text[: max(0, max_chars - 24)].rstrip() + "\n…[上下文已截断]"
+
+    def _build_hybrid_context(self, graph_context: str, retrieved: List[tuple]) -> str:
+        parts: List[str] = []
+        gc = (graph_context or "").strip()
+        if gc:
+            parts.append("### 图数据库检索结果\n" + gc)
+        if retrieved:
+            vc = self._build_context(retrieved)
+            parts.append("### 本地手册向量检索\n" + vc)
+        return "\n\n".join(parts).strip()
+
+    @staticmethod
+    def _hybrid_confidence(retrieved: List[tuple], has_graph: bool) -> float:
+        if retrieved:
+            return round(sum(score for _, score, _, _ in retrieved) / len(retrieved), 4)
+        if has_graph:
+            return 1.0
+        return 0.0
+
+    def _generate_answer_hybrid(self, question: str, context: str) -> str:
+        """LLM answer when context comes from graph + local vector retrieval."""
+        messages = [
+            {
+                "role": "system",
+                "content": (
+                    "你是技术支持助手。用户消息中包含两路检索结果："
+                    "「### 图数据库检索结果」来自供应方图数据库（可能含三元组、摘要、文本块）；"
+                    "「### 本地手册向量检索」来自本地维护手册向量索引。"
+                    "请综合两路信息作答；若仅一路有内容则主要依据该路。"
+                    "若仍不足以回答，须明确说明信息不足，不要编造未出现的事实。"
+                    "引用时可说明来自图数据库或本地手册检索。"
+                    "回答语言必须与用户问题一致。"
+                ),
+            },
+            {
+                "role": "user",
+                "content": f"{context}\n\nQuestion: {question}\n\nAnswer:",
+            },
+        ]
+        response = self.client.chat.completions.create(
+            model=self._llm_model_id(),
+            messages=messages,
+            max_tokens=self.max_tokens,
+            temperature=self.temperature,
+        )
+        return response.choices[0].message.content
 
     def _query_external_graph(
         self,
@@ -373,16 +574,21 @@ class RAGPipeline:
         )
         return response.choices[0].message.content
 
-    def _format_sources(self, retrieved: List[tuple]) -> List[dict]:
+    def _format_sources(
+        self, retrieved: List[tuple], *, source_channel: Optional[str] = None
+    ) -> List[dict]:
         """Format retrieved chunks as sources."""
         sources = []
         for chunk_id, score, text, doc_id in retrieved:
             title = self._document_display_name(doc_id) if doc_id else ""
-            sources.append({
+            item = {
                 "chunk_id": chunk_id,
                 "score": round(score, 4),
                 "text": text[:500] + "..." if len(text) > 500 else text,
                 "document_id": doc_id or None,
                 "document_title": title or None,
-            })
+            }
+            if source_channel:
+                item["source_channel"] = source_channel
+            sources.append(item)
         return sources

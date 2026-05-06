@@ -319,12 +319,21 @@ class EmbeddingGenerator:
                 out.append([float(x) for x in row.embedding])
         return out
 
-    def embed_texts(self, texts: List[str]) -> List[List[float]]:
-        """Generate embeddings for a list of texts."""
+    def embed_texts(
+        self,
+        texts: List[str],
+        *,
+        embedding_backend: Optional[str] = None,
+    ) -> List[List[float]]:
+        """Generate embeddings for a list of texts.
+
+        If ``embedding_backend`` is set (e.g. ``\"local\"``), it overrides ``settings.EMBEDDING_BACKEND``
+        for this call only (used by hybrid RAG splite branch while global backend stays volcengine).
+        """
         if not texts:
             return []
 
-        backend = (settings.EMBEDDING_BACKEND or "volcengine").strip().lower()
+        backend = (embedding_backend or settings.EMBEDDING_BACKEND or "volcengine").strip().lower()
         if backend == "local":
             return self._embed_local(texts)
         if backend in ("volcengine", "ark", "doubao"):
@@ -332,12 +341,12 @@ class EmbeddingGenerator:
                 return self._embed_volcengine_multimodal_texts(texts)
             return self._embed_volcengine(texts)
         raise ValueError(
-            f"Unknown EMBEDDING_BACKEND={settings.EMBEDDING_BACKEND!r}; use 'volcengine' or 'local'."
+            f"Unknown EMBEDDING_BACKEND={backend!r}; use 'volcengine' or 'local'."
         )
 
-    def embed_text(self, text: str) -> List[float]:
+    def embed_text(self, text: str, *, embedding_backend: Optional[str] = None) -> List[float]:
         """Generate embedding for a single text."""
-        result = self.embed_texts([text])
+        result = self.embed_texts([text], embedding_backend=embedding_backend)
         return result[0] if result else []
 
     def embed_chunks(self, chunks: List[DocumentChunk]) -> None:

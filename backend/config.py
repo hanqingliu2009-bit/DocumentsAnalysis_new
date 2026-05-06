@@ -41,7 +41,7 @@ class Settings(BaseSettings):
     LLM_MODEL: str = ""
     # chat.completions 的 max_tokens：限制的是「模型回复」长度（token），不是用户 Context 或上传全文字数。
     # 文档是否进问答取决于分块/检索（CHUNK_SIZE、TOP_K_RETRIEVAL 等）与模型上下文上限；与 MAX_TOKENS 无直接对应。
-    MAX_TOKENS: int = 131072
+    MAX_TOKENS: int = 4096
     TEMPERATURE: float = 0.0
 
     # Paths
@@ -75,12 +75,19 @@ class Settings(BaseSettings):
     # PDF Parser Configuration
     PDF_PARSER: str = "pypdf"  # Options: "pypdf", "opendataloader"
 
-    # RAG backend: "chromadb" = local embeddings + Chroma; "external_graph" = supplier graph HTTP + LLM.
+    # RAG backend: "chromadb" = local embeddings + Chroma; "external_graph" = supplier graph HTTP + LLM;
+    # "hybrid" = parallel graph HTTP + splite BGE Chroma, merged context, then LLM.
     RAG_BACKEND: str = "chromadb"
     EXTERNAL_GRAPH_API_URL: str = "http://14.103.133.160:8022/graph/info"
     EXTERNAL_GRAPH_DOMAIN: str = "南兴装备"
     EXTERNAL_GRAPH_SEARCH_TYPE: str = "triplet"
     EXTERNAL_GRAPH_TIMEOUT: float = 60.0
+
+    # Hybrid RAG: splite corpus in a dedicated Chroma collection (sentence-transformers, local only).
+    HYBRID_SPLITE_COLLECTION: str = "splite_bge_zh_v15"
+    HYBRID_SPLITE_EMBEDDING_MODEL: str = "BAAI/bge-large-zh-v1.5"
+    HYBRID_VECTOR_TOP_K: int = 5
+    HYBRID_CONTEXT_MAX_CHARS: int = 24000
 
     # Search Configuration
     TOP_K_RETRIEVAL: int = 15

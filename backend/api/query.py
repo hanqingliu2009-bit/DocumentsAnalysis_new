@@ -45,6 +45,10 @@ class SourceCitation(BaseModel):
     text: str
     document_id: Optional[str] = None
     document_title: Optional[str] = None
+    source_channel: Optional[str] = Field(
+        default=None,
+        description="graph | vector (hybrid mode)",
+    )
 
 
 class QueryResponse(BaseModel):
@@ -55,7 +59,7 @@ class QueryResponse(BaseModel):
     context_used: int
     answer_mode: str = Field(
         default="knowledge_base",
-        description="knowledge_base | external_graph | llm_direct | system",
+        description="knowledge_base | external_graph | hybrid_graph_vector | llm_direct | system",
     )
 
 
@@ -123,7 +127,7 @@ class ChatResponse(BaseModel):
     context_used: int = Field(default=0, description="Number of chunks passed to the LLM context")
     answer_mode: str = Field(
         default="knowledge_base",
-        description="knowledge_base | external_graph | llm_direct | system",
+        description="knowledge_base | external_graph | hybrid_graph_vector | llm_direct | system",
     )
 
 
