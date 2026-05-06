@@ -1,6 +1,9 @@
 # 外部图数据库 RAG 实现说明
 
-本文档总结在分支 **`nanxing-db`** 上完成的改造：在启用 **`RAG_BACKEND=external_graph`** 时，问答不再使用本地 Embedding + Chroma 向量检索，改为调用供应方图数据库 HTTP 接口，将返回的三元组/摘要/文本块作为上下文，由现有火山兼容大模型生成回答。
+本文档总结供应方图数据库与本地 RAG 的对接方式。主要包含：
+
+- **`RAG_BACKEND=external_graph`**：仅用图 HTTP 检索 + 本地 LLM 作答（不跑默认 Chroma 向量检索）。
+- **`RAG_BACKEND=hybrid`（`system2` 起）**：**并行**图 HTTP + **Splite 专用** BGE Chroma 集合，合并上下文后再由 LLM 作答；详见文末 **§14** 与总方案 [`doc/方案-双路检索-BGE本地向量与远端图库.md`](方案-双路检索-BGE本地向量与远端图库.md)。
 
 ---
 
@@ -36,12 +39,13 @@ flowchart LR
 
 | 文件 | 作用 |
 |------|------|
-| `backend/config.py` | `RAG_BACKEND`、图接口 URL、domain、`search_type`、超时 |
+| `backend/config.py` | `RAG_BACKEND`（含 `hybrid`）、图接口、`HYBRID_*` Splite 集合与上下文上限等 |
 | `backend/core/external_graph.py` | HTTP 请求、解析 `message`、三元组字典格式化、拼上下文与 sources |
-| `backend/core/rag.py` | `query()` 分支；`_query_external_graph`；图上下文专用 system prompt |
-| `backend/main.py` | `external_graph` 模式下跳过本地 Embedding 预热 |
-| `backend/api/query.py` | `answer_mode` 说明含 `external_graph`；chat 仍传 `retrieval_query` |
+| `backend/core/rag.py` | `query()` 分支；`_query_external_graph`；`_query_hybrid`；图/混合上下文与 LLM |
+| `backend/main.py` | `external_graph` 跳过默认嵌入预热；`hybrid` 预热 Splite BGE |
+| `backend/api/query.py` | `external_search`、`splite_search`（仅 Splite 向量、无 LLM）、`answer_mode` 含 `hybrid_graph_vector` |
 | `backend/tests/core/test_external_graph.py` | 图客户端单元测试 |
+| `backend/tests/core/test_rag_hybrid.py` | 混合 RAG 单元测试 |
 | `CLAUDE.md` | 约定使用 `backend/venv` 安装依赖与跑 pytest |
 
 ---
@@ -458,9 +462,10 @@ def build_graph_system_prompt_no_hits() -> str:
 
 ## 10. 未改动的行为说明
 
-- **`RAG_BACKEND` 默认 `chromadb`**：未改 `.env` 时行为与改造前一致（本地 Embedding + Chroma）。
-- **`POST /api/search`**：仍为本地向量语义检索，不调用图接口。
-- **文档上传与索引**：仍写入本地存储与向量库；图方案下问答不依赖这些路径，但应用启动仍会初始化 `DocumentStore` / `VectorStore`。
+- **`RAG_BACKEND` 默认 `chromadb`**：未改 `.env` 时行为与改造前一致（本地 Embedding + 默认 `CHROMADB_COLLECTION`）。
+- **`POST /api/search`**：仍为**默认集合**的向量语义检索，不调用图接口。
+- **`POST /api/splite_search`**：仅检索 **Splite BGE** 集合（`HYBRID_SPLITE_*`），不调用 LLM，便于 Swagger 单独调试混合模式中的本地一路。
+- **文档上传与索引**：仍写入本地存储与默认向量库；图 / hybrid 问答可额外依赖 Splite 灌库集合，应用启动仍会初始化 `DocumentStore` / 默认 `VectorStore`。
 
 ---
 
@@ -597,3 +602,67 @@ def _triplet_item_to_line(item: Any) -> str:
 - **配置层面**：确认 `backend/.env` 里 `RAG_BACKEND=external_graph`，且 `EXTERNAL_GRAPH_API_URL` 指向正确环境。
 - **行为层面**：问答接口（`/api/chat`、`/api/query`）在图模式下不会触发本地 `EmbeddingGenerator`；会对 `EXTERNAL_GRAPH_API_URL` 发起 POST（payload 含 `query/domain/search_type`）。
 - **返回层面**：命中上下文时 `answer_mode` 应为 `external_graph`；图未命中但 LLM 可用时为 `llm_direct`；图请求失败则 `answer_mode` 为 `system` 且 `error` 字段包含异常信息。
+
+---
+
+## 14. 混合模式：`RAG_BACKEND=hybrid`（图库 + Splite 本地向量）
+
+在 **`system2`** 上实现的 **`hybrid`** 模式：**并行**调用供应方 `fetch_graph_context` 与 **Splite 专用 Chroma 集合**（`HYBRID_SPLITE_COLLECTION`，默认 `splite_bge_zh_v15`），将两路上下文按 Markdown 小节合并、经 `HYBRID_CONTEXT_MAX_CHARS` 截断后，调用与上文相同的火山兼容 **LLM** 生成回答。`answer_mode` 为 **`hybrid_graph_vector`**；`sources` 中条目可带 **`source_channel`**：`graph` / `vector`。
+
+### 14.1 数据流（示意）
+
+```mermaid
+flowchart TB
+  Q["POST /api/query 或 /api/chat"]
+  H["_query_hybrid"]
+  G["fetch_graph_context → 供应方 graph HTTP"]
+  V["Splite：local BGE embed + Chroma 检索"]
+  L["LLM 合并上下文后作答"]
+  Q --> H
+  H --> G
+  H --> V
+  G --> H
+  V --> H
+  H --> L
+```
+
+### 14.2 环境变量（`backend/.env` 示例）
+
+完整列表以 **`backend/.env.example`** 为准。混合模式典型项：
+
+```env
+RAG_BACKEND=hybrid
+EXTERNAL_GRAPH_API_URL=http://14.103.133.160:8022/graph/info
+EXTERNAL_GRAPH_DOMAIN=南兴装备
+EXTERNAL_GRAPH_SEARCH_TYPE=triplet
+HYBRID_SPLITE_COLLECTION=splite_bge_zh_v15
+HYBRID_SPLITE_EMBEDDING_MODEL=BAAI/bge-large-zh-v1.5
+HYBRID_VECTOR_TOP_K=5
+HYBRID_CONTEXT_MAX_CHARS=24000
+VOLCENGINE_API_KEY=你的密钥
+LLM_MODEL=你的接入点或模型名
+```
+
+说明：**Splite 向量这一路**在代码里对 `EmbeddingGenerator` 使用 **`embedding_backend=\"local\"`**，与全局 `EMBEDDING_BACKEND=volcengine` 可并存；全局 `CHROMADB_COLLECTION` 仍对应「文档上传」默认索引，**勿与 Splite 集合混维度**。
+
+### 14.3 运维与调试（阶段 D）
+
+| 步骤 | 说明 |
+|------|------|
+| 合并语料 | 仓库根：`backend\venv\Scripts\python.exe backend\scripts\merge_splite_json.py` → `files/merged_splite_corpus.json` |
+| 灌入 Splite 向量 | 仓库根：`backend\venv\Scripts\python.exe backend\scripts\ingest_merged_corpus_bge.py --recreate`（首次会下载 BGE；权重缓存在常见 HF 缓存目录） |
+| 向量持久化 | `backend/data/vector_db`（gitignore），换模型/维度请换新集合名或清空后重建 |
+| 仅测本地向量路 | Swagger：`POST /api/splite_search`，请求体与 `/api/search` 相同（`query`、`top_k`、可选 `document_ids`） |
+| 仅测图路 | Swagger：`POST /api/external_search` |
+| 端到端混合问答 | `RAG_BACKEND=hybrid` 后调 `POST /api/query` 或 `/api/chat` |
+
+更细的里程碑与阶段划分见：**[`doc/方案-双路检索-BGE本地向量与远端图库.md`](方案-双路检索-BGE本地向量与远端图库.md)**。
+
+### 14.4 测试命令补充
+
+```bash
+cd backend
+.\venv\Scripts\Activate.ps1
+python -m pytest tests/core/test_rag_hybrid.py -q -o addopts=
+python -m pytest tests/api/test_query.py::TestSpliteSearchEndpoint -q -o addopts=
+```

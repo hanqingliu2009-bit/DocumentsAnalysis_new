@@ -215,6 +215,34 @@ class TestExternalSearchEndpoint:
         assert response.status_code == 500
 
 
+class TestSpliteSearchEndpoint:
+    """Test cases for /api/splite_search endpoint."""
+
+    def test_splite_search_success(self, test_client):
+        with patch("storage.vector_store.EmbeddingGenerator") as mock_embedder:
+            with patch("storage.vector_store.VectorStore") as mock_vs:
+                mock_embedder.return_value.embed_text.return_value = [0.02] * 1024
+                mock_vs.return_value.search.return_value = [
+                    ("id-1", 0.9, "splite text", "F_pdf_doc"),
+                ]
+                response = test_client.post(
+                    "/api/splite_search",
+                    json={"query": "封边机", "top_k": 3},
+                )
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total"] == 1
+        assert data["results"][0]["chunk_id"] == "id-1"
+        mock_embedder.return_value.embed_text.assert_called_once()
+        assert mock_embedder.return_value.embed_text.call_args.kwargs.get("embedding_backend") == "local"
+
+    def test_splite_search_error(self, test_client):
+        with patch("storage.vector_store.EmbeddingGenerator") as mock_embedder:
+            mock_embedder.return_value.embed_text.side_effect = RuntimeError("no model")
+            response = test_client.post("/api/splite_search", json={"query": "x"})
+        assert response.status_code == 500
+
+
 class TestChatEndpoint:
     """Test cases for /api/chat endpoint."""
 

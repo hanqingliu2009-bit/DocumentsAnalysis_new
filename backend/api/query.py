@@ -207,6 +207,43 @@ async def search(request: SearchRequest):
         raise HTTPException(status_code=500, detail=f"Search failed: {str(e)}")
 
 
+@router.post("/splite_search", response_model=SearchResponse)
+async def splite_search(request: SearchRequest):
+    """
+    Semantic search on the Splite BGE Chroma collection only (no LLM).
+
+    Uses ``HYBRID_SPLITE_EMBEDDING_MODEL`` with sentence-transformers (``embedding_backend=local``),
+    independent of ``EMBEDDING_BACKEND`` / default ``CHROMADB_COLLECTION``. For Swagger debugging
+    of the hybrid pipeline's local branch.
+    """
+    try:
+        from storage.vector_store import EmbeddingGenerator, VectorStore
+
+        mid = (settings.HYBRID_SPLITE_EMBEDDING_MODEL or "").strip() or "BAAI/bge-large-zh-v1.5"
+        embedder = EmbeddingGenerator(model_name=mid)
+        query_embedding = embedder.embed_text(
+            request.query, embedding_backend="local"
+        )
+        splite_store = VectorStore(collection_name=settings.HYBRID_SPLITE_COLLECTION)
+        raw = splite_store.search(
+            query_embedding=query_embedding,
+            top_k=request.top_k,
+            document_ids=request.document_ids,
+        )
+        search_results = [
+            SearchResult(
+                chunk_id=chunk_id,
+                score=score,
+                text=text[:500] + "..." if len(text) > 500 else text,
+                document_id=doc_id or None,
+            )
+            for chunk_id, score, text, doc_id in raw
+        ]
+        return SearchResponse(results=search_results, total=len(search_results))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Splite search failed: {str(e)}")
+
+
 @router.post("/external_search", response_model=ExternalSearchResponse)
 async def external_search(request: ExternalSearchRequest):
     """

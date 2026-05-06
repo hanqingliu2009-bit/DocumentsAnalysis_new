@@ -185,9 +185,9 @@
 
 ### 阶段 D：配置、文档与运维
 
-- [ ] **D1**：`.env.example` 与 `doc/外部图数据库RAG实现说明.md`（或本方案）补充混合模式说明。
-- [ ] **D2**：对运维说明：首次拉模型、磁盘占用、重建索引命令。
-- [ ] **D3**（可选）：`/api/search` 是否暴露「仅 BGE 集合」查询，便于 Swagger 单独调试。
+- [x] **D1**：`backend/.env.example` 已含 Splite / Hybrid 块；`doc/外部图数据库RAG实现说明.md` 已增 **§14 混合模式** 与文件表、测试命令引用。
+- [x] **D2**：`backend/.env.example` 末尾 **Ops** 小节：合并脚本、灌库、HF 缓存、`backend/data/vector_db`、重灌说明。
+- [x] **D3**：新增 **`POST /api/splite_search`**（请求体同 `/api/search`），仅查 Splite BGE 集合、无 LLM，便于 Swagger 调试。
 
 ### 阶段 E：联调与性能
 
