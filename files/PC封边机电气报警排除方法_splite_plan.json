@@ -1,0 +1,1120 @@
+{
+  "document_name": "PC封边机电气报警排除方法.pdf",
+  "document_id": "F_pdf_PC封边机电气报警排除方法",
+  "total_pages": 30,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "group_id": 1,
+      "group_title": "公司标识及股票代码，用于企业身份识别",
+      "content": "南兴装备 股票代码：002757",
+      "pages": [
+        1
+      ],
+      "start_page": 1,
+      "end_page": 1,
+      "source_global_index": [
+        1
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "group_id": 2,
+      "group_title": "文档主标题，说明PC封边机报警处理方法",
+      "content": "PC封边机电气报警及排除方法",
+      "pages": [
+        1
+      ],
+      "start_page": 1,
+      "end_page": 1,
+      "source_global_index": [
+        2
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "group_id": 3,
+      "group_title": "作者部门与日期，表明文档来源和时效",
+      "content": "南兴装备研发部 2018年9月11日",
+      "pages": [
+        1
+      ],
+      "start_page": 1,
+      "end_page": 1,
+      "source_global_index": [
+        3
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "group_id": 4,
+      "group_title": "警报指示灯柱功能说明含红黄绿三色灯状态",
+      "content": "一：电气控制线路的故障表现\n\n警报指示灯柱：\n\n【红色灯】：机床出现故障报警或电气线路 故障时灯亮。\n\n【黄色灯】：机床无故障待机时，灯闪亮。\n\n【绿色灯】：开启部件及传输带运行，加工 生产时灯亮。 （出现故障时灯不亮)\n\n红色 故障指示 黄色 暂停指示 绿色 运行指示",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "group_id": 5,
+      "group_title": "HMI报警显示排除方法章节标题",
+      "content": "二：触摸屏（HMI）报警显示排除方法",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        10
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "group_id": 6,
+      "group_title": "尾切上限故障排除图文参数说明",
+      "content": "001：尾切上限故障-报警\n\n（1）检查板件之间板距是否太短。正常大于550cm （2）检查尾切电机上升是否正常。如：气压调节是否正常，机构是否卡死。 （3）检查尾切上端接近开关和件之间板距保护开关输入点是否正常。\n\n这是一张数控折弯机尾切机构的局部特写图，展示了液压管路、传感器安装位置及机械结构；图中红色箭头指向尾切上端的接近开关及其连接部件，对应文档中‘检查尾切上端接近开关和件之间板距保护开关输入点是否正常’的排查步骤。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/fd844ec8682d9ebe7f0e5afb59f140dff2a94e5baa1e7d623e89d6548ba281fd.jpg)\n\n<table><tr><td>尾切上限</td><td>x0.10</td><td>?</td></tr><tr><td>尾切下限</td><td>x0.11</td><td></td></tr><tr><td>尾切避让</td><td>X0.12</td><td></td></tr><tr><td>尾切间距保护</td><td>X0.13</td><td></td></tr></table>",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "group_id": 7,
+      "group_title": "公司联系信息页脚内容",
+      "content": "联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        15
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "group_id": 8,
+      "group_title": "工件超厚保护报警检查步骤及设备示意图说明",
+      "content": "002：工件超厚保护-报警\n\n（1）检查进料端的行程开关上挡块是否卡死。 （2）检查进料端的行程开关输入点是否正常。\n\n图片左侧为一台工业设备的进料端特写，黄色挡块安装在导轨旁；右侧为PLC输入点状态列表，包含“程序启动”“程序停止”“故障复位”“输送点动”“超厚保护开关”和“气压保护开关”共六个信号点（X1.0–X1.5），其中“超厚保护开关 X1.4”被红色箭头指向，对应左侧黄色挡块位置，表明其为工件超厚保护的行程开关检测点。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/40c7f55b6ef79f52b0448f988571efdbfc619589e966f7fb2508a608c1a484c1.jpg)",
+      "pages": [
+        4
+      ],
+      "start_page": 4,
+      "end_page": 4,
+      "source_global_index": [
+        16,
+        17,
+        18
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "group_id": 9,
+      "group_title": "压梁上限位保护报警功能及检查步骤说明",
+      "content": "003：压梁上限位保护-报警\n\n（1）检查压梁下端的行程开关是否卡死。 （2）检查压梁下端的行程开关输入点是否正常",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        19,
+        20
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "group_id": 10,
+      "group_title": "压梁设备示意图与开关参数对照表",
+      "content": "→ 急停保护开关 X1.6 相序保护开关  X1.7 压梁上限开关 X1.8 压梁下限开关 X1.9 压梁电机过载 X1.10 抛光电机过载 X1.11 输送电机过载 X1.12 胶轴电机过载 X1.13",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        21,
+        22
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "group_id": 11,
+      "group_title": "公司联系信息及页脚数据",
+      "content": "联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        23
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "group_id": 12,
+      "group_title": "压梁下限位保护报警检查步骤说明",
+      "content": "004：压梁下限位保护-报警\n\n（1）检查压梁上端的行程开关是否卡死。 （2）检查压梁上端的行程开关输入点是否正常",
+      "pages": [
+        6
+      ],
+      "start_page": 6,
+      "end_page": 6,
+      "source_global_index": [
+        24,
+        25
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "group_id": 13,
+      "group_title": "压梁保护开关参数及设备示意图",
+      "content": "急停保护开关X1.6 H 相序保护开关 X1.7 压梁上限开关 X1.8 压梁下限开关 X1.9 ? 压梁电机过载 X1.10 抛光电机过载 X1.11 输送电机过载 X1.12 胶轴电机过载 X1.13 A A",
+      "pages": [
+        6
+      ],
+      "start_page": 6,
+      "end_page": 6,
+      "source_global_index": [
+        26,
+        27
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "group_id": 14,
+      "group_title": "公司联系信息及网站",
+      "content": "联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        6
+      ],
+      "start_page": 6,
+      "end_page": 6,
+      "source_global_index": [
+        28
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "group_id": 15,
+      "group_title": "急停保护报警说明、检查步骤及按钮示意图",
+      "content": "005：急停保护-报警\n\n（1）检查急停开关是否按下，未复位。在操作面板和出板的尾端共2个带红 色蘑菇头形状的急停按钮\n\n（2）检查急停行程开关输入点是否正常。\n\n图片展示了两个急停按钮的实物图：左侧为操作面板上的红色蘑菇头急停按钮（标有“急停 E. STOP”），右侧为安装在设备外壳上的黄色底座红色蘑菇头急停按钮，两者均通过红色箭头指向并对应文档中关于检查急停开关状态的说明。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/94c127037e10b583332bc86b91622a72d151252dba6db7cf457480e7d238e3be.jpg)",
+      "pages": [
+        7
+      ],
+      "start_page": 7,
+      "end_page": 7,
+      "source_global_index": [
+        29,
+        30,
+        31,
+        32
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "group_id": 16,
+      "group_title": "急停保护开关及过载参数对照表格",
+      "content": "<table><tr><td>急停保护开关</td><td>X1.6</td><td></td></tr><tr><td>相序保护开关</td><td>X1.7</td><td></td></tr><tr><td>压梁上限开关</td><td>X1.8</td><td></td></tr><tr><td>压梁下限开关</td><td>X1.9</td><td></td></tr><tr><td>压梁电机过载</td><td>X1.10</td><td></td></tr><tr><td>抛光电机过载</td><td>X1.11</td><td></td></tr><tr><td>输送电机过载</td><td>X1.12</td><td></td></tr><tr><td>胶轴电机过载</td><td>X1.13</td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table>",
+      "pages": [
+        7
+      ],
+      "start_page": 7,
+      "end_page": 7,
+      "source_global_index": [
+        33
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "group_id": 17,
+      "group_title": "公司联系方式及网站信息",
+      "content": "联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        7
+      ],
+      "start_page": 7,
+      "end_page": 7,
+      "source_global_index": [
+        34
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "group_id": 18,
+      "group_title": "抛光电机过载报警检查步骤及实物图参数说明",
+      "content": "006：抛光电机过载-报警\n\n（1）检查抛光电机转子是否卡死，主电路热继电器是否跳开，电机三相电是 否缺相。 （2）检查抛光电机热继电器输入点是否正常。\n\n左侧为抛光电机的实物图，标示出两个电机（含风扇罩）及连接线缆；右侧为电气控制柜内部，展示了三台接触器（KM3、KM4、KM5）和三台热继电器（FR1、FR2、FR3），其中热继电器对应抛光电机过载保护，与页面文字‘检查抛光电机热继电器输入点是否正常’相呼应。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/137aba6497850b8ed1806044ca6ecb8d73c1685a4e36dc87cfaf496961cc279a.jpg)\n\n急停保护开关 X1.6 相序保护开关 X1.7 压梁上限开关 X1.8 压梁下限开关 X1.9 压梁电机过载 X1.10 抛光电机过载 X1.11 ? 输送电机过载 X1.12 胶轴电机过载 X1.13",
+      "pages": [
+        8
+      ],
+      "start_page": 8,
+      "end_page": 8,
+      "source_global_index": [
+        35,
+        36,
+        37,
+        38
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "group_id": 19,
+      "group_title": "公司联系信息及网站",
+      "content": "联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        8
+      ],
+      "start_page": 8,
+      "end_page": 8,
+      "source_global_index": [
+        39
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "group_id": 20,
+      "group_title": "压梁电机过载报警检查步骤及参数说明",
+      "content": "007：压梁电机过载-报警\n\n（1）检查压梁电机转子是否卡死，主电路热继电器是否跳开，电机三相电是 否缺相。\n\n（2）检查压梁电机热继电器输入点是否正常。\n\n左侧为压梁电机实物图，红色箭头指向电机本体；右侧为电气控制柜内部接线图，红色箭头指向标有FR1、FR2、FR3的热继电器（TECO品牌），上方为接触器KM3、KM4、KM5，整体对应文档中关于压梁电机过载报警的检查步骤。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/a9e50a1a118e6ca379764df5497c948c018e1abf0b604c798fc73cd0220a9fd7.jpg)\n\n急停保护开关 X1.6 相序保护开关 X1.7 压梁上限开关 X1.8 压梁下限开关 X1.9 压梁电机过载 X1.10 ? 抛光电机过载 X1.11 输送电机过载 X1.12 胶轴电机过载 X1.13",
+      "pages": [
+        9
+      ],
+      "start_page": 9,
+      "end_page": 9,
+      "source_global_index": [
+        40,
+        41,
+        42,
+        43,
+        44
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "group_id": 21,
+      "group_title": "公司联系信息及页脚",
+      "content": "联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        9
+      ],
+      "start_page": 9,
+      "end_page": 9,
+      "source_global_index": [
+        45
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "group_id": 22,
+      "group_title": "输送带电机故障报警检查步骤说明",
+      "content": "008：输送带电机故障-报警\n\n（1）检查输送带电机转子是否卡死，进给电机变频器“UF1”是否显示故障 代码或无显示。 （2）检查进给变频器“UF1”故障输入点是否正常。 联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        10
+      ],
+      "start_page": 10,
+      "end_page": 10,
+      "source_global_index": [
+        46,
+        47
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "group_id": 23,
+      "group_title": "输送带电机实物图及检查位置",
+      "content": "一台输送带电机的实物图，红色箭头指向电机尾部的接线盒或传感器安装位置，用于检查电机转子是否卡死。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/6970804c1217f480b3c224cf97da3b0eb7e3c40fb9c1e6907f0d9282b2a29815.jpg)",
+      "pages": [
+        10
+      ],
+      "start_page": 10,
+      "end_page": 10,
+      "source_global_index": [
+        48
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "group_id": 24,
+      "group_title": "变频器实物图及故障点标识",
+      "content": "一台变频器（型号为UF1）的实物图，红色箭头指向其侧面的故障指示标签或端子区域，用于检查故障输入点是否正常。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/ced4b81ceb98ea3fabe05c5fc782fc5a759d545bfcb37058cba66bb89d3e7675.jpg)",
+      "pages": [
+        10
+      ],
+      "start_page": 10,
+      "end_page": 10,
+      "source_global_index": [
+        49
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "group_id": 25,
+      "group_title": "电机故障相关开关参数列表",
+      "content": "<table><tr><td>急停保护开关</td><td>X1.6</td><td></td></tr><tr><td>相序保护开关</td><td>X1.7</td><td></td></tr><tr><td>压梁上限开关</td><td>X1.8</td><td></td></tr><tr><td>压梁下限开关</td><td>X1.9</td><td></td></tr><tr><td>压梁电机过载</td><td>X1.10</td><td></td></tr><tr><td>抛光电机过载</td><td>X1.11</td><td></td></tr><tr><td>输送电机过载</td><td>X1.12</td><td></td></tr><tr><td>胶轴电机过载</td><td>X1.13</td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table>",
+      "pages": [
+        10
+      ],
+      "start_page": 10,
+      "end_page": 10,
+      "source_global_index": [
+        50
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "group_id": 26,
+      "group_title": "公司联系信息页脚内容",
+      "content": "",
+      "pages": [
+        10
+      ],
+      "start_page": 10,
+      "end_page": 10,
+      "source_global_index": [
+        51
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "group_id": 27,
+      "group_title": "涂胶电机故障报警步骤说明及标题",
+      "content": "009：涂胶电机故障-报警\n\n（1）检查涂胶电机转子是否卡死，涂胶电机变频器“UF2”是否显示故障代 码或无显示。\n\n（2）检查涂胶变频器“UF2”故障输入点是否正常。",
+      "pages": [
+        11
+      ],
+      "start_page": 11,
+      "end_page": 11,
+      "source_global_index": [
+        52,
+        53,
+        54
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "group_id": 28,
+      "group_title": "涂胶电机变频器故障图示及代码表",
+      "content": "左侧为涂胶电机实物图，红色箭头指向电机本体；右侧为两台台达（DELTA）VFD-EL变频器，分别显示频率F45.0和F60.0，红色箭头指向标有“UF2”的变频器，对应故障排查步骤中提及的涂胶电机变频器。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/1d142b3cf99a90ec5be5fe891df85e09f7de0a09eb94c71f745143f69e158a8b.jpg)\n\n<table><tr><td></td></tr><tr><td>抛光电机过载 X1.11</td></tr><tr><td>输送电机过载 X1.12</td></tr><tr><td>胶轴电机过载 X1.13</td></tr><tr><td>高频电机故障 X1.14</td></tr><tr><td>联线输入 X1.15</td></tr><tr><td>胶轴启动开关 x2.0</td></tr><tr><td>胶液位开关 X2.1</td></tr><tr><td>油泵液位开关 x2.2</td></tr><tr><td>门罩保护开关 X2.3</td></tr><tr><td>上加胶电机故障 X2.4</td></tr></table>",
+      "pages": [
+        11
+      ],
+      "start_page": 11,
+      "end_page": 11,
+      "source_global_index": [
+        55,
+        56
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "group_id": 29,
+      "group_title": "公司联系方式及客服信息",
+      "content": "联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        11
+      ],
+      "start_page": 11,
+      "end_page": 11,
+      "source_global_index": [
+        57
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "group_id": 30,
+      "group_title": "高频电机故障报警检查步骤及设备图解",
+      "content": "010：高频电机故障-报警\n\n（1）检查高频电机转子是否卡死，高频变频器“UF3”“UF4”“UF5” “UF6”“UF8”“UF9”是否显示故障代码或无显示。\n\n（2）检查预铣变频器，头尾切变频器，厚带精修变频器，薄边精修变频器， 仿形变频器故障输入点是否正常。\n\n该图片为工业设备的多角度实拍图组合，包括机械部件（如红色电机外壳、气动/液压装置）、控制面板（带压力表和旋钮）、电气柜内部（含多个变频器及PLC模块），以及两个显示故障代码“F200”的安川变频器；右侧附有故障信号列表，其中“高频电机故障 X1.14”被红箭头特别标出，与页面标题“010：高频电机故障-报警”相呼应。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/b3e24850f9dd0bcbb35485150495db237a394123f49858bd12696171b5c8afab.jpg)",
+      "pages": [
+        12
+      ],
+      "start_page": 12,
+      "end_page": 12,
+      "source_global_index": [
+        58,
+        59,
+        60,
+        61
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "group_id": 31,
+      "group_title": "公司联系方式及服务信息",
+      "content": "联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        12
+      ],
+      "start_page": 12,
+      "end_page": 12,
+      "source_global_index": [
+        62
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "group_id": 32,
+      "group_title": "气压保护报警操作指南：检查气源压力与继电器",
+      "content": "011：气压保护-报警\n\n（1）检查输入气源压力是否在0.6Mpa以上。 （2）检查气源压力继电器输入点是否正常。",
+      "pages": [
+        13
+      ],
+      "start_page": 13,
+      "end_page": 13,
+      "source_global_index": [
+        63,
+        64
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "group_id": 33,
+      "group_title": "气源处理单元示意图：显示压力表检测点",
+      "content": "气源处理单元（F.R.L.组合）的示意图，红色箭头指向压力表，用于检查输入气源压力是否在0.6MPa以上，图中标注了‘气源A（工作）’接口。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/cbe33b516691c2e725b2c16b375a2e60acc326539752e1fa84675424acf276ad.jpg)",
+      "pages": [
+        13
+      ],
+      "start_page": 13,
+      "end_page": 13,
+      "source_global_index": [
+        65
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "group_id": 34,
+      "group_title": "电气控制柜继电器模块照片：指示输入点位置",
+      "content": "电气控制柜内部照片，红色箭头指向一个继电器模块（或PLC输入模块），用于接收气源压力信号，对应步骤（2）中检查继电器输入点是否正常。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/09aacfa25fcfbee62cca7fafd3d5174d7c983eca6e25c5140c27e187e957c389.jpg)",
+      "pages": [
+        13
+      ],
+      "start_page": 13,
+      "end_page": 13,
+      "source_global_index": [
+        66
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "group_id": 35,
+      "group_title": "PLC程序点表：含气压保护开关等参数",
+      "content": "程序启动 x1.0 程序停止 X1.1 故障复位 X1.2 输送点动 X1.3 超厚保护开关 x1.4 气压保护开关 X1.5",
+      "pages": [
+        13
+      ],
+      "start_page": 13,
+      "end_page": 13,
+      "source_global_index": [
+        67
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "group_id": 36,
+      "group_title": "公司联系信息：电话网站邮箱",
+      "content": "联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        13
+      ],
+      "start_page": 13,
+      "end_page": 13,
+      "source_global_index": [
+        68
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "group_id": 37,
+      "group_title": "相序保护报警功能说明与检查步骤",
+      "content": "012：相序保护-报警\n\n（1）检查输入三相电源顺序是否接反。 （2）检查电源相序保护继电器输入点是否正常。",
+      "pages": [
+        14
+      ],
+      "start_page": 14,
+      "end_page": 14,
+      "source_global_index": [
+        69,
+        70
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "group_id": 38,
+      "group_title": "相序保护继电器设备示意图",
+      "content": "一张电气控制柜内部的特写照片，红色箭头指向一个标有“相序保护”的继电器模块，其左侧为断路器，右侧为接触器，用于实现电源相序保护功能。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/ecf72be26682af606640d75cfa8339ff143b5244c8e38b0553b08db33850a6f9.jpg)",
+      "pages": [
+        14
+      ],
+      "start_page": 14,
+      "end_page": 14,
+      "source_global_index": [
+        71
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "group_id": 39,
+      "group_title": "设备开关输入点参数对照表",
+      "content": "<table><tr><td>急停保护开关</td><td>X1.6</td><td></td></tr><tr><td>相序保护开关</td><td>X1.7</td><td>?</td></tr><tr><td>压梁上限开关</td><td>X1.8</td><td></td></tr><tr><td>压梁下限开关</td><td>X1.9</td><td></td></tr><tr><td>压梁电机过载</td><td>X1.10</td><td></td></tr><tr><td>抛光电机过载</td><td>X1.11</td><td></td></tr><tr><td>输送电机过载</td><td>X1.12</td><td></td></tr><tr><td>胶轴电机过载</td><td>X1.13</td><td></td></tr><tr><td></td><td></td><td></td></tr></table>",
+      "pages": [
+        14
+      ],
+      "start_page": 14,
+      "end_page": 14,
+      "source_global_index": [
+        72
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "group_id": 40,
+      "group_title": "下涂胶盒低液位报警功能说明及检查项",
+      "content": "013：下涂胶盒低液位-报警（选配）\n\n（1）检查加热断路器是否打开，加热接触器是否吸合。 （2）检查PV当前显示温度是否大于SV-高设定值。 （3）检查液位探针放大器输入点是否正常(两组上熔胶，就有两个输入点）。 联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        15
+      ],
+      "start_page": 15,
+      "end_page": 15,
+      "source_global_index": [
+        73,
+        74
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "group_id": 41,
+      "group_title": "上熔胶温度控制系统电气柜示意图",
+      "content": "图片展示了电气控制柜中的三个交流接触器（KM0、KM1、KM2）及其对应的上熔胶温度控制系统界面，界面显示NO:1和NO:2两个系统的当前温度（PV=0℃）与设定高温值（SV High=160℃），并有“加热”按钮及熔胶状态图标。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/d4135e58fc22b882c1174f33601cd44f54fce87a2fa25666bb33d7256a1aa6e8.jpg)",
+      "pages": [
+        15
+      ],
+      "start_page": 15,
+      "end_page": 15,
+      "source_global_index": [
+        75
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "group_id": 42,
+      "group_title": "液位控制器设备图及标题说明",
+      "content": "图片展示了一个SEIOTEC CLS 45型液位控制器，其面板上有高液位（绿灯）、低液位（红灯）指示灯及一个调整电位器，设备安装在带波纹软管的机械装置旁，背景可见金属罐体。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/983c038f2aae00ea93dd738903f3213eda4421de032a083e500e35430739ccf9.jpg)\n\n1",
+      "pages": [
+        15
+      ],
+      "start_page": 15,
+      "end_page": 15,
+      "source_global_index": [
+        76,
+        77
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "group_id": 43,
+      "group_title": "胶轴及液位开关参数表",
+      "content": "<table><tr><td>胶轴启动开关 x2.0</td></tr><tr><td>胶液位开关 X2.1</td></tr><tr><td>油泵液位开关 X2.2</td></tr><tr><td>门罩保护开关 X2.3</td></tr><tr><td>上加胶电机故障 X2.4</td></tr><tr><td>备用 X2.5</td></tr><tr><td>备用 X2.6</td></tr></table>",
+      "pages": [
+        15
+      ],
+      "start_page": 15,
+      "end_page": 15,
+      "source_global_index": [
+        78
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "group_id": 44,
+      "group_title": "N:2系列开关参数表",
+      "content": "<table><tr><td></td></tr><tr><td>N:2胶轴启动开关×3.11 N:2胶液位开关X3.12</td></tr><tr><td>N:2换带启动开关×3.13</td></tr></table>",
+      "pages": [
+        15
+      ],
+      "start_page": 15,
+      "end_page": 15,
+      "source_global_index": [
+        79
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "group_id": 45,
+      "group_title": "页脚联系方式及页码信息",
+      "content": "",
+      "pages": [
+        15
+      ],
+      "start_page": 15,
+      "end_page": 15,
+      "source_global_index": [
+        80
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "group_id": 46,
+      "group_title": "输送带电机编码器故障报警检查步骤与示意图",
+      "content": "014：输送带电机编码器故障-报警\n\n（1）检查进料端处的编码器是否和进给电机同步旋转。 （2）检查编码器输入点是否正常。(开启输送带电机时，X2，X3交替闪为正 常）\n\n一张输送带电机编码器的特写图，红色塑料外壳的编码器安装在机械部件上，黑色波纹管电缆连接其底部，红色箭头指向编码器的信号输出端口（对应文本中提及的X2/X3输入点）。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/f41f5ba5dc221eeb472c259584606ebc9e074bf852eed85db57ccc536a18d42a.jpg)",
+      "pages": [
+        16
+      ],
+      "start_page": 16,
+      "end_page": 16,
+      "source_global_index": [
+        81,
+        82,
+        83
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "group_id": 47,
+      "group_title": "下涂胶盒低温报警检查步骤及设备示意图",
+      "content": "015：下涂胶盒低温-报警\n\n（1）检查加热断路器是否打开，加热接触器是否吸合，发热管是否烧坏。 （2）检查PV当前显示温度不小于SV-高设定值20。 联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn\n\n左侧为两个下涂胶温度控制界面（NO:1和NO:2），分别显示PV=0°C、SV高=185°C和190°C，并配有‘加热’按钮及加热管示意图；右侧为三台TECO品牌交流接触器（KM0、KM1、KM2）的实物图，红色箭头指向KM2的触点状态。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/74e7069e4d5036be83301f80d3630e1d9c4f13e07d0a6421b4a44d40dc335951.jpg)",
+      "pages": [
+        17
+      ],
+      "start_page": 17,
+      "end_page": 17,
+      "source_global_index": [
+        84,
+        85,
+        86
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "group_id": 48,
+      "group_title": "公司联系信息页脚",
+      "content": "",
+      "pages": [
+        17
+      ],
+      "start_page": 17,
+      "end_page": 17,
+      "source_global_index": [
+        87
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "group_id": 49,
+      "group_title": "联线输入故障报警说明及检查步骤",
+      "content": "016：联线输入信号故障-报警（选配）\n\n（1）检查触摸屏操作画面上的联线开关是否打开。 （2）检查上联线信号输入点是否正常",
+      "pages": [
+        18
+      ],
+      "start_page": 18,
+      "end_page": 18,
+      "source_global_index": [
+        88,
+        89
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "group_id": 50,
+      "group_title": "触摸屏操作界面示意图及标注",
+      "content": "触摸屏操作界面截图，显示“联机方式”设为“单机”，“扫描枪功能”为“关闭”，下方为仿形工作方式的示意图，标注了A1-至A4-四个位置及传送带运动方向。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/9b8f8bc9d7b800eec1469df426d4c10baff4f9ec201fb37cae461ebf6449d8d5.jpg)",
+      "pages": [
+        18
+      ],
+      "start_page": 18,
+      "end_page": 18,
+      "source_global_index": [
+        90
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "group_id": 51,
+      "group_title": "电机故障代码及联线输入参数",
+      "content": "输送电机过载 x1.12 胶轴电机过载 X1.13 高频电机故障 X1.14 联线输入 X1.15",
+      "pages": [
+        18
+      ],
+      "start_page": 18,
+      "end_page": 18,
+      "source_global_index": [
+        91
+      ]
+    },
+    {
+      "chunk_id": 52,
+      "group_id": 52,
+      "group_title": "封边带故障报警检查步骤及设备示意图说明",
+      "content": "017：封边带故障故障-报警（选配）\n\n（1）检查送带检测开关未检测到封边。 （2）检查送带检测开关输入点是否正常\n\n一张工业设备局部特写图，红色箭头指向一个安装在金属支架上的带检测开关（可能为接近开关），其旁有蓝色气缸和银色部件，整体位于封边机工作台区域，对应故障排查项‘送带检测开关未检测到封边’的物理位置。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/34f0f1b3de249835db498ae9483c21f6ed93b4e4a45cb7632323a322baa5f47f.jpg)",
+      "pages": [
+        19
+      ],
+      "start_page": 19,
+      "end_page": 19,
+      "source_global_index": [
+        92,
+        93,
+        94
+      ]
+    },
+    {
+      "chunk_id": 53,
+      "group_id": 53,
+      "group_title": "换带启动开关与边带检测参数列表",
+      "content": "<table><tr><td>换带启动开关</td><td>x3.0</td><td></td></tr><tr><td>边带到位</td><td>X3.1</td><td></td></tr><tr><td>边带送出</td><td>X3.2</td><td></td></tr><tr><td>边带1检测</td><td>x3.3</td><td></td></tr><tr><td>边带2检测</td><td>X3.4</td><td></td></tr><tr><td>边带3检测</td><td>X3.5</td><td></td></tr><tr><td>边带4检测</td><td>X3.6</td><td></td></tr><tr><td>日</td><td>7</td><td></td></tr></table>",
+      "pages": [
+        19
+      ],
+      "start_page": 19,
+      "end_page": 19,
+      "source_global_index": [
+        95
+      ]
+    },
+    {
+      "chunk_id": 54,
+      "group_id": 54,
+      "group_title": "N:2边带到位及检测参数表",
+      "content": "<table><tr><td>N:2边带到位</td><td>X3.14</td><td>?</td></tr><tr><td>N:2边带送出</td><td>X3.15</td><td></td></tr><tr><td>N:2边带1检测</td><td>X4.0</td><td></td></tr><tr><td>N:2边带2检测</td><td>X4.1</td><td></td></tr><tr><td>N:2边带3检测</td><td>X4.2</td><td></td></tr><tr><td>N:2边带4检测</td><td>X4.3</td><td></td></tr></table>",
+      "pages": [
+        19
+      ],
+      "start_page": 19,
+      "end_page": 19,
+      "source_global_index": [
+        96
+      ]
+    },
+    {
+      "chunk_id": 55,
+      "group_id": 55,
+      "group_title": "公司联系信息及页脚说明",
+      "content": "联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        19
+      ],
+      "start_page": 19,
+      "end_page": 19,
+      "source_global_index": [
+        97
+      ]
+    },
+    {
+      "chunk_id": 56,
+      "group_id": 56,
+      "group_title": "仿形追踪速度过高警告及操作说明，含输送速度界面图片",
+      "content": "018：仿形追踪选择速度过高-警告（选配）\n\n（1）降低进给电机速度，（开仿形功能，输送带电机速度只能用16-20Mmin)\n\n这是一个输送速度设置界面的截图，显示当前PV值为26 M/min，并提供‘低速’、‘中速’、‘高速’三个速度档位按钮；图中用红色箭头分别指向‘低速’和‘中速’按钮，对应文档中‘降低进给电机速度’的操作说明。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/6dd31e4d6ff310a50412dc7d52cfe83c21492aca78e5ddf3cf7cb0b355d2c576.jpg)",
+      "pages": [
+        20
+      ],
+      "start_page": 20,
+      "end_page": 20,
+      "source_global_index": [
+        98,
+        99,
+        100
+      ]
+    },
+    {
+      "chunk_id": 57,
+      "group_id": 57,
+      "group_title": "仿形追踪1气缸故障报警处理说明及图示",
+      "content": "019：仿形追踪1气缸故障-报警（选配）\n\n（1）检查仿形追踪1气缸上节流阀与调压阀是否打开 （2）检查仿形追踪1气缸输入点是否正常。\n\n图片左侧为仿形追踪1气缸的控制面板局部特写，标有三个带图标的黑色旋钮/开关，并用红色箭头指向；右侧为PLC输入点状态列表，包含“备用 X2.5”、“备用 X2.6”、“伺服故障 X2.7”、“仿形1上位 X2.8”和“仿形2下位 X2.9”，其中“仿形1上位 X2.8”被红色箭头特别标注，对应故障报警项。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/1bb0473111f820ca273c18f0dbade3571cd82652746a394e494c3fc74982c5fd.jpg)",
+      "pages": [
+        21
+      ],
+      "start_page": 21,
+      "end_page": 21,
+      "source_global_index": [
+        101,
+        102,
+        103
+      ]
+    },
+    {
+      "chunk_id": 58,
+      "group_id": 58,
+      "group_title": "仿形追踪3气缸故障报警检查步骤及参数说明",
+      "content": "020：仿形追踪3气缸故障-报警（选配）\n\n（1）检查仿形追踪3气缸上节流阀与调压阀是否打开 （2）检查仿形追踪3气缸输入点是否正常。\n\n这是一张工业设备局部照片，显示了仿形追踪3气缸上方的两个黑色旋钮式阀门（上节流阀与调压阀），红色箭头指向这两个部件，用于故障排查。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/1368e80f0886b927bcf85950a9ebb152444643af7b156e85ba4c3f59110a416a.jpg)\n\n仿形3下位 X2.10 仿形3上位 x2.11 仿形4下位 X2.12 仿形4上位 X2.13 仿形3保护开关X2.14 备用 x2.15 换带启动开关 X3.0 边带到位 X3.1",
+      "pages": [
+        22
+      ],
+      "start_page": 22,
+      "end_page": 22,
+      "source_global_index": [
+        104,
+        105,
+        106,
+        107
+      ]
+    },
+    {
+      "chunk_id": 59,
+      "group_id": 59,
+      "group_title": "头切避让气缸故障报警说明及排查步骤参数",
+      "content": "020：头切避让气缸故障-报警\n\n（1）检查头切避让气缸上节流阀与调压阀是否打开,气缸是否卡死 （2）检查头切避让气缸输入点是否正常。\n\n一张工业设备内部结构的特写图，显示了头切避让气缸及其连接的管路、阀组和传感器；红色箭头指向气缸本体，对应页面中‘头切避让气缸故障-报警’的排查点（1）和（2），用于检查节流阀、调压阀状态及输入信号是否正常。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/dcf3bfadd69385021adc98d760e92aeb722bdffd74d3bd45dc848d2bd2685160.jpg)\n\n<table><tr><td>头切下位</td><td>x0.8</td></tr><tr><td>头切避让 x0.9</td><td></td></tr><tr><td>尾切上限 x0.10</td><td></td></tr><tr><td>尾切下限 X0.11</td><td></td></tr><tr><td>尾切避让 x0.12</td><td></td></tr><tr><td>尾切间距保护 X0.13</td><td></td></tr><tr><td>备用 x0.14</td><td></td></tr></table>",
+      "pages": [
+        23
+      ],
+      "start_page": 23,
+      "end_page": 23,
+      "source_global_index": [
+        108,
+        109,
+        110,
+        111
+      ]
+    },
+    {
+      "chunk_id": 60,
+      "group_id": 60,
+      "group_title": "尾切避让气缸故障报警及检查步骤说明",
+      "content": "021：尾切避让气缸故障-报警\n\n（1）检查尾切避让气缸上节流阀与调压阀是否打开，气缸是否卡死。\n\n（2）检查尾切避让气缸输入点是否正常。",
+      "pages": [
+        24
+      ],
+      "start_page": 24,
+      "end_page": 24,
+      "source_global_index": [
+        112,
+        113,
+        114
+      ]
+    },
+    {
+      "chunk_id": 61,
+      "group_id": 61,
+      "group_title": "尾切避让气缸故障点设备结构示意图",
+      "content": "一张工业设备内部结构的特写图，显示了标有'NX'的控制面板、压力表、气动管路及阀组，红色箭头指向尾切避让气缸相关的节流阀与调压阀组件，用于故障排查。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/799de1b196f7669c5aad936fb976656a2a218dfa014281981c93f9b78fbdd69d.jpg)",
+      "pages": [
+        24
+      ],
+      "start_page": 24,
+      "end_page": 24,
+      "source_global_index": [
+        115
+      ]
+    },
+    {
+      "chunk_id": 62,
+      "group_id": 62,
+      "group_title": "尾切相关输入点参数对照表",
+      "content": "头切下位 x0.8 头切避让 x0.9 尾切上限 x0.10 尾切下限 x0.11 尾切避让 X0.12 尾切间距保护 X0.13 备用 x0.14",
+      "pages": [
+        24
+      ],
+      "start_page": 24,
+      "end_page": 24,
+      "source_global_index": [
+        116
+      ]
+    },
+    {
+      "chunk_id": 63,
+      "group_id": 63,
+      "group_title": "机器节能待机警告及参数设置说明",
+      "content": "022：机器节能待机中，请复位。-警告\n\n（1）机器开启进给电机后，在设定的时间内没加工板材时，下涂盒的自动切换到 待机温度，并出现警告。只需要按下操作面板上的黄色按钮（故障复位）就能解 除。\n\n（2）检查参数设置中节能待机设定是否错误。\n\n一张温控器参数设置界面截图，显示“NO1:温控器参数设置”表格，包含“上加胶温控”和“下涂胶温控”两列，其中“待机温度”设为150，“待机时间”设为30，红色箭头指向这两个数值。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/f36424c4ab7bc8cc4d242ea7ea178b7270ef83ca30c328ab576c1719367974cf.jpg)",
+      "pages": [
+        25
+      ],
+      "start_page": 25,
+      "end_page": 25,
+      "source_global_index": [
+        117,
+        118,
+        119,
+        120
+      ]
+    },
+    {
+      "chunk_id": 64,
+      "group_id": 64,
+      "group_title": "公司联系信息",
+      "content": "联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        25
+      ],
+      "start_page": 25,
+      "end_page": 25,
+      "source_global_index": [
+        121
+      ]
+    },
+    {
+      "chunk_id": 65,
+      "group_id": 65,
+      "group_title": "机床门罩保护报警功能说明及现场设备示意图",
+      "content": "023：机床门罩保护-报警（选配）\n\n（1）检查机器门口罩未关牢，门罩安全开关插片脱落 （2）检查门罩安全开关输入点是否正常。\n\n一张工业机床设备的现场照片，红色椭圆和箭头标示出左侧机身上部的门罩区域，该区域对应文档中所述的‘机床门罩保护-报警’功能所涉及的机械部件位置。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/c2f1c01aabbce363627553323e19a39265b974bae278fbb1932f033ad89a5550.jpg)",
+      "pages": [
+        26
+      ],
+      "start_page": 26,
+      "end_page": 26,
+      "source_global_index": [
+        122,
+        123,
+        124
+      ]
+    },
+    {
+      "chunk_id": 66,
+      "group_id": 66,
+      "group_title": "送带伺服故障报警标题说明",
+      "content": "024：送带伺服故障-报警（选配）",
+      "pages": [
+        27
+      ],
+      "start_page": 27,
+      "end_page": 27,
+      "source_global_index": [
+        125
+      ]
+    },
+    {
+      "chunk_id": 67,
+      "group_id": 67,
+      "group_title": "伺服驱动器故障检查步骤及图示",
+      "content": "（1）检查送带伺服电机转子是否卡死，送带伺服驱动器“ASD-1”“ASD-2” 是否显示故障代码或无显示。\n\n（2）检查送带伺服驱动器“ASD-1”“ASD-2”故障输入点是否正常。\n\n一张机械装置局部特写图，红色箭头指向一个安装在机架上的伺服电机或编码器组件，周围有气动元件和黑色线缆，对应步骤（1）中检查电机转子是否卡死的操作部位。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/84d0612708f48f3eb940af6ba38e84bf5cc445ba55262c91ec074afa69ec7973.jpg)\n\n两张并排安装的台达（Delta）ASD系列伺服驱动器实物图，红色箭头分别指向两台驱动器的故障代码显示屏（均显示“00000”）及下方的通信/输入端口，对应步骤（1）和（2）中检查驱动器故障显示与输入状态的操作。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/29b0a6170e43e36acf0024ccb28cc71a1b96daa4073d087e5ed0d6980d36f6b2.jpg)",
+      "pages": [
+        27
+      ],
+      "start_page": 27,
+      "end_page": 27,
+      "source_global_index": [
+        126,
+        127,
+        128,
+        129
+      ]
+    },
+    {
+      "chunk_id": 68,
+      "group_id": 68,
+      "group_title": "伺服故障输入点参数表",
+      "content": "工胶电吸障 ^4.4 备用 X2.5 备用 X2.6 伺服故障 x2.7 ? 仿形1上位 X2.8 仿形2下位  x2.9",
+      "pages": [
+        27
+      ],
+      "start_page": 27,
+      "end_page": 27,
+      "source_global_index": [
+        130
+      ]
+    },
+    {
+      "chunk_id": 69,
+      "group_id": 69,
+      "group_title": "公司联系信息页脚",
+      "content": "联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        27
+      ],
+      "start_page": 27,
+      "end_page": 27,
+      "source_global_index": [
+        131
+      ]
+    },
+    {
+      "chunk_id": 70,
+      "group_id": 70,
+      "group_title": "调机开关工作或联机暂停标题",
+      "content": "034：调机开关工作中或联机运行暂停中",
+      "pages": [
+        28
+      ],
+      "start_page": 28,
+      "end_page": 28,
+      "source_global_index": [
+        132
+      ]
+    },
+    {
+      "chunk_id": 71,
+      "group_id": 71,
+      "group_title": "调机开关操作步骤及急停按钮图解",
+      "content": "（1）检查机器触摸屏HMI上输送按钮是否按下，并且按钮右下角出现红色三 角形。如果联线开关没打开时点动下调机开关SB3就能解除 （2）检查机器触摸屏HMI上输送按钮是否按下，并且按钮右下角出现红色三 角形。如果联线开关打开时先查看联线输入信号X43是否亮红灯，如X43信号 亮红灯，点动下调机开关SB3就能解除\n\n一张黄色紧急停止按钮（急停开关）的特写图，按钮安装在面板上，下方连接黑色波纹软管电缆，红色箭头指向该按钮。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_181808_8779/354b03da68e59ffcf863604ccce49d6c8067f034fd73f7635084bfbbe3b116a0.jpg)",
+      "pages": [
+        28
+      ],
+      "start_page": 28,
+      "end_page": 28,
+      "source_global_index": [
+        133,
+        134
+      ]
+    },
+    {
+      "chunk_id": 72,
+      "group_id": 72,
+      "group_title": "程序信号对照表含X1.0至X1.5",
+      "content": "<table><tr><td>程序启动 X1.0</td></tr><tr><td>程序停止 X1.1</td></tr><tr><td>故障复位 X1.2</td></tr><tr><td>输送点动 X1.3</td></tr><tr><td>超厚保护开关 X1.4</td></tr><tr><td>气压保护开关 X1.5</td></tr></table>",
+      "pages": [
+        28
+      ],
+      "start_page": 28,
+      "end_page": 28,
+      "source_global_index": [
+        135
+      ]
+    },
+    {
+      "chunk_id": 73,
+      "group_id": 73,
+      "group_title": "公司联系方式及网站信息",
+      "content": "联系我们 电话：400-888-2033 Http://www.nanxing.com.cn E-mail: info@nanxing.com.cn",
+      "pages": [
+        28
+      ],
+      "start_page": 28,
+      "end_page": 28,
+      "source_global_index": [
+        136
+      ]
+    },
+    {
+      "chunk_id": 74,
+      "group_id": 74,
+      "group_title": "表格标题说明文字，提示后续表格内容存在",
+      "content": "",
+      "pages": [
+        29
+      ],
+      "start_page": 29,
+      "end_page": 29,
+      "source_global_index": [
+        137
+      ]
+    },
+    {
+      "chunk_id": 75,
+      "group_id": 75,
+      "group_title": "感谢页面标题，表示文档结束",
+      "content": "THANK YOU",
+      "pages": [
+        30
+      ],
+      "start_page": 30,
+      "end_page": 30,
+      "source_global_index": [
+        138
+      ]
+    }
+  ]
+}

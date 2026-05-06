@@ -1,0 +1,1842 @@
+{
+  "document_name": "双端封边机维护保养手册 新版8-24最终版.docx",
+  "document_id": "F_docx_双端封边机维护保养手册 新版8-24最终版",
+  "total_pages": 32,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "group_id": 1,
+      "group_title": "双端封边机维护手册标题及版本信息",
+      "content": "双端封边机\n\n维护保养手册\n\n（版本 V2.0）",
+      "pages": [
+        1
+      ],
+      "start_page": 1,
+      "end_page": 1,
+      "source_global_index": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "group_id": 2,
+      "group_title": "双端封边机产品图及设备说明",
+      "content": "这是一台双端封边机的高清产品图，设备主体为白色与灰色，结构复杂，包含送料系统、封边单元、控制面板及透明防护罩，用于木工板材的自动化封边加工。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/7925bed65c4d27cb60b5715d69a24d73f3bc79007131380c36977968a73ae6e6.jpg)",
+      "pages": [
+        1
+      ],
+      "start_page": 1,
+      "end_page": 1,
+      "source_global_index": [
+        4
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "group_id": 3,
+      "group_title": "公司联系信息及地址详情",
+      "content": "中国 广东\n\n南兴装备股份有限公司 地 址：东莞市厚街镇科技工业园南兴路 电 话：400-888-2033 0769-85597078 /85597088 传 真：0769-85592399 邮 箱：info@nanxing.com.cn 网 址：http://www.nanxing.com.cn",
+      "pages": [
+        1
+      ],
+      "start_page": 1,
+      "end_page": 1,
+      "source_global_index": [
+        5,
+        6
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "group_id": 4,
+      "group_title": "文档目录标题页",
+      "content": "目 录",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        7
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "group_id": 5,
+      "group_title": "第一节日常保养目录",
+      "content": "第一节 日常保养.. 3",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        8
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "group_id": 6,
+      "group_title": "1.1开机前检查条目",
+      "content": "1.1 开机前检查.",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        9
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "group_id": 7,
+      "group_title": "1.2开机中检查条目",
+      "content": "1.2 开机中检查. 3",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        10
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "group_id": 8,
+      "group_title": "1.3关机后保养条目",
+      "content": "1.3 关机后保养..",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        11
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "group_id": 9,
+      "group_title": "第二节部件保养目录",
+      "content": "第二节 部件保养..",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        12
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "group_id": 10,
+      "group_title": "2.1整机保养条目",
+      "content": "2.1 整机.. 5",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        13
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "group_id": 11,
+      "group_title": "2.2预铣装置条目",
+      "content": "2.2 预铣装置.",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        14
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "group_id": 12,
+      "group_title": "2.3涂胶系统条目",
+      "content": "2.3 涂胶系统..",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        15
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "group_id": 13,
+      "group_title": "2.4压带装置条目",
+      "content": "2.4 压带装置. 9",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        16
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "group_id": 14,
+      "group_title": "2.5送料系统条目",
+      "content": "2.5 送料系统.. 9",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        17
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "group_id": 15,
+      "group_title": "2.6齐头装置条目",
+      "content": "2.6 齐头装置.. .13",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        18
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "group_id": 16,
+      "group_title": "2.7粗修装置条目",
+      "content": "2.7 粗修装置. ..14",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        19
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "group_id": 17,
+      "group_title": "2.8精修装置条目",
+      "content": "2.8 精修装置. .14",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        20
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "group_id": 18,
+      "group_title": "2.9仿形装置条目",
+      "content": "2.9 仿形装置. .15",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        21
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "group_id": 19,
+      "group_title": "2.10刮边装置条目",
+      "content": "2.10 刮边装置. .15",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        22
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "group_id": 20,
+      "group_title": "设备维护目录，包含各章节标题及对应页码信息",
+      "content": "2.11 平刮装置. .16\n\n2.12 抛光装置. ..16\n\n2.13 底座总成.. .17\n\n第三节 电气部分保养.. ..19\n\n3.1 气动系统.. .19\n\n3.2 电控板... ..20\n\n3.3 电器元件.. .21\n\n第四节激光发生器、pur 部分保养. .22\n\n4.1 水冷机保养.. .22\n\n4.2 激光发生器保养. .23\n\n4.3 PUR 保养.. ..24\n\n附表 1 润滑部位和周期. .26\n\n附表 2 设备保养规程表. 27",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "group_id": 21,
+      "group_title": "前言：说明机床定期维护保养的重要性及要求",
+      "content": "前 言\n\n为了使机床保持良好的运行状态，防止和减少事故的发生，应坚持定期对 机床进行检查和维护保养。凡操作和维护本机器的人员，必须仔细阅读并认真",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        36,
+        37
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "group_id": 22,
+      "group_title": "设备维护保养规定及故障处理说明",
+      "content": "执行本手册的维护和保养规定。\n\n该设备的技术保养分为日常保养和部件保养，操作人员需严格遵守操作规 程和日常维护制度。当机床发生故障时要注意保护现场，并向维修人员如实反 应故障状况，以利于维修人员分析诊断出故障的原因，并进行排除。",
+      "pages": [
+        4
+      ],
+      "start_page": 4,
+      "end_page": 4,
+      "source_global_index": [
+        38,
+        39
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "group_id": 23,
+      "group_title": "适用产品型号列表及双端封边机系列",
+      "content": "本手册适用产品型号:\n\nNB6S2II、NB7HS2P、NB7CS2IIP、NB8CS2IIPT、NB7CS2IIP 双端封边机 等系列。",
+      "pages": [
+        4
+      ],
+      "start_page": 4,
+      "end_page": 4,
+      "source_global_index": [
+        40,
+        41
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "group_id": 24,
+      "group_title": "日常保养章节标题，标识设备维护主题",
+      "content": "第一节 日常保养",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        42
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "group_id": 25,
+      "group_title": "开机前检查步骤，包括油路和电气检查要点",
+      "content": "1.1 开机前检查\n\n①检查气源三联件和液压调速阀是否缺油，如有需要，请按照润滑指示图，使 用干净的机油进行加油。 ②检查电源开关外观和作用是否良好，接地装置是否完整。 ③检查各部件螺钉、螺母、手柄有无松动或者丢失、如有发现应及时拧紧和补 齐。 ④检查传动皮带情况。 ⑤检查机床电柜门、电器安全装置是否良好。",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        43,
+        44
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "group_id": 26,
+      "group_title": "开机中检查要点，监控设备运行状态和安全",
+      "content": "1.2 开机中检查\n\n①观察电机、电器元件的灵敏性、可靠性、温升、声响和震动等情况。 ②观察触摸屏上是否有报警显示。 ③观察传动丝杠传动情况。 ④观察各大工位切割锯片，刀具工作状况。 ⑤观察传动皮带传动情况。 ⑥观察机床各气动部件运行情况。 ⑦观察电控柜上各个冷却风扇工作是否正常运转。 ⑧应尽量少开电控柜门，不允许在机床使用时敞开电控柜门。",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        45,
+        46
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "group_id": 27,
+      "group_title": "检查问题需报修，禁止自行修理防意外",
+      "content": "△Tips 提示\n\n检查中发现有不良问题时，须通知维修人员及时修理，操 作人员不得自行修理，以防发生意外。",
+      "pages": [
+        6
+      ],
+      "start_page": 6,
+      "end_page": 6,
+      "source_global_index": [
+        47,
+        48
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "group_id": 28,
+      "group_title": "关机后保养步骤含清洁整理操作",
+      "content": "1.3 关机后保养\n\n①清扫机床，彻底清除机床上残存的木屑。 ②用抹布及清洁剂抹干净机床外观上的粉尘及油污。 ③清洁滤尘袋的粉尘及木屑，保持吸尘效果良好。 ④打扫机床周围地面的垃圾，整理好工作场所物品，保持环境畅通。 ⑤将各操作手柄（开关）置于空档（零位），拉下电源开关，做到整齐、清洁、 润滑、安全。",
+      "pages": [
+        6
+      ],
+      "start_page": 6,
+      "end_page": 6,
+      "source_global_index": [
+        49,
+        50
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "group_id": 29,
+      "group_title": "清洁禁用腐蚀性溶剂防损电器",
+      "content": "Tips 提 示\n\n清洁机床外观时不能用有腐蚀性的溶剂，清洁剂不能流入电器 内部，以防损坏电器元件。",
+      "pages": [
+        6
+      ],
+      "start_page": 6,
+      "end_page": 6,
+      "source_global_index": [
+        51,
+        52
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "group_id": 30,
+      "group_title": "部件保养章节标题",
+      "content": "第二节 部件保养",
+      "pages": [
+        7
+      ],
+      "start_page": 7,
+      "end_page": 7,
+      "source_global_index": [
+        53
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "group_id": 31,
+      "group_title": "整机清洁保养说明及设备示意图",
+      "content": "2.1 整机\n\n清理外部粉尘及木屑，注意勿划伤视窗口有机玻璃：每班次保养\n\n这是一台南兴装备股份有限公司生产的两端封边机，整体为白色工业设备，结构复杂，包含输送轨道、加工单元、控制面板和透明防护罩，用于木工板材的自动封边作业。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/3ccaf8d3ecd420a7a73077862f1ae4068b3a187c5797f7eaea59ea20f6557f46.jpg)\n\n整机清洁保养",
+      "pages": [
+        7
+      ],
+      "start_page": 7,
+      "end_page": 7,
+      "source_global_index": [
+        54,
+        55,
+        56,
+        57
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "group_id": 32,
+      "group_title": "预铣装置刀具检查及维护说明",
+      "content": "2.2 预铣装置\n\n检查刀具锋利：每周保养一次\n\n检查刀具的锋利情况，如损坏则进行更换\n\n预铣装置的刀具部分，包含两个红色防护罩覆盖的铣削头，安装在白色基座上，下方连接有气动或液压执行机构。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/fc56ebd2eeeaec687d518315688a803f6e5afff3561935c4d3ce1e86c46a494b.jpg)",
+      "pages": [
+        8
+      ],
+      "start_page": 8,
+      "end_page": 8,
+      "source_global_index": [
+        58,
+        59,
+        60,
+        68
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "group_id": 33,
+      "group_title": "导轨滑块与运动部件润滑维护",
+      "content": "导轨滑块检查润滑：每天保养一次\n\n每天手动主油泵进行注油 2-3 次\n\n运动部件检查润滑：每周保养一次\n\n在丝杠及运动部位涂适量润滑油（长城导 轨油 68#），保证运动顺畅\n\n导轨滑块组件的特写，显示一个金属滑块嵌入黑色导轨中，旁边有红色部件和注油嘴，用于润滑与导向。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/e12e0540854385f3757a6a4cdfefdda0d6ed7af83e9d51ddd68f4dc60626e8d9.jpg)",
+      "pages": [
+        8
+      ],
+      "start_page": 8,
+      "end_page": 8,
+      "source_global_index": [
+        61,
+        62,
+        63,
+        64,
+        69
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "group_id": 34,
+      "group_title": "伺服电机检查清理维护流程",
+      "content": "伺服电机检查清理：每年例行保养一次\n\n检查伺服电机否有灰尘、氧化、烧糊气味\n\n拆下罩盖清除散热风扇附着的粉尘\n\n伺服电机的局部视图，可见其外壳、八角形接线盒及连接的波纹软管，用于散热或电缆保护。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/1a236c088096f547ee716622d5176307b2a3abdcf73298e4a8e4c87d26c5e002.jpg)",
+      "pages": [
+        8
+      ],
+      "start_page": 8,
+      "end_page": 8,
+      "source_global_index": [
+        65,
+        66,
+        67,
+        70
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "group_id": 35,
+      "group_title": "涂胶系统胶盒内胶水保护操作及示意图",
+      "content": "2.3 涂胶系统\n\n胶盒内胶水保护：每班次后保养\n\n每班次结束关机后，及时关闭胶门，防止灰 尘进入胶盒污染胶水及防止胶水流出\n\n一台双端封边机的胶盒及胶路系统局部图，显示了白色机身、红色胶盒组件、黑色软管及下方的胶枪/涂胶头阵列，对应文档中‘胶盒内胶水保护’的操作说明。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/08e7336eaa79b917a168a04766ae8615fec402c2de3e7d5fcf7e791be61349b2.jpg)",
+      "pages": [
+        9
+      ],
+      "start_page": 9,
+      "end_page": 9,
+      "source_global_index": [
+        71,
+        72,
+        73,
+        74
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "group_id": 36,
+      "group_title": "涂胶轴检查清理步骤与设备特写图",
+      "content": "涂胶轴检查清理：每周保养一次\n\n检查涂胶轴周围胶水情况，清理老化胶水\n\n涂胶轴及其周围区域的特写，可见金属轴、夹具、红色防护罩及标牌，用于说明‘涂胶轴检查清理’和‘检查涂胶轴周围胶水情况’的维护步骤。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/1ebefd4312719ab0a50e38f710da5cfd22ede1afca37f4625b19912439035889.jpg)",
+      "pages": [
+        9
+      ],
+      "start_page": 9,
+      "end_page": 9,
+      "source_global_index": [
+        75,
+        76,
+        77
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "group_id": 37,
+      "group_title": "涂胶轴轴承润滑保养操作及油嘴图",
+      "content": "润滑涂胶轴轴承：每两天保养一次\n\n在涂胶轴轴承位置（油嘴）添加高温润 滑脂（手动添加）\n\n润滑涂胶轴轴承的油嘴部位特写，显示黑色圆柱形轴承组件与上方固定结构的连接处，对应‘在涂胶轴轴承位置（油嘴）添加高温润滑脂’的操作要求。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/bc041fa1562c5b69d49cacdd0baba6fbd757dd902cee50a6de51f2cc5aa02fae.jpg)",
+      "pages": [
+        9
+      ],
+      "start_page": 9,
+      "end_page": 9,
+      "source_global_index": [
+        78,
+        79,
+        80
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "group_id": 38,
+      "group_title": "高温润滑油脂使用警示提示",
+      "content": "Tips 提 示\n\n禁止用普通润滑油脂代替高温润滑油脂，否则会导致涂胶轴 轴承位置堵死。",
+      "pages": [
+        9
+      ],
+      "start_page": 9,
+      "end_page": 9,
+      "source_global_index": [
+        81,
+        82
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "group_id": 39,
+      "group_title": "液位传感器检查流程与安装示意图",
+      "content": "液位传感器检查：每月保养一次\n\n检查胶液液位传感器，如有必要，重新调整 胶液液位\n\n一张液位传感器安装位置的特写图，显示一个白色圆柱形传感器通过蓝色软管连接，固定在红色设备的黑色底座上，用于胶液液位检测。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/279c7ab12a7420d102fdbf0e0c9a8e05fd21f3ddf8a17e411fd4ee8936665ddc.jpg)",
+      "pages": [
+        9
+      ],
+      "start_page": 9,
+      "end_page": 9,
+      "source_global_index": [
+        83,
+        84,
+        85
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "group_id": 40,
+      "group_title": "链条检查润滑步骤及设备图示",
+      "content": "链条检查润滑：每周保养一次\n\n检查链条及万向节无松弛现象\n\n在链条上涂上适量润滑脂（长城润滑脂 3#）\n\n链传动机构特写，包含电机、减速器和链条组件，对应文档中‘链条检查润滑’的维护部位。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/13a347d77c74f20fbb1c766987ffdc3c6085d9ba746abf4b94b70e18dcb2fc9d.jpg)",
+      "pages": [
+        11
+      ],
+      "start_page": 11,
+      "end_page": 11,
+      "source_global_index": [
+        86,
+        87,
+        88,
+        89
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "group_id": 41,
+      "group_title": "涂胶变速箱检查及设备图示",
+      "content": "涂胶变速箱检查：每年保养一次\n\n油量不足需加 VG200 减速机油\n\n白色双腔体涂胶变送箱（或计量泵），安装于底座上，对应文档中‘涂胶变速箱检查’的设备。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/1a0fabc06e95740a053ac31238da194a203e09efb23bf0e07a50d1042f50d83a.jpg)",
+      "pages": [
+        11
+      ],
+      "start_page": 11,
+      "end_page": 11,
+      "source_global_index": [
+        90,
+        91,
+        92
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "group_id": 42,
+      "group_title": "伺服电机检查清理及设备图示",
+      "content": "伺服电机检查清理：每年例行保养一次\n\n检查伺服电机是否有灰尘、氧化、烧糊气味\n\n伺服电机本体，带有散热片和接线盒，用于驱动机械部件，对应文档中‘伺服电机检查清理’的维护对象。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/a13d704776d11d8f80d8343d26f4be4ae852fa2e827fe713341724055ccc2382.jpg)\n\n拆下罩盖清除散热风扇附着的粉尘",
+      "pages": [
+        11
+      ],
+      "start_page": 11,
+      "end_page": 11,
+      "source_global_index": [
+        93,
+        94,
+        95,
+        96
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "group_id": 43,
+      "group_title": "涂胶单元检修及设备图示",
+      "content": "涂胶单元例行检修：每年保养一次\n\n一张涂胶单元的特写照片，显示一个红色警示盒，上面贴有双语‘DANGER / Quente HOT’警告标签（含高温图标），安装在机械装置上，周围可见气动元件、金属支架和操作手柄。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/1f2a08d4f0099a7b8c1d3b8640d77af0b70a4235cfaa68ef6c7d8eebc7f23729.jpg)\n\n使用一年后，基于磨损必须对涂胶单元进行 例行检修",
+      "pages": [
+        11
+      ],
+      "start_page": 11,
+      "end_page": 11,
+      "source_global_index": [
+        97,
+        98,
+        99
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "group_id": 44,
+      "group_title": "压带轮检查：保养频次与维护操作说明",
+      "content": "2.4 压带装置\n\n压带轮检查：每周保养一次\n\n一张压带装置的局部图，显示一个红色格栅状防护罩覆盖在下方的机械部件上，下方可见压轮及连接结构，对应文档中‘压带轮检查’部分。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/fabfc10740c11457054b93c83bb90ab5464a090ddca598e1ff9043bf72d34a40.jpg)\n\n检查压轮有无损坏，调整压轮垂直度",
+      "pages": [
+        12
+      ],
+      "start_page": 12,
+      "end_page": 12,
+      "source_global_index": [
+        100,
+        101,
+        102,
+        103
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "group_id": 45,
+      "group_title": "气缸检查：保养频次与动作状态检查",
+      "content": "气缸检查：每周保养一次\n\n检查气缸动作正常，无磨损\n\n一张气缸组件的特写图，展示多个并排安装的银色小型气缸，固定于黑色支架上，上方有红色防护格栅，对应文档中‘气缸检查’部分。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/c0a2a7c6adac662b71b5c0fffdb670a0df8e572db2163f2a460f02fa8dd7fedf.jpg)",
+      "pages": [
+        12
+      ],
+      "start_page": 12,
+      "end_page": 12,
+      "source_global_index": [
+        104,
+        105,
+        106
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "group_id": 46,
+      "group_title": "压梁传动装置：螺杆检查与润滑说明",
+      "content": "2.5 送料系统\n\n2.5.1 压梁传动装置\n\n检查压梁传动螺杆：每月保养一次\n\n一张压梁传动装置的实物图，包含一个红色手柄/传感器部件、金属传动螺杆及层叠式齿轮箱结构，对应文档中‘压梁传动装置’的保养说明。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/744e6edeab0ca4facf55f5a63e6102589c05fdc0c288149ab922ad99d655422e.jpg)\n\n压带齿轮箱齿轮位置添加润滑脂（长城润 滑脂 3#），保证传动正常",
+      "pages": [
+        12
+      ],
+      "start_page": 12,
+      "end_page": 12,
+      "source_global_index": [
+        107,
+        108,
+        109,
+        110,
+        111
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "group_id": 47,
+      "group_title": "伺服电机清理：年度保养与粉尘处理",
+      "content": "伺服电机检查清理：每年例行保养一次\n\n检查伺服电机是否有灰尘、氧化、烧糊气味\n\n拆下罩盖清除散热风扇附着的粉尘\n\n伺服电机安装在设备内部，连接黑色波纹软管，电机表面有铭牌，旁边为金属传动结构，对应文档中‘拆下罩盖清除散热风扇附着的粉尘’的操作场景。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/50dff1b1f01e0bf5d4d7b583760f98840906ead799400e38d6bd472170acb52a.jpg)",
+      "pages": [
+        12
+      ],
+      "start_page": 12,
+      "end_page": 12,
+      "source_global_index": [
+        112,
+        113,
+        114,
+        115
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "group_id": 48,
+      "group_title": "压料滚轮及导向轮维护步骤与示意图",
+      "content": "2.5.2 压料滚轮及导向轮\n\n检查外观良好无破损\n\n检查导向轮及皮带轮：每月保养一次\n\n压料滚轮及导向轮的特写，显示一排黑色外圈、黄色中心的滚轮安装在金属支架上，用于压紧和引导材料。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/652a6620f5b14b77cca1d46192ab8c24588eee4abd8dd4e6ea37d1ef65298319.jpg)",
+      "pages": [
+        13
+      ],
+      "start_page": 13,
+      "end_page": 13,
+      "source_global_index": [
+        116,
+        117,
+        118,
+        119
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "group_id": 49,
+      "group_title": "皮带及链条调节装置保养方法与图示",
+      "content": "2.5.3 皮带及链条调节装置\n\n皮带检查及调整：每周保养一次\n\n检查张紧力大小是否合适，否则调节螺杆\n\n皮带及链条调节装置的局部图，展示一个带有螺杆和固定块的机械结构，用于调整张紧力并确保调节螺杆顺畅运行。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/8e11d0d21be0c9700bdb3a2f018b3f12d9d6d1395a305d52bf523f0b41a9639b.jpg)\n\n检查调节螺杆是否顺畅，并涂上适量的润滑 油脂（长城润滑脂 3#）",
+      "pages": [
+        13
+      ],
+      "start_page": 13,
+      "end_page": 13,
+      "source_global_index": [
+        120,
+        121,
+        122,
+        123,
+        124
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "group_id": 50,
+      "group_title": "输送链导轨轴承维护说明及结构图",
+      "content": "输送链的导轨与各个关节处的轴承： 每两班保养一次\n\n输送链的导轨与关节处轴承的特写，可见两个带金属滚珠的轴承安装在黑色导轨组件上，用于支撑和导向输送链运动。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/a6197d6f1a6a5773d1f0e00697b7f0f0cf7a2b4de46a5e6e4289814fc95619b7.jpg)\n\n每两班加一次润滑油以保护轴承 （长城润滑脂 3#）",
+      "pages": [
+        13
+      ],
+      "start_page": 13,
+      "end_page": 13,
+      "source_global_index": [
+        125,
+        126,
+        127
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "group_id": 51,
+      "group_title": "2.5.4输送电机及减速机保养步骤与图示",
+      "content": "2.5.4 输送电机及减速机\n\n检查输送电机变速箱：每月保养一次\n\n检查润滑油状况，如油量不足需加VG200 减速机油\n\n电机检查清理：每年例行保养一次\n\n检查伺服电机是否有灰尘、氧化、烧糊气味\n\n拆下罩盖清除散热风扇附着的粉尘\n\n输送电机及减速机的实物图，显示一台立式电机连接减速箱和联轴器，旁边有红色防护罩，对应文档中2.5.4节关于电机与变速箱的保养说明。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/3d35d2d66df9c4ad0851b7ab7217d074306418dfa8f9d97076377c0a1a3355cd.jpg)\n\n伺服电机的特写图，展示其安装在机械结构上的状态，电机外壳有散热筋和铭牌，通过螺栓固定，对应文档中检查伺服电机灰尘、氧化、烧糊气味等维护项。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/5d30017241fe84e3a2c656b1497bfff2c7f10114a3c2af4480551b022de5b870.jpg)",
+      "pages": [
+        14
+      ],
+      "start_page": 14,
+      "end_page": 14,
+      "source_global_index": [
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135
+      ]
+    },
+    {
+      "chunk_id": 52,
+      "group_id": 52,
+      "group_title": "2.5.5输送链块检查更换说明与操作图示",
+      "content": "2.5.5 输送链块\n\n链板检查：每季度保养一次\n\n检查链块有无损坏\n\n更换损坏的链块\n\na) 用起子将两侧的桥型接片顶起\n\nb) 向上拔出损坏链板及安装新链块\n\n输送链块的安装结构图，显示多个灰色链板模块沿导轨排列，每个模块带有滚轮和固定孔，对应文档中2.5.5节关于链块检查与更换的操作步骤。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/3c475cd2dd0e53c9cddf4f2942d3cb4245a9043b079caa16ce5cf1a052fc236b.jpg)\n\n这是一张链块更换操作的示意图，展示使用两把起子：一把用于顶起链块两侧的桥型接片，另一把用于向上拔出损坏的链板并安装新链块。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/cd5693f09aef36d1de3632c5b2adca7e8f70e71de839baf80710cce38dcf8860.jpg)",
+      "pages": [
+        14
+      ],
+      "start_page": 14,
+      "end_page": 14,
+      "source_global_index": [
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143
+      ]
+    },
+    {
+      "chunk_id": 53,
+      "group_id": 53,
+      "group_title": "2.5.6进料靠板保养说明及部件图",
+      "content": "2.5.6 进料靠板\n\n调节螺杆：每周保养一次\n\n保证距离调节功能正常，检查润滑（长城润 滑脂 3#）\n\n进料靠板部件特写，含调节螺杆及橙色限位开关，用于保证距离调节功能正常并检查润滑（对应2.5.6节）\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/f58fc11225defbc1d6e366baf26e40420e2d8cee02b3d6ab7ca205d9fa95f70c.jpg)",
+      "pages": [
+        15
+      ],
+      "start_page": 15,
+      "end_page": 15,
+      "source_global_index": [
+        144,
+        145,
+        146,
+        147
+      ]
+    },
+    {
+      "chunk_id": 54,
+      "group_id": 54,
+      "group_title": "2.5.7压轮传送带检查及组件图",
+      "content": "2.5.7 压轮及传送带\n\n压轮及传送带检查：每月保养一次\n\n检查有无损坏，如有则更换新的，保证传 送功能正常\n\n压轮及传送带组件整体视图，包含多个滚轮和传动结构，用于检查有无损坏以确保传送功能正常（对应2.5.7节）\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/e3ec6703bb1af12e499e925c3b1caf45d2e5144fd45ca7f3ab6d0f6f9b2d1320.jpg)",
+      "pages": [
+        15
+      ],
+      "start_page": 15,
+      "end_page": 15,
+      "source_global_index": [
+        148,
+        149,
+        150,
+        151
+      ]
+    },
+    {
+      "chunk_id": 55,
+      "group_id": 55,
+      "group_title": "2.5.8进料靠轮检查及装置图",
+      "content": "2.5.8 进料电机装置\n\n进料靠轮检查：每月保养一次\n\n用标准板紧靠轴承边缘，检查各轴承接触情 况，及滚动情况，保证传送正常\n\n进料靠轮装置局部图，显示一排金属靠轮与上方导轨/传感器阵列，用于检查轴承接触与滚动情况（对应2.5.8节）\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/631d2eaf761a06e52348a9a4b6f89b17c6b7e3ee2b71bfc8f7ed3fde2e1a2916.jpg)",
+      "pages": [
+        15
+      ],
+      "start_page": 15,
+      "end_page": 15,
+      "source_global_index": [
+        152,
+        153,
+        154,
+        155
+      ]
+    },
+    {
+      "chunk_id": 56,
+      "group_id": 56,
+      "group_title": "2.5.8电机检查清理及风扇图",
+      "content": "电机检查清理：每年例行保养一次\n\n检查伺服电机是否有灰尘、氧化、烧糊气味\n\n拆下罩盖清除散热风扇附着的粉尘\n\n这是一台安装在设备上的伺服电机，配有散热风扇和联轴器，用于进料电机装置的驱动与维护。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/a9463ec2028642e54d17d78a009fceda96cb34fb349d7b2a35b138151b8073ac.jpg)",
+      "pages": [
+        15
+      ],
+      "start_page": 15,
+      "end_page": 15,
+      "source_global_index": [
+        156,
+        157,
+        158,
+        159
+      ]
+    },
+    {
+      "chunk_id": 57,
+      "group_id": 57,
+      "group_title": "齐头装置维护说明及结构图",
+      "content": "2.6 齐头装置\n\n检查直线导轨及减振器：每周保养一次\n\n导轨可以轻易来回移动，不得有损伤\n\n检查减振器无损坏、压力正常\n\n齐头装置的内部结构图，显示了两侧带压力表的控制单元、气动元件、管路及连接件，对应文档中‘检查直线导轨及减振器’和‘检查减振器无损坏、压力正常’的维护项。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/264753c64ecc6c9ac956ba256f545f32cfa0e130d107f704a05db12a60ed19bc.jpg)",
+      "pages": [
+        16
+      ],
+      "start_page": 16,
+      "end_page": 16,
+      "source_global_index": [
+        160,
+        161,
+        162,
+        163,
+        164
+      ]
+    },
+    {
+      "chunk_id": 58,
+      "group_id": 58,
+      "group_title": "导轨润滑检查及特写图",
+      "content": "导轨检查润滑：每天保养一次\n\n每天通过手动注油泵润滑 2-3 次\n\n直线导轨上的滑块与调节螺杆组件特写，可见导轨表面及安装螺丝，对应文档中‘导轨检查润滑’及‘每天通过手动注油泵润滑2-3次’的日常保养要求。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/ae872feffe04f96c1061ebbb57a7e25afe327f46c56db97d3a806f250c7a52a5.jpg)",
+      "pages": [
+        16
+      ],
+      "start_page": 16,
+      "end_page": 16,
+      "source_global_index": [
+        165,
+        166,
+        167
+      ]
+    },
+    {
+      "chunk_id": 59,
+      "group_id": 59,
+      "group_title": "气缸动作检查及局部图",
+      "content": "检查气缸动作正常：每周保养一次\n\n气动气缸，检查运动顺畅\n\n气动气缸及其连接管路的局部图，包含金属气缸本体、蓝色气管、波纹护套和传感器部件，对应文档中‘检查气缸动作正常’及‘气动气缸，检查运动顺畅’的周检内容。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/13656b9b8edc4aeac636f81827e1ad6f0ff41e4377a5bf6af12f520770548c5d.jpg)",
+      "pages": [
+        16
+      ],
+      "start_page": 16,
+      "end_page": 16,
+      "source_global_index": [
+        168,
+        169,
+        170
+      ]
+    },
+    {
+      "chunk_id": 60,
+      "group_id": 60,
+      "group_title": "伺服电机清理及部件图",
+      "content": "伺服电机检查清理：每年例行保养一次\n\n检查伺服电机是否有灰尘、氧化、 烧糊气味\n\n拆下罩盖清除散热风扇附着的粉尘\n\n上图为伺服电机特写，可见其散热片、铭牌（含'Micro'标识）及红色'R'标记；下图为齐头装置局部结构，包含金属夹具、调节手柄、红色急停按钮及连接线缆，属于双端封边机的加工部件。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/1ef3e7e17a7d34178fca4de3ee97bf015a0797faad86846c5391416a7acba290.jpg)",
+      "pages": [
+        16
+      ],
+      "start_page": 16,
+      "end_page": 16,
+      "source_global_index": [
+        171,
+        172,
+        173,
+        174
+      ]
+    },
+    {
+      "chunk_id": 61,
+      "group_id": 61,
+      "group_title": "粗修装置刀具检查保养及对应图片",
+      "content": "2.7 粗修装置\n\n检查刀具锋利：每周保养一次\n\n检查刀具的锋利情况，如损坏则进行更换\n\n粗修装置的刀具及夹持机构特写，显示了刀具安装座、调节手柄和连接管线，对应‘检查刀具锋利’的保养项目。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/e6127cb748120f99458abe2ae42aaedd88dac54405682e5785681c726cd90f79.jpg)",
+      "pages": [
+        17
+      ],
+      "start_page": 17,
+      "end_page": 17,
+      "source_global_index": [
+        175,
+        176,
+        177,
+        178
+      ]
+    },
+    {
+      "chunk_id": 62,
+      "group_id": 62,
+      "group_title": "粗修装置运动部件润滑保养及图片",
+      "content": "在丝杠及运动部位涂适量润滑油（长城导 轨油 68#），保证运动顺畅\n\n运动部件检查润滑：每周保养一次\n\n运动部件的导轨与滑块结构特写，可见丝杠、直线轴承及润滑孔位，对应‘在丝杠及运动部位涂适量润滑油’的保养操作。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/0392dc82025642f20ae2be78d65e9097217c1faedc73c7e90a5f5651592cf330.jpg)",
+      "pages": [
+        17
+      ],
+      "start_page": 17,
+      "end_page": 17,
+      "source_global_index": [
+        179,
+        189,
+        190
+      ]
+    },
+    {
+      "chunk_id": 63,
+      "group_id": 63,
+      "group_title": "粗修装置伺服电机清理保养及图片",
+      "content": "伺服电机检查清理：每年例行保养一次\n\n检查伺服电机是否有灰尘、氧化、烧糊气味\n\n拆下罩盖清除散热风扇附着的粉尘\n\n伺服电机本体特写，带有散热鳍片、黑色接线盒及红色标识，旁边有传动轮，对应‘伺服电机检查清理’的保养项目。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/ac6cc56bcceb62db237915ad58ba22126765942cf0647d80b2cadea9310b6be9.jpg)",
+      "pages": [
+        17
+      ],
+      "start_page": 17,
+      "end_page": 17,
+      "source_global_index": [
+        180,
+        181,
+        182,
+        191
+      ]
+    },
+    {
+      "chunk_id": 64,
+      "group_id": 64,
+      "group_title": "精修装置刀具检查保养及对应图片",
+      "content": "2.8 精修装置\n\n检查刀具锋利：每周保养一次\n\n检查刀具的锋利情况，如损坏则进行更换\n\n一张精修装置的局部实物图，显示了包含伺服电机、红色气动/液压元件、黑色波纹管及金属支架的机械结构，对应文档中2.8节‘精修装置’的保养内容。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/77203aef904ab190588ad4d19c63bb42b08b597ea0659307132e6a8835e66a52.jpg)",
+      "pages": [
+        17
+      ],
+      "start_page": 17,
+      "end_page": 17,
+      "source_global_index": [
+        183,
+        184,
+        185,
+        192
+      ]
+    },
+    {
+      "chunk_id": 65,
+      "group_id": 65,
+      "group_title": "精修装置运动部件润滑保养及图片",
+      "content": "运动部件检查润滑：每周保养一次\n\n在丝杠及运动部位涂适量润滑油（长城导轨 油 68#），保证运动顺畅\n\n伺服电机的特写图，清晰展示其带散热鳍片的银色外壳、黑色风扇端盖及连接线缆，背景可见黄色滚轮，对应文档中‘伺服电机检查清理：每年例行保养一次’的说明。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/ffa58025235220992018174dd93fdc74c1c8661a462ec6f2e937c81fe4a84344.jpg)",
+      "pages": [
+        17
+      ],
+      "start_page": 17,
+      "end_page": 17,
+      "source_global_index": [
+        186,
+        187,
+        193
+      ]
+    },
+    {
+      "chunk_id": 66,
+      "group_id": 66,
+      "group_title": "精修装置伺服电机清理保养说明",
+      "content": "伺服电机检查清理：每年例行保养一次",
+      "pages": [
+        17
+      ],
+      "start_page": 17,
+      "end_page": 17,
+      "source_global_index": [
+        188
+      ]
+    },
+    {
+      "chunk_id": 67,
+      "group_id": 67,
+      "group_title": "通用伺服电机检查项，含灰尘氧化检测与粉尘清理",
+      "content": "检查伺服电机是否有灰尘、氧化、烧糊气味\n\n拆下罩盖清除散热风扇附着的粉尘",
+      "pages": [
+        18
+      ],
+      "start_page": 18,
+      "end_page": 18,
+      "source_global_index": [
+        194,
+        195
+      ]
+    },
+    {
+      "chunk_id": 68,
+      "group_id": 68,
+      "group_title": "仿形装置保养说明，含刀具限位润滑及伺服电机图文",
+      "content": "2.9 仿形装置\n\n检查刀具锋利：每周保养一次\n\n检查刀具的锋利情况，如损坏则进行更换\n\n限位装置检查：每周保养一次\n\n检查限位装置正常，如损坏则进行更换\n\n仿形装置的正面视图，显示两个对称的白色控制单元，各配有压力表和阀门，下方连接气动执行机构及管路，用于刀具限位与运动控制。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/999513b78a9b45b619039351ac6156098cbe54dd79963f75561a7b7028b71ffa.jpg)\n\n运动部件检查润滑：每周保养一次\n\n在丝杠及运动部位涂适量润滑油（长城导 轨油 68#），保证运动顺畅\n\n仿形装置的局部特写，展示丝杠、轴承座、滑块及橙色缓冲垫等运动部件，结构精密，用于保证刀具仿形运动的平稳与定位精度。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/4d049303a48e545f0337d3cfcd94956a0d22bef2a226219c55aecb44eb20dbac.jpg)\n\n伺服电机检查清理：每年例行保养一次\n\n检查伺服电机是否有灰尘、氧化、烧糊气味\n\n拆下罩盖清除散热风扇附着的粉尘\n\n伺服电机及其连接部件的特写，电机带散热鳍片和风扇，前端安装红色防护罩或导流罩，用于驱动刀具系统并防止粉尘进入。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/7a38035a8a0ac0dbfaf6b769de9a5c6bfae4c7d3a457f065a33d5df1f864d7b2.jpg)",
+      "pages": [
+        18
+      ],
+      "start_page": 18,
+      "end_page": 18,
+      "source_global_index": [
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208
+      ]
+    },
+    {
+      "chunk_id": 69,
+      "group_id": 69,
+      "group_title": "刮边装置保养说明及局部特写图文介绍",
+      "content": "2.10 刮边装置\n\n检查刀具锋利：每周保养一次\n\n检查刀具的锋利情况，如损坏则进行更换\n\n这是刮边装置的局部特写，显示了包含橙色气动元件、蓝色和黑色气管、传感器及金属支架的机械结构，对应文档中2.10节刮边装置的保养内容。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/95321c5fa72a6b96e6edaba58e21f267b9534c41ccf5d2f1727b243dec4e9008.jpg)",
+      "pages": [
+        18
+      ],
+      "start_page": 18,
+      "end_page": 18,
+      "source_global_index": [
+        209,
+        210,
+        211,
+        212
+      ]
+    },
+    {
+      "chunk_id": 70,
+      "group_id": 70,
+      "group_title": "平刮装置保养说明及机械结构图",
+      "content": "在丝杠及运动部位涂适量润滑油（长城导轨 油 68#），保证运动顺畅\n\n2.11 平刮装置\n\n检查刀具锋利：每周保养一次\n\n检查刀具的锋利情况，如损坏则进行更换\n\n运动部件检查润滑：每周保养一次\n\n上图为平刮装置的机械结构特写，含气缸、弹簧及连接件；下图为该装置整体视图，含红色导向部件、蓝色气管及带双压力表的白色控制单元，对应文档中2.11节平刮装置的保养说明。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/54f19df88630eb4055c7ca3473c99843e7a16811fa1a119b64204698bb266a9d.jpg)\n\n平刮装置的夹持/压紧机构特写，展示金属支架、螺栓紧固组件、气动接头及蓝色气管，用于固定工件或刀具，与文档中2.11节检查刀具锋利及润滑要求相关。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/02c9728ad3229a0b1bfd0cfcec3df4fdc58c89a0e9a0a3517838bbfd6b9edb7d.jpg)",
+      "pages": [
+        19
+      ],
+      "start_page": 19,
+      "end_page": 19,
+      "source_global_index": [
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        224
+      ]
+    },
+    {
+      "chunk_id": 71,
+      "group_id": 71,
+      "group_title": "抛光装置保养要求与部件示意图",
+      "content": "运动部件检查润滑：每周保养一次\n\n在丝杠及运动部位涂适量润滑油（长城导轨 油 68#），保证运动顺畅\n\n2.12 抛光装置\n\n抛光轮检查：每月保养一次\n\n检查抛光轮磨损情况，如磨损过大需更换 新的抛光轮\n\n抛光装置的局部视图，含两个带红色砂轮的电机单元、黑色波纹软管、传感器及控制盒，对应文档2.12节抛光装置的每月保养要求，用于执行抛光轮检查与更换操作。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/21f4ba5a540d9af0be03150e909604e4646d9df98abd9c6b531af8447253df90.jpg)",
+      "pages": [
+        19
+      ],
+      "start_page": 19,
+      "end_page": 19,
+      "source_global_index": [
+        219,
+        220,
+        221,
+        222,
+        223,
+        225
+      ]
+    },
+    {
+      "chunk_id": 72,
+      "group_id": 72,
+      "group_title": "运动部件金属滑块结构特写",
+      "content": "这是一张机械部件的特写照片，显示了一个金属滑块结构，包含导轨、丝杠和多个紧固螺钉，属于设备的运动部件，可能用于平刮或抛光装置中的直线往复运动机构。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/4db1e9213a0ff26d6b28efae4a2169653a9efe71573df00044b9471306be570c.jpg)",
+      "pages": [
+        19
+      ],
+      "start_page": 19,
+      "end_page": 19,
+      "source_global_index": [
+        226
+      ]
+    },
+    {
+      "chunk_id": 73,
+      "group_id": 73,
+      "group_title": "设备维护保养步骤说明",
+      "content": "运动部件检查润滑：每周保养一次\n\n在丝杠及运动部位涂适量润滑油（长城导 轨油 68#），保证运动顺畅",
+      "pages": [
+        20
+      ],
+      "start_page": 20,
+      "end_page": 20,
+      "source_global_index": [
+        227,
+        228
+      ]
+    },
+    {
+      "chunk_id": 74,
+      "group_id": 74,
+      "group_title": "底座总成维护章节标题",
+      "content": "2.13 底座总成",
+      "pages": [
+        21
+      ],
+      "start_page": 21,
+      "end_page": 21,
+      "source_global_index": [
+        229
+      ]
+    },
+    {
+      "chunk_id": 75,
+      "group_id": 75,
+      "group_title": "传动杆清理润滑步骤及部件图",
+      "content": "传动杆清理润滑：每周保养一次\n\n是否有污垢，如有发现，请及时清理干净\n\n在轴承座位置涂上适量的润滑脂（长城 润滑脂 3#）\n\n传动杆轴承座组件，绿色铸铁轴承座安装在白色底座上，内部装有滚动轴承，轴端带绿色注油嘴，对应文档中‘传动杆清理润滑’步骤的部件。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/8ad70b39e9ea4e845daa450a4c19523ff6d34f7d87645135e5b2979587fa46f8.jpg)",
+      "pages": [
+        21
+      ],
+      "start_page": 21,
+      "end_page": 21,
+      "source_global_index": [
+        230,
+        231,
+        232,
+        233
+      ]
+    },
+    {
+      "chunk_id": 76,
+      "group_id": 76,
+      "group_title": "传动丝杆检查润滑步骤及组件图",
+      "content": "传动丝杆检查润滑：每周保养一次\n\n检查是否有污垢，保证直线传动功能， 保证润滑良好（长城润滑脂 3#）\n\n传动丝杆与黑色金属螺母组件，丝杆为梯形螺纹并套有金属波纹护套，螺母固定于白色支架上，用于直线传动，对应文档中‘传动丝杆检查润滑’步骤的部件。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/b67f28b3bc5ce134f3bd235e5b12f46ce32fc7cb01acb37ded254908c18b0c4c.jpg)",
+      "pages": [
+        21
+      ],
+      "start_page": 21,
+      "end_page": 21,
+      "source_global_index": [
+        234,
+        235,
+        236
+      ]
+    },
+    {
+      "chunk_id": 77,
+      "group_id": 77,
+      "group_title": "变速箱检查保养说明及减速机图",
+      "content": "变速箱检查：每年保养一次\n\n减速电机工作一年后，要加油一次，如果发 现机油很脏，则需要在电机清洁后，再更换 上干净的（VG200 减速机油）\n\n减速箱本体，银色铝合金外壳，输出轴连接丝杆，侧面可见散热筋与安装孔，对应文档中‘变速箱检查’步骤所指的减速机部件。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/0b43e3523dd42c98fb4b2d76e270025d25fb6a52e918f8aab174c0c6d216a098.jpg)",
+      "pages": [
+        21
+      ],
+      "start_page": 21,
+      "end_page": 21,
+      "source_global_index": [
+        237,
+        238,
+        239
+      ]
+    },
+    {
+      "chunk_id": 78,
+      "group_id": 78,
+      "group_title": "伺服电机维护步骤及特写图片",
+      "content": "伺服电机检查清理：每年例行保养一次\n\n检查伺服电机是否有灰尘、氧化、烧糊气味\n\n拆下罩盖清除散热风扇附着的粉尘\n\n伺服电机的特写，显示其顶部安装的两个绿色电缆接头（格兰头），电机本体为深灰色金属外壳，侧面贴有标签，背景可见部分机械结构和线缆。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/fc0e601a57a35b64d886d4b6f70e5d13d088aab9c11f11794513087aebb747ab.jpg)",
+      "pages": [
+        21
+      ],
+      "start_page": 21,
+      "end_page": 21,
+      "source_global_index": [
+        240,
+        241,
+        242,
+        243
+      ]
+    },
+    {
+      "chunk_id": 79,
+      "group_id": 79,
+      "group_title": "导轨滑块每周保养方法及部件图示说明",
+      "content": "导轨滑块检查润滑：每周保养一次\n\n在导轨滑块上加注适量的润滑油，保证运动 顺畅（长城导轨油 68#）\n\n导轨滑块的特写图，显示一个带有绿色端盖的金属滑块安装在银色直线导轨上，导轨固定于灰色底座，用于说明导轨滑块的润滑与检查保养要求。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/d7c9305e12f66af3c1d0aa251faaf143139974538d03f71fe78bbe1328d54e0c.jpg)",
+      "pages": [
+        22
+      ],
+      "start_page": 22,
+      "end_page": 22,
+      "source_global_index": [
+        244,
+        245,
+        246
+      ]
+    },
+    {
+      "chunk_id": 80,
+      "group_id": 80,
+      "group_title": "底座导轨精度检测标准及安装图示说明",
+      "content": "底座导轨精度检测：每半年保养一次\n\n检测三个底座上导轨之间相对高度差 在 0.05mm 以内\n\n各底座上整根导轨直线度在 0.1mm 以内， 以上不合格需重装或更换导轨\n\n底座导轨的安装状态图，展示两根平行的直线导轨固定在金属底座上，其中一根导轨旁配有滚珠丝杠及连接螺母组件，用于说明底座导轨精度检测与直线度要求。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/81e0c73fdb815a9c9bf5cddd02f001f93611252f1096c3e4aec291500e901832.jpg)",
+      "pages": [
+        22
+      ],
+      "start_page": 22,
+      "end_page": 22,
+      "source_global_index": [
+        247,
+        248,
+        249,
+        250
+      ]
+    },
+    {
+      "chunk_id": 81,
+      "group_id": 81,
+      "group_title": "电气部分保养章节标题及子节",
+      "content": "第三节 电气部分保养\n\n3.1 气动系统",
+      "pages": [
+        23
+      ],
+      "start_page": 23,
+      "end_page": 23,
+      "source_global_index": [
+        251,
+        252
+      ]
+    },
+    {
+      "chunk_id": 82,
+      "group_id": 82,
+      "group_title": "气动件检查内容与元件图片",
+      "content": "气动件检查：每月保养一次 检查气缸、气管、气压阀、储气罐、气压表等 气动装置是否有松动、漏气、失调等现象\n\n气动元件的特写，显示一个黑色多口电磁阀连接着蓝色和白色气管，安装在金属支架上，用于气动系统的控制。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/d11255526b78e0f8df40c966fb7d2e6385df71ff28271a6b74b20c64ca203c58.jpg)",
+      "pages": [
+        23
+      ],
+      "start_page": 23,
+      "end_page": 23,
+      "source_global_index": [
+        253,
+        259
+      ]
+    },
+    {
+      "chunk_id": 83,
+      "group_id": 83,
+      "group_title": "空白区域或分隔符元素",
+      "content": "",
+      "pages": [
+        23
+      ],
+      "start_page": 23,
+      "end_page": 23,
+      "source_global_index": [
+        254
+      ]
+    },
+    {
+      "chunk_id": 84,
+      "group_id": 84,
+      "group_title": "气源三联件检查与维护步骤",
+      "content": "气源三联件检查：每周保养一次 检查三联件气压大小是否正常（0.5-0.7MPa）\n\n检查三联件油雾器内气动油是否充足  检查水杯中污水情况，及时进行清理 气源三联件添加润滑油步骤如下：\n\n气源三联件（过滤器、减压阀、油雾器）的实物图，包含压力表、透明储油杯和排水阀，用于压缩空气的净化、调压与润滑。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/56130ce8aac915b96c51e014b8fb12db71ea13f8dd69f699f49aedd313a5dea8.jpg)\n\na) 往气源三联件中的油杯中添加专用气动油（1#透平油，ISO VG32） b) 通过旋扭调节润滑油的流量，约调至每 6-7 个工作循环用一滴油 c) 通过阀排出容器内积压的污水 d) 使用压力请勿超过其使用范围 e) 当出口风量明显减少时，应及时更换滤芯",
+      "pages": [
+        23
+      ],
+      "start_page": 23,
+      "end_page": 23,
+      "source_global_index": [
+        255,
+        256,
+        257,
+        258,
+        260,
+        261
+      ]
+    },
+    {
+      "chunk_id": 85,
+      "group_id": 85,
+      "group_title": "3.2 电控板章节标题",
+      "content": "3.2 电控板",
+      "pages": [
+        24
+      ],
+      "start_page": 24,
+      "end_page": 24,
+      "source_global_index": [
+        262
+      ]
+    },
+    {
+      "chunk_id": 86,
+      "group_id": 86,
+      "group_title": "电控板检查频率及元器件异常检查项",
+      "content": "电控板检查：每半年保养一次\n\n检查控制箱内部各元器件，如：变频器、变压器、 热继电器、相序保护器、保险丝、控制器等是否有 电弧或异味或异常现象\n\n内温度过高(一般不允许超过 55℃），造成过热报警 或数控系统工作不可靠",
+      "pages": [
+        24
+      ],
+      "start_page": 24,
+      "end_page": 24,
+      "source_global_index": [
+        263,
+        264,
+        265
+      ]
+    },
+    {
+      "chunk_id": 87,
+      "group_id": 87,
+      "group_title": "电控柜内部组件特写及检查说明图",
+      "content": "电控柜内部组件特写，包含变频器、断路器、接线端子排及多色电线布线，对应文本中检查元器件异常的说明。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/a2dd85bd188664d2bf53c6e68ac63b45518a2d77a2cdb339a0ba80c3b2354c8f.jpg)",
+      "pages": [
+        24
+      ],
+      "start_page": 24,
+      "end_page": 24,
+      "source_global_index": [
+        266
+      ]
+    },
+    {
+      "chunk_id": 88,
+      "group_id": 88,
+      "group_title": "PLC控制器与接线端子排结构图",
+      "content": "电控柜内PLC控制器及下方密集的蓝色与白色接线端子排，显示了数控系统的核心控制单元和信号连接结构。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/e084e0ed1700e9d9467b2436cd8ec707e679af4b643d941d0baec2c8c9112428.jpg)",
+      "pages": [
+        24
+      ],
+      "start_page": 24,
+      "end_page": 24,
+      "source_global_index": [
+        267
+      ]
+    },
+    {
+      "chunk_id": 89,
+      "group_id": 89,
+      "group_title": "维护安全警示及断电操作注意事项",
+      "content": "安全警示与操作提示文本区域，包含‘Warning’警告标识，强调维护时需断电、防止清洁剂流入电机、以及断电后等待3分钟以上以防触电。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/43483819867284222eb889573f6dad13f2b849df2eea9e805db35fe59cd57f59.jpg)",
+      "pages": [
+        24
+      ],
+      "start_page": 24,
+      "end_page": 24,
+      "source_global_index": [
+        268
+      ]
+    },
+    {
+      "chunk_id": 90,
+      "group_id": 90,
+      "group_title": "接线端子再接触安全警告提示",
+      "content": "再触及接线端子!",
+      "pages": [
+        24
+      ],
+      "start_page": 24,
+      "end_page": 24,
+      "source_global_index": [
+        269
+      ]
+    },
+    {
+      "chunk_id": 91,
+      "group_id": 91,
+      "group_title": "3.3电器元件章节标题",
+      "content": "3.3 电器元件",
+      "pages": [
+        25
+      ],
+      "start_page": 25,
+      "end_page": 25,
+      "source_global_index": [
+        270
+      ]
+    },
+    {
+      "chunk_id": 92,
+      "group_id": 92,
+      "group_title": "行程开关检查步骤及示意图",
+      "content": "传感器等元件检查：每月保养一次\n\n检查各行程开关、接近开关、保护开关等电器元件 是否正常，有无生锈、过紧、松动、失灵等现象\n\n用手按压行程开关的滑动轮，如有行程报警显示， 说明限位开关正常\n\n一张行程开关（限位开关）的特写图，安装在金属机架上，带有滑动轮和连接电缆，用于机械位置检测。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/34d8b821e513377ca77d6f449cafcfc3e400c787406e3d4114558c62b3cec262.jpg)",
+      "pages": [
+        25
+      ],
+      "start_page": 25,
+      "end_page": 25,
+      "source_global_index": [
+        271,
+        272,
+        273,
+        274
+      ]
+    },
+    {
+      "chunk_id": 93,
+      "group_id": 93,
+      "group_title": "电器接头检查及控制柜图",
+      "content": "检查各电器接头、接线盒、操作面板等有无氧化、 等烧坏现象\n\n一张电气控制柜内部照片，展示了三台并排安装的变频器（带数字显示屏和操作按钮），下方为整齐布线的接线端子排。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/d75980ee971e1c9634aa41530e498f079f6c1e004620ee87c2e3ee6a5a87d12b.jpg)",
+      "pages": [
+        25
+      ],
+      "start_page": 25,
+      "end_page": 25,
+      "source_global_index": [
+        275,
+        276
+      ]
+    },
+    {
+      "chunk_id": 94,
+      "group_id": 94,
+      "group_title": "第四节激光发生器保养概述",
+      "content": "第四节激光发生器、pur 部分保养",
+      "pages": [
+        26
+      ],
+      "start_page": 26,
+      "end_page": 26,
+      "source_global_index": [
+        277
+      ]
+    },
+    {
+      "chunk_id": 95,
+      "group_id": 95,
+      "group_title": "水冷机设备断电操作说明",
+      "content": "4.1 水冷机保养\n\n设备断电\n\n设备维护保养前必须先停机，切断电源，3 分钟后才 能进行作业，否则可能会有触电危险。\n\n一台水冷机设备，顶部装有黑色散热风扇，侧面有电源接口、多个管路接头及铭牌标签，对应文档中‘设备断电’操作前的设备外观。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/6a6f010716adb9fa1136816ab86f6468c17957fd4b830d3541dc8aecc2ee5e50.jpg)",
+      "pages": [
+        26
+      ],
+      "start_page": 26,
+      "end_page": 26,
+      "source_global_index": [
+        278,
+        279,
+        280,
+        287
+      ]
+    },
+    {
+      "chunk_id": 96,
+      "group_id": 96,
+      "group_title": "防尘网清理步骤及图示",
+      "content": "防尘网清理灰尘\n\n定期拆卸防尘网清洗和使用压缩气枪吹走冷凝器积尘， 或用自来水清洗掉灰尘（每周一次）。\n\n人员正在拆卸或清洁水冷机的防尘网，手持工具操作网格状滤网，对应文档中‘防尘网清理灰尘’的操作步骤。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/fe230ee436531548433a61922b29c66679332ea23269428a0715f29e1f5f9d92.jpg)",
+      "pages": [
+        26
+      ],
+      "start_page": 26,
+      "end_page": 26,
+      "source_global_index": [
+        281,
+        282,
+        288
+      ]
+    },
+    {
+      "chunk_id": 97,
+      "group_id": 97,
+      "group_title": "水冷机排水及灰尘清理",
+      "content": "水箱排水\n\n工厂放假时，一定要将冷水机水箱里的水放掉。\n\n冷水机内部灰尘清理\n\n冷水机内部灰尘先用吸尘器清理，再用气枪或碎布 擦干净表面的灰尘。\n\n上下两图组合：上图为蓝色水箱接排水管正在排水；下图为使用吸尘器清理水冷机内部结构，对应文档中‘水箱排水’和‘冷水机内部灰尘清理’两项保养操作。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/2ec93967dc4d5cbfef736138728b7a3e6417acc26b33e41225fcdaafe688186f.jpg)",
+      "pages": [
+        26
+      ],
+      "start_page": 26,
+      "end_page": 26,
+      "source_global_index": [
+        283,
+        284,
+        285,
+        286,
+        290
+      ]
+    },
+    {
+      "chunk_id": 98,
+      "group_id": 98,
+      "group_title": "激光发生器保养说明图示",
+      "content": "4.2 激光发生器保养\n\n这是一台南兴（Nanxing）品牌的激光发生器，黑色外壳，正面贴有绿色品牌标识、黄色激光辐射警告标志及操作说明标签，安装在工业设备上。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/e81a03277db2e3a8ed001d618ac7c6f0e00aa0fb43ae0061edf2ebdd4e129a7f.jpg)",
+      "pages": [
+        26
+      ],
+      "start_page": 26,
+      "end_page": 26,
+      "source_global_index": [
+        289,
+        291
+      ]
+    },
+    {
+      "chunk_id": 99,
+      "group_id": 99,
+      "group_title": "激光发生器清理步骤及要求说明",
+      "content": "激光发生器清理\n\n激光发生器表面灰尘清理干净，激光器出光口胶带 清理干净，不得存有灰尘、残胶等杂物。",
+      "pages": [
+        27
+      ],
+      "start_page": 27,
+      "end_page": 27,
+      "source_global_index": [
+        292,
+        293
+      ]
+    },
+    {
+      "chunk_id": 100,
+      "group_id": 100,
+      "group_title": "激光器出光口保护操作及示意图",
+      "content": "激光器出光口保护\n\n激光器出光口直接暴露在外部环境下的，出光口用 保护膜封住，防止污染窗口镜。\n\n激光器出光口特写，显示多个带黄色中心的圆形光学接口，出光口被透明保护膜覆盖封住，对应文档中‘激光器出光口保护’的操作说明。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/c891e285bb4b6c03e2b935ff485003c6f5148b1c864765ae7ffb7d3f03f8e6a2.jpg)",
+      "pages": [
+        27
+      ],
+      "start_page": 27,
+      "end_page": 27,
+      "source_global_index": [
+        294,
+        295,
+        296
+      ]
+    },
+    {
+      "chunk_id": 101,
+      "group_id": 101,
+      "group_title": "激光器防冻液选择与使用说明",
+      "content": "激光器加防冻液\n\n环境温度过低，有可能会导致设备内部循环冷却水管 路结冰冻坏， CLARIANT（科莱恩）防冻液，适用于激光系统中的防冻液有 两个型号：1) Antifrogen-N 乙二醇-水型（工业用品，人体有毒）2) Antifrogen-L 丙二醇-水型（食品级，对人体无害）（南方天气可不加）",
+      "pages": [
+        27
+      ],
+      "start_page": 27,
+      "end_page": 27,
+      "source_global_index": [
+        297,
+        298
+      ]
+    },
+    {
+      "chunk_id": 102,
+      "group_id": 102,
+      "group_title": "内部线路检查步骤及设备图",
+      "content": "内部线路检查\n\n放假结束后重新开工时，需先检查水冷机内部线路 是否正常，有无被老鼠咬坏等异常现象。\n\n水冷机内部线路检查场景，一名操作人员正在检查设备内部管路与电气连接，可见散热风扇、水泵、线缆及控制模块，对应‘内部线路检查’条目。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/03b55fb069095c136ff6b65b27c6a69030a7cf0c781f48fffb8553753b9e9a86.jpg)",
+      "pages": [
+        27
+      ],
+      "start_page": 27,
+      "end_page": 27,
+      "source_global_index": [
+        299,
+        300,
+        301
+      ]
+    },
+    {
+      "chunk_id": 103,
+      "group_id": 103,
+      "group_title": "PUR保养章节及设备示意图",
+      "content": "4.3 PUR 保养\n\n一台便携式PUR（聚氨酯反应型）热熔胶设备，配有控制面板、显示屏、操作按钮及缠绕的加热软管，位于车间地面黄黑警示线旁，对应章节‘4.3 PUR 保养’。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/278bdf1daac75f6a368f1545413cae719099f0840efcc0aceb62509d0f32c6f3.jpg)",
+      "pages": [
+        27
+      ],
+      "start_page": 27,
+      "end_page": 27,
+      "source_global_index": [
+        302,
+        303
+      ]
+    },
+    {
+      "chunk_id": 104,
+      "group_id": 104,
+      "group_title": "胶机表面清理步骤及频率说明",
+      "content": "4.3.1 清理胶机表面，\n\n胶机表面灰尘用碎布清理干净，（每天一次）。",
+      "pages": [
+        28
+      ],
+      "start_page": 28,
+      "end_page": 28,
+      "source_global_index": [
+        304,
+        305
+      ]
+    },
+    {
+      "chunk_id": 105,
+      "group_id": 105,
+      "group_title": "电源气源接头检查及对应设备图",
+      "content": "4.3.2 检查电源、气源接头\n\n检查电源接头、气源接头是否完好，有无漏电、 漏气等不良、插头是否牢固。（每周一次）。\n\n设备后部的电源与气源接头区域，包含多个警示标识、一个已插入的黑色电源线插头及下方绿色面板上的气源接口。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/67a359edee013b8a42744f1d3078eabc9f31504a3fa141864a047a8e467e6596.jpg)",
+      "pages": [
+        28
+      ],
+      "start_page": 28,
+      "end_page": 28,
+      "source_global_index": [
+        306,
+        307,
+        308
+      ]
+    },
+    {
+      "chunk_id": 106,
+      "group_id": 106,
+      "group_title": "空气过滤器积水排放及组件图",
+      "content": "4.3.3 排空空气过滤器积水\n\n空气过滤器积水过多时需放掉积水， （每天一次）\n\n一个空气过滤器组件，包含透明水杯（带蓝色排水阀）、压力表和黑色调压旋钮，用于压缩空气的过滤与稳压。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/37d61f0a0dd4090b9d912ad4584b77b9d6686a2abb39394f255a0d52f96cd4c4.jpg)",
+      "pages": [
+        28
+      ],
+      "start_page": 28,
+      "end_page": 28,
+      "source_global_index": [
+        309,
+        310,
+        311
+      ]
+    },
+    {
+      "chunk_id": 107,
+      "group_id": 107,
+      "group_title": "过滤网清洁步骤及结构示意图",
+      "content": "4.3.4 检查过滤网清洁程度\n\n清洁过滤网上灰尘，用气枪吹干净过滤网上 灰尘，再用碎布擦试干净。（每天一次）\n\n一个方形金属边框的过滤网，表面为同心圆状金属网格结构，安装于设备外壳上，用于空气过滤。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/f562fd52acacbd284e29a28e220a09a24ab622e1575f3ea71fdf3f88db2b0144.jpg)",
+      "pages": [
+        28
+      ],
+      "start_page": 28,
+      "end_page": 28,
+      "source_global_index": [
+        312,
+        313,
+        314
+      ]
+    },
+    {
+      "chunk_id": 108,
+      "group_id": 108,
+      "group_title": "升降气缸检查步骤及特写图",
+      "content": "4.3.5 检查升降气缸\n\n检查升降气缸运行是否顺畅，有无卡顿现象， 检查气缸行程是否能落到底（每周一次）。\n\n一张升降气缸的特写图，显示其垂直安装在绿色底座上，带有刻度尺、红色手柄和黑色气管，用于检查运行顺畅性与行程是否到底（对应文档中4.3.5节）\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/cba5602b6776a7391fb39f708d5f3ccc4a13e4c1c493d971492c9963f5c3670f.jpg)",
+      "pages": [
+        28
+      ],
+      "start_page": 28,
+      "end_page": 28,
+      "source_global_index": [
+        315,
+        316,
+        317
+      ]
+    },
+    {
+      "chunk_id": 109,
+      "group_id": 109,
+      "group_title": "PUR胶清理说明及装置现场图",
+      "content": "4.3.6 PUR 胶清理\n\n一张PUR胶清理装置的现场图，包含带刻度的升降机构、绿色底座及控制箱体，周围有气管和工业地面标识线（对应文档中4.3.6节）\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_173626_4052/6791c263bd4aeb9cdf89c86373d556671ade0b36e10f8c07023a3b39696452ec.jpg)",
+      "pages": [
+        28
+      ],
+      "start_page": 28,
+      "end_page": 28,
+      "source_global_index": [
+        318,
+        319
+      ]
+    },
+    {
+      "chunk_id": 110,
+      "group_id": 110,
+      "group_title": "PUR清胶剂维护操作步骤说明",
+      "content": "清空胶锅，胶锅内倒入 5 公斤 PUR 清胶剂， 把压盘、胶管温度调至 150 度； 打开排气阀，压盘压到底，排出 PUR 清胶剂， （每年一次）",
+      "pages": [
+        29
+      ],
+      "start_page": 29,
+      "end_page": 29,
+      "source_global_index": [
+        320
+      ]
+    },
+    {
+      "chunk_id": 111,
+      "group_id": 111,
+      "group_title": "润滑部位与周期附表标题",
+      "content": "附表 1 润滑部位和周期",
+      "pages": [
+        29
+      ],
+      "start_page": 29,
+      "end_page": 29,
+      "source_global_index": [
+        321
+      ]
+    },
+    {
+      "chunk_id": 112,
+      "group_id": 112,
+      "group_title": "双端封边机各部件润滑规格表",
+      "content": "<table><tr><td rowspan=1 colspan=1>序号</td><td rowspan=1 colspan=1>润滑部位</td><td rowspan=1 colspan=1>润滑方式</td><td rowspan=1 colspan=1>润滑周期</td><td rowspan=1 colspan=1>推荐油品</td></tr><tr><td rowspan=1 colspan=1>1</td><td rowspan=1 colspan=1>三联件油雾器</td><td rowspan=1 colspan=1>手动加油</td><td rowspan=1 colspan=1>每周根据实际</td><td rowspan=1 colspan=1>1#透平油（气动油）</td></tr><tr><td rowspan=1 colspan=1>2</td><td rowspan=1 colspan=1>手动注油泵</td><td rowspan=1 colspan=1>手动加油</td><td rowspan=1 colspan=1>每月根据实际</td><td rowspan=1 colspan=1>长城导轨油 68#</td></tr><tr><td rowspan=1 colspan=1>3</td><td rowspan=1 colspan=1>进料靠板导轨/滑块</td><td rowspan=1 colspan=1>手动黄油枪</td><td rowspan=1 colspan=1>每周一次</td><td rowspan=1 colspan=1>长城润滑脂3#</td></tr><tr><td rowspan=1 colspan=1>4</td><td rowspan=1 colspan=1>输送链轮轴承</td><td rowspan=1 colspan=1>手动黄油枪</td><td rowspan=1 colspan=1>每周一次</td><td rowspan=1 colspan=1>长城润滑脂3#</td></tr><tr><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1>输送链条</td><td rowspan=1 colspan=1>集中润滑/毛刷</td><td rowspan=1 colspan=1>每天一次</td><td rowspan=1 colspan=1>长城导轨油 68#</td></tr><tr><td rowspan=1 colspan=1>6</td><td rowspan=1 colspan=1>压料梁升降丝杆/轴承</td><td rowspan=1 colspan=1>手动黄油枪</td><td rowspan=1 colspan=1>每月一次</td><td rowspan=1 colspan=1>长城润滑脂3#</td></tr><tr><td rowspan=1 colspan=1>7</td><td rowspan=1 colspan=1>预铣机构导轨/滑块</td><td rowspan=1 colspan=1>集中润滑</td><td rowspan=1 colspan=1>每天一次</td><td rowspan=1 colspan=1>长城导轨油68#</td></tr><tr><td rowspan=1 colspan=1>8</td><td rowspan=1 colspan=1>涂胶传动链/万向节</td><td rowspan=1 colspan=1>手动黄油枪</td><td rowspan=1 colspan=1>每月一次</td><td rowspan=1 colspan=1>长城润滑脂3#</td></tr><tr><td rowspan=1 colspan=1>9</td><td rowspan=1 colspan=1>涂胶轴轴承</td><td rowspan=1 colspan=1>手动黄油枪</td><td rowspan=1 colspan=1>每两天一次</td><td rowspan=1 colspan=1>高温润滑脂</td></tr><tr><td rowspan=1 colspan=1>10</td><td rowspan=1 colspan=1>齐头机构导轨/滑块</td><td rowspan=1 colspan=1>集中润滑</td><td rowspan=1 colspan=1>每天一次</td><td rowspan=1 colspan=1>长城导轨油 68#</td></tr><tr><td rowspan=1 colspan=1>11</td><td rowspan=1 colspan=1>输送电机变速箱</td><td rowspan=1 colspan=1>更换</td><td rowspan=1 colspan=1>一年或2500h</td><td rowspan=1 colspan=1>VG200减速机油</td></tr><tr><td rowspan=1 colspan=1>12</td><td rowspan=1 colspan=1>涂胶变速箱</td><td rowspan=1 colspan=1>更换</td><td rowspan=1 colspan=1>一年/或2500h</td><td rowspan=1 colspan=1>VG200减速机油</td></tr><tr><td rowspan=1 colspan=1>13</td><td rowspan=1 colspan=1>其他相对运动机构</td><td rowspan=1 colspan=1>手动</td><td rowspan=1 colspan=1>每周一次</td><td rowspan=1 colspan=1>长城润滑脂3#</td></tr><tr><td rowspan=1 colspan=1>14</td><td rowspan=1 colspan=1>外露加工面</td><td rowspan=1 colspan=1>手动</td><td rowspan=1 colspan=1>每周一次</td><td rowspan=1 colspan=1>防锈油</td></tr></table>",
+      "pages": [
+        30
+      ],
+      "start_page": 30,
+      "end_page": 30,
+      "source_global_index": [
+        322
+      ]
+    },
+    {
+      "chunk_id": 113,
+      "group_id": 113,
+      "group_title": "双端封边机各部件保养项目及周期表格",
+      "content": "<table><tr><td colspan=\"1\" rowspan=\"1\">保养项目</td><td colspan=\"1\" rowspan=\"1\">保养内容</td><td colspan=\"1\" rowspan=\"1\">保养周期</td></tr><tr><td colspan=\"1\" rowspan=\"1\">整机</td><td colspan=\"1\" rowspan=\"1\">清理外部粉尘及木屑</td><td colspan=\"1\" rowspan=\"1\">日常保养</td></tr><tr><td colspan=\"1\" rowspan=\"2\">预铣装置</td><td colspan=\"1\" rowspan=\"1\">目测检查刀具</td><td colspan=\"1\" rowspan=\"1\">每周保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">导轨润滑</td><td colspan=\"1\" rowspan=\"1\">每天保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"5\">涂胶系统</td><td colspan=\"1\" rowspan=\"1\">清洁涂胶轴</td><td colspan=\"1\" rowspan=\"1\">每周保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">润滑胶辊轴承</td><td colspan=\"1\" rowspan=\"1\">每两天保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">检查液位传感器</td><td colspan=\"1\" rowspan=\"1\">每月保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">电机/减速机清理检测</td><td colspan=\"1\" rowspan=\"1\">每年保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">涂胶单元例行检修</td><td colspan=\"1\" rowspan=\"1\">每年保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">压带装置</td><td colspan=\"1\" rowspan=\"1\">目测检查</td><td colspan=\"1\" rowspan=\"1\">每周保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">压梁传动装置</td><td colspan=\"1\" rowspan=\"1\">检查润滑</td><td colspan=\"1\" rowspan=\"1\">每月保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">压梁滚轮</td><td colspan=\"1\" rowspan=\"1\">检查磨损</td><td colspan=\"1\" rowspan=\"1\">每月保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"2\">皮带及链条装置</td><td colspan=\"1\" rowspan=\"1\">检查润滑</td><td colspan=\"1\" rowspan=\"1\">每周保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">检查磨损</td><td colspan=\"1\" rowspan=\"1\">每周保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">输送电机及减速机</td><td colspan=\"1\" rowspan=\"1\">清理检测</td><td colspan=\"1\" rowspan=\"1\">每年保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">输送链块</td><td colspan=\"1\" rowspan=\"1\">检查磨损</td><td colspan=\"1\" rowspan=\"1\">每周保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">进料靠板</td><td colspan=\"1\" rowspan=\"1\">检查润滑</td><td colspan=\"1\" rowspan=\"1\">每月保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">压料装置</td><td colspan=\"1\" rowspan=\"1\">检查磨损</td><td colspan=\"1\" rowspan=\"1\">每月保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"3\">齐头装置</td><td colspan=\"1\" rowspan=\"1\">直线导轨润滑</td><td colspan=\"1\" rowspan=\"1\">每天保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">检查导轨及气缸</td><td colspan=\"1\" rowspan=\"1\">每周保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">电机清理检测</td><td colspan=\"1\" rowspan=\"1\">每年保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"3\">粗修装置</td><td colspan=\"1\" rowspan=\"1\">检查刀具锋利</td><td colspan=\"1\" rowspan=\"1\">每周保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">丝杠与运动部件检查润滑</td><td colspan=\"1\" rowspan=\"1\">每周保养一次</td></tr><tr><td colspan=\"1\" rowspan=\"1\">电机清理检测</td><td colspan=\"1\" rowspan=\"1\">每年保养一次</td></tr></table>",
+      "pages": [
+        31
+      ],
+      "start_page": 31,
+      "end_page": 31,
+      "source_global_index": [
+        323
+      ]
+    },
+    {
+      "chunk_id": 114,
+      "group_id": 114,
+      "group_title": "粗修装置保养项目及周期表",
+      "content": "",
+      "pages": [
+        32
+      ],
+      "start_page": 32,
+      "end_page": 32,
+      "source_global_index": [
+        325
+      ]
+    },
+    {
+      "chunk_id": 115,
+      "group_id": 115,
+      "group_title": "设备保养规程表主表及续表内容",
+      "content": "附表 2 设备保养规程表\n\n<table><tr><td rowspan=1 colspan=1>保养项目</td><td rowspan=1 colspan=1>保养内容</td><td rowspan=1 colspan=1>保养周期</td></tr><tr><td rowspan=3 colspan=1>精修装置</td><td rowspan=1 colspan=1>检查刀具锋利</td><td rowspan=1 colspan=1>每周保养一次</td></tr><tr><td rowspan=1 colspan=1>丝杠与运动部件检查润滑</td><td rowspan=1 colspan=1>每周保养一次</td></tr><tr><td rowspan=1 colspan=1>电机清理检测</td><td rowspan=1 colspan=1>每年保养一次</td></tr><tr><td rowspan=3 colspan=1>仿形装置</td><td rowspan=1 colspan=1>检查刀具锋利</td><td rowspan=1 colspan=1>每周保养一次</td></tr><tr><td rowspan=1 colspan=1>丝杠与运动部件检查润滑</td><td rowspan=1 colspan=1>每周保养一次</td></tr><tr><td rowspan=1 colspan=1>电机清理检测</td><td rowspan=1 colspan=1>每年保养一次</td></tr><tr><td rowspan=2 colspan=1>刮边装置</td><td rowspan=1 colspan=1>检查刀具锋利</td><td rowspan=1 colspan=1>每周保养一次</td></tr><tr><td rowspan=1 colspan=1>运动部件检查润滑</td><td rowspan=1 colspan=1>每周保养一次</td></tr><tr><td rowspan=2 colspan=1>平刮装置</td><td rowspan=1 colspan=1>检查刀具锋利</td><td rowspan=1 colspan=1>每周保养一次</td></tr><tr><td rowspan=1 colspan=1>运动部件检查润滑</td><td rowspan=1 colspan=1>每周保养一次</td></tr><tr><td rowspan=2 colspan=1>抛光装置</td><td rowspan=1 colspan=1>抛光轮磨损检查</td><td rowspan=1 colspan=1>每月保养一次</td></tr><tr><td rowspan=1 colspan=1>电机清理检测</td><td rowspan=1 colspan=1>每年保养一次</td></tr><tr><td rowspan=5 colspan=1>底座总成</td><td rowspan=1 colspan=1>滚珠丝杠检查润滑</td><td rowspan=1 colspan=1>每周保养一次</td></tr><tr><td rowspan=1 colspan=1>传动杆检查润滑</td><td rowspan=1 colspan=1>每周保养一次</td></tr><tr><td rowspan=1 colspan=1>变速箱检查润滑</td><td rowspan=1 colspan=1>每周保养一次</td></tr><tr><td rowspan=1 colspan=1>导轨滑块检查润滑</td><td rowspan=1 colspan=1>每周保养一次</td></tr><tr><td rowspan=1 colspan=1>电机清理检测</td><td rowspan=1 colspan=1>每年保养一次</td></tr><tr><td rowspan=4 colspan=1>电气系统</td><td rowspan=1 colspan=1>气动元件检查</td><td rowspan=1 colspan=1>每月保养一次</td></tr><tr><td rowspan=1 colspan=1>三联件检测加油</td><td rowspan=1 colspan=1>每周保养一次</td></tr><tr><td rowspan=1 colspan=1>电控板元件检测     31</td><td rowspan=1 colspan=1>每半年保养一次</td></tr><tr><td rowspan=1 colspan=1>电器元件检测</td><td rowspan=1 colspan=1>每月保养一次</td></tr></table>",
+      "pages": [
+        32
+      ],
+      "start_page": 32,
+      "end_page": 32,
+      "source_global_index": [
+        326,
+        327
+      ]
+    },
+    {
+      "chunk_id": 116,
+      "group_id": 116,
+      "group_title": "设备保养规程续表标题标识",
+      "content": "",
+      "pages": [
+        32
+      ],
+      "start_page": 32,
+      "end_page": 32,
+      "source_global_index": [
+        324
+      ]
+    }
+  ]
+}

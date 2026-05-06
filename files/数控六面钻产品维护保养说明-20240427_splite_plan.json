@@ -1,0 +1,666 @@
+{
+  "document_name": "数控六面钻产品维护保养说明-20240427.docx",
+  "document_id": "F_docx_数控六面钻产品维护保养说明-20240427",
+  "total_pages": 26,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "group_id": 1,
+      "group_title": "数控六面钻维护手册标题与版本信息",
+      "content": "数控六面钻\n\n维护保养手册\n\n（版本：V3.1）",
+      "pages": [
+        1
+      ],
+      "start_page": 1,
+      "end_page": 1,
+      "source_global_index": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "group_id": 2,
+      "group_title": "数控六面钻机床示意图及设备说明",
+      "content": "一台白色数控六面钻机床（型号NCB6120XT），配备触摸屏控制面板、传送带进料系统和多个钻削头，机身印有“南兴装备”标识，整体置于绿色地面背景中。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/923c829a653c5a94b20767bf670ddd5c908fa3b9fc30fb98d98157a21a45879d.jpg)",
+      "pages": [
+        1
+      ],
+      "start_page": 1,
+      "end_page": 1,
+      "source_global_index": [
+        4
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "group_id": 3,
+      "group_title": "南兴装备公司联系地址与电话信息",
+      "content": "中国 广东\n\n南兴装备股份有限公司 地 址：东莞市厚街镇科技工业园南兴路 电 话：400-888-2033 0769-85597078 /85597088\n\n真 ： 0769-85592399 邮 箱 ： info@nanxing.com.cn",
+      "pages": [
+        1
+      ],
+      "start_page": 1,
+      "end_page": 1,
+      "source_global_index": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "group_id": 4,
+      "group_title": "公司联系邮箱信息，用于业务咨询与沟通",
+      "content": "",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        8
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "group_id": 5,
+      "group_title": "数控六面钻维护保养目录，含19项保养项目及页码",
+      "content": "目 录\n\n1 日常保养.. 2 整机.... 3 电主轴保养.. 4 刀库保养.. 5 多轴钻削装置保养.. 6 滚珠丝杠保养... 8 7 导轨滑块保养.. 9 8 电机齿轮齿条保养.. 10 9 滑块及圆导轨保养.. 10 气浮台及风机保养.. 11 气源三联件保养.. 12 12 润滑泵保养.. .13 13 电气件保养.. .14 14 输送台电机传动保养.. 15 15 易损件保养.. 15 16 气缸保养... 6 17 感应器保养.. 18 润滑部位和周期. 18 19 数控六面钻设备保养规程表. 19",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        9,
+        10
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "group_id": 6,
+      "group_title": "前言：机床维护保养说明及技术要求",
+      "content": "前 言\n\n为了使机床保持良好的运行状态，防止和减少事故的发生，应坚持 定期对机床进行检查和维护保养。凡操作和维护本机器的人员，必须仔 细阅读并认真执行本手册的维护和保养规定。\n\n该设备的技术保养分为日常保养和部件保养，操作人员需严格遵守 操作规程和日常维护制度。当机床发生故障时要注意保护现场，并向维 修人员如实反应故障状况，以利于维修人员分析诊断出故障的原因，并 进行排除。",
+      "pages": [
+        4
+      ],
+      "start_page": 4,
+      "end_page": 4,
+      "source_global_index": [
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "group_id": 7,
+      "group_title": "适用产品型号：ND512等系列",
+      "content": "本手册适用产品型号: ND512、NCB612、ND712 系列。",
+      "pages": [
+        4
+      ],
+      "start_page": 4,
+      "end_page": 4,
+      "source_global_index": [
+        14
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "group_id": 8,
+      "group_title": "数控六面钻日常保养总标题",
+      "content": "1 日常保养",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        15
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "group_id": 9,
+      "group_title": "开机前检查步骤与内容说明",
+      "content": "1.1 开机前检查\n\n① 检查气源三联件是否缺油，如有需要，请按照润滑指示图，使用干净的 润滑油进行加油。压缩空气是否达到 0.6~0.8Mpa。 ② 检查电源开关外观和作用是否良好，接地装置是否完整？ ③ 检查各部件螺钉、螺母、手柄有无松动或者丢失？如有发现应及时拧紧 和补齐。 ④ 检查机床电柜门、电器安全装置是否良好？ ⑤ 手动移动各轴机构是否输出，确认刀具无碰触吸尘罩等现象。",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        16,
+        17
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "group_id": 10,
+      "group_title": "开机中检查步骤与内容说明",
+      "content": "1.2 开机中检查\n\n① 观察电机、电器元件的灵敏性、可靠性、温升、声响和震动等情况。 ② 观察触摸屏上是否有报警显示？ ③ 观察传动丝杠传动情况。 ④ 观察排钻头工作状况。 ⑤ 观察机床各气动部件运行情况。 ⑥ 观察电控柜上各个冷却风扇工作是否正常运转？ ⑦ 应尽量少开电控柜门，不允许在机床使用时敞开电控柜门。",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        18,
+        19
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "group_id": 11,
+      "group_title": "关机后保养步骤与内容说明",
+      "content": "1.3 关机后保养\n\n① 清扫机床，彻底清除机床上残存的木屑。 ② 用抹布及清洁剂抹干净机床外观上的粉尘及油污。 ③ 打扫机床周围地面的垃圾，整理好工作场所物品，保持环境畅通。 ④ 将各操作手柄（开关）置于空档（零位），拉下电源开关，做到整齐、 清洁、润滑、安全。",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        20,
+        21
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "group_id": 12,
+      "group_title": "机器长期不使用维护备注",
+      "content": "备注：机器长时间不使用时，需要定期（每月）通电空运行约 0.5 小时及对 齿轮齿条、滑块导轨、钻盒位置添加润滑油脂。",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        22
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "group_id": 13,
+      "group_title": "数控六面钻维护添加润滑油操作说明",
+      "content": "",
+      "pages": [
+        6
+      ],
+      "start_page": 6,
+      "end_page": 6,
+      "source_global_index": [
+        23
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "group_id": 14,
+      "group_title": "整机保养周期内容步骤说明及NCB612DXT机床图片描述",
+      "content": "2 整机\n\n保养周期：每天一次\n\n保养内容：清理干净机床外观表面的木屑及粉尘及上下钻包内堆积木屑及 粉尘。\n\n操作步骤：使用气枪或者抹布，将机床台面、横梁、抓手、钻包吸尘罩 等机构的粉尘进行清理。\n\n这是一台南兴装备生产的NCB612DXT型数控六面钻机床，整体为白色机身，配有操作显示屏、传送带式工作台、多个钻包吸尘装置及防护罩，用于木工加工。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/7df8184c9054a478672efceac7a8779b6069d5fe36ac45e1ed6fdb96aa07202d.jpg)",
+      "pages": [
+        7
+      ],
+      "start_page": 7,
+      "end_page": 7,
+      "source_global_index": [
+        24,
+        25,
+        26,
+        27,
+        28
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "group_id": 15,
+      "group_title": "电主轴保养的周期内容及操作步骤说明",
+      "content": "3 电主轴保养\n\n保养周期：每周一次\n\n保养内容：清理主轴的灰尘和木屑\n\n操作步骤：取下电主轴上的刀具，使用气枪和抹布将主轴夹紧装置以及吸 尘罩在上面的粉尘和油污进行清理。",
+      "pages": [
+        8
+      ],
+      "start_page": 8,
+      "end_page": 8,
+      "source_global_index": [
+        29,
+        30,
+        31,
+        32
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "group_id": 16,
+      "group_title": "清洗夹紧装置的操作图解与注意事项",
+      "content": "两张并列图片，分别展示电主轴夹紧装置的外部和内部结构，红色圆圈和箭头标出需清理的粉尘与油污区域，对应文档中‘清洗夹紧装置’的操作步骤。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/cf2da10adbd812130f55d65580b7d67ceb2339be7b285970eb4b5e2f907d3e0a.jpg)\n\n清洗夹紧装置：\n\n在每次更换刀具时，应注意夹紧装置中的木屑会形成污物，影响夹紧力。\n\n提示：在该过程中必须总是松开主轴，使用气枪和抹布将主轴夹紧装置 上面的粉尘和油污进行清理，长期不用时需喷防锈油处理。\n\n一个已拆下的电主轴夹紧装置（筒夹），呈黑色金属环状，内有带纵向槽的锥形夹持结构，放置于白色纸巾上，用于说明清理前的部件状态。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/f0df3e0b8444734b834378d856bb98de3b4e0720fe7d15cf9de3ceeb7cd71445.jpg)",
+      "pages": [
+        8
+      ],
+      "start_page": 8,
+      "end_page": 8,
+      "source_global_index": [
+        33,
+        34,
+        35,
+        36,
+        37
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "group_id": 17,
+      "group_title": "自动换刀电主轴系列产品保养常识与设备图示",
+      "content": "温馨提示： 自动换刀电主轴系列产品使用保养常识\n\n1. 工作之前开启电主轴，空载运转 5-10 分钟，磨合预热。 2. 手动换刀三到四次，手拧刀柄带主轴转动正常，然后开始工作。 3. 使用过程中，一定要在主轴完全停止的状态下进行换刀， 防止气缸轴与拉 杆出现摩擦进而挤住。 4. 电磁阀保持清洁，排气保持顺畅，防止换刀主轴在抓刀后， 压缩空气积压 在气缸内排不出去，活塞回不了位，气缸轴 与拉杆发生摩擦引起挤住。 5. 气泵及油水分离器每天排放一次油和水，保持压缩空气干燥洁净。 6. 每天下班后将刀柄从主轴上拿下来，清洁刀柄和锥孔内的灰尘和 锈渍，再 涂抹防锈油。\n\n这是一张数控六面钻自动换刀电主轴的局部特写图，展示了两个并排安装的透明波纹吸尘软管，通过金属卡箍连接至白色集尘罩，用于加工时的粉尘抽取；背景可见设备主体、绿色指示灯及黄色安全警示标签。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/d46e949266e4d329a0f20d022070deced1a0b6a1fe1336ec92e3594f21d7ba7c.jpg)",
+      "pages": [
+        9
+      ],
+      "start_page": 9,
+      "end_page": 9,
+      "source_global_index": [
+        38,
+        39,
+        40
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "group_id": 18,
+      "group_title": "刀库保养说明：周期、内容、步骤及示意图",
+      "content": "4 刀库保养\n\n保养周期：两周一次\n\n保养内容：清理刀排上的灰尘及油污，检查刀夹的卡槽磨损情况，磨损 严重及时更换刀夹；刀库支架上的滑块进行加油 NLGI 000#。\n\n操作步骤：使用气枪和抹布将刀排附着在上面的粉尘和油污进行清理， 再使用油枪给刀库支架上的滑块进行加油 NLGI 000#。检查刀夹的卡槽是 否破损或变形？发现破损就用新的刀夹；如果无法分辨刀夹磨损情况，可 使用刀具进行手动换刀，换刀异常松动，轻松可拔插即说明刀夹磨损严重 需要更换。\n\n三张机床刀库局部特写图：上方主图显示刀夹的卡槽结构（红圈标注“卡槽”），并有箭头指向滑块与传感器；左下图展示刀库支架上的滑块及气动/油路接口；右下图聚焦刀夹安装部位的紧固螺栓与导轨，用于检查磨损或松动。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/79a77a3e1a03e8bf03524182bb02db51fd9341078a5554afd308a02d6b5b852f.jpg)",
+      "pages": [
+        10
+      ],
+      "start_page": 10,
+      "end_page": 10,
+      "source_global_index": [
+        41,
+        42,
+        43,
+        44,
+        45
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "group_id": 19,
+      "group_title": "多轴钻削装置保养周期、内容及操作步骤说明",
+      "content": "5 多轴钻削装置保养\n\n保养周期：两天一次\n\n保养内容：使用抹布清理干净油嘴，再往油嘴注油。\n\n操作步骤：使用气枪和抹布将钻包的注油嘴及外围部分，再用注油枪将 润滑油（德国 BOTON KS-400/根据钻包贴纸标识的油品加注即可），注入油 量约 5cc/次就可以。",
+      "pages": [
+        11
+      ],
+      "start_page": 11,
+      "end_page": 11,
+      "source_global_index": [
+        46,
+        47,
+        48,
+        49
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "group_id": 20,
+      "group_title": "多轴钻削装置注油嘴位置示意图及标题",
+      "content": "左右两图分别展示了多轴钻削装置的注油嘴位置：左图为机身上方的单个注油嘴（带红色警示标签），右图为钻包上三个并排的注油嘴（带红色油滴标识标签），均用红圈和箭头标出，对应文档中‘使用气枪和抹布将钻包的注油嘴及外围部分’的操作说明。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/befc4ac237b1e3a7bf0b770533bb7fb4c669d3a81b89d11c830b815691c60088.jpg)\n\n多轴钻削装置（上）",
+      "pages": [
+        11
+      ],
+      "start_page": 11,
+      "end_page": 11,
+      "source_global_index": [
+        50,
+        51
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "group_id": 21,
+      "group_title": "注油嘴特写图及维护部件说明",
+      "content": "特写图显示多轴钻削装置内部的一个注油嘴（位于黑色钻夹座下方、白色支架侧壁），用红圈和箭头标出，属于需定期注油维护的部件之一。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/95473737a370f67f1d5df453c6d445f97f8eacbcf79b4acf7c2afa11e5d8ea15.jpg)",
+      "pages": [
+        11
+      ],
+      "start_page": 11,
+      "end_page": 11,
+      "source_global_index": [
+        52
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "group_id": 22,
+      "group_title": "多轴钻削装置章节标题",
+      "content": "多轴钻削装置（下）",
+      "pages": [
+        12
+      ],
+      "start_page": 12,
+      "end_page": 12,
+      "source_global_index": [
+        53
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "group_id": 23,
+      "group_title": "滚珠丝杠保养说明及Z轴图片",
+      "content": "6 滚珠丝杠保养\n\n保养周期：两周一次\n\n保养内容：清理滚珠丝杆上的粉尘，检查是否磨损？然后涂抹 NLGI 000#。\n\n操作步骤：使用气枪和抹布清除的堆积在滚珠丝杆上的木屑及粉尘，检 查滚珠丝杆是否有破损变形情况？如果发现有变形损坏，或使用中存在异响， 应需要停止生产，及时更换好。最后使用 NLGI 000#涂抹滚珠丝杆上。\n\n机器正常运行时由润滑泵自动供给润滑油脂，持续对滚珠丝杆进行润滑。\n\n两张并列的设备局部照片，均用红色圆圈和箭头标出Z轴滚珠丝杆位置；左侧图显示丝杆旁的气动元件与透明波纹管，右侧图展示丝杆上方的线缆束与电气接线端子排，用于说明滚珠丝杆的安装与周边结构。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/e290a49012b3c10f96e9c74d6b50f33901f9b22fb56532af6753615d81267f9f.jpg)\n\nZ 轴滚珠丝杆（上）",
+      "pages": [
+        12
+      ],
+      "start_page": 12,
+      "end_page": 12,
+      "source_global_index": [
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "group_id": 24,
+      "group_title": "数控六面钻维护保养标题",
+      "content": "一张数控六面钻设备局部特写图，红色圆圈和箭头标示出A轴滚珠丝杆（下）的连接部位，旁边有黑色波纹管包裹的线缆及一个带二维码标签的黑色驱动单元。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/c051edf91386cd74dcb9cd92b4ff77dff0b6ce2eb3c6fcbdc5843750d0941072.jpg)",
+      "pages": [
+        13
+      ],
+      "start_page": 13,
+      "end_page": 13,
+      "source_global_index": [
+        61
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "group_id": 25,
+      "group_title": "A轴滚珠丝杆设备图解说明",
+      "content": "A 轴滚珠丝杆（下）",
+      "pages": [
+        13
+      ],
+      "start_page": 13,
+      "end_page": 13,
+      "source_global_index": [
+        62
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "group_id": 26,
+      "group_title": "导轨滑块保养说明含周期步骤及组件图片",
+      "content": "7 导轨滑块保养\n\n保养周期：两周一次\n\n保养内容：清理导轨滑块上的粉尘，检查是否磨损？然后涂抹 NLGI 000#。\n\n操作步骤：使用气枪和抹布清除的堆积在导轨滑块上上的木屑及粉尘， 检查导轨滑块上是否有破损变形情况？如果发现有变形损坏，应需要停止生 产，及时更换好。最后使用 NLGI 000#涂抹导轨上。\n\n机器正常运行时由润滑泵自动供给润滑油脂，持续对导轨滑块进行润滑。\n\n四张数控六面钻导轨滑块组件的特写照片，展示了导轨、滑块、气动管路、润滑装置及机械连接结构，对应文档中关于导轨滑块保养的操作说明。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/0df01335a798b87fd2b926d44c58958f6fde44071ea583b3596b35d53cd20602.jpg)",
+      "pages": [
+        14
+      ],
+      "start_page": 14,
+      "end_page": 14,
+      "source_global_index": [
+        63,
+        64,
+        65,
+        66,
+        67,
+        68
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "group_id": 27,
+      "group_title": "电机齿轮齿条保养周期、内容、步骤及设备示意图",
+      "content": "8 电机齿轮齿条保养\n\n保养周期：两周一次\n\n保养内容：清理齿轮齿条上的粉尘，检查是否磨损？然后涂抹 2#润滑脂。\n\n操作步骤：使用气枪和抹布清除的堆积在齿轮齿条上的木屑及粉尘，检 查齿轮齿条是否有破损变形情况？如果发现有变形损坏，应需要停止生产， 及时更换好。最后使用 2#润滑脂涂抹齿轮齿条端面，以及齿条的下齿面。\n\n四张图片展示了数控六面钻的电机齿轮齿条机构：左上为齿轮与齿条啮合的驱动单元整体结构；右上为齿条端面特写，可见其精密齿形及安装支架；左下为伺服电机与齿轮连接的驱动端细节；右下为齿条下方的支撑导轨与传感器布线情况。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/cc805d5451394eea0b22fd63175b5355e5355e7c754dd2cab8645cf54a69f54d.jpg)",
+      "pages": [
+        15
+      ],
+      "start_page": 15,
+      "end_page": 15,
+      "source_global_index": [
+        69,
+        70,
+        71,
+        72,
+        73
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "group_id": 28,
+      "group_title": "滑块及圆导轨保养指南，含周期步骤和部件图",
+      "content": "9 滑块及圆导轨保养\n\n保养周期：两周一次\n\n保养内容：清理滑块及圆导轨上的粉尘，检查是否磨损，然后涂抹 2#润 滑脂。\n\n操作步骤：使用气枪和抹布清除的堆积在滑块及圆导轨上的木屑及粉尘， 检查滑块及圆导轨上是否有破损变形情况？如果发现有变形损坏，应需要停 止生产，及时更换好。最后使用 2#润滑脂抹圆导轨上。\n\n滑块及圆导轨的局部特写，显示一个白色金属滑块安装在银色圆导轨上，滑块上有多个螺钉固定，用于数控六面钻的直线运动部件。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/37ac6ae3963869ff05050d1836a3ce7935063e36c1cbc2986095a13c97e6e676.jpg)",
+      "pages": [
+        17
+      ],
+      "start_page": 17,
+      "end_page": 17,
+      "source_global_index": [
+        74,
+        75,
+        76,
+        77,
+        78
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "group_id": 29,
+      "group_title": "气浮台及风机保养说明，含周期步骤和设备图",
+      "content": "10 气浮台及风机保养\n\n保养周期：每季度一次\n\n保养内容：每班次清理附着在气浮台上的粉尘及其他杂物。\n\n操作步骤：使用气枪和抹布清除的堆积在气浮台上的木屑及粉尘，检查吹 风机出风量大小，如出风量减小，需进行检修，以保证正常使用。\n\n一台南兴装备NCB612DXT型数控六面钻机床整体图，左侧插图为该设备所用的侧吹风机（气浮台配套风机），用于清除粉尘并提供气浮支撑。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/cc3978597ea4af426939d344a551e98f9aef01bbb906b66db0b1a6ba4f5fcf1d.jpg)",
+      "pages": [
+        17
+      ],
+      "start_page": 17,
+      "end_page": 17,
+      "source_global_index": [
+        79,
+        80,
+        81,
+        82,
+        83
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "group_id": 30,
+      "group_title": "气源三联件保养说明、操作步骤及实物图解",
+      "content": "11 气源三联件保养\n\n保养周期：每月一次\n\n保养内容：清理三联件外表面木屑及粉尘，检查油雾器是否过低，需要补 充润滑油；检查过滤器内的冷凝水是否超过 10mm，需要排出冷凝水。\n\n操作步骤：使用气枪或者抹布三联件上粉尘进行清理，检查油雾器油量是 否低于 1/3 位置？发现低于正常水平需要补充 ISO VG-32 或相同等级，加 入油量不能超过 2/3 位置；检查压力调节过滤器冷凝水达到约 10mm，逆 时针旋转放水器，让冷凝物顺势流出。（如果发现系统压力明显减少低于 0.6Mpa，怎么调节都无法升高，应该及时清洁或更换滤芯）\n\n两张气源三联件实物图：左图为调压阀（带压力表，量程0.6-0.7MPa）、过滤器和放水器的组合；右图为油雾器，标有调节旋钮，并附有黄色注意事项标签，提示每月检查油杯油量并补充ISO VG32气动油。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/adcfb37bdb650ade59bbd07fc78a9db6cd13e5c5a46445cc063af0a624ff727b.jpg)",
+      "pages": [
+        18
+      ],
+      "start_page": 18,
+      "end_page": 18,
+      "source_global_index": [
+        84,
+        85,
+        86,
+        87,
+        88
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "group_id": 31,
+      "group_title": "润滑泵保养周期、内容、步骤及油量检查示意图",
+      "content": "12 润滑泵保养\n\n保养周期：每周一次\n\n保养内容：清理电动润滑泵上的粉尘，检查是润滑泵油量，低于最低油 量需补充润滑油\n\n操作步骤：使用气枪和抹布清除的堆积在润滑泵进油口上的木屑及粉尘， 检查电动润滑泵油位是否低于最低油量？发现低于最低油量， 需要打开润滑泵的进油口，注入一定量的 NLGI 000#，注入 量不能超过油位的最高值。\n\n一张电动润滑泵的实物图，标注了润滑泵主体、出油口、注油口，以及油箱上的最高油量和最低油量刻度线；油箱贴有黄色警示标签，注明需使用NLGI 000#油脂并建议每半年清洁一次。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/b16fc13cf48bce850b8a66453a3a77d565b12699cc4f05872a3d5949f342b47b.jpg)\n\n最高油量",
+      "pages": [
+        19
+      ],
+      "start_page": 19,
+      "end_page": 19,
+      "source_global_index": [
+        89,
+        90,
+        91,
+        92,
+        93,
+        94
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "group_id": 32,
+      "group_title": "电气件保养说明及设备结构图展示",
+      "content": "13 电气件保养\n\n保养周期：每月一次\n\n保养内容：清理电柜外表面以及散热风扇或空调滤网的木屑及粉尘，检查 电气元器件有无松动、氧化和失效。\n\n操作步骤：使用气枪或者抹布将电柜表面的粉尘木屑清理,然后将散热分散 过滤网罩或空调的过滤网取下，将粉尘等杂质进行清理，最后 打开电柜检查各元件有无松动、氧化和失效，需及时通知专业 人员修复或更换。(注意事项：不要用高压空气吹洗开关柜，以 防电器零件松动和异物进入电子元件内部)\n\n上半部分为电柜内部结构图，展示两组电气元件与布线；下半部分为南兴装备（NANXING MACHINERY）数控六面钻设备的正面外观，可见其白色机柜、散热格栅、警示标识及正在加工的板材。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/802c9d186a7c08cd94d127b11188db534c2e52857a54718315d8f4e107d1395d.jpg)",
+      "pages": [
+        20
+      ],
+      "start_page": 20,
+      "end_page": 20,
+      "source_global_index": [
+        95,
+        96,
+        97,
+        98,
+        99
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "group_id": 33,
+      "group_title": "设备外壳通风口特写，含警示标识和急停开关",
+      "content": "三张数控六面钻设备外壳的通风口特写，左侧图显示带急停开关和高压警示标识的面板，中间图有‘注意’警示标签，右侧图为独立通风百叶窗结构。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/3b0194138042772a7ca44d9b44ad5b8a2230c3d032f67c340d9bb0f2c4b5d43c.jpg)",
+      "pages": [
+        21
+      ],
+      "start_page": 21,
+      "end_page": 21,
+      "source_global_index": [
+        100
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "group_id": 34,
+      "group_title": "输送台电机传动保养：周期内容及操作步骤",
+      "content": "14 输送台电机传动保养\n\n保养周期：两周一次\n\n保养内容：清理链条及链轮上的粉尘，检查链条及链轮运行平稳情况， 然后涂抹 2#润滑脂。\n\n操作步骤：使用气枪或者抹布将附着链条及链轮上的粉尘木屑清理干净， 检查链条及链轮是否有破损变形情况？如果发现有变形损坏，应需要停止生 产，及时更换好。最后使用 2#润滑脂涂抹链条及链轮表面。\n\n输送台电机传动机构局部图，橙色防护罩上贴有‘注意’禁止手入警示标识，红色圆圈标出链轮与链条连接部位，对应文档中‘清理链轮及链条粉尘、检查变形’的保养操作点。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/2a7220543eac1efc3757debd27f0bbf0ec4527061e576183f0fbec67983e1833.jpg)",
+      "pages": [
+        21
+      ],
+      "start_page": 21,
+      "end_page": 21,
+      "source_global_index": [
+        101,
+        102,
+        103,
+        104,
+        105
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "group_id": 35,
+      "group_title": "易损件保养：检查周期内容及操作步骤说明",
+      "content": "15 易损件保养\n\n保养周期：每班检查一次，半年更换一次\n\n保养内容：清理夹块及吸尘罩平皮带的粉尘，检查夹块及吸尘罩平皮带 表面是否有严重破损？\n\n操作步骤：每班次使用气枪或者抹布清理附着在夹块及吸尘罩平皮带的 粉尘及其他杂物。检查其表面是否有严重破损？影响正常使用时需更及时更",
+      "pages": [
+        21
+      ],
+      "start_page": 21,
+      "end_page": 21,
+      "source_global_index": [
+        106,
+        107,
+        108,
+        109
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "group_id": 36,
+      "group_title": "气缸组件示意图及局部细节标注",
+      "content": "换。\n\n左图展示气缸导杆及下方带条纹的滑块结构，红圈标出导杆安装孔与滑块细节；右图展示两组标有'Y1'和'Y2'的气动执行单元，红圈指向其底部绿色部件的接口或密封区域，整体为数控六面钻的气缸组件局部特写。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/37c7002134515ec6d266bfc82d0410f1267a326c21b116b35e6f1c99616fd2a8.jpg)",
+      "pages": [
+        22
+      ],
+      "start_page": 22,
+      "end_page": 22,
+      "source_global_index": [
+        110,
+        111
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "group_id": 37,
+      "group_title": "气缸保养周期内容及操作步骤",
+      "content": "16 气缸保养\n\n保养周期：每年一次\n\n保养内容：清理附着在气缸导杆上粉尘木屑，涂抹润滑脂；检查气嘴是 否漏气？发现损坏漏气及时更换处理。\n\n操作步骤：使用气枪或者抹布清理气缸导杆上粉尘木屑，再用 2#润滑脂 涂抹在气缸导杆以及螺丝端；用手触摸气缸气嘴接口位置检查是否漏气？发 现漏气及时拧紧气嘴或更换新的气嘴。",
+      "pages": [
+        22
+      ],
+      "start_page": 22,
+      "end_page": 22,
+      "source_global_index": [
+        112,
+        113,
+        114,
+        115
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "group_id": 38,
+      "group_title": "数控六面钻维护重点部位示意图及说明",
+      "content": "两张特写图片，分别展示数控六面钻设备上两个不同位置的气动接头（或传感器/限位开关），均用红色圆圈和箭头标出，用于维护保养时的重点检查部位。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/0b8ed3a514298adc732667e358644569c4ce87a87ff7948eab6d4153b1ad7205.jpg)",
+      "pages": [
+        23
+      ],
+      "start_page": 23,
+      "end_page": 23,
+      "source_global_index": [
+        116
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "group_id": 39,
+      "group_title": "感应器保养说明及操作示意图",
+      "content": "17 感应器保养\n\n保养周期：两天一次\n\n保养内容：清理堆积台面板下方和输送台上感应器表面附着的灰尘。\n\n操作步骤：使用气枪和抹布清除的堆积在台面板下方和输送台上感应器 表面附着的灰尘，同时检验感应器是否正常感应？发现不正 常时及时更换新的感应器。\n\n两张特写图片展示了数控六面钻设备上的感应器：左图是安装在台面板下方的蓝色感应器，其红色指示灯亮起；右图是安装在输送带支架上的同类型感应器，同样亮着红灯，两图均用红圈和箭头标出感应器位置，用于说明‘感应器保养’中的检查对象。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_171204_5737/40191a0f6ebd432a8a4007b99694119bf072cd9e07c030219a4c5b8e1e23f0aa.jpg)",
+      "pages": [
+        24
+      ],
+      "start_page": 24,
+      "end_page": 24,
+      "source_global_index": [
+        117,
+        118,
+        119,
+        120,
+        121
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "group_id": 40,
+      "group_title": "润滑部位周期说明及推荐油品表格",
+      "content": "18 润滑部位和周期\n\n定期给润滑部位加润滑油是保证机器正常运转的关键。其润滑部位和周期， 见下表。\n\n<table><tr><td rowspan=1 colspan=1>序号</td><td rowspan=1 colspan=1>润滑部分</td><td rowspan=1 colspan=1>润滑周期</td><td rowspan=1 colspan=1>推荐油品</td></tr><tr><td rowspan=1 colspan=1>1</td><td rowspan=1 colspan=1>多轴钻削装置</td><td rowspan=1 colspan=1>两周一次</td><td rowspan=1 colspan=1>参照贴纸说明</td></tr><tr><td rowspan=1 colspan=1>2</td><td rowspan=1 colspan=1>导轨及滑块</td><td rowspan=1 colspan=1>自动润滑/两周一次</td><td rowspan=1 colspan=1>NLGI 000#</td></tr><tr><td rowspan=1 colspan=1>3</td><td rowspan=1 colspan=1>滚珠丝杠</td><td rowspan=1 colspan=1>自动润滑/两周一次</td><td rowspan=1 colspan=1>NLGI 000#</td></tr><tr><td rowspan=1 colspan=1>4</td><td rowspan=1 colspan=1>电机齿轮及齿条</td><td rowspan=1 colspan=1>两周一次</td><td rowspan=1 colspan=1>2#润滑脂</td></tr><tr><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1>移动滑块及圆支撑轨</td><td rowspan=1 colspan=1>两周一次</td><td rowspan=1 colspan=1>2#润滑脂</td></tr><tr><td rowspan=1 colspan=1>6</td><td rowspan=1 colspan=1>三联件油雾器</td><td rowspan=1 colspan=1>一周一次</td><td rowspan=1 colspan=1>气动油（ISOVG32)</td></tr><tr><td rowspan=1 colspan=1>7</td><td rowspan=1 colspan=1>链条及链轮</td><td rowspan=1 colspan=1>两周一次</td><td rowspan=1 colspan=1>2#润滑脂</td></tr><tr><td rowspan=1 colspan=1>8</td><td rowspan=1 colspan=1>转、滑动部分</td><td rowspan=1 colspan=1>每天一次</td><td rowspan=1 colspan=1>2#润滑脂</td></tr><tr><td rowspan=1 colspan=1>9</td><td rowspan=1 colspan=1>易生锈部位</td><td rowspan=1 colspan=1>每月 (或停用)</td><td rowspan=1 colspan=1>2#润滑脂</td></tr><tr><td rowspan=1 colspan=1>10</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr></table>",
+      "pages": [
+        25
+      ],
+      "start_page": 25,
+      "end_page": 25,
+      "source_global_index": [
+        122,
+        123,
+        124
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "group_id": 41,
+      "group_title": "数控六面钻设备保养规程表，含各部件保养周期",
+      "content": "19 数控六面钻设备保养规程表\n\n<table><tr><td>保养部位</td><td>保养项目</td><td>保养内容</td><td>保养周期</td></tr><tr><td>整机</td><td>整机外表</td><td>检查清理</td><td>每日一次</td></tr><tr><td>电主轴部分</td><td>电主轴</td><td>检查润滑/清理</td><td>每周保养一次</td></tr><tr><td>多轴钻削装置 部分</td><td>多轴钻削装置</td><td>检查润滑/清理</td><td>每两周保养一次</td></tr><tr><td>滚珠丝杠部分</td><td>滚珠丝杠</td><td>检查润滑/清理</td><td>每两周保养一次</td></tr><tr><td>导轨及滑块部分</td><td>导轨及滑块</td><td>检查润滑/清理</td><td>每两周保养一次</td></tr><tr><td>电机齿轮及齿条部 分</td><td>电机齿轮及齿条</td><td>检查润滑/清理</td><td>每两周保养一次</td></tr><tr><td>移动滑块及圆支撑 轨部分</td><td>移动滑块及圆支撑 轨</td><td>检查润滑/清理</td><td>每两周保养一次</td></tr><tr><td>气浮台及吹风机部 分</td><td>气浮台及吹风机</td><td>检查/清理/维护</td><td>每季度保养一次</td></tr><tr><td>气源三联件部分</td><td>气源三联件</td><td>放水/加油</td><td>每天保养一次</td></tr><tr><td>润滑泵部分</td><td>润滑泵</td><td>检查/加油</td><td>每周保养一次</td></tr><tr><td>输送台部分</td><td>链条及链轮</td><td>检查润滑/清理</td><td>每两周保养一次</td></tr><tr><td rowspan=\"2\">电器箱部分</td><td>风扇</td><td>检查清理</td><td>每月保养一次</td></tr><tr><td>电气元件</td><td>检查更换</td><td>每半年保养一次</td></tr><tr><td>气缸部分</td><td>气缸及接头</td><td>检查/清理/维护</td><td>每年保养一次</td></tr><tr><td>感应器部分</td><td>感应器</td><td>检查/清理/维护</td><td>每两天保养一次</td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></table>",
+      "pages": [
+        26
+      ],
+      "start_page": 26,
+      "end_page": 26,
+      "source_global_index": [
+        125,
+        126
+      ]
+    }
+  ]
+}

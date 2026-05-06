@@ -1,0 +1,2109 @@
+{
+  "document_name": "加工中心产品维护保养说明-20240510.docx",
+  "document_id": "F_docx_加工中心产品维护保养说明-20240510",
+  "total_pages": 39,
+  "chunks": [
+    {
+      "chunk_id": 1,
+      "group_id": 1,
+      "group_title": "加工中心维护保养手册标题",
+      "content": "加工中心\n\n维护·保养手册",
+      "pages": [
+        1
+      ],
+      "start_page": 1,
+      "end_page": 1,
+      "source_global_index": [
+        1,
+        2
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "group_id": 2,
+      "group_title": "南兴加工中心设备说明及图示",
+      "content": "这是一台南兴装备股份有限公司生产的加工中心设备，整体为白色与绿色配色，配备数控操作面板、多轴加工头、吸尘系统、可升降的物料平台以及末端传送带，用于板材的自动化加工。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/490781aced166415829be9a85e4b6e0695b117ab0d14730e39889cfeb2344ae5.jpg)",
+      "pages": [
+        1
+      ],
+      "start_page": 1,
+      "end_page": 1,
+      "source_global_index": [
+        3
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "group_id": 3,
+      "group_title": "公司联系信息及地址详情",
+      "content": "地 址：东莞市厚街镇科技工业园南兴路 电 话：400-888-2033 0769-85597078 /85597088 传 真：0769-85592399 邮 箱：info@nanxing.com.cn 网 址：http://www.nanxing.com.cn",
+      "pages": [
+        1
+      ],
+      "start_page": 1,
+      "end_page": 1,
+      "source_global_index": [
+        4
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "group_id": 4,
+      "group_title": "文档目录标题页",
+      "content": "目录",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        5
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "group_id": 5,
+      "group_title": "前言部分说明",
+      "content": "前 言....",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        6
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "group_id": 6,
+      "group_title": "日常保养章节内容",
+      "content": "一、日常保养...\n\n1.1 开机前检查..\n\n开机中检查..\n\n1.3 关机后保养..",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "group_id": 7,
+      "group_title": "加工中心整机保养章节",
+      "content": "、加工中心整机保养...\n\n2.1 整机床身的保养..\n\n2.1.1 床身木屑粉尘清理. 3 2.1.2 床身台面板保养.. .3 2.1.3 床身台面密封条保养.. ..4 2.1.4 床身台面宝塔真空管保养.. .4 2.1.5 床身吸尘管保养.. ..5 2.1.6 床身真空阀组件保养.. ...5 2.1.7 床身台面毛刷保养.. ..6 2.1.8 床身齿条导轨保养.. .6\n\n2.2 整机横梁部分的保养...\n\n2.2.1 横梁部分木屑粉尘清理. .7 2.2.2 横梁部分机头吸尘罩保养. ..7 2.2.3 横梁部分主轴吸尘罩保养.. ...8 2.2.4 横梁部分推料吸尘罩保养.. ...8 2.2.5 横梁部分刀排保养.. ...9 2.2.6 横梁部分刀盘保养.. ...9 2.2.7 横梁部分电主轴保养.. ..10 2.2.8 横梁部分接油盘保养.. ...10 2.2.9 横梁部分压辊装置保养.. ..11 2.2.10 横梁部分钻包保养. ...11 2.2.11 横梁部分齿条导轨保养.. ....12 2.2.12 横梁部分电动润滑泵保养.. .12\n\n2.3 整机电气设备的保养.. 13\n\n2.3.1 电柜保养... .13 2.3.2 三联件保养.. .13 2.3.3 气缸保养... .14",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "group_id": 8,
+      "group_title": "贴标机保养章节内容",
+      "content": "三、贴标机保养... 14\n\n3.1 贴标机整机保养.. 4\n\n3.1.1 贴标机整机部分木屑粉尘清理.. 14 3.1.2 贴标机整机部分齿条导轨保养.. .15 3.1.3 贴标机整机部分打印机保养一. .15 3.1.4 贴标机整机部分打印机保养二. .16 3.1.5 贴标机整机部分感应器保养.. .17 3.1.6 贴标机整机部分电动润滑泵保养.. 17",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "group_id": 9,
+      "group_title": "升降台保养章节内容",
+      "content": "四、升降台保养...\n\n4.1 升降台整机保养.. 18\n\n4.1.1 升降台油路保养.. .18 4.1.2 升降台油泵保养.. 18",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        21,
+        22,
+        23
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "group_id": 10,
+      "group_title": "皮带机保养章节内容",
+      "content": "五、皮带机保养..\n\n5.1 皮带机整机保养... 19\n\n5.1.1 皮带机吸尘罩保养.. .19 5.1.2 皮带机感应器保养.. 19",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        24,
+        25,
+        26
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "group_id": 11,
+      "group_title": "真空泵保养章节内容",
+      "content": "六、真空泵保养... .20\n\n6.1 真空泵整机保养.. 20\n\n6.1.1 真空泵外罩过滤器保养.. .20",
+      "pages": [
+        2
+      ],
+      "start_page": 2,
+      "end_page": 2,
+      "source_global_index": [
+        27,
+        28,
+        29
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "group_id": 12,
+      "group_title": "真空泵保养子项维护说明",
+      "content": "6.1.2 真空泵内置过滤器保养.. .20\n\n6.1.3 真空泵排气口保养..\n\n6.1.4 真空泵内部润滑保养.. 21",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        30,
+        31,
+        32
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "group_id": 13,
+      "group_title": "加工中心精度维护章节标题",
+      "content": "七、加工中心精度维护...",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        33
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "group_id": 14,
+      "group_title": "开料精度维护子章节标题",
+      "content": "7.1 加工中心开料精度维护..",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        34
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "group_id": 15,
+      "group_title": "开料测试方法及调整维护项",
+      "content": "7.1.1 圆形开料测试.. .22 7.1.2 方形开料测试.. .23 7.1.3 大板开料测试.. .24 7.1.4 开料精度不达标调整维护.. .25",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        35
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "group_id": 16,
+      "group_title": "刀具保养维护章节标题",
+      "content": "八、刀具保养维护...",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        36
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "group_id": 17,
+      "group_title": "刀具拆装保养维护说明",
+      "content": "8.1 刀具拆装保养维护... 26",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        37
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "group_id": 18,
+      "group_title": "刀具拆卸安装操作说明项",
+      "content": "8.1.1 拆卸刀具说明.. .26 8.1.2 安装刀具说明.. .26",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        38
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "group_id": 19,
+      "group_title": "刀柄保养维护及图解说明",
+      "content": "8.2 刀柄保养维护.. 27\n\n刀柄图解... 27",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        39,
+        40
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "group_id": 20,
+      "group_title": "主轴保养维护章节标题",
+      "content": "九、主轴保养维护...",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        41
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "group_id": 21,
+      "group_title": "主轴安装日常及气路维护",
+      "content": "9.1 主轴安装维护说明.. .28\n\n.2 主轴的日常维护保养..\n\n9.3 主轴的气路维护保养.. .30",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        42,
+        43,
+        44
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "group_id": 22,
+      "group_title": "附表一润滑部位周期说明",
+      "content": "附表一：...... .31\n\n润滑部位和周期.. .31",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        45,
+        46
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "group_id": 23,
+      "group_title": "附表二设备保养规程表",
+      "content": "附表二：.... 32\n\n加工中心设备保养规程表.. .32",
+      "pages": [
+        3
+      ],
+      "start_page": 3,
+      "end_page": 3,
+      "source_global_index": [
+        47,
+        48
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "group_id": 24,
+      "group_title": "前言部分：机床维护要求和操作规范说明",
+      "content": "前 言\n\n为了使机床保持良好的运行状态，防止和减少事故的发生，应坚持 定期对机床进行检查和维护保养。凡操作和维护本机器的人员，必须仔 细阅读并认真执行本手册的维护和保养规定。\n\n该设备的技术保养分为日常保养和部件保养，操作人员需严格遵守 操作规程和日常维护制度。当机床发生故障时要注意保护现场，并向维 修人员如实反应故障状况，以利于维修人员分析诊断出故障的原因，并 进行排除。",
+      "pages": [
+        4
+      ],
+      "start_page": 4,
+      "end_page": 4,
+      "source_global_index": [
+        49,
+        50,
+        51
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "group_id": 25,
+      "group_title": "适用产品型号列表：NCG系列机床型号",
+      "content": "本 手 册 适 用 产 品 型 号 NCG2812、NCG3021、NCG3718、NCG4021 等系列。",
+      "pages": [
+        4
+      ],
+      "start_page": 4,
+      "end_page": 4,
+      "source_global_index": [
+        52
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "group_id": 26,
+      "group_title": "日常保养章节主标题，统领加工中心维护全流程",
+      "content": "一、日常保养",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        53
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "group_id": 27,
+      "group_title": "开机前检查五项要求，含气源电源等安全检测",
+      "content": "1.1 开机前检查\n\n① 检查气源三联件是否缺油，如有需要，请按照润滑指示图，使用干净的 润滑油进行加油； 压缩空气是否达到 0.6~0.8Mpa。 ② 检查电源开关外观和作用是否良好，接地装置是否完整。 ③ 检查各部件螺钉、螺母、手柄有无松动或者丢失、如有发现应及时拧紧 和补齐。 ④ 检查机床电柜门、电器安全装置是否良好。 ⑤ 手动移动各轴机构是否输出，确认刀具无碰触吸尘罩等现象。",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        54,
+        55
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "group_id": 28,
+      "group_title": "开机中七项检查项目，涵盖电机运行及报警观察",
+      "content": "1.2 开机中检查\n\n① 观察电机、电器元件的灵敏性、可靠性、温升、声响和震动等情况。 ② 观察触摸屏上是否有报警显示。 ③ 观察传动丝杠传动情况。 ④ 观察排钻头工作状况。 ⑤ 观察机床各气动部件运行情况。 ⑥ 观察电控柜上各个冷却风扇工作是否正常运转。 ⑦ 应尽量少开电控柜门，不允许在机床使用时敞开电控柜门。",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        56,
+        57
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "group_id": 29,
+      "group_title": "关机后四项保养操作，包括清扫清洁及安全规范",
+      "content": "1.3 关机后保养\n\n① 清扫机床，彻底清除机床上残存的木屑。 ② 用抹布及清洁剂抹干净机床外观上的粉尘及油污。 ③ 打扫机床周围地面的垃圾，整理好工作场所物品，保持环境畅通。 ④ 将各操作手柄（开关）置于空档（零位），拉下电源开关，做到整齐、 清洁、润滑、安全。",
+      "pages": [
+        5
+      ],
+      "start_page": 5,
+      "end_page": 5,
+      "source_global_index": [
+        58,
+        59
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "group_id": 30,
+      "group_title": "加工中心整机保养章节标题",
+      "content": "二、加工中心整机保养",
+      "pages": [
+        7
+      ],
+      "start_page": 7,
+      "end_page": 7,
+      "source_global_index": [
+        60
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "group_id": 31,
+      "group_title": "床身木屑粉尘清理保养说明",
+      "content": "2.1 整机床身的保养\n\n2.1.1 床身木屑粉尘清理\n\n保养周期：每天一次\n\n保养内容：清理干净机床外观表面的木屑及粉尘。\n\n操作步骤：使用气枪或者抹布，将床身台面、机架、毛刷、床身吸尘罩等机构的粉尘进行清理。\n\n左侧为加工中心整机示意图，红色箭头标示出床身台面、机架等需清理粉尘的部位；右侧为黄色气枪的特写图，用于吹扫粉尘清理作业。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/64b4cbb248d75dc88f09c200a2422e1d24fe09f36d79ae409f076a084a9523af.jpg)",
+      "pages": [
+        7
+      ],
+      "start_page": 7,
+      "end_page": 7,
+      "source_global_index": [
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "group_id": 32,
+      "group_title": "床身台面板保养操作指南",
+      "content": "2.1.2 床身台面板保养\n\n保养周期：每年一次（使用频繁或磨损严重，台面磨损厚度低于 9mm，必须更换）\n\n保养内容：更换新的台面中纤板。\n\n操作步骤：检查台面中纤板发现磨损严重，使用内六角 5 号扳手将固定台面中纤板 M8 沉头螺钉拆\n\n除，更换新的中纤板重新固定好螺钉。\n\n左侧为中纤板表面沉头螺钉的实物特写，红色方框标出螺钉位置；右侧为固定台面中纤板的结构示意图，展示中纤板通过螺钉安装在网格状支撑台面上的过程。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/92f89d5aa4952c3939a283c79aa317c71e73c978dc2109751dc50666abfa804e.jpg)",
+      "pages": [
+        7
+      ],
+      "start_page": 7,
+      "end_page": 7,
+      "source_global_index": [
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "group_id": 33,
+      "group_title": "密封条年度保养步骤与安装示意图说明",
+      "content": "2.1.3 床身台面密封条保养\n\n保养周期：每年一次（更换台面板时一起检查）\n\n保养内容：检查密封条是否有破损，发现破损及时更换。\n\n操作步骤：拆除台面中纤板后，检查塞在工作台面板上的白色密封条是否完好无破损。如果发现有 破损，就将破损部分用剪刀切掉更换新的密封条。（如果发现台面板吸力不够，需要\n\n检查密封条是否损坏）\n\n左侧为实物图，展示白色密封条（随机物）放置在带网格纹理的台面板上；右侧为安装示意图，标示了密封条在设备台面板上的具体安装位置与布局。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/65e5f1727b44c67f3a0807bf8d07c33de9c98c66be8d13e7daffc13834a3f479.jpg)",
+      "pages": [
+        8
+      ],
+      "start_page": 8,
+      "end_page": 8,
+      "source_global_index": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "group_id": 34,
+      "group_title": "真空管年度保养步骤与内部管路图说明",
+      "content": "2.1.4 床身台面宝塔真空管保养\n\n保养周期：每年一次\n\n保养内容：检查宝塔接头或真空管是否有破损，发现破损及时更换。\n\n操作步骤：拆除带有“型号贴纸”的床身侧盖，人员进入台面板底下后，检查固定在宝塔接头下的真 空管是否有松动或破损情况；如果发现有破损或漏气情况，就及时更换真空管，重新 使用喉码进行紧固。（如果发现台面板吸力不够，需要检查对应区域的宝塔接头以及 真空管是否松动漏气）\n\n左侧为拆除床身侧盖的操作图，红色箭头指向需拆卸的侧盖固定部位；右侧为台面板底下的内部管路图，展示了多根透明波纹软管及接头的连接与布线情况。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/946e93d33c8c46e1f505c4bd4882b13e35f1e312378f7b0ccd02afabda77e6ca.jpg)",
+      "pages": [
+        8
+      ],
+      "start_page": 8,
+      "end_page": 8,
+      "source_global_index": [
+        79,
+        80,
+        81,
+        82,
+        83
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "group_id": 35,
+      "group_title": "床身吸尘管保养周期、内容及操作步骤说明",
+      "content": "2.1.5 床身吸尘管保养\n\n保养周期：每年一次\n\n保养内容：检查 PU 吸尘管是否有破损，发现破损及时更换。\n\n操作步骤：拆除带有“型号贴纸”的床身侧盖，人员进入台面板底下后，检查固定在床身吸尘罩下的 PU吸尘管是否有松动或破损情况；如果发现有破损或漏气情况，就及时更换 PU吸尘 管，重新使用喉码进行紧固。（如果发现床身吸尘罩吸尘效果不好，需要检查 PU吸 尘管是否破损松动）\n\n左图展示拆除床身侧盖后的设备内部结构，右图特写台面板底下的PU吸尘软管连接部位，红色箭头指向软管与接口的连接处，用于说明床身吸尘管路的检查与维护步骤。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/1fb5d0fd2729ef2bd8ee2b079ab9e9910435cd5c8b3ea75fa891994d5255adaa.jpg)",
+      "pages": [
+        9
+      ],
+      "start_page": 9,
+      "end_page": 9,
+      "source_global_index": [
+        84,
+        85,
+        86,
+        87,
+        88
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "group_id": 36,
+      "group_title": "床身真空阀组件维护周期及过滤器更换步骤",
+      "content": "2.1.6 床身真空阀组件保养\n\n保养周期：每月一次\n\n保养内容：清理真空阀组件过滤器表面的木屑及粉尘。\n\n操作步骤： 拆除带有“南兴贴纸”的床身侧盖，拆除固定在真空阀组件上的过滤器，使用气枪清除上 面的木屑以及粉尘；如果发现有破损或漏气情况，就及时更换新的过滤器。\n\n左图显示拆除床身侧盖后设备内部的真空阀组件（含气缸和过滤器安装位），红色箭头指向过滤器安装位置；右图为拆下的圆柱形真空阀过滤器（MF-型号），表面有积尘，用于说明真空阀组件的保养与过滤器更换操作。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/1bb1c371cb45917f51d7354456dec69baba0476b06d22934ae49055655ba4d94.jpg)",
+      "pages": [
+        9
+      ],
+      "start_page": 9,
+      "end_page": 9,
+      "source_global_index": [
+        89,
+        90,
+        91,
+        92,
+        93
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "group_id": 37,
+      "group_title": "毛刷月度检查更换及气枪操作示意图说明",
+      "content": "保养周期：每月一次\n\n保养内容：检查固定在侧面定位板的毛刷有破损或者毛刷变形严重等，需要及时更换。\n\n操作步骤： 使用气枪清除的堆积在毛刷上的木屑及粉尘，检查毛刷是否有破损变形情况，如果发现 有变形损坏，使用内六角 3 号扳手将毛刷拆卸更换新的毛刷。\n\n左侧为机床侧定位板毛刷的正常状态示意图，红色箭头指向毛刷；右侧为黄色气枪的特写图，并标注“气枪”，用于清除毛刷上的木屑及粉尘。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/5cb97ce446d04769fb712c6292d34bf376903ae3d2cd903187a8b6aa3c2d46ed.jpg)",
+      "pages": [
+        10
+      ],
+      "start_page": 10,
+      "end_page": 10,
+      "source_global_index": [
+        94,
+        95,
+        96,
+        97
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "group_id": 38,
+      "group_title": "齿条导轨两周保养周期内容及润滑脂产品",
+      "content": "2.1.8 床身齿条导轨保养\n\n保养周期：两周一次\n\n保养内容：清理齿条导轨上的粉尘，检查是否磨损，然后涂抹 00#润滑脂。\n\n操作步骤：使用气枪和抹布清除的堆积在导轨齿条上的木屑及粉尘，检查导轨齿条是否有破损变形 情况，如果发现有变形损坏，应需要停止生产，及时更换好。最后使用00#润滑脂涂 抹导轨和齿条端面，以及齿条的下齿面。\n\n机床床身内部结构图，红色箭头指向导轨与齿条的结合部位，下方文字标注为“床身上的齿条和导轨”，用于说明导轨保养对象。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/7fd1b19337e0ff8710ec90599ab83e0d70456d6b46169d66afe89be96469ad03.jpg)\n\n一桶标有“通用锂基脂”和“00#润滑脂”的白色润滑脂产品图，用于对导轨和齿条端面进行润滑保养。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/a6240f219581f5f40aac16a4f2b7d4844d2e3d90bf5a0bbca2d2accff2d194ea.jpg)",
+      "pages": [
+        10
+      ],
+      "start_page": 10,
+      "end_page": 10,
+      "source_global_index": [
+        98,
+        99,
+        100,
+        101,
+        102,
+        103
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "group_id": 39,
+      "group_title": "整机横梁部分保养章节标题",
+      "content": "2.2 整机横梁部分的保养\n\n2.2.1 横梁部分木屑粉尘清理",
+      "pages": [
+        10
+      ],
+      "start_page": 10,
+      "end_page": 10,
+      "source_global_index": [
+        104,
+        105
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "group_id": 40,
+      "group_title": "机床外观清洁步骤及气枪使用示意图",
+      "content": "保养周期：每天一次\n\n保养内容：清理干净机床外观表面的木屑及粉尘。\n\n操作步骤：使用气枪和抹布，将主轴、刀排、拖链、气缸等机构的粉尘进行清理。\n\n左侧为加工中心机头吸尘装置的现场图，红色箭头指向主轴、刀排等部位连接的PU吸尘软管；右侧为黄色手持气枪的特写图，并标注“气枪”，用于清理粉尘。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/a7e61c1d91170ec79ed1f7e8bdc0a3007335384d10d61f5f1377bfd98860e579.jpg)",
+      "pages": [
+        11
+      ],
+      "start_page": 11,
+      "end_page": 11,
+      "source_global_index": [
+        106,
+        107,
+        108,
+        109
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "group_id": 41,
+      "group_title": "横梁机头吸尘罩清理流程与示意图",
+      "content": "2.2.2 横梁部分机头吸尘罩保养\n\n保养周期：每年一次\n\n保养内容：清理机头吸尘罩内部的灰尘，检查 PU 吸尘管是否有破损，发现破损及时更换。\n\n操作步骤：使用扳手将PU吸尘管的喉码拆除，取下PU吸尘管，然后使用气枪和抹布将机头吸尘罩 内部的粉尘和木屑进行清理。检查 PU吸尘管是否破损，发现破损就用新的吸尘管替换。\n\n（如果发现开料吸尘效果不佳情况，需要检查 PU 吸尘管是否破损漏气）\n\n左侧为横梁部分机头吸尘罩的示意图，红框标出吸尘罩安装位置；右侧为机头吸尘罩的近景特写，绿色箭头表示从示意图到实物的对应关系，红色箭头指向吸尘罩与软管的连接处。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/4be9f7e02916dc8b0673b61395a2d229f9dac5f1691f66557ff780d751e15bb6.jpg)",
+      "pages": [
+        11
+      ],
+      "start_page": 11,
+      "end_page": 11,
+      "source_global_index": [
+        110,
+        111,
+        112,
+        113,
+        114,
+        115
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "group_id": 42,
+      "group_title": "主轴吸尘罩保养内容及检查要点",
+      "content": "2.2.3 横梁部分主轴吸尘罩保养\n\n保养周期：每年一次\n\n保养内容：清理主轴吸尘罩内部的灰尘，检查一、PU 吸尘管和吸尘罩毛刷是否变形损坏；检查二、",
+      "pages": [
+        11
+      ],
+      "start_page": 11,
+      "end_page": 11,
+      "source_global_index": [
+        116,
+        117,
+        118
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "group_id": 43,
+      "group_title": "主轴吸尘罩气嘴检查步骤及示意图",
+      "content": "吸尘罩内部气嘴是否漏气。\n\n操作步骤：使用扳手将PU吸尘管的喉码拆除，取下PU吸尘管，然后使用气枪和抹布将主轴吸尘罩 内部的粉尘和木屑进行清理。检查 PU 吸尘管和毛刷是否破损或变形，发现破损就用新 的吸尘管和毛刷替换。（如果发现开料吸尘效果不佳情况，需要检查 PU吸尘管和毛刷 是否破损漏气，还需要检查吸尘罩内部气嘴是否漏气等）\n\n该图展示了横梁上主轴吸尘罩的保养示意图，左侧为整体结构（横梁示意图），右侧为局部放大图（主轴吸尘罩），并用红圈标注了“内部气嘴”以说明检查重点。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/cd76bdcd6136b6f382b0e587a455a4ca89859b77f16c36c27d7067b2b0970941.jpg)",
+      "pages": [
+        12
+      ],
+      "start_page": 12,
+      "end_page": 12,
+      "source_global_index": [
+        119,
+        120,
+        121
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "group_id": 44,
+      "group_title": "推料吸尘罩年度保养内容及示意图",
+      "content": "2.2.4 横梁部分推料吸尘罩保养\n\n保养周期：每年一次\n\n保养内容：清理推料吸尘罩内部的灰尘，检查推料胶条和PU吸尘管是否有破损，发现破损及时更换。\n\n操作步骤：使用扳手将PU吸尘管的喉码拆除，取下PU吸尘管，然后使用气枪和抹布将主轴吸尘罩 内部的粉尘和木屑进行清理。检查 PU吸尘管和推料胶条和是否破损或变形，发现破损 就用新的吸尘管和推料胶条和替换。（如果发现开料吸尘效果不佳情况，需要检查 PU 吸尘管和推料胶条否破损漏气,以及吸尘罩吸尘口位置是否堵塞）\n\n该图展示了横梁上推料吸尘罩的保养示意图，左侧为横梁区域整体视图（横梁示意图），右侧为推料吸尘罩局部特写，用红色箭头指示吸尘管连接处及密封部位，用于说明清理与检查要点。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/6dee8d87026051d99d493bcabd7a083865e3a534910d6e0e78265cc18baf85d1.jpg)",
+      "pages": [
+        12
+      ],
+      "start_page": 12,
+      "end_page": 12,
+      "source_global_index": [
+        122,
+        123,
+        124,
+        125,
+        126
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "group_id": 45,
+      "group_title": "刀排两周一次保养内容说明",
+      "content": "2.2.5 横梁部分刀排保养\n\n保养周期：两周一次\n\n保养内容：清理刀排上的灰尘及油污，检查刀夹的卡槽磨损情况，磨损严重及时更换刀夹；刀库支 架上的滑块进行加油。",
+      "pages": [
+        12
+      ],
+      "start_page": 12,
+      "end_page": 12,
+      "source_global_index": [
+        127,
+        128,
+        129
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "group_id": 46,
+      "group_title": "刀排清洁操作说明与示意图",
+      "content": "骤：使用气枪和抹布将刀排附着在上面的粉尘和油污进行清理，再使用油枪给刀库支架上的 滑块进行加油（00#润滑脂）。检查刀夹的卡槽是否破损或变形，发现破损就用新的刀 夹；如果无法分辨刀夹磨损情况，可使用刀具进行手动换刀，换刀异常松动，轻松可拔 插即说明刀夹磨损严重需要更换。\n\n该图展示了横梁示意图与刀排的对应关系，左侧为整机横梁部分的实景图（红框标出刀夹区域），右侧为刀排局部放大图，重点圈出并标注了“卡槽”结构，用于说明刀夹的安装与检查位置。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/8cafa234524545eeb61a9334014475521bd2f4c8381944644b8f0cba4f062a9c.jpg)",
+      "pages": [
+        13
+      ],
+      "start_page": 13,
+      "end_page": 13,
+      "source_global_index": [
+        130,
+        131
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "group_id": 47,
+      "group_title": "刀盘保养周期内容及操作图",
+      "content": "2.2.6 横梁部分刀盘保养\n\n保养周期：两周一次\n\n保养内容：清理刀盘上的灰尘及油污，检查刀夹的卡槽磨损情况，磨损严重及时更换刀夹；刀库支 架上的滑块进行加油。\n\n操作步骤：使用扳手将固定刀盘盖组件的4个螺钉拆除，取下刀盘盖，然后使用气枪和抹布将附着 在上面的粉尘和油污进行清理。检查刀夹的卡槽是否破损或变形，发现破损就用新的刀 夹；如果无法分辨刀夹磨损情况，可使用刀具进行手动换刀，换刀异常松动，轻松可拔 插即说明刀夹磨损严重需要更换。\n\n该图展示了横梁示意图与刀盘的对应关系，左侧为带吸尘装置的机床横梁实景图（红框标出刀盘区域），右侧为刀盘组件的结构示意图，标注了“刀盘盖组件”和“刀盘”，用于说明刀盘的拆装与保养部位。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/c09ee917d2501a0a3a62938cb8afb98efea4762cc95f5756cc73d073711b00b6.jpg)",
+      "pages": [
+        13
+      ],
+      "start_page": 13,
+      "end_page": 13,
+      "source_global_index": [
+        132,
+        133,
+        134,
+        135,
+        136
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "group_id": 48,
+      "group_title": "电主轴保养周期内容及步骤",
+      "content": "2.2.7 横梁部分电主轴保养\n\n保养周期：每周一次\n\n保养内容：清理主轴的灰尘和木屑\n\n操作步骤：取下电主轴上的刀具，使用气枪和抹布将主轴夹紧装置以及散热网罩在上面的粉尘和油 污进行清理。",
+      "pages": [
+        13
+      ],
+      "start_page": 13,
+      "end_page": 13,
+      "source_global_index": [
+        137,
+        138,
+        139,
+        140
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "group_id": 49,
+      "group_title": "夹刀装置剖面结构说明图",
+      "content": "左侧为加工中心主轴部分的实物示意图，红色框标出夹刀装置位置；右侧为对应的夹刀装置剖面结构图，红色箭头指向内部关键部件，用于说明刀具夹持原理。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/c2b370feda1b98c347fc8dc05774416f87191459a095c4b6499c6685dd0577be.jpg)",
+      "pages": [
+        14
+      ],
+      "start_page": 14,
+      "end_page": 14,
+      "source_global_index": [
+        141
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "group_id": 50,
+      "group_title": "横梁接油盘保养流程及图示",
+      "content": "2.2.8 横梁部分接油盘保养\n\n保养周期：每年一次\n\n保养内容：取下接油盘。\n\n操作步骤：使用扳手将固定在滑板底下的接油盘拆除，将接油盘上的油污和粉尘清理干净，并换上 干净新的海绵，再重新将接油盘装配好。\n\n左侧为主轴部分示意图，红色框标出接油盘安装位置；右侧展示拆卸下来的接油盘实物及其配套的新海绵（黑色多孔材料），用于说明横梁部分接油盘的保养更换操作。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/8787eb519e2c8784586d742cb81ddc51327b9edff9e380e5a032d132388c254d.jpg)",
+      "pages": [
+        14
+      ],
+      "start_page": 14,
+      "end_page": 14,
+      "source_global_index": [
+        142,
+        143,
+        144,
+        145,
+        146
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "group_id": 51,
+      "group_title": "横梁压辊装置保养步骤说明",
+      "content": "2.2.9 横梁部分压辊装置保养\n\n保养周期：每年一次\n\n保养内容：清理压辊上的粉尘和木屑，观察压辊是否有磨损和弯曲变形，并及时更换新的压辊。\n\n操作步骤：使用气枪和抹布将压辊表面的粉尘和油污进行清理，在压辊放置一块木板，通过操控电 脑手动将压辊下压，并观察压辊的状态，如果变形严重及时更换新的压辊。",
+      "pages": [
+        14
+      ],
+      "start_page": 14,
+      "end_page": 14,
+      "source_global_index": [
+        147,
+        148,
+        149,
+        150
+      ]
+    },
+    {
+      "chunk_id": 52,
+      "group_id": 52,
+      "group_title": "页码及加工中心结构示意图",
+      "content": "页面底部页码区域，显示页码“11”，右侧为加工中心整体结构的局部示意图，展示主轴与横梁的装配关系。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/e0a85173ce7fb3711f632547275a28a875ebdeda76582bf6e147be46962fa38f.jpg)",
+      "pages": [
+        14
+      ],
+      "start_page": 14,
+      "end_page": 14,
+      "source_global_index": [
+        151
+      ]
+    },
+    {
+      "chunk_id": 53,
+      "group_id": 53,
+      "group_title": "未明确内容的图片占位",
+      "content": "",
+      "pages": [
+        14
+      ],
+      "start_page": 14,
+      "end_page": 14,
+      "source_global_index": [
+        152
+      ]
+    },
+    {
+      "chunk_id": 54,
+      "group_id": 54,
+      "group_title": "横梁加工示意图展示设备流程",
+      "content": "南兴装备股份有限公司的横梁加工示意图，左侧为实际设备中横梁部分的现场照片（红框标出），右侧为压辊装置的结构示意图，绿色箭头表示加工流程，红色箭头指示‘平行’校准关系。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/6e1cf5ba89fbf8940d2b05503f79859fb4c41cac1082fa474883b07e0f17caf3.jpg)",
+      "pages": [
+        15
+      ],
+      "start_page": 15,
+      "end_page": 15,
+      "source_global_index": [
+        153
+      ]
+    },
+    {
+      "chunk_id": 55,
+      "group_id": 55,
+      "group_title": "横梁钻包保养周期步骤说明",
+      "content": "2.2.10 横梁部分钻包保养\n\n保养周期：两天一次\n\n保养内容：使用抹布清理干净油嘴，再往油嘴注油。\n\n操作步骤：使用气枪和抹布将钻包的注油嘴及外围部分，再用注油枪将润滑油（德国 BOTON KS- 400/根据钻包贴纸标识的油品加注即可），注入油量约 5cc/次就可以。\n\n主轴部分保养示意图：左侧为机床主轴区域现场图（红框标出钻包位置），右侧为钻包特写，红色箭头指向其注油嘴，用于执行钻包润滑保养操作。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/3995fb1e75d8d0dcae99ec23cf7579b3395c1d01d48671bc235735cb680cb124.jpg)",
+      "pages": [
+        15
+      ],
+      "start_page": 15,
+      "end_page": 15,
+      "source_global_index": [
+        154,
+        155,
+        156,
+        157,
+        158
+      ]
+    },
+    {
+      "chunk_id": 56,
+      "group_id": 56,
+      "group_title": "齿条导轨保养方法及润滑图",
+      "content": "2.2.11 横梁部分齿条导轨保养\n\n保养周期：两周一次\n\n保养内容：清理齿条导轨上的粉尘，检查是否磨损，然后涂抹 00#润滑脂。\n\n操作步骤：使用气枪和抹布清除的堆积在导轨齿条上的木屑及粉尘，检查导轨齿条是否有破损变形 情况，如果发现有变形损坏，应需要停止生产，及时更换好。最后使用00#润滑脂涂 抹导轨和齿条端面，以及齿条的下齿面。\n\n横梁齿条导轨保养相关图片：左侧为机床导轨局部特写（编号12），右侧为一桶标有“通用锂基脂”的润滑脂，用于导轨和齿条端面的润滑维护。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/faa783329302ff38938aace8512937564b32a325bf92e366c8a2fb1e702c3983.jpg)",
+      "pages": [
+        15
+      ],
+      "start_page": 15,
+      "end_page": 15,
+      "source_global_index": [
+        159,
+        160,
+        161,
+        162,
+        163
+      ]
+    },
+    {
+      "chunk_id": 57,
+      "group_id": 57,
+      "group_title": "加工中心维护保养主标题",
+      "content": "加工中心·维护·保养",
+      "pages": [
+        16
+      ],
+      "start_page": 16,
+      "end_page": 16,
+      "source_global_index": [
+        165
+      ]
+    },
+    {
+      "chunk_id": 58,
+      "group_id": 58,
+      "group_title": "横梁齿条导轨说明文字",
+      "content": "横梁上的齿条和导轨",
+      "pages": [
+        16
+      ],
+      "start_page": 16,
+      "end_page": 16,
+      "source_global_index": [
+        166
+      ]
+    },
+    {
+      "chunk_id": 59,
+      "group_id": 59,
+      "group_title": "电动润滑泵保养说明及产品图",
+      "content": "2.2.12 横梁部分电动润滑泵保养\n\n保养周期：每周一次\n\n保养内容：清理电动润滑泵上的粉尘，检查是润滑泵油量，低于最低油量需补充润滑油\n\n操作步骤：使用气枪和抹布清除的堆积在润滑泵进油口上的木屑及粉尘，检查电动润滑泵油位是否\n\n低\n\n于最低油量，发现低于最低油量，需要打开润滑泵的进油口，注入一定量的 00#润滑脂，\n\n注入量不能超过油位的最高值。\n\n横梁上的油脂电动润滑泵实物图，黄色泵体带透明油箱，标有“00#润滑脂”，配有压力表和橙色进油口（红色箭头标注），设备铭牌显示制造商为南兴装备股份有限公司。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/986cc10bfbb56cf3b57cdbf24e97255c35e4c7c84dc635ca6279076519dd5da0.jpg)\n\n横梁上的油脂电动润滑泵\n\n一桶标有“通用锂基脂”和“00#润滑脂”的白色润滑脂桶，桶身贴有橙黄配色标签，外圈有绿色圆环突出显示。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/06dc9d5c793a7a75d1b4ffcb366d0092539a20357a8788e82f7aca5266f4c994.jpg)",
+      "pages": [
+        16
+      ],
+      "start_page": 16,
+      "end_page": 16,
+      "source_global_index": [
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176
+      ]
+    },
+    {
+      "chunk_id": 60,
+      "group_id": 60,
+      "group_title": "润滑脂桶盖特写图片",
+      "content": "一张局部截图，显示一个白色圆柱形物体的顶部，被绿色圆弧线部分包围，可能为润滑脂桶盖的特写。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/37e000cf86e7098d8941ed8fbdb9ff15460805eadf3b695217bd99268ed20b05.jpg)",
+      "pages": [
+        16
+      ],
+      "start_page": 16,
+      "end_page": 16,
+      "source_global_index": [
+        164
+      ]
+    },
+    {
+      "chunk_id": 61,
+      "group_id": 61,
+      "group_title": "整机电气设备保养内容",
+      "content": "2.3 整机电气设备的保养\n\n2.3.1 电柜保养\n\n保养周期：每月一次\n\n保养内容：清理电柜外表面以及散热风扇或空调滤网的木屑及粉尘，检查电气元器件有无松动、氧 化和失效。\n\n操作步骤：使用气枪或者抹布将电柜表面的粉尘木屑清理,然后将散热分散过滤网罩或空调的过滤网 取下，将粉尘等杂质进行清理，最后打开电柜检查各元件有无松动、氧化和失效，需及",
+      "pages": [
+        16
+      ],
+      "start_page": 16,
+      "end_page": 16,
+      "source_global_index": [
+        177,
+        178,
+        179,
+        180,
+        181
+      ]
+    },
+    {
+      "chunk_id": 62,
+      "group_id": 62,
+      "group_title": "加工中心维护保养标题及注意事项说明",
+      "content": "加工中心·维护·保养\n\n时通知专业人员修复或更换。(注意事项：不要用高压空气吹洗开关柜，以防电器零件松 动和异物进入电子元件内部)",
+      "pages": [
+        17
+      ],
+      "start_page": 17,
+      "end_page": 17,
+      "source_global_index": [
+        182,
+        183
+      ]
+    },
+    {
+      "chunk_id": 63,
+      "group_id": 63,
+      "group_title": "机床设备维护操作示意图集合展示",
+      "content": "一组展示南兴装备机床设备维护操作的图片，包括整机外观、散热格栅、过滤网清洁（用气枪吹扫和手动拆卸）、冷凝水排放以及电气控制柜内部接线与元件（如断路器、端子排）的特写，红色箭头标示关键部位或操作点。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/acf35c96adef9aa275205b4a92448cbb7be7a1c8f822e5a8964457c1f2a5b849.jpg)",
+      "pages": [
+        17
+      ],
+      "start_page": 17,
+      "end_page": 17,
+      "source_global_index": [
+        184
+      ]
+    },
+    {
+      "chunk_id": 64,
+      "group_id": 64,
+      "group_title": "三联件保养周期内容操作步骤及图示",
+      "content": "2.3.2 三联件保养\n\n保养周期：每月一次\n\n保养内容：清理三联件外表面木屑及粉尘，检查油雾器是否过低，需要补充润滑油；检查过滤器内 的冷凝水是否超过10mm，需要排出冷凝水。\n\n操作步骤：使用气枪或者抹布三联件上粉尘进行清理，检查油雾器油量是否低于 1/3位置，发现低 于正常水平需要补充ISO VG-32或相同等级，加入油量不能超过2/3位置；检查压力调 节过滤器冷凝水达到约 10mm，逆时针旋转放水器，让冷凝物顺势流出。（如果发现系 统压力明显减少低于 0.6Mpa，怎么调节都无法升高，应该及时清洁或更换滤芯）\n\n一张气源处理三联件的特写图，清晰标注了三个组成部分：左侧为油雾器，中间带压力表的为过滤器，右侧为放水器；整体用于压缩空气的过滤、润滑与排水。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/74b7f6c9569562b84f7e3d4413970991e89b3a22045e0a3dd5b839bbf2b10aed.jpg)",
+      "pages": [
+        17
+      ],
+      "start_page": 17,
+      "end_page": 17,
+      "source_global_index": [
+        185,
+        186,
+        187,
+        188,
+        189
+      ]
+    },
+    {
+      "chunk_id": 65,
+      "group_id": 65,
+      "group_title": "气缸保养周期内容操作步骤及问题处理",
+      "content": "2.3.3 气缸保养\n\n保养周期：每年一次\n\n保养内容：清理附着在气缸导杆上粉尘木屑，涂抹润滑脂肪；检查气嘴是否漏气，检查吸盘是否损 坏，发现损坏漏气及时更换处理。\n\n操作步骤：使用气枪或者抹布清理气缸导杆上粉尘木屑，再用 00#润滑脂涂抹在气缸导杆以及螺丝 端；用手触摸气缸气嘴接口位置检查是否漏气，发现漏气及时拧紧气嘴或更换更换气嘴； 检查吸盘是否破损，如果变形损坏需要更换新的吸盘。（如果发现吸盘吸取板材不稳定\n\n容易掉落，需要吸盘是否破损破损漏气）",
+      "pages": [
+        17
+      ],
+      "start_page": 17,
+      "end_page": 17,
+      "source_global_index": [
+        190,
+        191,
+        192,
+        193,
+        194
+      ]
+    },
+    {
+      "chunk_id": 66,
+      "group_id": 66,
+      "group_title": "贴标机气缸部件与吸盘特写示意图",
+      "content": "两张特写图，分别标注了贴标机的“气缸部件”和“吸盘”，红色箭头指向具体组件，用于说明设备结构。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/f62e2aa7f154a905e1eb152941dd7e57366b6c612c0e0db47a353c6ee19f6fc1.jpg)",
+      "pages": [
+        18
+      ],
+      "start_page": 18,
+      "end_page": 18,
+      "source_global_index": [
+        195
+      ]
+    },
+    {
+      "chunk_id": 67,
+      "group_id": 67,
+      "group_title": "贴标机保养章节标题与子标题",
+      "content": "三、贴标机保养\n\n3.1 贴标机整机保养",
+      "pages": [
+        18
+      ],
+      "start_page": 18,
+      "end_page": 18,
+      "source_global_index": [
+        196,
+        197
+      ]
+    },
+    {
+      "chunk_id": 68,
+      "group_id": 68,
+      "group_title": "贴标机整机木屑粉尘清理方法",
+      "content": "3.1.1 贴标机整机部分木屑粉尘清理\n\n保养周期：每天一次\n\n保养内容：清理干净机床外观表面的木屑及粉尘。\n\n操作步骤：使用气枪或者抹布，将床身机架、毛刷、床身吸尘罩等机构的粉尘进行清理。\n\n一张贴标机整机的三维示意图，红色箭头指示导轨等关键部位；右侧配图展示用于清洁的“气枪”。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/5d6425ae1df46c971d1df8f3ca347ad53669fb31f3dcabc4d0052db49395ddc8.jpg)",
+      "pages": [
+        18
+      ],
+      "start_page": 18,
+      "end_page": 18,
+      "source_global_index": [
+        198,
+        199,
+        200,
+        201,
+        202
+      ]
+    },
+    {
+      "chunk_id": 69,
+      "group_id": 69,
+      "group_title": "齿条导轨保养步骤与导轨油产品",
+      "content": "3.1.2 贴标机整机部分齿条导轨保养\n\n保养周期：两周一次\n\n保养内容：清理齿条导轨上的粉尘，检查是否磨损，然后涂抹 68#导轨油。\n\n操作步骤：使用气枪和抹布清除的堆积在导轨齿条上的木屑及粉尘，检查导轨齿条是否有破损变形 情况，如果发现有变形损坏，应需要停止生产，及时更换好。最后使用 68#导轨油涂 抹导轨和齿条端面，以及齿条的下齿面。\n\n三张组合图：左图为导轨安装细节，中图为齿条局部（标号15）及清洁操作，右图为SINOPE品牌的L-HG 68#导轨油，对应文档中导轨保养所用润滑剂。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/9e004d41d2f19045de6a1900d8554dcbfde34f75049791e1c60fa94d12391736.jpg)",
+      "pages": [
+        18
+      ],
+      "start_page": 18,
+      "end_page": 18,
+      "source_global_index": [
+        203,
+        204,
+        205,
+        206,
+        207
+      ]
+    },
+    {
+      "chunk_id": 70,
+      "group_id": 70,
+      "group_title": "公司页眉及文档标题信息",
+      "content": "文档页眉部分，包含南兴装备股份有限公司（NANXING MACHINERY CO., LTD.）的Logo和名称，以及“加工中心·维护·保养”的标题。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/92678cf43dc2ca7517d27842e6a848b41663497fd83c804ba3354e80b63ae511.jpg)",
+      "pages": [
+        19
+      ],
+      "start_page": 19,
+      "end_page": 19,
+      "source_global_index": [
+        208
+      ]
+    },
+    {
+      "chunk_id": 71,
+      "group_id": 71,
+      "group_title": "贴标机打印机保养一吹气杆清理步骤",
+      "content": "3.1.3 贴标机整机部分打印机保养一\n\n保养周期：每周一次\n\n保养内容：清理打印机下方的吹气杆。\n\n操作步骤：使用气枪和抹布清除的堆积在打印机吹气杆上的木屑及粉尘。（如果发现贴纸吸不上，\n\n容易掉落，检查吹气功能是否正常，贴标机构距离出口位置是否在 2mm 左右）\n\n贴标机打印机部分的保养示意图，左侧为实物图标注“打印机吹气口”，右侧为结构示意图，说明贴标机构与打印机出口的距离和高度间隔均为2mm，并标有“检测工装”和“贴合”位置。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/c47fd71ca946e552cadd27fcfa64c5070d4469b633ec5c15381357e667150d6a.jpg)",
+      "pages": [
+        19
+      ],
+      "start_page": 19,
+      "end_page": 19,
+      "source_global_index": [
+        209,
+        210,
+        211,
+        212,
+        213,
+        214
+      ]
+    },
+    {
+      "chunk_id": 72,
+      "group_id": 72,
+      "group_title": "贴标机打印机保养二喷头清理步骤",
+      "content": "3.1.4 贴标机整机部分打印机保养二\n\n保养周期：每周一次 保养内容：清理打印机内部喷头\n\n操作步骤：使用气枪和抹布清除的堆积在打印机纸出口位置木屑及粉尘，打开打印机盖子，拨动喷 头的压杆，打开压在贴纸上的压纸块，用干净的布喷上少量酒精后擦拭打印喷头的污 渍，最后将压杆和压纸块恢复原状，盖上打印机盖子，测试打印效果。（如果发现打 印贴纸上的字体不清晰，有条纹等现象，需要清洗喷头。清洗后效果还是不佳请找专 业维修人员处理，切勿拆卸喷头）\n\n贴标机内部结构的两张局部照片：左图为设备侧面视图，可见PX240S型号标识及部分机械组件；右图为打开的标签仓，展示标签卷、碳带卷及其安装位置。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/3353e7cf1909ccd464671283587be8f54b058e66864f41731415a067d3621c06.jpg)",
+      "pages": [
+        19
+      ],
+      "start_page": 19,
+      "end_page": 19,
+      "source_global_index": [
+        215,
+        216,
+        217,
+        218,
+        219
+      ]
+    },
+    {
+      "chunk_id": 73,
+      "group_id": 73,
+      "group_title": "喷头清洁保养五步流程图解",
+      "content": "这是一组展示贴标机喷头清洁保养步骤的流程图，共五步：1. 打开箱盖；2. 拨动压杆打开压块；3. 定位喷头清洗位置；4. 用含酒精的干净布擦拭喷头；5. 清洗完成后恢复贴标机原状。图中标注了打印机、压块、压杆、喷头等关键部件。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/9666c7743ff63a98fbfb3e5babeaab7bd3b9c77a1236a60acaf9349bcb181130.jpg)",
+      "pages": [
+        20
+      ],
+      "start_page": 20,
+      "end_page": 20,
+      "source_global_index": [
+        220
+      ]
+    },
+    {
+      "chunk_id": 74,
+      "group_id": 74,
+      "group_title": "感应器保养周期步骤及示意图",
+      "content": "3.1.5 贴标机整机部分感应器保养\n\n保养周期：两天一次\n\n保养内容：清理打印机下方的吹气杆。\n\n操作步骤：使用气枪和抹布清除的堆积在感应器表面的木屑及粉尘。\n\n这是一张展示贴标机整机部分感应器（光电传感器）的示意图与实拍图对比：左侧为设备整体结构图，红色箭头指向感应器安装位置；右侧为两个特写镜头，显示安装在金属支架上的红色LED光电感应器及其接线细节。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/da85c2fcbb6266e9119dce861beb4323cb5e4f91504ba4dab3e686ea39d5f727.jpg)",
+      "pages": [
+        20
+      ],
+      "start_page": 20,
+      "end_page": 20,
+      "source_global_index": [
+        221,
+        222,
+        223,
+        224,
+        225
+      ]
+    },
+    {
+      "chunk_id": 75,
+      "group_id": 75,
+      "group_title": "贴标机电动润滑泵保养流程及油品示意图",
+      "content": "3.1.6 贴标机整机部分电动润滑泵保养\n\n保养周期：每周一次\n\n保养内容：清理电动润滑泵上的粉尘，检查是润滑泵油量，低于最低油量需补充导轨油\n\n操作步骤：使用气枪和抹布清除的堆积在润滑泵进油口上的木屑及粉尘，检查电动润滑泵油位是否\n\n低\n\n于最低油量，发现低于最低油量，需要打开润滑泵的进油口，注入一定量的 68#导轨油，\n\n注入量不能超过油位的最高值。\n\n横梁上的稀油电动润滑泵实物图，标有‘进油口’位置，设备含透明油箱、压力表及WEN DING品牌控制单元。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/a39828322ff2159597e1fd4584bb26abe4e33db33a35f0699fceb73a5169c5ce.jpg)\n\n一桶SINOPE品牌的68#导轨油，黄色桶身配红色标签，标注型号为L-HG 68号。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/221cd9c5ecade702705f922d8563e60fd8ce487af513efd2875b6e672b87e122.jpg)",
+      "pages": [
+        21
+      ],
+      "start_page": 21,
+      "end_page": 21,
+      "source_global_index": [
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234
+      ]
+    },
+    {
+      "chunk_id": 76,
+      "group_id": 76,
+      "group_title": "升降台油路保养步骤及系统结构示意图",
+      "content": "4.1 升降台整机保养\n\n4.1.1 升降台油路保养\n\n四、升降台保养\n\n保养周期：每月一次\n\n保养内容：检查油缸的管路以及接头是否漏油，发现漏油及时更换或拧紧处理。\n\n操作步骤：使用脚踏手动将升降台升起来，检查油缸的管路以及接头是否漏油，如果发现有漏油情 况，及时更换油管或接头，仅仅是接头松动引起的漏油，拧紧接头即可。\n\n左侧为升降台的结构示意图，右侧为升降台底部液压/气动系统实拍图，显示支撑柱、管路与接头等部件。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/9f6f6bc960eec4e748c5e3b947af033f02fe750e020f6afe951d0f742e8c0d97.jpg)",
+      "pages": [
+        21
+      ],
+      "start_page": 21,
+      "end_page": 21,
+      "source_global_index": [
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241
+      ]
+    },
+    {
+      "chunk_id": 77,
+      "group_id": 77,
+      "group_title": "南兴装备页眉与维护标题",
+      "content": "文档页眉部分，包含南兴装备股份有限公司的Logo与名称，以及“加工中心·维护·保养”标题；下方通过红色箭头、绿色箭头和两个红色空心圆圈示意从“升降台示意图”到“升降台底下油”的维护流程指引。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/c47021f382637b8d27d042197a13abbb406739947189e4d9c5115e09a78cb81a.jpg)",
+      "pages": [
+        22
+      ],
+      "start_page": 22,
+      "end_page": 22,
+      "source_global_index": [
+        242
+      ]
+    },
+    {
+      "chunk_id": 78,
+      "group_id": 78,
+      "group_title": "升降台油泵保养周期及操作步骤",
+      "content": "4.1.2 升降台油泵保养\n\n保养周期：每月一次\n\n保养内容：检查油泵油位是否正常线上，发现油位低于最低油，及时添加对应的油。\n\n操作步骤：使用脚踏手动将升降台升起来，检查油泵的管路是否正常液位水平，如果发现油位低于 最低液位情况，及时补充液压油。\n\n左右对比图：左侧为升降台的三维结构示意图，标注为“升降台示意图”；右侧为实际设备中油泵组件的实物照片，标注为“油泵”，中间以绿色箭头表示从结构到关键部件的对应关系。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/2c6f224ad9e7b4230873efc4bd42f0647c01f1c7a3e30b6cf1575dbbc5b80cb5.jpg)",
+      "pages": [
+        22
+      ],
+      "start_page": 22,
+      "end_page": 22,
+      "source_global_index": [
+        243,
+        244,
+        245,
+        246,
+        247
+      ]
+    },
+    {
+      "chunk_id": 79,
+      "group_id": 79,
+      "group_title": "皮带机吸尘罩保养内容与操作方法",
+      "content": "五、皮带机保养\n\n5.1 皮带机整机保养\n\n5.1.1 皮带机吸尘罩保养\n\n保养周期：每月一次\n\n保养内容：清理吸尘罩内部的粉尘和木屑，检查 PU 吸尘管和毛刷是否损坏，发现损坏及时更换。\n\n操作步骤：使用扳手将固定在吸尘罩上的PU吸尘管拆卸下来，再用气枪和抹布清除的堆积在吸\n\n内的粉尘清除；检查 PU 吸尘管和毛刷是否损坏或变形，更换新的 PU 吸尘管和毛刷。\n\n左右对比图：左侧为皮带机吸尘罩的三维示意图，红色箭头指向吸尘罩安装位置；右侧为该吸尘罩的实物照片，置于绿色皮带机上方，用于说明5.1.1节中皮带机吸尘罩的结构与安装状态。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/d93e3f93708c7d52acc90d6130cda7e877b29b0bf964199fb6d7bb0a733ff0da.jpg)",
+      "pages": [
+        22
+      ],
+      "start_page": 22,
+      "end_page": 22,
+      "source_global_index": [
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255
+      ]
+    },
+    {
+      "chunk_id": 80,
+      "group_id": 80,
+      "group_title": "页眉公司标志及维护主题说明",
+      "content": "文档页眉部分，显示南兴装备股份有限公司（NANXING MACHINERY CO., LTD.）的标志和名称，右侧为“加工中心·维护·保养”标题；下方用红色箭头指向“皮带机示意图”和“吸尘罩”两个标签，绿色箭头指示从皮带机到吸尘罩的流程方向。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/c9b578a3f6b926cf1236f33e028b1935abe08b4602e156fffc5ce451b9fd5614.jpg)",
+      "pages": [
+        23
+      ],
+      "start_page": 23,
+      "end_page": 23,
+      "source_global_index": [
+        256
+      ]
+    },
+    {
+      "chunk_id": 81,
+      "group_id": 81,
+      "group_title": "皮带机感应器保养步骤及示意图",
+      "content": "5.1.2 皮带机感应器保养\n\n保养周期：两天一次\n\n保养内容：清理感应器表面的粉尘木屑。\n\n操作步骤：使用气枪和抹布清除的堆积在皮带两侧的感应器表面的木屑及粉尘。\n\n对比图：左侧为皮带机示意图，标注了感应器安装位置（红色箭头所指）；右侧为实际设备上的感应器特写照片，展示其在皮带机侧边的安装状态，中间以绿色箭头连接表示对应关系。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/69e7daa28cfbc302b9fe4286cac22e9169432d29884cd95a8c169579f5e9712e.jpg)",
+      "pages": [
+        23
+      ],
+      "start_page": 23,
+      "end_page": 23,
+      "source_global_index": [
+        257,
+        258,
+        259,
+        260,
+        261
+      ]
+    },
+    {
+      "chunk_id": 82,
+      "group_id": 82,
+      "group_title": "真空泵外罩过滤器保养图文说明",
+      "content": "六、真空泵保养\n\n6.1 真空泵整机保养\n\n6.1.1 真空泵外罩过滤器保养\n\n保养周期：每月一次\n\n保养内容：清理真空泵中外罩过滤器中粉尘和垃圾，检查滤芯是否损坏，发现损坏及时更换。\n\n操作步骤：将外置过滤器的卡扣打开，取出滤芯，使用气枪将滤芯上吸附的垃圾和粉尘等杂质清理 干净；如果滤芯有破损严重，需要及时更换新的滤芯。（如果真空泵运行中过热或者真 空台面吸附效果不佳，需要检查外罩过滤器是否粉尘垃圾堵塞，及时清理）\n\n真空泵外罩过滤器保养相关图片：左侧为真空泵整体结构图，红色箭头指向顶部的外罩过滤器组件；右侧为人工清理黄色滤芯的实拍图，滤芯表面附着大量白色纤维状杂质，体现清洁操作过程。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/87b27499ad6f6b1c625cb036536a99bd3b1e4be2b823fbd37ed5eee377536fe3.jpg)",
+      "pages": [
+        23
+      ],
+      "start_page": 23,
+      "end_page": 23,
+      "source_global_index": [
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268
+      ]
+    },
+    {
+      "chunk_id": 83,
+      "group_id": 83,
+      "group_title": "公司标志与名称页眉信息",
+      "content": "南兴装备股份有限公司（NANXING MACHINERY CO., LTD.）的公司标志与中英文名称，位于文档页眉位置。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/9a0ba095091d35d4fcca21f2fe69828acaea114be2462ef31d665a708d5925b3.jpg)",
+      "pages": [
+        24
+      ],
+      "start_page": 24,
+      "end_page": 24,
+      "source_global_index": [
+        269
+      ]
+    },
+    {
+      "chunk_id": 84,
+      "group_id": 84,
+      "group_title": "加工中心维护保养主标题",
+      "content": "一个黄色的圆柱形滤芯特写，表面为褶皱式过滤介质，被手持展示，背景可见设备局部及警示标签，对应文中‘外置滤芯’部分。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/bcb734ad52d1158c27444478c8a5fc43572083f7b65febffd68caf152ae9df1f.jpg)\n\n加工中心·维护·保养",
+      "pages": [
+        24
+      ],
+      "start_page": 24,
+      "end_page": 24,
+      "source_global_index": [
+        270,
+        271
+      ]
+    },
+    {
+      "chunk_id": 85,
+      "group_id": 85,
+      "group_title": "真空泵内置过滤器保养说明",
+      "content": "真空泵示意图\n\n6.1.2 真空泵内置过滤器保养\n\n保养周期：每月一次\n\n保养内容：清理真空泵中外罩过滤器中粉尘和垃圾，检查滤芯是否损坏，发现损坏及时更换。\n\n操作步骤：使用内六角扳手开将内置过滤器的护罩，取出滤芯，使用气枪将滤芯上吸附的垃圾和粉 尘等杂质清理干净；如果滤芯有破损严重，需要及时更换新的滤芯。（如果真空泵运行 中过热或者真空台面吸附效果不佳，需要检查外罩过滤器是否粉尘垃圾堵塞，及时清 理）\n\n真空泵示意图及其内置滤芯拆解图：左侧为完整真空泵结构示意（标注‘真空泵示意图’），右侧展示其内部滤芯组件（标注‘内置滤芯’），红色箭头指向滤芯安装位置，用于说明6.1.2节中内置过滤器的保养操作。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/4cd5693f3d570708c941c93a4b275f44396912262b2d37a5b3c0b300e90015a0.jpg)",
+      "pages": [
+        24
+      ],
+      "start_page": 24,
+      "end_page": 24,
+      "source_global_index": [
+        272,
+        273,
+        274,
+        275,
+        276,
+        277
+      ]
+    },
+    {
+      "chunk_id": 86,
+      "group_id": 86,
+      "group_title": "真空泵排气口保养说明",
+      "content": "6.1.3 真空泵排气口保养\n\n保养周期：每月一次\n\n保养内容：清理真空泵排气口过滤器中粉尘和垃圾，检查滤芯是否损坏，发现损坏及时更换。\n\n作步骤：将真空泵排气口的外置过滤器的拧下来，使用气枪将滤芯上吸附的垃圾和粉尘等杂质清 理干净；如果滤芯有破损严重，需要及时更换新的滤芯。\n\n左侧为真空泵排气口结构示意图，红色箭头指向外置过滤器安装位置；右侧为拆下的圆柱形外置滤芯实物图，其滤材呈黄色菱形网格状，一端带金属螺纹接口。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/33321f883157535f5c8f77fe0dcb9649ad0cf5ac39dfb5bf846b16a051aeb79b.jpg)",
+      "pages": [
+        24
+      ],
+      "start_page": 24,
+      "end_page": 24,
+      "source_global_index": [
+        278,
+        279,
+        280,
+        281,
+        282
+      ]
+    },
+    {
+      "chunk_id": 87,
+      "group_id": 87,
+      "group_title": "真空泵内部润滑保养步骤与操作示意图",
+      "content": "6.1.4 真空泵内部润滑保养\n\n保养周期：每月一次\n\n保养内容：使用抹布清理干净油嘴，再往油嘴注油。\n\n操作步骤：使用气枪和抹布将真空泵的注油嘴及外围部分，再使用随机器配送的黄油注油器将润滑 油（德国克鲁勃耐高温润滑有GY193/根据真空泵标识的油品加注即可），注入油量约 500g 就可以，约 6-8 下左右。\n\n该图展示了真空泵内部润滑保养的操作示意：左侧为真空泵结构示意图，红色箭头标出注油口位置；右侧为实际操作图，显示使用黄油注油器向标有“EUROVAC”字样的真空泵注油口注入润滑油。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/e9fade31acf7a18bc0a4e698c4af65d6b6833d16dd0cc5fd9da0c773c962da25.jpg)",
+      "pages": [
+        25
+      ],
+      "start_page": 25,
+      "end_page": 25,
+      "source_global_index": [
+        283,
+        284,
+        285,
+        286,
+        287
+      ]
+    },
+    {
+      "chunk_id": 88,
+      "group_id": 88,
+      "group_title": "加工中心开料精度维护周期与内容",
+      "content": "七、加工中心精度维护\n\n7.1 加工中心开料精度维护\n\n保养周期：每年一次\n\n保养内容：导入开料程序，开料圆形板，方型板，大板循边铣切。\n\n操作步骤：",
+      "pages": [
+        25
+      ],
+      "start_page": 25,
+      "end_page": 25,
+      "source_global_index": [
+        288,
+        289,
+        290,
+        291,
+        292
+      ]
+    },
+    {
+      "chunk_id": 89,
+      "group_id": 89,
+      "group_title": "圆形开料测试步骤与软件界面示例",
+      "content": "7.1.1 圆形开料测试\n\n第一步：将板材放置在台面第⑥区域。打开电脑主页面，点击“选择程序”，选择“2512 圆形.NC”。\n\n该图为CNC Monitor软件界面截图，高亮区域显示当前已选择的加工程序文件名为“2512圆形.NC”，时间戳为“2022/03/01 19:56”，红色箭头指向该文件名，对应文档中“7.1.1 圆形开料测试”的第一步操作说明。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/247e1589fdc189499be3d625659855c2026b0ba5248ed019cb1b257e5bbe40c9.jpg)",
+      "pages": [
+        25
+      ],
+      "start_page": 25,
+      "end_page": 25,
+      "source_global_index": [
+        293,
+        294,
+        295
+      ]
+    },
+    {
+      "chunk_id": 90,
+      "group_id": 90,
+      "group_title": "数控系统操作界面截图说明",
+      "content": "数控系统操作界面截图，显示了程序列表、工作模式按钮（如‘手动’高亮）、坐标轴控制键（X+/X-等）及‘启动’‘停止’‘复位’等功能按钮，下方红色框标出待补充区域。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/5b3d54eb2d002b68322b7cc6961a08dda0bbf08dbc497d0cbd7f53895de9d137.jpg)",
+      "pages": [
+        26
+      ],
+      "start_page": 26,
+      "end_page": 26,
+      "source_global_index": [
+        296
+      ]
+    },
+    {
+      "chunk_id": 91,
+      "group_id": 91,
+      "group_title": "圆孔加工步骤及多方向直径检测方法",
+      "content": "第二步：先用手轮模拟程序，将木板放置在相对应的位置，重新设定高度，开始加工木板。加工完成 后，进行检测，对圆，主轴圆形槽位加工，对孔的直径进行测量，测量值与设定值之间的差值为测量 结果。如达不到要求，则需重新调整。(要求圆形误差在0.2mm以内)\n\n一块带有木纹纹理的矩形木板，中心位置加工有一个橙色轮廓的圆形孔洞，代表已完成的圆孔加工结果。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/127207bef6fed4629a1915ffce4530b174724c8fa3adbea171f05b387868cdf1.jpg)\n\n一个圆形示意图，内部用八条红色箭头线表示从圆心向八个方向辐射的测量路径，下方标注‘测量多个方向直径’，用于说明对圆孔进行多向直径检测的方法。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/2cd916a75e89a42c64a1e5395464f1ab1b376adc3a9b6ba3d86cea6f4ed5e5d4.jpg)",
+      "pages": [
+        26
+      ],
+      "start_page": 26,
+      "end_page": 26,
+      "source_global_index": [
+        297,
+        298,
+        299
+      ]
+    },
+    {
+      "chunk_id": 92,
+      "group_id": 92,
+      "group_title": "方形开料测试标题部分",
+      "content": "7.1.2 方形开料测试",
+      "pages": [
+        27
+      ],
+      "start_page": 27,
+      "end_page": 27,
+      "source_global_index": [
+        300
+      ]
+    },
+    {
+      "chunk_id": 93,
+      "group_id": 93,
+      "group_title": "第一步操作说明及CNC界面示例",
+      "content": "第一步：将板材放置在台面第⑥区域。打开电脑主页面，点击“选择程序”，选择“菱形.NC”。\n\nCNC监控软件界面截图，顶部标题栏显示当前选中的加工程序为“2813方形.NC”，时间戳为“2022/03/01 19:59”，下方文件列表中高亮选中了另一程序“M160.120.80.8.cnc”，红色箭头指示从标题栏到该选中项的关联操作，对应文档中‘第一步’的操作说明。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/ae2e4d21ec84568bfe668abac7acc91c58599db28d9485651bc485668c7ef8c8.jpg)",
+      "pages": [
+        27
+      ],
+      "start_page": 27,
+      "end_page": 27,
+      "source_global_index": [
+        301,
+        302
+      ]
+    },
+    {
+      "chunk_id": 94,
+      "group_id": 94,
+      "group_title": "第二步加工检测操作说明",
+      "content": "第二步：先用手轮模拟程序，将木板放置在相对应的位置，重新设定高度，开始加工木板。加工完成后，进行检测， 确认方形加工侧边，须光滑，无明显刀纹、爆边。如达不到要求，则需重新调整。（要求菱形在0.2mm以内）",
+      "pages": [
+        27
+      ],
+      "start_page": 27,
+      "end_page": 27,
+      "source_global_index": [
+        303
+      ]
+    },
+    {
+      "chunk_id": 95,
+      "group_id": 95,
+      "group_title": "加工检测示意图及尺寸测量说明",
+      "content": "一张木质板材表面的示意图，上面绘制了红色网格线及双向箭头，表示在多个方向上进行尺寸测量或检测，对应文档中‘测量多个长度’的要求，用于检验方形加工件的尺寸精度与形变。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/bc14ff018b5e8c9b6585adb6a5f49ea9a6020836ff8f87c9ad32532ab1a5204b.jpg)\n\n一张木质板材的俯视图，中央有一个橙色边框的方形凹槽（或轮廓），代表已完成的方形加工区域，用于直观展示‘方形开料测试’的加工结果。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/c4c6bde127e4130a7993b78bfbfe95ef6f6f153dab40cc4af73e1ccecee75e9d.jpg)\n\n测量多个长度",
+      "pages": [
+        27
+      ],
+      "start_page": 27,
+      "end_page": 27,
+      "source_global_index": [
+        304,
+        305,
+        306
+      ]
+    },
+    {
+      "chunk_id": 96,
+      "group_id": 96,
+      "group_title": "大板开料测试章节标题",
+      "content": "7.1.3 大板开料测试",
+      "pages": [
+        28
+      ],
+      "start_page": 28,
+      "end_page": 28,
+      "source_global_index": [
+        307
+      ]
+    },
+    {
+      "chunk_id": 97,
+      "group_id": 97,
+      "group_title": "维护保养功能模块示意图",
+      "content": "一个示意图，展示从“加工中心-维护-保养”标签引出多条红色箭头指向下方区域，表示该功能模块的多个操作入口或关联项。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/c856ce74b48c6a1a167472734c8064d7db5837bab618cf4af8b14c116c1eb369.jpg)",
+      "pages": [
+        28
+      ],
+      "start_page": 28,
+      "end_page": 28,
+      "source_global_index": [
+        308
+      ]
+    },
+    {
+      "chunk_id": 98,
+      "group_id": 98,
+      "group_title": "第一步操作说明及软件界面",
+      "content": "第一步：将板材放置在台面第⑥区域。打开电脑主页面，点击“选择程序”，选择“大板.NC”。\n\nCNC Monitor软件界面截图，高亮显示顶部标题栏中的“大板.NC”文件名及时间戳“2022/03/01 19:59”，并用红色箭头指向下方文件列表中选中的“160.120.80.8.cnc”文件，表明正在选择该加工程序。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/787869aeb912d5a6cdd2fa893a0acd1c0c54d2b7fb7a9103ffaf8e5f07ddddaf.jpg)",
+      "pages": [
+        28
+      ],
+      "start_page": 28,
+      "end_page": 28,
+      "source_global_index": [
+        309,
+        310
+      ]
+    },
+    {
+      "chunk_id": 99,
+      "group_id": 99,
+      "group_title": "第二步加工检测要求及示意图",
+      "content": "第二步：先用手轮模拟程序，将木板（1200x2400）放置在相对应的位置，重新设定高度，开始加工木板。加工完成 后，进行检测，侧边须光滑，无明显刀纹、爆边。如达不到要求，则需重新调整。（要求 X 方向两端在 0.2mm 以内； Y方向两端在0.2mm以内；对角线在0.3mm以内）\n\n两幅木板尺寸检测示意图：左图标注X/Y方向两端尺寸（水平与垂直双向测量），右图标注对角线尺寸（两条对角线交叉测量），用于说明木板加工后的精度检测要求。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/fdfde3c4848331277f32bea64cccf07d241dc97171d567059e996a0b5dc69244.jpg)",
+      "pages": [
+        28
+      ],
+      "start_page": 28,
+      "end_page": 28,
+      "source_global_index": [
+        311,
+        312
+      ]
+    },
+    {
+      "chunk_id": 100,
+      "group_id": 100,
+      "group_title": "开料精度不达标调整维护章节标题",
+      "content": "7.1.4 开料精度不达标调整维护",
+      "pages": [
+        29
+      ],
+      "start_page": 29,
+      "end_page": 29,
+      "source_global_index": [
+        313
+      ]
+    },
+    {
+      "chunk_id": 101,
+      "group_id": 101,
+      "group_title": "圆形菱形尺寸误差参数调整说明",
+      "content": "情况一：圆形或菱形尺寸超出误差范围内，需要调整参数进行校正。打开“调试参数”页面，找到编码 441- 443参数和编号541-543参数。（调整数值范围要求在200-500之间不宜过高）\n\n两张数控系统参数设置界面截图，左侧显示X/Y/Z轴快速移动（G00）的加速时间参数（编号441-443），右侧显示X/Y/Z轴切削加减速时间参数（编号541-543），均高亮标出需调整的200-400ms范围值，并用箭头指向对应参数行。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/4de47315fdec900064ebdf9e25d57f437164a8d280c23d73402c51b7dd4f06f2.jpg)",
+      "pages": [
+        29
+      ],
+      "start_page": 29,
+      "end_page": 29,
+      "source_global_index": [
+        314,
+        315
+      ]
+    },
+    {
+      "chunk_id": 102,
+      "group_id": 102,
+      "group_title": "对角线误差校正横梁调节说明",
+      "content": "情况二：对角线误差超出范围内，需要调整参数进行校正。需要给横梁安装精度重新进行校正，使用百分 表固定在吸盘支架上，将大理石放置在台面上，X Y方向进行打表校对。\n\n一张横梁打表校正的示意图，左侧为主视图展示工件在工作台上的定位及X、Y方向打表路径，右侧为局部放大图，标注“横梁固定调节螺丝”，用于说明横梁安装精度校正时的调节部件。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/a588c278272de578e2abc7f12f2f4690a19e76e3076589b837020b781ded4b84.jpg)",
+      "pages": [
+        29
+      ],
+      "start_page": 29,
+      "end_page": 29,
+      "source_global_index": [
+        316,
+        317
+      ]
+    },
+    {
+      "chunk_id": 103,
+      "group_id": 103,
+      "group_title": "刀具保养维护章节主标题及子标题",
+      "content": "八、刀具保养维护\n\n8.1 刀具拆装保养维护",
+      "pages": [
+        30
+      ],
+      "start_page": 30,
+      "end_page": 30,
+      "source_global_index": [
+        318,
+        319
+      ]
+    },
+    {
+      "chunk_id": 104,
+      "group_id": 104,
+      "group_title": "刀具保养周期内容及操作步骤说明",
+      "content": "保养周期：每天一次\n\n保养内容：清洁刀具，刀具损坏更换刀具。\n\n操作步骤：在主轴/刀夹上取下刀具，用气枪和抹布清洁干净 ，再放置在上刀座上，使用专用扳手拆 卸下刀柄。发现刀具损坏及时更换新的刀具使用。（如果开料板材出现爆边，开裂，刀\n\n纹等问题需要检查刀具是否破损）",
+      "pages": [
+        30
+      ],
+      "start_page": 30,
+      "end_page": 30,
+      "source_global_index": [
+        320,
+        321,
+        322,
+        323
+      ]
+    },
+    {
+      "chunk_id": 105,
+      "group_id": 105,
+      "group_title": "刀具拆卸步骤图文说明及示意图",
+      "content": "8.1.1 拆卸刀具说明\n\n刀具拆卸步骤示意图：首先展示上刀座，接着将刀柄放入上刀座，最后使用专用扳手拆卸刀具。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/88e8c9c6a45b8add4bf0e11c29e17608ccea1883de7f5881eb8b9a57421e1889.jpg)",
+      "pages": [
+        30
+      ],
+      "start_page": 30,
+      "end_page": 30,
+      "source_global_index": [
+        324,
+        325
+      ]
+    },
+    {
+      "chunk_id": 106,
+      "group_id": 106,
+      "group_title": "刀具安装步骤图文说明及示意图",
+      "content": "8.1.2 安装刀具说明\n\n刀具安装步骤示意图：先将夹头卡入螺母（含结构图与实物图），然后将螺母旋入刀柄并放入刀具、缓慢旋紧（注意刀具止位标记），最后用专用扳手锁紧刀具。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/469900e98e12883159381bd04e9cc8a3551c2fb24733713483e190d86aa93b60.jpg)",
+      "pages": [
+        30
+      ],
+      "start_page": 30,
+      "end_page": 30,
+      "source_global_index": [
+        326,
+        327
+      ]
+    },
+    {
+      "chunk_id": 107,
+      "group_id": 107,
+      "group_title": "刀柄保养维护标题及周期内容说明",
+      "content": "8.2 刀柄保养维护\n\n保养周期：每天一次\n\n保养内容：刀柄锥面清洁，锈蚀和磨损严重更换新刀柄。",
+      "pages": [
+        31
+      ],
+      "start_page": 31,
+      "end_page": 31,
+      "source_global_index": [
+        328,
+        329,
+        330
+      ]
+    },
+    {
+      "chunk_id": 108,
+      "group_id": 108,
+      "group_title": "刀柄保养操作步骤详细说明列表",
+      "content": "操作步骤：\n\n1. 刀柄使用前确保拉丁紧固到位(图 1)。\n\n2. 更换刀具的时候将刀柄和夹头螺纹上及夹头槽中的木屑清理干净, 防止刀具锁不紧。\n\n3. 加工过程中定时用气枪将刀盘上的刀柄锥面上的灰尘和木屑吹干净，防止换刀的时候将灰尘带到 主轴锥孔中。\n\n4. 刀柄锥面有磕碰伤，螺纹有滑丝，锥面有大面积的锈蚀和磨损，不要使用，更换新刀柄。\n\n5. 每天下班将刀柄锥面清洁干净，用油布在刀柄锥面和拉丁上涂抹防锈油。",
+      "pages": [
+        31
+      ],
+      "start_page": 31,
+      "end_page": 31,
+      "source_global_index": [
+        331,
+        332,
+        333,
+        334,
+        335,
+        336
+      ]
+    },
+    {
+      "chunk_id": 109,
+      "group_id": 109,
+      "group_title": "刀柄结构分解示意图及标注说明",
+      "content": "刀柄图解\n\n这是一张刀柄结构分解示意图，包含三个视图：左侧为整体刀柄（图1），标注了拉丁、锥面和螺纹；右上为螺母的剖面图，标注了螺纹；右下为夹头的立体图，标注了其弹性爪结构。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/6e66c5a219da2b850744f77a1b67c08c5425f7c63b7e99d615181fff7fbd951d.jpg)",
+      "pages": [
+        31
+      ],
+      "start_page": 31,
+      "end_page": 31,
+      "source_global_index": [
+        337,
+        338
+      ]
+    },
+    {
+      "chunk_id": 110,
+      "group_id": 110,
+      "group_title": "主轴保养维护章节标题及说明",
+      "content": "九、主轴保养维护\n\n9.1 主轴安装维护说明",
+      "pages": [
+        33
+      ],
+      "start_page": 33,
+      "end_page": 33,
+      "source_global_index": [
+        339,
+        340
+      ]
+    },
+    {
+      "chunk_id": 111,
+      "group_id": 111,
+      "group_title": "主轴保养周期说明要求",
+      "content": "保养周期：一年一次（开料振纹和崩边停机检查）",
+      "pages": [
+        33
+      ],
+      "start_page": 33,
+      "end_page": 33,
+      "source_global_index": [
+        341
+      ]
+    },
+    {
+      "chunk_id": 112,
+      "group_id": 112,
+      "group_title": "安装说明标题引导列表",
+      "content": "安装说明：",
+      "pages": [
+        33
+      ],
+      "start_page": 33,
+      "end_page": 33,
+      "source_global_index": [
+        342
+      ]
+    },
+    {
+      "chunk_id": 113,
+      "group_id": 113,
+      "group_title": "图1安装板A/B面位置说明",
+      "content": "1. 如果安装板的长度超过机壳的本体长度，安装时候确认 A 面要低于 B 面(图 1)。",
+      "pages": [
+        33
+      ],
+      "start_page": 33,
+      "end_page": 33,
+      "source_global_index": [
+        343
+      ]
+    },
+    {
+      "chunk_id": 114,
+      "group_id": 114,
+      "group_title": "键槽配合与螺钉长度要求",
+      "content": "2. 安装板上的键槽与平键的配合是过赢配合。\n\n3. 锁紧安装板与主轴的 M8 的螺钉长度不能太长，确保锁紧后螺钉与主轴 T 型槽的",
+      "pages": [
+        33
+      ],
+      "start_page": 33,
+      "end_page": 33,
+      "source_global_index": [
+        344,
+        345
+      ]
+    },
+    {
+      "chunk_id": 115,
+      "group_id": 115,
+      "group_title": "图2底部不接触安装说明",
+      "content": "4. 底部不接触(图2) 。",
+      "pages": [
+        33
+      ],
+      "start_page": 33,
+      "end_page": 33,
+      "source_global_index": [
+        346
+      ]
+    },
+    {
+      "chunk_id": 116,
+      "group_id": 116,
+      "group_title": "图3正母线要求及图4缺陷",
+      "content": "5. 安装完成后用百分表找正主轴前端盖部分的正母线和侧母线的要求≤0.05mm (图 3)。1-4 项影 响主轴刚性，可能造成加工过程中出现振纹和崩边的情况(图4) 。",
+      "pages": [
+        33
+      ],
+      "start_page": 33,
+      "end_page": 33,
+      "source_global_index": [
+        347
+      ]
+    },
+    {
+      "chunk_id": 117,
+      "group_id": 117,
+      "group_title": "图5信号线安装注意事项",
+      "content": "6. 主轴信号线接完线后，安装接线盒盖的时候注意不要压到信号线，引起信号不良(图 5) 。",
+      "pages": [
+        33
+      ],
+      "start_page": 33,
+      "end_page": 33,
+      "source_global_index": [
+        348
+      ]
+    },
+    {
+      "chunk_id": 118,
+      "group_id": 118,
+      "group_title": "吸尘罩风道影响散热说明",
+      "content": "7. 注意吸尘罩不能挡住主轴机壳的风道，影响主轴散热。",
+      "pages": [
+        33
+      ],
+      "start_page": 33,
+      "end_page": 33,
+      "source_global_index": [
+        349
+      ]
+    },
+    {
+      "chunk_id": 119,
+      "group_id": 119,
+      "group_title": "五张主轴维护示意图总述",
+      "content": "该图片包含五张子图，用于说明主轴安装与维护的要点：图1为安装板与机壳的A面、B面位置示意图；图2为安装板键槽与主轴T型槽的配合结构图；图3为主轴前端盖处正母线与侧母线的定位要求示意图；图4为加工后出现的振纹和崩边缺陷实物照片；图5为信号线被接线盒盖挤住的错误安装实例。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/bfe24b5808db486f1303e6ce71872cc12e4763c584e3cf4c0d0e06da9c8a0d9b.jpg)",
+      "pages": [
+        33
+      ],
+      "start_page": 33,
+      "end_page": 33,
+      "source_global_index": [
+        350
+      ]
+    },
+    {
+      "chunk_id": 120,
+      "group_id": 120,
+      "group_title": "主轴维护保养标题、周期及内容概述",
+      "content": "9.2 主轴的日常维护保养\n\n保养周期：每天一次\n\n保养内容：清洁主轴，检查磨损。",
+      "pages": [
+        34
+      ],
+      "start_page": 34,
+      "end_page": 34,
+      "source_global_index": [
+        351,
+        352,
+        353
+      ]
+    },
+    {
+      "chunk_id": 121,
+      "group_id": 121,
+      "group_title": "操作步骤1-2：电主轴预热与换刀检查",
+      "content": "操作步骤：\n\n1. 工作之前开启电主轴，空载运转 5-10 分钟，磨合预热，防止气泵中的水汽进入气缸，在气温零 下的环境下会将气缸冻住，主轴无法正常换刀。\n\n2. 手动换刀三到四次，手拧刀柄带主轴转动正常，然后再开始进行工作。",
+      "pages": [
+        34
+      ],
+      "start_page": 34,
+      "end_page": 34,
+      "source_global_index": [
+        354,
+        355,
+        356
+      ]
+    },
+    {
+      "chunk_id": 122,
+      "group_id": 122,
+      "group_title": "步骤3及图1：换刀安全与结构说明",
+      "content": "3. 使用过程中，一定要在主轴完全停止的状态下进行换刀，防止气缸轴与拉杆出现摩擦引起转轴卡 死(图 1)。\n\n一张主轴部件特写图，左侧为拉杆组件，右侧为气缸轴组件，红色箭头分别标注了‘拉杆’和‘气缸轴’，用于说明换刀时两者配合的结构关系。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/403f4d1b814b16c32598e6aa765bb843d618557ba005bc802f7238ecaac0b88a.jpg)\n\n图1",
+      "pages": [
+        34
+      ],
+      "start_page": 34,
+      "end_page": 34,
+      "source_global_index": [
+        357,
+        362,
+        363
+      ]
+    },
+    {
+      "chunk_id": 123,
+      "group_id": 123,
+      "group_title": "操作步骤4-5：电磁阀清洁与气泵维护",
+      "content": "4. 电磁阀保持清洁，排气保持顺畅，防止换刀主轴在抓刀后，压缩空气积压在气缸内排不出去，活 塞回不了位，气缸轴与拉杆发生摩擦引起转轴卡死。\n\n5. 气泵及油水分离器每天至少排放一次油和水，保持压缩空气干燥洁净，建议使用干燥机，防止水 进入气缸中，稀释油脂，影响气缸正常动作。",
+      "pages": [
+        34
+      ],
+      "start_page": 34,
+      "end_page": 34,
+      "source_global_index": [
+        358,
+        359
+      ]
+    },
+    {
+      "chunk_id": 124,
+      "group_id": 124,
+      "group_title": "步骤6及图2：刀柄清洁与锥孔维护",
+      "content": "6. 每天下班前将刀柄从主轴上拿下来，清洁刀柄和锥孔内的灰尘和锈渍，锥孔不干净，主轴拉刀后 振动大，影响主轴寿命和加工效果(图 2) 。\n\n两张主轴锥孔内部特写图，均用红色箭头标出‘锥孔异物’，显示锥孔内存在灰尘、油污或碎屑等污染物，对应操作步骤6中清洁刀柄和锥孔的要求。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/dc5204ead71b61a7bcdd65fac12b46331bbefd25a88aa0e62df29d74e174cb22.jpg)\n\n图2",
+      "pages": [
+        34
+      ],
+      "start_page": 34,
+      "end_page": 34,
+      "source_global_index": [
+        360,
+        366,
+        367
+      ]
+    },
+    {
+      "chunk_id": 125,
+      "group_id": 125,
+      "group_title": "步骤7及图3：风道清理与散热维护",
+      "content": "7. 每天下班前清理下主轴机壳风道中的木屑残留防止堵住风道造成主轴散热不良(图3) 。\n\n一张加工中心风道堵塞实拍图，显示风扇及风道内部积满粉尘和木屑，红色箭头指向堵塞区域，上方文字标注‘风扇及风道被粉尘堵住’，对应操作步骤7中防止主轴散热不良的维护要求。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/fd14fad465055a9967f879d162b5038969b6d86a8633e60749d97ec64aeb88a2.jpg)\n\n图3",
+      "pages": [
+        34
+      ],
+      "start_page": 34,
+      "end_page": 34,
+      "source_global_index": [
+        361,
+        364,
+        365
+      ]
+    },
+    {
+      "chunk_id": 126,
+      "group_id": 126,
+      "group_title": "主轴气路维护周期与保养内容概述",
+      "content": "9.3 主轴的气路维护保养\n\n保养周期：每周一次\n\n保养内容：检查气压，清除灰尘",
+      "pages": [
+        35
+      ],
+      "start_page": 35,
+      "end_page": 35,
+      "source_global_index": [
+        368,
+        369,
+        370
+      ]
+    },
+    {
+      "chunk_id": 127,
+      "group_id": 127,
+      "group_title": "气路控制说明及主轴结构示意图",
+      "content": "气路说明：\n\n1. 气嘴 1：松夹刀及锥孔清洁气（气压要求：0.6-0.8MPa ）\n\n2. 气嘴 2：气封气（气压要求：0.3-0.4MPa）\n\n3. 气路控制： 主轴松夹刀时，气嘴1通气，气嘴2可一直通气或在换刀的过程中不通气，主轴换完 刀后，旋转前确保气嘴 1 不通气，气嘴 2 通气。\n\n4. 控制松夹刀电磁阀的出气管至主轴气嘴 1 的长度越短越好。\n\n这是一张加工中心主轴的三维结构示意图，标注了两个气嘴：气嘴1用于松夹刀及锥孔清洁（气压0.6–0.8MPa），气嘴2用于气封（气压0.3–0.4MPa）；图中红色箭头指向对应接口位置，与文档第9.3节的气路维护说明相呼应。\n![image](https://evada-ups.oss-cn-shanghai.aliyuncs.com/images/20260426_160051_1840/90412f6864b182549817f12db20a82b3fc530b209866e9bfd0ea8896cfaa56db.jpg)",
+      "pages": [
+        35
+      ],
+      "start_page": 35,
+      "end_page": 35,
+      "source_global_index": [
+        371,
+        372,
+        373,
+        374,
+        375,
+        376
+      ]
+    },
+    {
+      "chunk_id": 128,
+      "group_id": 128,
+      "group_title": "附表一标识",
+      "content": "附表一：",
+      "pages": [
+        36
+      ],
+      "start_page": 36,
+      "end_page": 36,
+      "source_global_index": [
+        377
+      ]
+    },
+    {
+      "chunk_id": 129,
+      "group_id": 129,
+      "group_title": "润滑部位周期及油品推荐表",
+      "content": "润滑部位和周期\n\n定期给润滑部位加润滑油是保证机器正常运转的关键。其润滑部位和周期， 见下表。\n\n<table><tr><td rowspan=1 colspan=1>序号</td><td rowspan=1 colspan=1>润滑部分</td><td rowspan=1 colspan=1>润滑周期</td><td rowspan=1 colspan=1>推荐油品</td></tr><tr><td rowspan=1 colspan=1>1</td><td rowspan=1 colspan=1>整机齿条导轨（X轴）</td><td rowspan=1 colspan=1>一周一次 (停用时)</td><td rowspan=1 colspan=1>00#润滑油</td></tr><tr><td rowspan=1 colspan=1>2</td><td rowspan=1 colspan=1>横梁齿条导轨（Y/Z轴）</td><td rowspan=1 colspan=1>一周一次 (停用时)</td><td rowspan=1 colspan=1>00#润滑油</td></tr><tr><td rowspan=1 colspan=1>3</td><td rowspan=1 colspan=1>横梁刀排部分导轨</td><td rowspan=1 colspan=1>二周一次 (停用时)</td><td rowspan=1 colspan=1>00#润滑油</td></tr><tr><td rowspan=1 colspan=1>4</td><td rowspan=1 colspan=1>钻包部分</td><td rowspan=1 colspan=1>两天一次</td><td rowspan=1 colspan=1>BOTON KS-400</td></tr><tr><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1>气动三联件</td><td rowspan=1 colspan=1>每月一次</td><td rowspan=1 colspan=1>ISO VG-32</td></tr><tr><td rowspan=1 colspan=1>6</td><td rowspan=1 colspan=1>贴标机齿条导轨（X/Z轴）</td><td rowspan=1 colspan=1>一周一次 (停用时)</td><td rowspan=1 colspan=1>68#导轨油</td></tr><tr><td rowspan=1 colspan=1>7</td><td rowspan=1 colspan=1>真空泵</td><td rowspan=1 colspan=1>每月一次</td><td rowspan=1 colspan=1>德国克鲁勃耐高温润滑</td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr></table>",
+      "pages": [
+        36
+      ],
+      "start_page": 36,
+      "end_page": 36,
+      "source_global_index": [
+        378,
+        379,
+        380
+      ]
+    },
+    {
+      "chunk_id": 130,
+      "group_id": 130,
+      "group_title": "加工中心设备保养规程表，含16项保养内容与周期信息",
+      "content": "附表二：\n\n加工中心设备保养规程表\n\n<table><tr><td rowspan=1 colspan=1>序号</td><td rowspan=1 colspan=1>保养部位</td><td rowspan=1 colspan=1>保养项目</td><td rowspan=1 colspan=1>保养内容</td><td rowspan=1 colspan=1>保养周期</td></tr><tr><td rowspan=1 colspan=1>1</td><td rowspan=5 colspan=1>加工中心整机床身</td><td rowspan=1 colspan=1>粉尘清洁</td><td rowspan=1 colspan=1>检查清理</td><td rowspan=1 colspan=1>每天保养</td></tr><tr><td rowspan=1 colspan=1>2</td><td rowspan=1 colspan=1>台面板</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每年保养一次</td></tr><tr><td rowspan=1 colspan=1>3</td><td rowspan=1 colspan=1>密封条</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每年保养一次</td></tr><tr><td rowspan=1 colspan=1>4</td><td rowspan=1 colspan=1>宝塔接头/真空管</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每年保养一次</td></tr><tr><td rowspan=1 colspan=1>5</td><td rowspan=1 colspan=1>真空阀组件</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每月保养一次</td></tr><tr><td rowspan=1 colspan=1>6</td><td rowspan=2 colspan=1></td><td rowspan=1 colspan=1>毛刷</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每月保养一次</td></tr><tr><td rowspan=1 colspan=1>7</td><td rowspan=1 colspan=1>齿条导轨</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>两周保养一次</td></tr><tr><td rowspan=1 colspan=1>8</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>粉尘清洁</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每天保养</td></tr><tr><td rowspan=1 colspan=1>9</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>机头吸尘罩</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每年保养一次</td></tr><tr><td rowspan=1 colspan=1>10</td><td rowspan=7 colspan=1>加工中心横梁部分</td><td rowspan=1 colspan=1>主轴吸尘罩</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每年保养一次</td></tr><tr><td rowspan=1 colspan=1>11</td><td rowspan=1 colspan=1>推料吸尘罩</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每年保养一次</td></tr><tr><td rowspan=1 colspan=1>12</td><td rowspan=1 colspan=1>刀排/刀盘</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>两周保养一次</td></tr><tr><td rowspan=1 colspan=1>13</td><td rowspan=1 colspan=1>电主轴</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每周保养一次</td></tr><tr><td rowspan=1 colspan=1>14</td><td rowspan=1 colspan=1>接油盘</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每年保养一次</td></tr><tr><td rowspan=1 colspan=1>15</td><td rowspan=1 colspan=1>压辊装置</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每年保养一次</td></tr><tr><td rowspan=1 colspan=1>16</td><td rowspan=1 colspan=1>钻包</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>两天保养一次</td></tr></table>",
+      "pages": [
+        37
+      ],
+      "start_page": 37,
+      "end_page": 37,
+      "source_global_index": [
+        381,
+        382,
+        383
+      ]
+    },
+    {
+      "chunk_id": 131,
+      "group_id": 131,
+      "group_title": "加工中心保养项目表，含各部位维护周期",
+      "content": "<table><tr><td rowspan=1 colspan=1>17</td><td rowspan=1 colspan=2></td><td rowspan=1 colspan=2>齿条导轨</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>两周保养一次</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=2>序号</td><td rowspan=1 colspan=2>保养部位</td><td rowspan=1 colspan=2>保养项目</td><td rowspan=1 colspan=2>保养内容</td><td rowspan=1 colspan=2>保养周期</td></tr><tr><td rowspan=1 colspan=2>18</td><td rowspan=1 colspan=2>加工中心横梁部分</td><td rowspan=1 colspan=2>电动润滑泵</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>每周保养一次</td></tr><tr><td rowspan=1 colspan=2>19</td><td rowspan=3 colspan=2>整机电气设备</td><td rowspan=1 colspan=2>电柜</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>每月保养一次</td></tr><tr><td rowspan=1 colspan=2>20</td><td rowspan=1 colspan=2>三联件</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>每月保养一次</td></tr><tr><td rowspan=1 colspan=2>21</td><td rowspan=1 colspan=2>气缸</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>每年保养一次</td></tr><tr><td rowspan=1 colspan=2>22</td><td rowspan=5 colspan=2>贴标机整机部分</td><td rowspan=1 colspan=2>粉尘清洁</td><td rowspan=1 colspan=2>检查清理</td><td rowspan=1 colspan=2>每天保养</td></tr><tr><td rowspan=1 colspan=2>23</td><td rowspan=1 colspan=2>齿条导轨</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>两周保养一次</td></tr><tr><td rowspan=1 colspan=2>24</td><td rowspan=1 colspan=2>打印机</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>每周保养一次</td></tr><tr><td rowspan=1 colspan=2>25</td><td rowspan=1 colspan=2>感应器</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>两天保养一次</td></tr><tr><td rowspan=1 colspan=2>26</td><td rowspan=1 colspan=2>电动润滑泵</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>每周保养一次</td></tr><tr><td rowspan=1 colspan=2>27</td><td rowspan=2 colspan=2>升降台</td><td rowspan=1 colspan=2>油路</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>每月保养一次</td></tr><tr><td rowspan=1 colspan=2>28</td><td rowspan=1 colspan=2>油泵</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>每月保养一次</td></tr><tr><td rowspan=1 colspan=2>29</td><td rowspan=2 colspan=2>皮带机</td><td rowspan=1 colspan=2>吸尘罩</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>每周保养一次</td></tr><tr><td rowspan=1 colspan=2>30</td><td rowspan=1 colspan=2>感应器</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>两天保养一次</td></tr><tr><td rowspan=1 colspan=2>31</td><td rowspan=4 colspan=2>真空泵</td><td rowspan=1 colspan=2>外置过滤器</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>每月保养一次</td></tr><tr><td rowspan=1 colspan=2>32</td><td rowspan=1 colspan=2>内置过滤器</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>每月保养一次</td></tr><tr><td rowspan=1 colspan=2>33</td><td rowspan=1 colspan=2>排气口</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>每月保养一次</td></tr><tr><td rowspan=1 colspan=2>34</td><td rowspan=1 colspan=2>内部润滑</td><td rowspan=1 colspan=2>检查润滑/清理</td><td rowspan=1 colspan=2>每月保养一次</td></tr></table>",
+      "pages": [
+        38
+      ],
+      "start_page": 38,
+      "end_page": 38,
+      "source_global_index": [
+        384,
+        385
+      ]
+    },
+    {
+      "chunk_id": 132,
+      "group_id": 132,
+      "group_title": "加工中心保养维护项目明细表，含部位内容周期",
+      "content": "<table><tr><td rowspan=1 colspan=1>序号</td><td rowspan=1 colspan=1>保养部位</td><td rowspan=1 colspan=1>保养项目</td><td rowspan=1 colspan=1>保养内容</td><td rowspan=1 colspan=1>保养周期</td></tr><tr><td rowspan=1 colspan=1>35</td><td rowspan=1 colspan=1>加工中心开料精度</td><td rowspan=1 colspan=1>精度检测</td><td rowspan=1 colspan=1>开料校正精度</td><td rowspan=1 colspan=1>每年保养一次</td></tr><tr><td rowspan=1 colspan=1>36</td><td rowspan=1 colspan=1>刀具保养维护</td><td rowspan=1 colspan=1>刀具</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每天保养一次</td></tr><tr><td rowspan=1 colspan=1>37</td><td rowspan=1 colspan=1>刀柄保养维护</td><td rowspan=1 colspan=1>刀柄</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每天保养一次</td></tr><tr><td rowspan=1 colspan=1>38</td><td rowspan=3 colspan=1>主轴保养维护</td><td rowspan=1 colspan=1>安装维护</td><td rowspan=1 colspan=1>开料校正效果</td><td rowspan=1 colspan=1>每年保养一次</td></tr><tr><td rowspan=1 colspan=1>39</td><td rowspan=1 colspan=1>日常保养</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每天保养一次</td></tr><tr><td rowspan=1 colspan=1>40</td><td rowspan=1 colspan=1>气路保养</td><td rowspan=1 colspan=1>检查润滑/清理</td><td rowspan=1 colspan=1>每天保养一次</td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr></table>",
+      "pages": [
+        39
+      ],
+      "start_page": 39,
+      "end_page": 39,
+      "source_global_index": [
+        386
+      ]
+    }
+  ]
+}
