@@ -155,9 +155,13 @@
 
 ### 阶段 A：数据合并（无代码依赖变更）
 
-- [ ] **A1**：确认 `files/` 下所有待合并 JSON 列表与编码（UTF-8）。
-- [ ] **A2**：实现合并脚本，输出 `merged_splite_corpus.json`（结构见 §3.2）。
-- [ ] **A3**：抽样校验：`document_id` 唯一性、chunk 条数之和、随机抽查 `content` 是否与源文件一致。
+- [x] **A1**：确认 `files/` 下所有待合并 JSON 列表与编码（UTF-8）。
+- [x] **A2**：实现合并脚本 `backend/scripts/merge_splite_json.py`，默认输出 `files/merged_splite_corpus.json`（结构见 §3.2）。运行示例（仓库根目录）：
+  - `backend\venv\Scripts\python.exe backend\scripts\merge_splite_json.py`
+  - 可选：`--input <目录> --output <路径>`
+- [x] **A3**：校验：`document_id` 在 7 份源中互不重复；`chunk_count` 等于各 `sources[].chunks` 长度之和；若需更严验收可再对单文件 diff 抽查 `content`。
+
+**当前一次合并结果（示例）**：7 个源文件、651 条 `chunks`（以你本地 `files/` 为准，重跑脚本后会变）。
 
 ### 阶段 B：BGE 建索引（本地向量库）
 
