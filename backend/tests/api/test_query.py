@@ -107,7 +107,7 @@ class TestSearchEndpoint:
         with patch("main.vector_store") as mock_store:
             with patch("storage.vector_store.EmbeddingGenerator") as mock_embedder:
                 mock_instance = MagicMock()
-                mock_instance.embed_text.return_value = [0.1] * 384
+                mock_instance.embed_text.return_value = [0.1] * 1024
                 mock_embedder.return_value = mock_instance
 
                 mock_store.search.return_value = [

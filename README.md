@@ -7,7 +7,7 @@ A **document Q&A** web application: upload technical manuals and other files, in
 ## Features
 
 - **Ingestion** — PDF, DOCX, TXT, and Markdown; configurable PDF backend (`pypdf` or optional advanced parser)
-- **Semantic search** — ChromaDB + sentence-transformers embeddings
+- **Semantic search** — ChromaDB + local embeddings (default: BGE Chinese via sentence-transformers)
 - **Q&A and chat** — OpenAI-compatible LLM (e.g. Alibaba DashScope) with retrieved context and citations
 - **Web UI** — React (Vite, TypeScript, Chakra UI): dashboard, document manager, chat
 - **REST API** — FastAPI with OpenAPI docs at `/docs`
@@ -124,7 +124,7 @@ Config: [`frontend/vitest.config.ts`](frontend/vitest.config.ts). Example tests 
 | Area | Notes |
 |------|--------|
 | **LLM** | `LLM_API_KEY`, `LLM_BASE_URL`, and `LLM_MODEL` required for query/chat (see `backend/.env`). |
-| **Embeddings** | Default backend is **local** (`sentence-transformers/all-MiniLM-L6-v2`). For remote vectors, set `EMBEDDING_BACKEND=openai` plus model/dimension and keys (see `backend/.env.example`). Use **`EMBEDDING_CACHE_DIR`** to pin `HF_HOME` for offline copies. |
+| **Embeddings** | Default backend is **local** (`BAAI/bge-large-zh-v1.5`, 1024-dim). For remote vectors, set `EMBEDDING_BACKEND=openai` plus model/dimension and keys (see `backend/.env.example`). Use **`EMBEDDING_CACHE_DIR`** to pin `HF_HOME` for offline copies. |
 | **PDF** | `PDF_PARSER=pypdf` (default) or `opendataloader` if you install the extra dependency (see `DESIGN.md`). |
 | **CORS** | `CORS_ORIGINS` must include your frontend origin (e.g. `http://localhost:5173`). |
 

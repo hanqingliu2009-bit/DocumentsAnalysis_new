@@ -265,7 +265,7 @@ FILE_STORAGE_PATH=./data/files
 # Processing
 CHUNK_SIZE=512
 CHUNK_OVERLAP=50
-EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+EMBEDDING_MODEL=BAAI/bge-large-zh-v1.5
 
 # PDF Parser Configuration (options: pypdf, opendataloader)
 PDF_PARSER=pypdf
@@ -365,7 +365,7 @@ VITE_WS_URL=ws://localhost:8000
    - `chunk_index`: integer
    - `start_char`: integer
    - `end_char`: integer
-   - `embedding`: vector (384-dim)
+   - `embedding`: vector (1024-dim, default BGE)
 
 ### File Storage Structure
 

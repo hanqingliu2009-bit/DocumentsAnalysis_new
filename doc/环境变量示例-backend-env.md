@@ -15,22 +15,9 @@
 | **`EMBEDDING_BACKEND` + `EMBEDDING_MODEL` + `EMBEDDING_DIMENSION` + `CHROMADB_COLLECTION`** | **「上传文档」**流水线：解析上传文件 → 分块 → 用该配置算向量 → 写入 **`CHROMADB_COLLECTION`** 指向的 Chroma 集合。`/api/search`、`RAG_BACKEND=chromadb` 时的检索也走这一套。 |
 | **`HYBRID_SPLITE_EMBEDDING_MODEL` + `HYBRID_SPLITE_COLLECTION`** | **仅 Hybrid / Splite 这一路**：对问题做向量检索时，代码里固定用 `EmbeddingGenerator(model_name=HYBRID_SPLITE_EMBEDDING_MODEL)` 且 **`embedding_backend="local"`**，去查 **Splite 专用集合**（灌库脚本写入的 `HYBRID_SPLITE_COLLECTION`，例如 `splite_bge_zh_v15`）。与上面「上传文档」集合无关。 |
 
-因此示例里写成「上传用 MiniLM、Splite 用 BGE」只是常见搭配：**上传库**用轻量默认模型即可；**Splite 手册库**事先按 BGE 灌进独立集合，Hybrid 查询时必须用**同一种模型**对问句编码，才能和库里向量对齐。
+仓库 **`config.py` 默认**已统一为 **`BAAI/bge-large-zh-v1.5`（1024 维）**：上传文档与 `RAG_BACKEND=chromadb` 检索都用这一套。`HYBRID_SPLITE_EMBEDDING_MODEL` 仍单独存在，是因为 Hybrid / `splite_search` 代码路径显式读它，**默认与 `EMBEDDING_MODEL` 相同**；真正区分两条数据流的是 **`CHROMADB_COLLECTION`**（上传索引）与 **`HYBRID_SPLITE_COLLECTION`**（Splite 灌库集合）。
 
-**能否全部改成 `BAAI/bge-large-zh-v1.5`？**
-
-可以。把全局嵌入也改成 BGE 即可，例如：
-
-```env
-EMBEDDING_BACKEND=local
-EMBEDDING_MODEL=BAAI/bge-large-zh-v1.5
-EMBEDDING_DIMENSION=1024
-CHROMADB_COLLECTION=document_chunks_bge_zh
-HYBRID_SPLITE_EMBEDDING_MODEL=BAAI/bge-large-zh-v1.5
-HYBRID_SPLITE_COLLECTION=splite_bge_zh_v15
-```
-
-注意：**换模型或维度 = 向量维度变了**，需要换新 `CHROMADB_COLLECTION` 或清空 `backend/data/vector_db` 下对应集合并**重新上传/重新灌库**，否则旧向量与新模型不兼容。
+若曾用旧版默认（MiniLM 384）建过索引，**换模型或维度后**须换新 `CHROMADB_COLLECTION` 或清空 `backend/data/vector_db` 下对应集合并**重新上传/重新灌库**。
 
 ---
 
@@ -44,10 +31,10 @@ LLM_API_KEY=sk-你的DashScope_API_Key
 LLM_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 LLM_MODEL=qwen-turbo
 
-# ========== 嵌入：本地 MiniLM（与 config 默认一致）==========
+# ========== 嵌入：本地 BGE（与 config 默认一致）==========
 EMBEDDING_BACKEND=local
-EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
-EMBEDDING_DIMENSION=384
+EMBEDDING_MODEL=BAAI/bge-large-zh-v1.5
+EMBEDDING_DIMENSION=1024
 CHROMADB_COLLECTION=document_chunks
 
 # 可选：把 Hugging Face 权重缓存在 backend 下，便于备份/离线

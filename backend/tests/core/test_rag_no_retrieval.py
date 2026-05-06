@@ -28,7 +28,7 @@ def test_empty_retrieval_calls_llm_when_key_and_model_set(mock_llm_client):
     vs.search.return_value = []
     vs.get_chunk_count.return_value = 0
     with patch("storage.vector_store.EmbeddingGenerator") as EG:
-        EG.return_value.embed_text.return_value = [0.01] * 384
+        EG.return_value.embed_text.return_value = [0.01] * 1024
         with patch.object(settings, "LLM_API_KEY", "test-key"), patch.object(
             settings, "LLM_MODEL", "qwen-turbo"
         ):
@@ -56,7 +56,7 @@ def test_empty_retrieval_same_for_query_style_call(mock_llm_client):
     vs.search.return_value = []
     vs.get_chunk_count.return_value = 0
     with patch("storage.vector_store.EmbeddingGenerator") as EG:
-        EG.return_value.embed_text.return_value = [0.01] * 384
+        EG.return_value.embed_text.return_value = [0.01] * 1024
         with patch.object(settings, "LLM_API_KEY", "test-key"), patch.object(
             settings, "LLM_MODEL", "qwen-turbo"
         ):
@@ -74,7 +74,7 @@ def test_empty_retrieval_no_api_key_returns_config_message(mock_llm_client):
     vs.search.return_value = []
     vs.get_chunk_count.return_value = 0
     with patch("storage.vector_store.EmbeddingGenerator") as EG:
-        EG.return_value.embed_text.return_value = [0.01] * 384
+        EG.return_value.embed_text.return_value = [0.01] * 1024
         with patch.object(settings, "LLM_API_KEY", None), patch.object(
             settings, "LLM_MODEL", "qwen-turbo"
         ):
@@ -93,7 +93,7 @@ def test_empty_retrieval_blank_model_skips_llm(mock_llm_client):
     vs.search.return_value = []
     vs.get_chunk_count.return_value = 0
     with patch("storage.vector_store.EmbeddingGenerator") as EG:
-        EG.return_value.embed_text.return_value = [0.01] * 384
+        EG.return_value.embed_text.return_value = [0.01] * 1024
         with patch.object(settings, "LLM_API_KEY", "k"), patch.object(settings, "LLM_MODEL", "   "):
             pipeline = RAGPipeline(vs, openai_client=mock_llm_client)
             result = pipeline.query("hello")
@@ -111,7 +111,7 @@ def test_no_retrieval_system_prompt_when_index_non_empty(mock_llm_client):
     ds = MagicMock()
     ds.count_by_status.return_value = {"completed": 2, "failed": 0, "pending": 0, "processing": 0}
     with patch("storage.vector_store.EmbeddingGenerator") as EG:
-        EG.return_value.embed_text.return_value = [0.01] * 384
+        EG.return_value.embed_text.return_value = [0.01] * 1024
         with patch.object(settings, "LLM_API_KEY", "k"), patch.object(settings, "LLM_MODEL", "qwen"):
             pipeline = RAGPipeline(vs, openai_client=mock_llm_client, document_store=ds)
             pipeline.query("看一下我上传的文档")

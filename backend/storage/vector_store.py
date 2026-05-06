@@ -247,7 +247,7 @@ class EmbeddingGenerator:
         if self._model is None:
             from sentence_transformers import SentenceTransformer
 
-            mid = (self.model_name or "").strip() or "sentence-transformers/all-MiniLM-L6-v2"
+            mid = (self.model_name or "").strip() or "BAAI/bge-large-zh-v1.5"
             self._model = SentenceTransformer(mid)
         return self._model
 

@@ -19,8 +19,8 @@ class TestEmbeddingGenerator:
     def _local_hf_embedding_backend(self, monkeypatch):
         """HF path tests; EMBEDDING_BACKEND=local uses sentence-transformers."""
         monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "local")
-        monkeypatch.setattr(settings, "EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
-        monkeypatch.setattr(settings, "EMBEDDING_DIMENSION", 384)
+        monkeypatch.setattr(settings, "EMBEDDING_MODEL", "BAAI/bge-large-zh-v1.5")
+        monkeypatch.setattr(settings, "EMBEDDING_DIMENSION", 1024)
 
     def test_initialization(self):
         """Test that generator initializes with model name."""
@@ -35,7 +35,7 @@ class TestEmbeddingGenerator:
     def test_embed_texts(self, mock_model_class):
         """Test embedding multiple texts."""
         mock_model = MagicMock()
-        mock_model.encode.return_value = [[0.1] * 384, [0.2] * 384]
+        mock_model.encode.return_value = [[0.1] * 1024, [0.2] * 1024]
         mock_model_class.return_value = mock_model
 
         generator = EmbeddingGenerator()
@@ -43,20 +43,20 @@ class TestEmbeddingGenerator:
         embeddings = generator.embed_texts(texts)
 
         assert len(embeddings) == 2
-        assert len(embeddings[0]) == 384
+        assert len(embeddings[0]) == 1024
         assert embeddings[0][0] == 0.1
 
     @patch("sentence_transformers.SentenceTransformer")
     def test_embed_text(self, mock_model_class):
         """Test embedding single text."""
         mock_model = MagicMock()
-        mock_model.encode.return_value = [[0.1] * 384]
+        mock_model.encode.return_value = [[0.1] * 1024]
         mock_model_class.return_value = mock_model
 
         generator = EmbeddingGenerator()
         embedding = generator.embed_text("Single text")
 
-        assert len(embedding) == 384
+        assert len(embedding) == 1024
         assert embedding[0] == 0.1
 
     def test_embed_empty_list(self):
@@ -69,7 +69,7 @@ class TestEmbeddingGenerator:
     def test_embed_chunks(self, mock_model_class):
         """Test embedding chunks in place."""
         mock_model = MagicMock()
-        mock_model.encode.return_value = [[0.1] * 384, [0.2] * 384]
+        mock_model.encode.return_value = [[0.1] * 1024, [0.2] * 1024]
         mock_model_class.return_value = mock_model
 
         generator = EmbeddingGenerator()
@@ -93,7 +93,7 @@ class TestEmbeddingGenerator:
         generator.embed_chunks(chunks)
 
         assert chunks[0].embedding is not None
-        assert len(chunks[0].embedding) == 384
+        assert len(chunks[0].embedding) == 1024
         assert chunks[1].embedding is not None
 
 
@@ -111,7 +111,7 @@ class TestVectorStore:
         """Create a VectorStore instance."""
         with patch("storage.vector_store.settings") as mock_settings:
             mock_settings.VECTOR_DB_PATH = temp_chroma_dir
-            mock_settings.EMBEDDING_DIMENSION = 384
+            mock_settings.EMBEDDING_DIMENSION = 1024
             store = VectorStore(collection_name="test_collection")
             try:
                 yield store
@@ -141,7 +141,7 @@ class TestVectorStore:
                 chunk_index=0,
                 start_char=0,
                 end_char=100,
-                embedding=[0.1] * 384,
+                embedding=[0.1] * 1024,
             ),
             DocumentChunk(
                 id="chunk-2",
@@ -150,7 +150,7 @@ class TestVectorStore:
                 chunk_index=1,
                 start_char=100,
                 end_char=200,
-                embedding=[0.2] * 384,
+                embedding=[0.2] * 1024,
             ),
         ]
 
@@ -226,7 +226,7 @@ class TestVectorStore:
 
     def test_search_no_results(self, vector_store):
         """Test searching with empty store."""
-        query_embedding = [0.1] * 384
+        query_embedding = [0.1] * 1024
         results = vector_store.search(query_embedding, top_k=5)
 
         assert len(results) == 0
@@ -242,7 +242,7 @@ class TestVectorStore:
                 chunk_index=0,
                 start_char=0,
                 end_char=100,
-                embedding=[0.5] * 384,
+                embedding=[0.5] * 1024,
             ),
             DocumentChunk(
                 id="chunk-2",
@@ -251,13 +251,13 @@ class TestVectorStore:
                 chunk_index=0,
                 start_char=0,
                 end_char=100,
-                embedding=[0.5] * 384,
+                embedding=[0.5] * 1024,
             ),
         ]
         vector_store.add_chunks(chunks)
 
         # Search only in doc-1
-        query_embedding = [0.5] * 384
+        query_embedding = [0.5] * 1024
         results = vector_store.search(query_embedding, top_k=5, document_ids=["doc-1"])
 
         assert len(results) == 1
@@ -274,7 +274,7 @@ class TestVectorStore:
         }
         with patch("storage.vector_store.settings", SimpleNamespace(SIMILARITY_THRESHOLD=0.7)):
             with patch.object(vector_store.collection, "query", return_value=fake):
-                results = vector_store.search([0.1] * 384, top_k=5)
+                results = vector_store.search([0.1] * 1024, top_k=5)
         assert len(results) == 1
         assert results[0][0] == "keep"
         assert results[0][1] == pytest.approx(0.85)
@@ -292,7 +292,7 @@ class TestVectorStore:
                 chunk_index=0,
                 start_char=0,
                 end_char=100,
-                embedding=[0.1] * 384,
+                embedding=[0.1] * 1024,
             ),
             DocumentChunk(
                 id="chunk-2",
@@ -301,7 +301,7 @@ class TestVectorStore:
                 chunk_index=1,
                 start_char=100,
                 end_char=200,
-                embedding=[0.2] * 384,
+                embedding=[0.2] * 1024,
             ),
             DocumentChunk(
                 id="chunk-3",
@@ -310,7 +310,7 @@ class TestVectorStore:
                 chunk_index=0,
                 start_char=0,
                 end_char=100,
-                embedding=[0.3] * 384,
+                embedding=[0.3] * 1024,
             ),
         ]
         vector_store.add_chunks(chunks)
@@ -337,7 +337,7 @@ class TestVectorStore:
                 chunk_index=0,
                 start_char=0,
                 end_char=100,
-                embedding=[0.1] * 384,
+                embedding=[0.1] * 1024,
             ),
         ]
         vector_store.add_chunks(chunks)

@@ -86,7 +86,7 @@ else:
   - Chunk size: 512 tokens (configurable)
   - Overlap: 50 tokens between chunks
   - Preserve paragraph boundaries when possible
-- **Embedding Model**: `sentence-transformers/all-MiniLM-L6-v2` (384 dimensions, fast and good quality)
+- **Embedding Model**: `BAAI/bge-large-zh-v1.5` (1024 dimensions, local default via sentence-transformers)
 
 ### 3. Vector Store
 - **Technology**: ChromaDB (embedded, no external dependencies)

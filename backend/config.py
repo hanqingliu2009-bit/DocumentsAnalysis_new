@@ -57,12 +57,12 @@ class Settings(BaseSettings):
     CHUNK_OVERLAP: int = 50
     # Embeddings: "local" = sentence-transformers; "openai" = HTTP POST .../embeddings (OpenAI-compatible).
     EMBEDDING_BACKEND: str = "local"
-    # local: Hugging Face / sentence-transformers model id; openai: model name on the embeddings API.
-    EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
+    # Default local model: BGE Chinese (same family as Splite ingest). Change dimension if you switch models.
+    EMBEDDING_MODEL: str = "BAAI/bge-large-zh-v1.5"
     # True: call .../embeddings/multimodal with multimodal input blocks; False: standard /embeddings text.
     EMBEDDING_USE_MULTIMODAL_API: bool = False
-    # Must match the embedding model output dimension (384 for default MiniLM; set explicitly for other models).
-    EMBEDDING_DIMENSION: int = 384
+    # Must match EMBEDDING_MODEL output (1024 for bge-large-zh-v1.5).
+    EMBEDDING_DIMENSION: int = 1024
     # Change collection or clear vector_db when switching model/dimension.
     CHROMADB_COLLECTION: str = "document_chunks"
     # If set: directory is created and HF_HOME defaults here for Hub / sentence-transformers cache.

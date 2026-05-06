@@ -95,9 +95,9 @@ class TestDocumentChunk:
             chunk_index=0,
             start_char=0,
             end_char=10,
-            embedding=[0.1] * 384,
+            embedding=[0.1] * 1024,
         )
-        assert len(chunk.embedding) == 384
+        assert len(chunk.embedding) == 1024
         assert chunk.embedding[0] == 0.1
 
     def test_serialization(self):

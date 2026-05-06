@@ -38,8 +38,8 @@ def test_settings(temp_dir):
         LLM_BASE_URL="https://example.com/v1",
         DEBUG=True,
         EMBEDDING_BACKEND="local",
-        EMBEDDING_MODEL="sentence-transformers/all-MiniLM-L6-v2",
-        EMBEDDING_DIMENSION=384,
+        EMBEDDING_MODEL="BAAI/bge-large-zh-v1.5",
+        EMBEDDING_DIMENSION=1024,
         CHROMADB_COLLECTION="test_chroma_collection",
     )
 
@@ -233,8 +233,8 @@ def mock_embedding_model():
     """Create a mock sentence transformer model."""
     with patch("sentence_transformers.SentenceTransformer") as mock_model_class:
         mock_model = MagicMock()
-        # Return 384-dimensional embeddings
-        mock_model.encode.return_value = [[0.1] * 384]
+        # Return 1024-dimensional embeddings (match default BGE local)
+        mock_model.encode.return_value = [[0.1] * 1024]
         mock_model_class.return_value = mock_model
         yield mock_model
 
@@ -266,7 +266,7 @@ def test_client(test_settings):
                 # Starlette only runs ASGI lifespan when TestClient is used as a context
                 # manager; otherwise main.document_store stays None on every request.
                 with patch("storage.vector_store.EmbeddingGenerator") as mock_embed_cls:
-                    mock_embed_cls.return_value.embed_text.return_value = [0.0] * 384
+                    mock_embed_cls.return_value.embed_text.return_value = [0.0] * 1024
                     with TestClient(app) as client:
                         yield client
 
