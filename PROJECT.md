@@ -296,6 +296,7 @@ VITE_WS_URL=ws://localhost:8000
 | Topic | Where to read |
 |--------|----------------|
 | Overall plan (phases A–E, merge → BGE index → hybrid code) | [`doc/方案-双路检索-BGE本地向量与远端图库.md`](doc/方案-双路检索-BGE本地向量与远端图库.md) |
+| **2026-05-06 code-level changelog (commits + modules)** | [`doc/改动总结-2026-05-06-混合检索与Splite向量流水线.md`](doc/改动总结-2026-05-06-混合检索与Splite向量流水线.md) |
 | Graph + hybrid behavior, §14, env examples, test commands | [`doc/外部图数据库RAG实现说明.md`](doc/外部图数据库RAG实现说明.md) |
 | Swagger-only debugging (`/api/query`, `/api/splite_search`, `/api/external_search`, etc.) | [`doc/后端调试-从Swagger直接发消息.md`](doc/后端调试-从Swagger直接发消息.md) |
 | Copy-paste env templates (Splite ingest, Hybrid, Ops one-liners) | [`backend/.env.example`](backend/.env.example) |
