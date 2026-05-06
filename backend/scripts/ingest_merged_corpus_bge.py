@@ -4,7 +4,7 @@ Ingest ``files/merged_splite_corpus.json`` into a dedicated Chroma collection us
 ``sentence-transformers`` + ``BAAI/bge-large-zh-v1.5`` (1024-dim).
 
 This script sets ``EMBEDDING_BACKEND=local`` (and model / dimension) in ``os.environ``
-**before** importing ``config``, so it does not depend on Ark embedding settings in ``.env``.
+**before** importing ``config``, so it does not depend on HTTP embedding settings in ``.env``.
 
 Usage (from repo root, with backend venv):
 

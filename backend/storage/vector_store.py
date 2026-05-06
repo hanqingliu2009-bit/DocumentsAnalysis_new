@@ -173,9 +173,9 @@ class VectorStore:
         }
 
 
-def _ark_embedding_data_rows(body: Any) -> List[Dict[str, Any]]:
+def _openai_embedding_data_rows(body: Any) -> List[Dict[str, Any]]:
     """
-    Normalize Ark embedding responses where ``data`` may be a list of objects or a single object.
+    Normalize OpenAI-style embedding responses where ``data`` may be a list of objects or one object.
     Iterating a dict yields string keys, which caused ``'str' object has no attribute 'get'``.
     """
     if not isinstance(body, dict):
@@ -196,9 +196,9 @@ def _ark_embedding_data_rows(body: Any) -> List[Dict[str, Any]]:
 
 def _multimodal_input_parts_from_chunk(chunk: DocumentChunk) -> List[Dict[str, Any]]:
     """
-    Build Ark ``/embeddings/multimodal`` ``input`` list: text block plus optional images.
+    Build ``/embeddings/multimodal`` ``input`` list: text block plus optional images.
 
-    Public image URLs must be fetchable by Ark (localhost 一般不可用). Set on chunk metadata, e.g.::
+    Public image URLs must be fetchable by the provider (localhost is often unusable). Metadata e.g.::
 
         embedding_image_urls: ["https://.../a.png"]
         # or legacy key:
@@ -221,6 +221,18 @@ def _multimodal_input_parts_from_chunk(chunk: DocumentChunk) -> List[Dict[str, A
             if url:
                 parts.append({"type": "image_url", "image_url": {"url": url}})
     return parts
+
+
+def _embedding_backend_kind(name: Optional[str]) -> str:
+    """Map EMBEDDING_BACKEND to ``local`` or ``openai`` (remote HTTP)."""
+    b = (name or "").strip().lower()
+    if not b:
+        return "local"
+    if b == "local":
+        return "local"
+    if b == "openai":
+        return "openai"
+    return b
 
 
 class EmbeddingGenerator:
@@ -247,23 +259,27 @@ class EmbeddingGenerator:
             return [arr.tolist()]
         return arr.tolist()
 
-    def _volcengine_key_and_model(self) -> Tuple[str, str]:
-        key = settings.VOLCENGINE_EMBEDDING_API_KEY or settings.VOLCENGINE_API_KEY
+    def _openai_embedding_key_model_base(self) -> Tuple[str, str, str]:
+        key = settings.embedding_openai_api_key()
         model = (self.model_name or "").strip()
-        if not key or not str(key).strip():
+        base = settings.embedding_openai_base_url()
+        if not key:
             raise ValueError(
-                "EMBEDDING_BACKEND=volcengine requires VOLCENGINE_EMBEDDING_API_KEY or VOLCENGINE_API_KEY in backend/.env."
+                "EMBEDDING_BACKEND=openai requires EMBEDDING_OPENAI_API_KEY or LLM_API_KEY in backend/.env."
+            )
+        if not base:
+            raise ValueError(
+                "EMBEDDING_BACKEND=openai requires EMBEDDING_OPENAI_BASE_URL or LLM_BASE_URL in backend/.env."
             )
         if not model:
             raise ValueError(
-                "EMBEDDING_BACKEND=volcengine requires EMBEDDING_MODEL (embedding endpoint ID, e.g. ep-...)."
+                "EMBEDDING_BACKEND=openai requires EMBEDDING_MODEL (provider model id or name)."
             )
-        return str(key).strip(), model
+        return key, model, base.rstrip("/")
 
-    def _embed_volcengine_multimodal_one(self, input_parts: List[Dict[str, Any]]) -> List[float]:
-        """Single Ark ``POST .../embeddings/multimodal`` call (doubao-embedding-vision 等)."""
-        key, model = self._volcengine_key_and_model()
-        base = str(settings.VOLCENGINE_BASE_URL).rstrip("/")
+    def _embed_openai_multimodal_one(self, input_parts: List[Dict[str, Any]]) -> List[float]:
+        """Single ``POST .../embeddings/multimodal`` call for vision-capable embedding APIs."""
+        key, model, base = self._openai_embedding_key_model_base()
         url = f"{base}/embeddings/multimodal"
         headers = {
             "Authorization": f"Bearer {key}",
@@ -281,33 +297,33 @@ class EmbeddingGenerator:
             except Exception:
                 pass
             raise ValueError(
-                f"Ark multimodal embeddings HTTP {r.status_code}: {detail or str(e)}"
+                f"Multimodal embeddings HTTP {r.status_code}: {detail or str(e)}"
             ) from e
         body = r.json()
-        rows = _ark_embedding_data_rows(body)
+        rows = _openai_embedding_data_rows(body)
         if not rows:
             raise ValueError(
-                f"Ark multimodal embeddings: empty or unrecognized data in response: {repr(body)[:400]}"
+                f"Multimodal embeddings: empty or unrecognized data in response: {repr(body)[:400]}"
             )
         ordered = sorted(rows, key=lambda d: d.get("index", 0))
         emb = ordered[0].get("embedding")
         if emb is None:
-            raise ValueError(f"Ark multimodal embeddings: missing embedding in row: {ordered[0]!r}")
+            raise ValueError(f"Multimodal embeddings: missing embedding in row: {ordered[0]!r}")
         return [float(x) for x in emb]
 
-    def _embed_volcengine_multimodal_texts(self, texts: List[str]) -> List[List[float]]:
+    def _embed_openai_multimodal_texts(self, texts: List[str]) -> List[List[float]]:
         """One multimodal request per string (text-only block)."""
         return [
-            self._embed_volcengine_multimodal_one([{"type": "text", "text": t}])
+            self._embed_openai_multimodal_one([{"type": "text", "text": t}])
             for t in texts
         ]
 
-    def _embed_volcengine(self, texts: List[str]) -> List[List[float]]:
-        """Call Ark OpenAI-compatible ``/embeddings`` (豆包 doubao-embedding 等)."""
-        key, model = self._volcengine_key_and_model()
+    def _embed_openai_standard(self, texts: List[str]) -> List[List[float]]:
+        """Call OpenAI-compatible ``POST /embeddings``."""
+        key, model, base = self._openai_embedding_key_model_base()
         client = openai.OpenAI(
             api_key=key,
-            base_url=str(settings.VOLCENGINE_BASE_URL).rstrip("/"),
+            base_url=base,
         )
         out: List[List[float]] = []
         batch_size = 16
@@ -328,20 +344,21 @@ class EmbeddingGenerator:
         """Generate embeddings for a list of texts.
 
         If ``embedding_backend`` is set (e.g. ``\"local\"``), it overrides ``settings.EMBEDDING_BACKEND``
-        for this call only (used by hybrid RAG splite branch while global backend stays volcengine).
+        for this call only (e.g. hybrid RAG splite branch uses ``local`` while global may be ``openai``).
         """
         if not texts:
             return []
 
-        backend = (embedding_backend or settings.EMBEDDING_BACKEND or "volcengine").strip().lower()
+        raw = embedding_backend or settings.EMBEDDING_BACKEND or "local"
+        backend = _embedding_backend_kind(raw)
         if backend == "local":
             return self._embed_local(texts)
-        if backend in ("volcengine", "ark", "doubao"):
+        if backend == "openai":
             if settings.EMBEDDING_USE_MULTIMODAL_API:
-                return self._embed_volcengine_multimodal_texts(texts)
-            return self._embed_volcengine(texts)
+                return self._embed_openai_multimodal_texts(texts)
+            return self._embed_openai_standard(texts)
         raise ValueError(
-            f"Unknown EMBEDDING_BACKEND={backend!r}; use 'volcengine' or 'local'."
+            f"Unknown EMBEDDING_BACKEND={raw!r}; use 'openai' or 'local'."
         )
 
     def embed_text(self, text: str, *, embedding_backend: Optional[str] = None) -> List[float]:
@@ -354,11 +371,11 @@ class EmbeddingGenerator:
         if not chunks:
             return
 
-        backend = (settings.EMBEDDING_BACKEND or "volcengine").strip().lower()
-        if backend in ("volcengine", "ark", "doubao") and settings.EMBEDDING_USE_MULTIMODAL_API:
+        backend = _embedding_backend_kind(settings.EMBEDDING_BACKEND or "local")
+        if backend == "openai" and settings.EMBEDDING_USE_MULTIMODAL_API:
             for chunk in chunks:
                 parts = _multimodal_input_parts_from_chunk(chunk)
-                chunk.embedding = self._embed_volcengine_multimodal_one(parts)
+                chunk.embedding = self._embed_openai_multimodal_one(parts)
             return
 
         texts = [chunk.text for chunk in chunks]

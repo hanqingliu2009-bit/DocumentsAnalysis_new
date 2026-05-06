@@ -17,7 +17,7 @@ class TestEmbeddingGenerator:
 
     @pytest.fixture(autouse=True)
     def _local_hf_embedding_backend(self, monkeypatch):
-        """HF path tests; default repo settings use volcengine API."""
+        """HF path tests; EMBEDDING_BACKEND=local uses sentence-transformers."""
         monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "local")
         monkeypatch.setattr(settings, "EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
         monkeypatch.setattr(settings, "EMBEDDING_DIMENSION", 384)

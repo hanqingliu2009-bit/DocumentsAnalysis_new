@@ -20,7 +20,7 @@ def test_hybrid_parallel_merge_and_llm(monkeypatch, mock_llm_client):
     monkeypatch.setattr(settings, "RAG_BACKEND", "hybrid")
     monkeypatch.setattr(settings, "HYBRID_SPLITE_COLLECTION", "splite_bge_zh_v15")
     monkeypatch.setattr(settings, "HYBRID_VECTOR_TOP_K", 3)
-    monkeypatch.setattr(settings, "VOLCENGINE_API_KEY", "test-key")
+    monkeypatch.setattr(settings, "LLM_API_KEY", "test-key")
     monkeypatch.setattr(settings, "LLM_MODEL", "ep-test")
 
     base_vs = MagicMock()
@@ -64,7 +64,7 @@ def test_hybrid_parallel_merge_and_llm(monkeypatch, mock_llm_client):
 
 def test_hybrid_no_hits_llm_direct(monkeypatch, mock_llm_client):
     monkeypatch.setattr(settings, "RAG_BACKEND", "hybrid")
-    monkeypatch.setattr(settings, "VOLCENGINE_API_KEY", "test-key")
+    monkeypatch.setattr(settings, "LLM_API_KEY", "test-key")
     monkeypatch.setattr(settings, "LLM_MODEL", "ep-test")
 
     base_vs = MagicMock()

@@ -8,7 +8,7 @@ A **document Q&A** web application: upload technical manuals and other files, in
 
 - **Ingestion** — PDF, DOCX, TXT, and Markdown; configurable PDF backend (`pypdf` or optional advanced parser)
 - **Semantic search** — ChromaDB + sentence-transformers embeddings
-- **Q&A and chat** — Volcengine Ark (OpenAI-compatible) answers with retrieved context and citations
+- **Q&A and chat** — OpenAI-compatible LLM (e.g. Alibaba DashScope) with retrieved context and citations
 - **Web UI** — React (Vite, TypeScript, Chakra UI): dashboard, document manager, chat
 - **REST API** — FastAPI with OpenAPI docs at `/docs`
 - **Tests** — Pytest for the API and core modules; Vitest for frontend units (see [Testing](#testing))
@@ -22,8 +22,8 @@ A **document Q&A** web application: upload technical manuals and other files, in
 └──────────────┘     └──────┬───────┘     └──────────────┘
                            │
                     ┌──────▼───────┐
-                    │ Volcengine   │
-                    │ Ark (LLM)    │
+                    │ OpenAI-style │
+                    │ LLM HTTP     │
                     └──────────────┘
 ```
 
@@ -33,7 +33,7 @@ Local data lives under `backend/data/` (vector DB, document metadata, uploaded f
 
 - **Python** 3.10+
 - **Node.js** 18+
-- **Volcengine Ark API key** ([火山方舟](https://www.volcengine.com/product/ark))
+- **LLM API key and base URL** for your provider’s OpenAI-compatible endpoint (see `backend/.env.example`)
 
 ## Quick start
 
@@ -51,9 +51,9 @@ pip install -r requirements.txt
 Create `backend/.env` (minimal example):
 
 ```env
-VOLCENGINE_API_KEY=your-ark-api-key
-VOLCENGINE_BASE_URL=https://ark.cn-beijing.volces.com/api/v3
-LLM_MODEL=ep-your-endpoint-id
+LLM_API_KEY=your-api-key
+LLM_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
+LLM_MODEL=qwen-turbo
 ```
 
 Optional settings (see `backend/config.py` and `backend/.env.example`): `HOST`, `PORT`, `EMBEDDING_MODEL`, **`EMBEDDING_CACHE_DIR`** (pins `HF_HOME` for local/offline Hugging Face embedding weights), `PDF_PARSER`, `CORS_ORIGINS`, paths under `./data`, etc.
@@ -123,8 +123,8 @@ Config: [`frontend/vitest.config.ts`](frontend/vitest.config.ts). Example tests 
 
 | Area | Notes |
 |------|--------|
-| **LLM** | `VOLCENGINE_API_KEY` and `LLM_MODEL` required for query/chat (see `backend/.env`). `VOLCENGINE_BASE_URL` defaults in `config.py`. |
-| **Embeddings** | Default `sentence-transformers/all-MiniLM-L6-v2` (downloads on first use). Set **`EMBEDDING_CACHE_DIR`** (see `.env.example`) to fix the cache location for backup or offline copy of `HF_HOME`. |
+| **LLM** | `LLM_API_KEY`, `LLM_BASE_URL`, and `LLM_MODEL` required for query/chat (see `backend/.env`). |
+| **Embeddings** | Default backend is **local** (`sentence-transformers/all-MiniLM-L6-v2`). For remote vectors, set `EMBEDDING_BACKEND=openai` plus model/dimension and keys (see `backend/.env.example`). Use **`EMBEDDING_CACHE_DIR`** to pin `HF_HOME` for offline copies. |
 | **PDF** | `PDF_PARSER=pypdf` (default) or `opendataloader` if you install the extra dependency (see `DESIGN.md`). |
 | **CORS** | `CORS_ORIGINS` must include your frontend origin (e.g. `http://localhost:5173`). |
 
@@ -180,7 +180,7 @@ DocumentsAnalysis/
 
 | Layer | Technologies |
 |-------|----------------|
-| Backend | FastAPI, Pydantic Settings, ChromaDB, sentence-transformers, OpenAI SDK (for Volcengine Ark), pypdf / python-docx, etc. |
+| Backend | FastAPI, Pydantic Settings, ChromaDB, sentence-transformers, OpenAI Python SDK (OpenAI-compatible LLM/embeddings), pypdf / python-docx, etc. |
 | Frontend | React 18, TypeScript, Vite, Chakra UI, TanStack Query, Axios, React Router |
 | Testing | **Backend:** pytest, pytest-cov, httpx, respx (see `requirements-test.txt`). **Frontend:** Vitest, Testing Library, jsdom. |
 

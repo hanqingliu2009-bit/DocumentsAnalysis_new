@@ -34,8 +34,8 @@ def test_settings(temp_dir):
         VECTOR_DB_PATH=temp_dir / "vector_db",
         DOCUMENT_STORE_PATH=temp_dir / "documents",
         FILE_STORAGE_PATH=temp_dir / "files",
-        VOLCENGINE_API_KEY="test-api-key",
-        VOLCENGINE_BASE_URL="https://ark.cn-beijing.volces.com/api/v3",
+        LLM_API_KEY="test-api-key",
+        LLM_BASE_URL="https://example.com/v1",
         DEBUG=True,
         EMBEDDING_BACKEND="local",
         EMBEDDING_MODEL="sentence-transformers/all-MiniLM-L6-v2",
@@ -215,8 +215,8 @@ def sample_docx_bytes():
 
 
 @pytest.fixture
-def mock_volcengine_client():
-    """Create a mock OpenAI-compatible LLM client (e.g. Volcengine Ark)."""
+def mock_openai_llm_client():
+    """Create a mock OpenAI-compatible LLM client."""
     mock_client = MagicMock()
     mock_response = MagicMock()
     mock_choice = MagicMock()

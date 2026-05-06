@@ -32,21 +32,18 @@ class Settings(BaseSettings):
         "http://127.0.0.1:3000",
     ]
 
-    # Chat LLM via OpenAI-compatible SDK (openai.OpenAI). Configure in backend/.env.
-    # Prefer LLM_API_KEY + LLM_BASE_URL + LLM_MODEL (e.g. Alibaba DashScope compatible:
-    # https://dashscope.aliyuncs.com/compatible-mode/v1 ). If unset, VOLCENGINE_* is used (Volcengine Ark).
+    # Chat LLM (OpenAI-compatible chat.completions), e.g. Alibaba DashScope:
+    # LLM_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
     LLM_API_KEY: Optional[str] = None
     LLM_BASE_URL: Optional[str] = None
-    # Volcengine Ark (legacy): default base is Ark; LLM_MODEL may be an ep-... endpoint id.
-    VOLCENGINE_API_KEY: Optional[str] = None
-    VOLCENGINE_BASE_URL: str = "https://ark.cn-beijing.volces.com/api/v3"
-    # Optional: separate key for Ark /embeddings (e.g. online-inference embedding endpoint). Falls back to VOLCENGINE_API_KEY.
-    VOLCENGINE_EMBEDDING_API_KEY: Optional[str] = None
     LLM_MODEL: str = ""
-    # chat.completions 的 max_tokens：限制的是「模型回复」长度（token），不是用户 Context 或上传全文字数。
-    # 文档是否进问答取决于分块/检索（CHUNK_SIZE、TOP_K_RETRIEVAL 等）与模型上下文上限；与 MAX_TOKENS 无直接对应。
+    # chat.completions max_tokens limits the assistant reply length (tokens), not upload size.
     MAX_TOKENS: int = 4096
     TEMPERATURE: float = 0.0
+
+    # Remote OpenAI-compatible /embeddings (optional separate key/URL; else LLM_* is used).
+    EMBEDDING_OPENAI_API_KEY: Optional[str] = None
+    EMBEDDING_OPENAI_BASE_URL: Optional[str] = None
 
     # Paths
     BASE_DIR: Path = Path(__file__).parent
@@ -58,36 +55,43 @@ class Settings(BaseSettings):
     # Processing Configuration
     CHUNK_SIZE: int = 512
     CHUNK_OVERLAP: int = 50
-    # Embeddings: "volcengine" = Ark OpenAI-compatible POST .../embeddings (豆包 doubao-embedding 等);
-    # "local" = sentence-transformers (Hugging Face weights).
-    EMBEDDING_BACKEND: str = "volcengine"
-    # volcengine: embedding 接入点 ID（常为 ep-...），与 LLM 的 LLM_MODEL 可不同；local: Hugging Face 模型 id。
-    EMBEDDING_MODEL: str = ""
-    # True：豆包 embedding-vision 等多模态模型，调用 .../embeddings/multimodal（input 为图文块列表）；False：标准 .../embeddings 纯文本。
+    # Embeddings: "local" = sentence-transformers; "openai" = HTTP POST .../embeddings (OpenAI-compatible).
+    EMBEDDING_BACKEND: str = "local"
+    # local: Hugging Face / sentence-transformers model id; openai: model name on the embeddings API.
+    EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
+    # True: call .../embeddings/multimodal with multimodal input blocks; False: standard /embeddings text.
     EMBEDDING_USE_MULTIMODAL_API: bool = False
-    # 必须与方舟控制台该嵌入模型输出维度一致（常见 2560 / 1024 等，以控制台为准）。
-    EMBEDDING_DIMENSION: int = 2560
-    # 切换嵌入模型或维度时请换新集合名或清空 vector_db，避免不同维度混写。
+    # Must match the embedding model output dimension (384 for default MiniLM; set explicitly for other models).
+    EMBEDDING_DIMENSION: int = 384
+    # Change collection or clear vector_db when switching model/dimension.
     CHROMADB_COLLECTION: str = "document_chunks"
-    # If set: this directory is created and HF_HOME defaults here (setdefault) so Hub / sentence-transformers
-    # weights live under a known path for backup and offline copy. Relative paths are under backend/ (BASE_DIR).
+    # If set: directory is created and HF_HOME defaults here for Hub / sentence-transformers cache.
     EMBEDDING_CACHE_DIR: Optional[Path] = None
-    # When True: export TRANSFORMERS_OFFLINE and HF_HUB_OFFLINE to os.environ so Hugging Face / transformers
-    # honor offline mode (use with a populated EMBEDDING_CACHE_DIR / HF_HOME copy). Declared here so backend/.env applies.
     TRANSFORMERS_OFFLINE: bool = False
 
     def llm_openai_api_key(self) -> str:
-        """API key for chat.completions (OpenAI-compatible). LLM_API_KEY overrides VOLCENGINE_API_KEY."""
-        for key in (self.LLM_API_KEY, self.VOLCENGINE_API_KEY):
+        key = self.LLM_API_KEY
+        if key is not None and str(key).strip():
+            return str(key).strip()
+        return ""
+
+    def llm_openai_base_url(self) -> str:
+        if self.LLM_BASE_URL is not None and str(self.LLM_BASE_URL).strip():
+            return str(self.LLM_BASE_URL).strip().rstrip("/")
+        return ""
+
+    def embedding_openai_api_key(self) -> str:
+        """API key for OpenAI-compatible /embeddings; dedicated key overrides LLM_API_KEY."""
+        for key in (self.EMBEDDING_OPENAI_API_KEY, self.LLM_API_KEY):
             if key is not None and str(key).strip():
                 return str(key).strip()
         return ""
 
-    def llm_openai_base_url(self) -> str:
-        """Base URL for chat.completions. LLM_BASE_URL overrides VOLCENGINE_BASE_URL."""
-        if self.LLM_BASE_URL is not None and str(self.LLM_BASE_URL).strip():
-            return str(self.LLM_BASE_URL).strip().rstrip("/")
-        return str(self.VOLCENGINE_BASE_URL or "").strip().rstrip("/")
+    def embedding_openai_base_url(self) -> str:
+        """Base URL for /embeddings; dedicated URL overrides LLM_BASE_URL."""
+        if self.EMBEDDING_OPENAI_BASE_URL is not None and str(self.EMBEDDING_OPENAI_BASE_URL).strip():
+            return str(self.EMBEDDING_OPENAI_BASE_URL).strip().rstrip("/")
+        return self.llm_openai_base_url()
 
     # PDF Parser Configuration
     PDF_PARSER: str = "pypdf"  # Options: "pypdf", "opendataloader"
@@ -108,7 +112,6 @@ class Settings(BaseSettings):
 
     # Search Configuration
     TOP_K_RETRIEVAL: int = 15
-    # Min cosine similarity (1 - Chroma distance) for VectorStore.search to return a chunk.
     SIMILARITY_THRESHOLD: float = 0.7
 
     # Upload Limits
@@ -127,9 +130,7 @@ class Settings(BaseSettings):
             cache = Path(self.EMBEDDING_CACHE_DIR)
             cache = cache.resolve() if cache.is_absolute() else (self.BASE_DIR / cache).resolve()
             cache.mkdir(parents=True, exist_ok=True)
-            # Mutate so introspection and logs show the resolved path
             object.__setattr__(self, "EMBEDDING_CACHE_DIR", cache)
-            # Hugging Face Hub + transformers use HF_HOME; sentence-transformers follows the same cache tree.
             os.environ.setdefault("HF_HOME", str(cache))
 
         if self.TRANSFORMERS_OFFLINE:

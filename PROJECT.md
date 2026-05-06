@@ -291,7 +291,7 @@ VITE_WS_URL=ws://localhost:8000
 
 ## Deploying Hybrid RAG (index)
 
-**Hybrid** mode (`RAG_BACKEND=hybrid`) runs **supplier graph HTTP** and **Splite BGE Chroma** retrieval **in parallel**, merges context, then calls the configured **Volcengine-compatible LLM**. Use this section as a navigation index; authoritative steps live in the linked docs.
+**Hybrid** mode (`RAG_BACKEND=hybrid`) runs **supplier graph HTTP** and **Splite BGE Chroma** retrieval **in parallel**, merges context, then calls the configured **OpenAI-compatible LLM**. Use this section as a navigation index; authoritative steps live in the linked docs.
 
 | Topic | Where to read |
 |--------|----------------|
@@ -306,7 +306,7 @@ VITE_WS_URL=ws://localhost:8000
 | Hybrid retrieval + LLM | [`backend/core/rag.py`](backend/core/rag.py) (`_query_hybrid`) |
 | Splite-only search API (no LLM) | [`backend/api/query.py`](backend/api/query.py) (`POST /api/splite_search`) |
 
-**Minimal deploy checklist:** merge corpus → run ingest with `--recreate` → set `RAG_BACKEND=hybrid` plus `VOLCENGINE_API_KEY` / `LLM_MODEL` and graph URL/domain → restart backend from `backend/` (or ensure cwd so `./data` resolves correctly) → verify with Swagger `POST /api/splite_search` and `POST /api/query`.
+**Minimal deploy checklist:** merge corpus → run ingest with `--recreate` → set `RAG_BACKEND=hybrid` plus `LLM_API_KEY` / `LLM_BASE_URL` / `LLM_MODEL` and graph URL/domain → restart backend from `backend/` (or ensure cwd so `./data` resolves correctly) → verify with Swagger `POST /api/splite_search` and `POST /api/query`.
 
 ## API Endpoints Reference
 

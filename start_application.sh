@@ -18,12 +18,12 @@ if [ ! -x "$VENV_PY" ]; then
     exit 1
 fi
 
-# Volcengine Ark: prefer backend/.env (loaded by FastAPI Settings when cwd is backend).
-# Optional: export VOLCENGINE_API_KEY / VOLCENGINE_BASE_URL in your shell before running this script.
-if [ -n "${VOLCENGINE_API_KEY:-}" ] || [ -n "${VOLCENGINE_BASE_URL:-}" ]; then
+# LLM: prefer backend/.env (loaded by Settings when cwd is backend).
+# Optional: export LLM_API_KEY / LLM_BASE_URL in your shell before running this script.
+if [ -n "${LLM_API_KEY:-}" ] || [ -n "${LLM_BASE_URL:-}" ]; then
     echo "🔧 Shell env overrides (optional):"
-    [ -n "${VOLCENGINE_API_KEY:-}" ] && echo "  - VOLCENGINE_API_KEY: set (${#VOLCENGINE_API_KEY} chars)"
-    [ -n "${VOLCENGINE_BASE_URL:-}" ] && echo "  - VOLCENGINE_BASE_URL: $VOLCENGINE_BASE_URL"
+    [ -n "${LLM_API_KEY:-}" ] && echo "  - LLM_API_KEY: set (${#LLM_API_KEY} chars)"
+    [ -n "${LLM_BASE_URL:-}" ] && echo "  - LLM_BASE_URL: $LLM_BASE_URL"
     echo ""
 fi
 
@@ -78,7 +78,7 @@ echo "   • Web UI:       http://localhost:5173"
 echo "   • API:          http://localhost:8000"
 echo "   • API Docs:     http://localhost:8000/docs"
 echo ""
-echo "⚠️  Note: Set VOLCENGINE_API_KEY / VOLCENGINE_BASE_URL / LLM_MODEL in backend/.env — see backend/config.py."
+echo "⚠️  Note: Set LLM_API_KEY / LLM_BASE_URL / LLM_MODEL in backend/.env — see backend/config.py."
 echo ""
 echo "Press Ctrl+C to stop all servers"
 echo "===================================="

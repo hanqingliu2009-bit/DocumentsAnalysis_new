@@ -29,9 +29,9 @@ def test_empty_retrieval_calls_llm_when_key_and_model_set(mock_llm_client):
     vs.get_chunk_count.return_value = 0
     with patch("storage.vector_store.EmbeddingGenerator") as EG:
         EG.return_value.embed_text.return_value = [0.01] * 384
-        with patch.object(settings, "LLM_API_KEY", None), patch.object(
-            settings, "VOLCENGINE_API_KEY", "test-key"
-        ), patch.object(settings, "LLM_MODEL", "ep-test"):
+        with patch.object(settings, "LLM_API_KEY", "test-key"), patch.object(
+            settings, "LLM_MODEL", "qwen-turbo"
+        ):
             pipeline = RAGPipeline(vs, openai_client=mock_llm_client)
             result = pipeline.query("What is 2+2?")
 
@@ -50,26 +50,6 @@ def test_empty_retrieval_calls_llm_when_key_and_model_set(mock_llm_client):
     assert messages[1]["content"] == "What is 2+2?"
 
 
-def test_empty_retrieval_llm_api_key_without_volcengine(mock_llm_client):
-    """LLM_API_KEY alone (no VOLCENGINE_API_KEY) enables direct LLM on empty retrieval."""
-    vs = MagicMock()
-    vs.search.return_value = []
-    vs.get_chunk_count.return_value = 0
-    with patch("storage.vector_store.EmbeddingGenerator") as EG:
-        EG.return_value.embed_text.return_value = [0.01] * 384
-        with patch.object(settings, "LLM_API_KEY", "dash-key"), patch.object(
-            settings, "VOLCENGINE_API_KEY", None
-        ), patch.object(settings, "LLM_MODEL", "qwen-turbo"):
-            pipeline = RAGPipeline(vs, openai_client=mock_llm_client)
-            result = pipeline.query("hello")
-
-    assert result["answer"] == "General LLM reply"
-    assert result.get("answer_mode") == "llm_direct"
-    mock_llm_client.chat.completions.create.assert_called_once()
-    user_msg = mock_llm_client.chat.completions.create.call_args.kwargs["messages"][1]
-    assert user_msg["content"] == "hello"
-
-
 def test_empty_retrieval_same_for_query_style_call(mock_llm_client):
     """No allow_general flag: /api/query and /api/chat both get LLM on empty retrieval."""
     vs = MagicMock()
@@ -77,9 +57,9 @@ def test_empty_retrieval_same_for_query_style_call(mock_llm_client):
     vs.get_chunk_count.return_value = 0
     with patch("storage.vector_store.EmbeddingGenerator") as EG:
         EG.return_value.embed_text.return_value = [0.01] * 384
-        with patch.object(settings, "LLM_API_KEY", None), patch.object(
-            settings, "VOLCENGINE_API_KEY", "test-key"
-        ), patch.object(settings, "LLM_MODEL", "ep-test"):
+        with patch.object(settings, "LLM_API_KEY", "test-key"), patch.object(
+            settings, "LLM_MODEL", "qwen-turbo"
+        ):
             pipeline = RAGPipeline(vs, openai_client=mock_llm_client)
             result = pipeline.query("unrelated question xyz")
 
@@ -96,8 +76,8 @@ def test_empty_retrieval_no_api_key_returns_config_message(mock_llm_client):
     with patch("storage.vector_store.EmbeddingGenerator") as EG:
         EG.return_value.embed_text.return_value = [0.01] * 384
         with patch.object(settings, "LLM_API_KEY", None), patch.object(
-            settings, "VOLCENGINE_API_KEY", None
-        ), patch.object(settings, "LLM_MODEL", "ep-test"):
+            settings, "LLM_MODEL", "qwen-turbo"
+        ):
             pipeline = RAGPipeline(vs, openai_client=mock_llm_client)
             result = pipeline.query("hello")
 
@@ -114,9 +94,7 @@ def test_empty_retrieval_blank_model_skips_llm(mock_llm_client):
     vs.get_chunk_count.return_value = 0
     with patch("storage.vector_store.EmbeddingGenerator") as EG:
         EG.return_value.embed_text.return_value = [0.01] * 384
-        with patch.object(settings, "LLM_API_KEY", None), patch.object(
-            settings, "VOLCENGINE_API_KEY", "k"
-        ), patch.object(settings, "LLM_MODEL", "   "):
+        with patch.object(settings, "LLM_API_KEY", "k"), patch.object(settings, "LLM_MODEL", "   "):
             pipeline = RAGPipeline(vs, openai_client=mock_llm_client)
             result = pipeline.query("hello")
 
@@ -134,9 +112,7 @@ def test_no_retrieval_system_prompt_when_index_non_empty(mock_llm_client):
     ds.count_by_status.return_value = {"completed": 2, "failed": 0, "pending": 0, "processing": 0}
     with patch("storage.vector_store.EmbeddingGenerator") as EG:
         EG.return_value.embed_text.return_value = [0.01] * 384
-        with patch.object(settings, "LLM_API_KEY", None), patch.object(
-            settings, "VOLCENGINE_API_KEY", "k"
-        ), patch.object(settings, "LLM_MODEL", "ep"):
+        with patch.object(settings, "LLM_API_KEY", "k"), patch.object(settings, "LLM_MODEL", "qwen"):
             pipeline = RAGPipeline(vs, openai_client=mock_llm_client, document_store=ds)
             pipeline.query("看一下我上传的文档")
     system = mock_llm_client.chat.completions.create.call_args.kwargs["messages"][0]["content"]

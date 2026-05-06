@@ -31,7 +31,7 @@ flowchart LR
 ```
 
 - **图存储与检索逻辑**：在供应方；本仓库只发约定 JSON，并解析约定字段。
-- **生成回答**：仍在本地，依赖 `VOLCENGINE_API_KEY`、`LLM_MODEL`（与原先 Chroma 方案相同）。
+- **生成回答**：仍在本地，依赖 `LLM_API_KEY`、`LLM_BASE_URL`、`LLM_MODEL`（与原先 Chroma 方案相同）。
 
 ---
 
@@ -65,7 +65,8 @@ EXTERNAL_GRAPH_SEARCH_TYPE=triplet
 EXTERNAL_GRAPH_TIMEOUT=60
 
 # 仍必需：用于生成最终回答
-VOLCENGINE_API_KEY=你的密钥
+LLM_API_KEY=你的密钥
+LLM_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 LLM_MODEL=你的接入点或模型名
 ```
 
@@ -306,9 +307,8 @@ def build_graph_system_prompt_no_hits() -> str:
 
         if not context.strip():
             if (
-                settings.VOLCENGINE_API_KEY
-                and str(settings.VOLCENGINE_API_KEY).strip()
-                and str(self.model).strip()
+                settings.llm_openai_api_key()
+                and self._llm_model_id()
             ):
                 answer = self._generate_answer_without_context(
                     question,
@@ -324,7 +324,7 @@ def build_graph_system_prompt_no_hits() -> str:
             return {
                 "answer": (
                     "图数据库未返回三元组或摘要；未配置大模型时无法生成补充回答。"
-                    "请在 backend/.env 中设置 VOLCENGINE_API_KEY 与 LLM_MODEL 后重启。"
+                    "请在 backend/.env 中设置 LLM_API_KEY 与 LLM_MODEL 后重启。"
                 ),
                 "sources": [],
                 "confidence": 0.0,
@@ -332,10 +332,10 @@ def build_graph_system_prompt_no_hits() -> str:
                 "answer_mode": "system",
             }
 
-        if not settings.VOLCENGINE_API_KEY or not str(settings.VOLCENGINE_API_KEY).strip():
+        if not settings.llm_openai_api_key():
             return {
                 "answer": (
-                    "已从图数据库取回上下文，但未配置 VOLCENGINE_API_KEY，无法调用大模型。"
+                    "已从图数据库取回上下文，但未配置 LLM_API_KEY，无法调用大模型。"
                     "请在 backend/.env 中设置后重启服务。"
                 ),
                 "sources": sources,
@@ -344,11 +344,11 @@ def build_graph_system_prompt_no_hits() -> str:
                 "answer_mode": "system",
             }
 
-        if not str(self.model).strip():
+        if not self._llm_model_id():
             return {
                 "answer": (
                     "已从图数据库取回上下文，但未配置 LLM_MODEL。"
-                    "请在 backend/.env 中设置接入点或模型名后重启。"
+                    "请在 backend/.env 中设置模型名后重启。"
                 ),
                 "sources": sources,
                 "confidence": 1.0,
@@ -416,7 +416,7 @@ def build_graph_system_prompt_no_hits() -> str:
         else:
             from storage.vector_store import EmbeddingGenerator
 
-            backend = (settings.EMBEDDING_BACKEND or "volcengine").strip().lower()
+            backend = (settings.EMBEDDING_BACKEND or "local").strip().lower()
             if backend == "local":
                 if settings.TRANSFORMERS_OFFLINE:
                     print(
@@ -430,7 +430,7 @@ def build_graph_system_prompt_no_hits() -> str:
                 mm = bool(getattr(settings, "EMBEDDING_USE_MULTIMODAL_API", False))
                 api_note = ", multimodal /embeddings/multimodal" if mm else ""
                 print(
-                    f"Warming up Ark embeddings (backend={settings.EMBEDDING_BACKEND}, "
+                    f"Warming up OpenAI-compatible embeddings (backend={settings.EMBEDDING_BACKEND}, "
                     f"model={settings.EMBEDDING_MODEL or 'unset'}{api_note})..."
                 )
             EmbeddingGenerator().embed_text("warmup")
@@ -569,7 +569,7 @@ def _triplet_item_to_line(item: Any) -> str:
 
 ### 13.4 回答生成：`_query_external_graph()` 把 `context` 注入到专用 prompt 里
 
-`_query_external_graph()` 会先取 `context/sources`，再校验本地 LLM 配置（`VOLCENGINE_API_KEY`、`LLM_MODEL`），最后走 `_generate_answer_graph(question, context)`。
+`_query_external_graph()` 会先取 `context/sources`，再校验本地 LLM 配置（`LLM_API_KEY`、`LLM_BASE_URL`、`LLM_MODEL`），最后走 `_generate_answer_graph(question, context)`。
 
 来源：[`backend/core/rag.py`](../backend/core/rag.py) 第 164–205 行
 
@@ -607,7 +607,7 @@ def _triplet_item_to_line(item: Any) -> str:
 
 ## 14. 混合模式：`RAG_BACKEND=hybrid`（图库 + Splite 本地向量）
 
-在 **`system2`** 上实现的 **`hybrid`** 模式：**并行**调用供应方 `fetch_graph_context` 与 **Splite 专用 Chroma 集合**（`HYBRID_SPLITE_COLLECTION`，默认 `splite_bge_zh_v15`），将两路上下文按 Markdown 小节合并、经 `HYBRID_CONTEXT_MAX_CHARS` 截断后，调用与上文相同的火山兼容 **LLM** 生成回答。`answer_mode` 为 **`hybrid_graph_vector`**；`sources` 中条目可带 **`source_channel`**：`graph` / `vector`。
+在 **`system2`** 上实现的 **`hybrid`** 模式：**并行**调用供应方 `fetch_graph_context` 与 **Splite 专用 Chroma 集合**（`HYBRID_SPLITE_COLLECTION`，默认 `splite_bge_zh_v15`），将两路上下文按 Markdown 小节合并、经 `HYBRID_CONTEXT_MAX_CHARS` 截断后，调用与上文相同的 OpenAI 兼容 **LLM** 生成回答。`answer_mode` 为 **`hybrid_graph_vector`**；`sources` 中条目可带 **`source_channel`**：`graph` / `vector`。
 
 ### 14.1 数据流（示意）
 
@@ -639,11 +639,12 @@ HYBRID_SPLITE_COLLECTION=splite_bge_zh_v15
 HYBRID_SPLITE_EMBEDDING_MODEL=BAAI/bge-large-zh-v1.5
 HYBRID_VECTOR_TOP_K=5
 HYBRID_CONTEXT_MAX_CHARS=24000
-VOLCENGINE_API_KEY=你的密钥
+LLM_API_KEY=你的密钥
+LLM_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 LLM_MODEL=你的接入点或模型名
 ```
 
-说明：**Splite 向量这一路**在代码里对 `EmbeddingGenerator` 使用 **`embedding_backend=\"local\"`**，与全局 `EMBEDDING_BACKEND=volcengine` 可并存；全局 `CHROMADB_COLLECTION` 仍对应「文档上传」默认索引，**勿与 Splite 集合混维度**。
+说明：**Splite 向量这一路**在代码里对 `EmbeddingGenerator` 使用 **`embedding_backend=\"local\"`**，与全局 `EMBEDDING_BACKEND=openai`（HTTP 嵌入）可并存；全局 `CHROMADB_COLLECTION` 仍对应「文档上传」默认索引，**勿与 Splite 集合混维度**。
 
 ### 14.3 运维与调试（阶段 D）
 

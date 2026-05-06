@@ -103,7 +103,7 @@ Swagger UI 操作要点：
 
 常见报错与含义：
 
-- `EMBEDDING_BACKEND=volcengine requires EMBEDDING_MODEL ...`
+- `EMBEDDING_BACKEND=openai requires EMBEDDING_MODEL ...`
   - 说明你调用的是**本地向量检索链路**，需要配置 embedding 接入点（`EMBEDDING_MODEL` 等）
   - 若你的目标是“只走供应商图数据库”，请改用 `POST /api/external_search`
 

@@ -1,20 +1,21 @@
-"""EmbeddingGenerator when EMBEDDING_BACKEND=volcengine (Ark /embeddings)."""
+"""EmbeddingGenerator when EMBEDDING_BACKEND=openai (OpenAI-compatible /embeddings)."""
 from unittest.mock import MagicMock, patch
 
 import pytest
 
 from config import settings
 from core.document import DocumentChunk
-from storage.vector_store import EmbeddingGenerator, _ark_embedding_data_rows
+from storage.vector_store import EmbeddingGenerator, _openai_embedding_data_rows
 
 
-def test_embed_volcengine_calls_openai_embeddings(monkeypatch):
-    monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "volcengine")
+def test_embed_openai_calls_openai_embeddings(monkeypatch):
+    monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "openai")
     monkeypatch.setattr(settings, "EMBEDDING_USE_MULTIMODAL_API", False)
-    monkeypatch.setattr(settings, "VOLCENGINE_EMBEDDING_API_KEY", None)
-    monkeypatch.setattr(settings, "VOLCENGINE_API_KEY", "k-test")
-    monkeypatch.setattr(settings, "VOLCENGINE_BASE_URL", "https://ark.cn-beijing.volces.com/api/v3")
-    monkeypatch.setattr(settings, "EMBEDDING_MODEL", "ep-embedding-test")
+    monkeypatch.setattr(settings, "EMBEDDING_OPENAI_API_KEY", None)
+    monkeypatch.setattr(settings, "LLM_API_KEY", "k-test")
+    monkeypatch.setattr(settings, "EMBEDDING_OPENAI_BASE_URL", None)
+    monkeypatch.setattr(settings, "LLM_BASE_URL", "https://api.example.com/v1")
+    monkeypatch.setattr(settings, "EMBEDDING_MODEL", "text-embedding-test")
 
     row = MagicMock()
     row.index = 0
@@ -33,27 +34,28 @@ def test_embed_volcengine_calls_openai_embeddings(monkeypatch):
     assert out == [[0.5, 0.25, 0.125]]
     mock_client.embeddings.create.assert_called_once()
     kw = mock_client.embeddings.create.call_args.kwargs
-    assert kw["model"] == "ep-embedding-test"
+    assert kw["model"] == "text-embedding-test"
     assert kw["input"] == ["hello"]
 
 
-def test_embed_volcengine_requires_model(monkeypatch):
-    monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "volcengine")
+def test_embed_openai_requires_model(monkeypatch):
+    monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "openai")
     monkeypatch.setattr(settings, "EMBEDDING_USE_MULTIMODAL_API", False)
-    monkeypatch.setattr(settings, "VOLCENGINE_API_KEY", "k")
+    monkeypatch.setattr(settings, "LLM_API_KEY", "k")
+    monkeypatch.setattr(settings, "LLM_BASE_URL", "https://api.example.com/v1")
     monkeypatch.setattr(settings, "EMBEDDING_MODEL", "")
 
     with pytest.raises(ValueError, match="EMBEDDING_MODEL"):
         EmbeddingGenerator().embed_text("x")
 
 
-def test_embed_volcengine_prefers_embedding_api_key(monkeypatch):
-    monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "volcengine")
+def test_embed_openai_prefers_embedding_api_key(monkeypatch):
+    monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "openai")
     monkeypatch.setattr(settings, "EMBEDDING_USE_MULTIMODAL_API", False)
-    monkeypatch.setattr(settings, "VOLCENGINE_API_KEY", "main-key")
-    monkeypatch.setattr(settings, "VOLCENGINE_EMBEDDING_API_KEY", "embed-only-key")
-    monkeypatch.setattr(settings, "VOLCENGINE_BASE_URL", "https://ark.cn-beijing.volces.com/api/v3")
-    monkeypatch.setattr(settings, "EMBEDDING_MODEL", "ep-emb")
+    monkeypatch.setattr(settings, "LLM_API_KEY", "main-key")
+    monkeypatch.setattr(settings, "EMBEDDING_OPENAI_API_KEY", "embed-only-key")
+    monkeypatch.setattr(settings, "LLM_BASE_URL", "https://api.example.com/v1")
+    monkeypatch.setattr(settings, "EMBEDDING_MODEL", "emb-model")
 
     row = MagicMock(index=0, embedding=[1.0])
     resp = MagicMock(data=[row])
@@ -67,19 +69,19 @@ def test_embed_volcengine_prefers_embedding_api_key(monkeypatch):
     assert OC.call_args.kwargs["api_key"] == "embed-only-key"
 
 
-def test_ark_embedding_data_rows_single_dict_not_list():
-    """Ark may return data as one object; iterating a dict would otherwise yield str keys."""
+def test_openai_embedding_data_rows_single_dict_not_list():
+    """API may return data as one object; iterating a dict would otherwise yield str keys."""
     body = {"data": {"index": 1, "embedding": [9.0, 8.0]}}
-    rows = _ark_embedding_data_rows(body)
+    rows = _openai_embedding_data_rows(body)
     assert rows == [{"index": 1, "embedding": [9.0, 8.0]}]
 
 
-def test_embed_volcengine_multimodal_calls_httpx(monkeypatch):
-    monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "volcengine")
+def test_embed_openai_multimodal_calls_httpx(monkeypatch):
+    monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "openai")
     monkeypatch.setattr(settings, "EMBEDDING_USE_MULTIMODAL_API", True)
-    monkeypatch.setattr(settings, "VOLCENGINE_API_KEY", "mm-key")
-    monkeypatch.setattr(settings, "VOLCENGINE_BASE_URL", "https://ark.cn-beijing.volces.com/api/v3")
-    monkeypatch.setattr(settings, "EMBEDDING_MODEL", "ep-mm")
+    monkeypatch.setattr(settings, "LLM_API_KEY", "mm-key")
+    monkeypatch.setattr(settings, "LLM_BASE_URL", "https://api.example.com/v1")
+    monkeypatch.setattr(settings, "EMBEDDING_MODEL", "mm-model")
 
     mock_resp = MagicMock()
     mock_resp.status_code = 200
@@ -99,18 +101,18 @@ def test_embed_volcengine_multimodal_calls_httpx(monkeypatch):
     url = inner.post.call_args[0][0]
     assert url.endswith("/embeddings/multimodal")
     body = inner.post.call_args.kwargs["json"]
-    assert body["model"] == "ep-mm"
+    assert body["model"] == "mm-model"
     assert body["input"] == [{"type": "text", "text": "hello"}]
     hdrs = inner.post.call_args.kwargs["headers"]
     assert hdrs["Authorization"] == "Bearer mm-key"
 
 
 def test_embed_chunks_multimodal_includes_image_urls(monkeypatch):
-    monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "volcengine")
+    monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "openai")
     monkeypatch.setattr(settings, "EMBEDDING_USE_MULTIMODAL_API", True)
-    monkeypatch.setattr(settings, "VOLCENGINE_API_KEY", "k")
-    monkeypatch.setattr(settings, "VOLCENGINE_BASE_URL", "https://ark.cn-beijing.volces.com/api/v3")
-    monkeypatch.setattr(settings, "EMBEDDING_MODEL", "ep-mm")
+    monkeypatch.setattr(settings, "LLM_API_KEY", "k")
+    monkeypatch.setattr(settings, "LLM_BASE_URL", "https://api.example.com/v1")
+    monkeypatch.setattr(settings, "EMBEDDING_MODEL", "mm-model")
 
     mock_resp = MagicMock()
     mock_resp.status_code = 200
@@ -140,13 +142,13 @@ def test_embed_chunks_multimodal_includes_image_urls(monkeypatch):
     assert body[1] == {"type": "image_url", "image_url": {"url": "https://example.com/x.png"}}
 
 
-def test_embed_volcengine_multimodal_parses_data_as_single_object(monkeypatch):
-    """Warmup-style path when API returns data as object instead of array."""
-    monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "volcengine")
+def test_embed_openai_multimodal_parses_data_as_single_object(monkeypatch):
+    """Path when API returns data as object instead of array."""
+    monkeypatch.setattr(settings, "EMBEDDING_BACKEND", "openai")
     monkeypatch.setattr(settings, "EMBEDDING_USE_MULTIMODAL_API", True)
-    monkeypatch.setattr(settings, "VOLCENGINE_API_KEY", "k")
-    monkeypatch.setattr(settings, "VOLCENGINE_BASE_URL", "https://ark.cn-beijing.volces.com/api/v3")
-    monkeypatch.setattr(settings, "EMBEDDING_MODEL", "ep-mm")
+    monkeypatch.setattr(settings, "LLM_API_KEY", "k")
+    monkeypatch.setattr(settings, "LLM_BASE_URL", "https://api.example.com/v1")
+    monkeypatch.setattr(settings, "EMBEDDING_MODEL", "mm-model")
 
     mock_resp = MagicMock()
     mock_resp.status_code = 200
