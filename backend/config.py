@@ -109,6 +109,10 @@ class Settings(BaseSettings):
     HYBRID_SPLITE_EMBEDDING_MODEL: str = "BAAI/bge-large-zh-v1.5"
     HYBRID_VECTOR_TOP_K: int = 5
     HYBRID_CONTEXT_MAX_CHARS: int = 24000
+    # When True (or when DEBUG=True), log graph branch, vector branch, and merged context for hybrid RAG.
+    HYBRID_DEBUG_LOG: bool = False
+    # Max characters per logged text block (graph context / merged context); vector rows each get a short preview.
+    HYBRID_DEBUG_LOG_MAX_CHARS: int = 12000
 
     # Search Configuration
     TOP_K_RETRIEVAL: int = 15

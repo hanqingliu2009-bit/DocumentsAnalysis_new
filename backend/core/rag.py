@@ -1,4 +1,5 @@
 """RAG (Retrieval-Augmented Generation) pipeline."""
+import logging
 from concurrent.futures import ThreadPoolExecutor
 from typing import TYPE_CHECKING, List, Optional
 
@@ -10,6 +11,8 @@ from storage.vector_store import VectorStore
 
 if TYPE_CHECKING:
     from storage.document_store import DocumentStore
+
+logger = logging.getLogger(__name__)
 
 
 class RAGPipeline:
@@ -223,10 +226,22 @@ class RAGPipeline:
         else:
             vec_err = vr[2]
 
-        merged_context = self._build_hybrid_context(graph_context, retrieved)
-        merged_context = self._truncate_hybrid_context(
-            merged_context, int(getattr(settings, "HYBRID_CONTEXT_MAX_CHARS", 24000) or 24000)
-        )
+        merged_full = self._build_hybrid_context(graph_context, retrieved)
+        max_ctx = int(getattr(settings, "HYBRID_CONTEXT_MAX_CHARS", 24000) or 24000)
+        merged_context = self._truncate_hybrid_context(merged_full, max_ctx)
+
+        if self._hybrid_debug_logging_enabled():
+            self._log_hybrid_retrieval_debug(
+                q=q,
+                graph_context=graph_context,
+                graph_sources=graph_sources,
+                graph_err=graph_err,
+                retrieved=retrieved,
+                vec_err=vec_err,
+                merged_full=merged_full,
+                merged_for_llm=merged_context,
+                max_ctx_chars=max_ctx,
+            )
 
         sources: List[dict] = []
         for s in graph_sources:
@@ -303,6 +318,74 @@ class RAGPipeline:
             "context_used": len(sources),
             "answer_mode": "hybrid_graph_vector",
         }
+
+    def _hybrid_debug_logging_enabled(self) -> bool:
+        return bool(getattr(settings, "HYBRID_DEBUG_LOG", False) or settings.DEBUG)
+
+    def _log_hybrid_retrieval_debug(
+        self,
+        *,
+        q: str,
+        graph_context: str,
+        graph_sources: List[dict],
+        graph_err: Optional[str],
+        retrieved: List[tuple],
+        vec_err: Optional[str],
+        merged_full: str,
+        merged_for_llm: str,
+        max_ctx_chars: int,
+    ) -> None:
+        lim = max(256, int(getattr(settings, "HYBRID_DEBUG_LOG_MAX_CHARS", 12000) or 12000))
+
+        def preview(text: str) -> str:
+            t = text or ""
+            if len(t) <= lim:
+                return t
+            return t[: max(0, lim - 1)].rstrip() + f"\n… [日志截断，全文共 {len(t)} 字符]"
+
+        logger.info("[hybrid][debug] ========== 检索查询 (retrieval_query) ==========\n%s", preview(q))
+        if graph_err:
+            logger.info("[hybrid][debug] 图数据库路: 失败 — %s", graph_err)
+        else:
+            logger.info(
+                "[hybrid][debug] 图数据库路: 成功 — context 字符数=%d, sources=%d",
+                len(graph_context or ""),
+                len(graph_sources),
+            )
+            if graph_sources:
+                ids = [s.get("chunk_id") for s in graph_sources[:20]]
+                logger.info("[hybrid][debug] 图数据库 sources chunk_id (最多20条): %s", ids)
+            logger.info("[hybrid][debug] ---------- 图数据库 context ----------\n%s", preview(graph_context))
+
+        if vec_err:
+            logger.info("[hybrid][debug] 本地向量路: 失败 — %s", vec_err)
+        else:
+            logger.info("[hybrid][debug] 本地向量路: 成功 — 命中 %d 条", len(retrieved))
+            for i, row in enumerate(retrieved):
+                chunk_id, score, text, doc_id = row
+                tp = (text or "").replace("\n", " ")[:500]
+                logger.info(
+                    "[hybrid][debug]   [%d] chunk_id=%s score=%.4f doc_id=%s text_preview=%r",
+                    i,
+                    chunk_id,
+                    score,
+                    doc_id,
+                    tp,
+                )
+
+        truncated_marker = "\n…[上下文已截断]"
+        was_truncated = merged_for_llm.endswith(truncated_marker) or len(merged_for_llm) < len(
+            merged_full
+        )
+        logger.info(
+            "[hybrid][debug] ---------- 合并结果 ---------- 截断前字符数=%d, HYBRID_CONTEXT_MAX_CHARS=%d, "
+            "送入LLM字符数=%d, 已截断=%s",
+            len(merged_full),
+            max_ctx_chars,
+            len(merged_for_llm),
+            was_truncated,
+        )
+        logger.info("[hybrid][debug] ---------- 送入 LLM 的合并上下文 ----------\n%s", preview(merged_for_llm))
 
     @staticmethod
     def _truncate_hybrid_context(text: str, max_chars: int) -> str:
