@@ -14,6 +14,31 @@ from storage.document_store import DocumentStore
 from storage.vector_store import VectorStore
 
 
+def configure_application_logging() -> None:
+    """Apply LOG_LEVEL so app loggers (e.g. core.rag INFO for hybrid debug) are not dropped.
+
+    Python's root logger defaults to WARNING; without this, logger.info from application
+    code never appears in the uvicorn terminal even when HYBRID_DEBUG_LOG=true.
+
+    If the root logger has no handlers (common when importing before uvicorn attaches
+    handlers), INFO records are still dropped; add a StreamHandler in that case.
+    """
+    raw = (settings.LOG_LEVEL or "info").strip().upper()
+    level = getattr(logging, raw, logging.INFO)
+    root = logging.getLogger()
+    root.setLevel(level)
+    for name in ("core", "api", "storage"):
+        logging.getLogger(name).setLevel(level)
+    if not root.handlers:
+        handler = logging.StreamHandler()
+        handler.setLevel(level)
+        handler.setFormatter(logging.Formatter("%(levelname)s:%(name)s:%(message)s"))
+        root.addHandler(handler)
+
+
+configure_application_logging()
+
+
 # Global store instances
 document_store: DocumentStore = None
 vector_store: VectorStore = None
@@ -150,9 +175,11 @@ if frontend_build_dir.exists():
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(
         "main:app",
         host=settings.HOST,
         port=settings.PORT,
         reload=settings.DEBUG,
+        log_level=(settings.LOG_LEVEL or "info").strip().lower(),
     )
